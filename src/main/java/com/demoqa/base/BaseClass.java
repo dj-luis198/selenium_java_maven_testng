@@ -17,9 +17,9 @@ import static com.demoqa.util.GetBrowserDriver.getBrowserDriver;
 
 public class BaseClass {
 	public static WebDriver driver;
-	public static Properties prop;
-	public static Properties propF;
-	public static Properties propA;
+	public static Properties prop=new Properties();
+	public static Properties propF=new Properties();
+	public static Properties propA=new Properties();
 
 	public static void init() {
 		//Dotenv dotenv = Dotenv.load();
@@ -37,7 +37,7 @@ public class BaseClass {
 		try {
 			reader = new FileReader(
 					".\\src\\test\\resources\\config\\"+name+".properties");
-			prop = new Properties();
+			//prop = new Properties();
 			prop.load(reader);
 			return prop;
 		} catch (IOException e) {
