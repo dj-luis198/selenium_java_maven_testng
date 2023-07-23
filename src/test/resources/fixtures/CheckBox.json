@@ -3,7 +3,7 @@
         "check": [
             "home"
         ],
-        "resp": "home desktop notes commands documents workspace react angular veu office public private classified general downloads wordFile.doc excelFile.doc"
+        "resp": "home desktop notes commands documents workspace react angular veu office public private classified general downloads wordfile excelfile"
     },
     {
         "check": [
@@ -23,7 +23,7 @@
         "check": [
             "downloads"
         ],
-        "resp": "downloads wordfile.doc excelfile.doc"
+        "resp": "downloads wordfile excelfile"
     },
     {
         "check": [
@@ -33,7 +33,7 @@
     },
     {
         "check": [
-            "desktop"
+            "Desktop"
         ],
         "resp": "desktop notes commands"
     }
