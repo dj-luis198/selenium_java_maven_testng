@@ -15,27 +15,28 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static com.demoqa.util.GetBrowserDriver.getBrowserDriver;
 
-import io.github.cdimascio.dotenv.Dotenv;
-
 public class BaseClass {
 	public static WebDriver driver;
 	public static Properties prop;
+	public static Properties propF;
+	public static Properties propA;
 
 	public static void init() {
-		Dotenv dotenv = Dotenv.load();
-		String url = dotenv.get("url");
-		String browser = dotenv.get("browser");
-		prop = init_properties();
-		driver = getBrowserDriver(browser);
-		driver.get(url);
+		//Dotenv dotenv = Dotenv.load();
+		//String url = dotenv.get("url");
+		//String browser = dotenv.get("browser");
+		propF = init_properties("framework");
+		propA = init_properties("aplication");
+		driver = getBrowserDriver(propF.getProperty("browser"));
+		driver.get(propA.getProperty("url"));
 		driver.manage().window().maximize();
 	}
 
-	public static Properties init_properties() {
+	public static Properties init_properties(String name) {
 		FileReader reader;
 		try {
 			reader = new FileReader(
-					"C:\\Proyectos selenium\\selenium_java_maven_testng\\src\\test\\resources\\config\\framework.properties");
+					".\\src\\test\\resources\\config\\"+name+".properties");
 			prop = new Properties();
 			prop.load(reader);
 			return prop;
@@ -48,7 +49,7 @@ public class BaseClass {
 
 	// ----------------------------findElement(s)---------------------//
 	private static WebElement findElement(String locator) {
-		String time = prop.getProperty("timeOut");
+		String time = propF.getProperty("timeOut");
 		try {
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
@@ -58,7 +59,7 @@ public class BaseClass {
 	}
 
 	private static WebElement findElementClickable(String locator) {
-		String time = prop.getProperty("timeOut");
+		String time = propF.getProperty("timeOut");
 		try {
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
@@ -68,7 +69,7 @@ public class BaseClass {
 	}
 
 	protected static List<WebElement> findElements(String locator) {
-		String time = prop.getProperty("timeOut");
+		String time = propF.getProperty("timeOut");
 		try {
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(locator)));
