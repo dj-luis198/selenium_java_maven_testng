@@ -1,0 +1,40 @@
+[
+    {
+        "check": [
+            "home"
+        ],
+        "resp": "home desktop notes commands documents workspace react angular veu office public private classified general downloads wordFile.doc excelFile.doc"
+    },
+    {
+        "check": [
+            "private",
+            "angular",
+            "commands"
+        ],
+        "resp": "commands angular private"
+    },
+    {
+        "check": [
+            "private"
+        ],
+        "resp": "private"
+    },
+    {
+        "check": [
+            "downloads"
+        ],
+        "resp": "downloads wordfile.doc excelfile.doc"
+    },
+    {
+        "check": [
+            "documents"
+        ],
+        "resp": "documents workspace react angular veu office public private classified general"
+    },
+    {
+        "check": [
+            "desktop"
+        ],
+        "resp": "desktop notes commands"
+    }
+]
