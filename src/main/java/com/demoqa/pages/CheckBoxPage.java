@@ -4,31 +4,44 @@ import org.openqa.selenium.WebDriver;
 
 import com.demoqa.base.BaseClass;
 
-public class CheckBoxPage extends BaseClass{
-    private static String expandButton="//button[@title=\"Expand all\"]";
-    private static String allToggleColapse="rct-collapse";
-    private static String collapseButton="//button[@title=\"Collapse all\"]";
+import net.datafaker.internal.helper.WordUtils;
 
+public class CheckBoxPage extends BaseClass {
+    private static String expandButton = "//button[@title=\"Expand all\"]";
+    private static String allToggleColapse = "rct-collapse";
+    private static String collapseButton = "//button[@title=\"Collapse all\"]";
+    private static String resultText = "//*[@id=\"result\"]";
 
-    public CheckBoxPage(WebDriver driver){
-        BaseClass.driver=driver;
+    public CheckBoxPage(WebDriver driver) {
+        BaseClass.driver = driver;
     }
-public void expandAll(){
-click(expandButton);
-}
 
-public Boolean allTogle(){
-    System.out.println(returnLength(allToggleColapse));
-    return returnLength(allToggleColapse)==17;
-}
+    public void expandAll() {
+        click(expandButton);
+    }
 
-public void collapseAll(){
-click(collapseButton);
-}
+    public Boolean allTogle() {
+        return returnLength(allToggleColapse) == 17;
+    }
 
-public Boolean allTogleCollapse(){
-    System.out.println(returnLength(allToggleColapse));
-    return returnLength(allToggleColapse)==1;
-}
-    
+    public void collapseAll() {
+        click(collapseButton);
+    }
+
+    public Boolean allTogleCollapse() {
+        return returnLength(allToggleColapse) == 1;
+    }
+
+    public void checkOption(String array[]) {
+        String options;
+        for (int i = 0; i < array.length; i++) {
+            options = "//span[@class=\"rct-title\"][text()=\"" + WordUtils.capitalize(array[i]) + "\"]";
+            click(options);
+        }
+    }
+
+    public String returnResp() {
+        String resp = getTextContent(resultText);
+        return resp.toLowerCase();
+    }
 }

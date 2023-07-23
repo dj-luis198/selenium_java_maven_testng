@@ -1,6 +1,6 @@
 package com.demoqa.test.elements;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.demoqa.pages.HomePage;
 import com.demoqa.pages.TextBoxPage;
@@ -10,7 +10,7 @@ import net.datafaker.Faker;
 public class TextBoxTest extends BaseTest{
     private String fullName,email,currentAddress,permanentAddress;
 
-    @BeforeTest
+    @BeforeMethod
     public void initData(){
         HomePage homePage=new HomePage(driver);
         Faker faker = new Faker();
@@ -18,7 +18,7 @@ public class TextBoxTest extends BaseTest{
         fullName = faker.name().fullName(); 
         email = faker.internet().emailAddress(); 
         currentAddress = faker.address().fullAddress(); 
-        permanentAddress= faker.address().fullAddress(); 
+        permanentAddress= faker.address().fullAddress();
 
         homePage.goToTextBoxPage();
     }
