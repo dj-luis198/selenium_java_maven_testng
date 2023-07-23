@@ -9,6 +9,11 @@ on:
 jobs:
 
   test:
+    env:
+      url: https://demoqa.com/
+      timeOut: 10
+      browser: chrome
+      
     name: Test
     runs-on: ubuntu-latest
 
