@@ -10,7 +10,6 @@ jobs:
   build:
 
     runs-on: windows-latest
-    environment: Selenium
 
     steps:
     - uses: actions/checkout@v3
