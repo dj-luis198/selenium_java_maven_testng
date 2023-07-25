@@ -53,7 +53,7 @@ public class CheckBoxTest extends BaseTest {
      String array[]=json.GetJsonSimple(4,"CheckBox");
      checkBoxPage.expandAll();
      checkBoxPage.checkOption(array);
-     String resp= json.GetJsonSimpleString(4,"./src/test/resources/fixtures/CheckBox.json" );
+     String resp= json.GetJsonSimpleString(4,"CheckBox" );
      Assert.assertEquals(checkBoxPage.returnResp(),
      "you have selected :"+resp.replace(" ",""));
      }
