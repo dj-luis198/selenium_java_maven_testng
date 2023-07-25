@@ -1,7 +1,9 @@
 package com.demoqa.util;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -25,6 +27,8 @@ public class GetBrowserDriver {
 	}
 	
 	private static WebDriver setChromeDriver() {
+		ChromeOptions chromeOptions = new ChromeOptions();
+    	chromeOptions.addArguments("--headless=antiguo");
 		driver= new ChromeDriver();
 		return driver;
 	}
