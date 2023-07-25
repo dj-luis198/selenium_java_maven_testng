@@ -33,7 +33,7 @@ public class JsonSimple {
     public String GetJsonSimpleString(int i, String file) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         try {
-            FileReader reader = new FileReader(".\\src\\test\\resources\\fixtures\\" + file + ".json");
+            FileReader reader = new FileReader("./src/test/resources/fixtures/" + file + ".json");
             Object obj = jsonParser.parse(reader);
             JSONArray list = (JSONArray) obj;// todo el json
             JSONObject values = (JSONObject) list.get(i);// muestra todo el objeto i
