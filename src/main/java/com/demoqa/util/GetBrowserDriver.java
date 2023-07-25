@@ -28,7 +28,7 @@ public class GetBrowserDriver {
 	
 	private static WebDriver setChromeDriver() {
 		ChromeOptions chromeOptions = new ChromeOptions();
-    	chromeOptions.addArguments("--headless=antiguo");
+    	chromeOptions.addArguments("--headless=old");
 		driver= new ChromeDriver();
 		return driver;
 	}
