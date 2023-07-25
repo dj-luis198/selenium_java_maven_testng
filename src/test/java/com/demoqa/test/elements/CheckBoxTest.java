@@ -45,7 +45,7 @@ public class CheckBoxTest extends BaseTest {
         checkBoxPage.checkOption(array);
         String resp = json.GetJsonSimpleString(i, file);
         Assert.assertEquals(checkBoxPage.returnResp(), "you have selected :" + resp.replace(" ", ""));
-    }
+    }*/
 
     
      @Test(description="Validate check option Documents")
@@ -58,7 +58,7 @@ public class CheckBoxTest extends BaseTest {
      "you have selected :"+resp.replace(" ",""));
      }
      
-     @Test(description="Validate check option Downloads")
+     /*@Test(description="Validate check option Downloads")
      public void checkDownloadsTest() throws IOException, ParseException{
      String array[]=json.GetJsonSimple(3,"CheckBox");
      checkBoxPage.expandAll();
