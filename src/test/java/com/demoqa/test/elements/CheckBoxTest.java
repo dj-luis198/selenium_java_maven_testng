@@ -37,7 +37,7 @@ public class CheckBoxTest extends BaseTest {
         Assert.assertTrue(checkBoxPage.allTogleCollapse());
     }
 
-    @Test(description = "Validate check option", invocationCount = 6)
+    /*@Test(description = "Validate check option", invocationCount = 6)
     public void checkTest() throws IOException, ParseException {
         String file = "CheckBox";
         String array[] = json.GetJsonSimple(i, file);
@@ -45,58 +45,58 @@ public class CheckBoxTest extends BaseTest {
         checkBoxPage.checkOption(array);
         String resp = json.GetJsonSimpleString(i, file);
         Assert.assertEquals(checkBoxPage.returnResp(), "you have selected :" + resp.replace(" ", ""));
-    }
+    }*/
 
-    /*
-     * @Test(description="Validate check option Documents")
-     * public void checkDocumentsTest() throws IOException, ParseException{
-     * String array[]=json.GetJsonSimple(4,"CheckBox");
-     * checkBoxPage.expandAll();
-     * checkBoxPage.checkOption(array);
-     * String resp= json.GetJsonSimpleString(4,"CheckBox" );
-     * Assert.assertEquals(checkBoxPage.returnResp(),
-     * "you have selected :"+resp.replace(" ",""));
-     * }
-     * 
-     * @Test(description="Validate check option Downloads")
-     * public void checkDownloadsTest() throws IOException, ParseException{
-     * String array[]=json.GetJsonSimple(3,"CheckBox");
-     * checkBoxPage.expandAll();
-     * checkBoxPage.checkOption(array);
-     * String resp= json.GetJsonSimpleString(3,"CheckBox" );
-     * Assert.assertEquals(checkBoxPage.returnResp(),
-     * "you have selected :"+resp.replace(" ",""));
-     * }
-     * 
-     * @Test(description="Validate check option Private")
-     * public void checkPrivateTest() throws IOException, ParseException{
-     * String array[]=json.GetJsonSimple(2,"CheckBox");
-     * checkBoxPage.expandAll();
-     * checkBoxPage.checkOption(array);
-     * String resp= json.GetJsonSimpleString(2,"CheckBox" );
-     * Assert.assertEquals(checkBoxPage.returnResp(),
-     * "you have selected :"+resp.replace(" ",""));
-     * }
-     * 
-     * @Test(description="Validate check option private,angular,commands")
-     * public void checkPrivateAngularCommandsTest() throws IOException,
-     * ParseException{
-     * String array[]=json.GetJsonSimple(1,"CheckBox");
-     * checkBoxPage.expandAll();
-     * checkBoxPage.checkOption(array);
-     * String resp= json.GetJsonSimpleString(1,"CheckBox" );
-     * Assert.assertEquals(checkBoxPage.returnResp(),
-     * "you have selected :"+resp.replace(" ",""));
-     * }
-     * 
-     * @Test(description="Validate check option home")
-     * public void checkHomeTest() throws IOException, ParseException{
-     * String array[]=json.GetJsonSimple(0,"CheckBox");
-     * checkBoxPage.expandAll();
-     * checkBoxPage.checkOption(array);
-     * String resp= json.GetJsonSimpleString(0,"CheckBox" );
-     * Assert.assertEquals(checkBoxPage.returnResp(),
-     * "you have selected :"+resp.replace(" ",""));
-     * }
-     */
+    
+     @Test(description="Validate check option Documents")
+     public void checkDocumentsTest() throws IOException, ParseException{
+     String array[]=json.GetJsonSimple(4,"CheckBox");
+     checkBoxPage.expandAll();
+     checkBoxPage.checkOption(array);
+     String resp= json.GetJsonSimpleString(4,"CheckBox" );
+     Assert.assertEquals(checkBoxPage.returnResp(),
+     "you have selected :"+resp.replace(" ",""));
+     }
+     
+     @Test(description="Validate check option Downloads")
+     public void checkDownloadsTest() throws IOException, ParseException{
+     String array[]=json.GetJsonSimple(3,"CheckBox");
+     checkBoxPage.expandAll();
+     checkBoxPage.checkOption(array);
+     String resp= json.GetJsonSimpleString(3,"CheckBox" );
+     Assert.assertEquals(checkBoxPage.returnResp(),
+     "you have selected :"+resp.replace(" ",""));
+     }
+     
+     @Test(description="Validate check option Private")
+     public void checkPrivateTest() throws IOException, ParseException{
+     String array[]=json.GetJsonSimple(2,"CheckBox");
+     checkBoxPage.expandAll();
+     checkBoxPage.checkOption(array);
+     String resp= json.GetJsonSimpleString(2,"CheckBox" );
+     Assert.assertEquals(checkBoxPage.returnResp(),
+     "you have selected :"+resp.replace(" ",""));
+     }
+     
+     @Test(description="Validate check option private,angular,commands")
+     public void checkPrivateAngularCommandsTest() throws IOException,
+     ParseException{
+     String array[]=json.GetJsonSimple(1,"CheckBox");
+     checkBoxPage.expandAll();
+     checkBoxPage.checkOption(array);
+     String resp= json.GetJsonSimpleString(1,"CheckBox" );
+     Assert.assertEquals(checkBoxPage.returnResp(),
+     "you have selected :"+resp.replace(" ",""));
+     }
+     
+     @Test(description="Validate check option home")
+     public void checkHomeTest() throws IOException, ParseException{
+     String array[]=json.GetJsonSimple(0,"CheckBox");
+     checkBoxPage.expandAll();
+     checkBoxPage.checkOption(array);
+     String resp= json.GetJsonSimpleString(0,"CheckBox" );
+     Assert.assertEquals(checkBoxPage.returnResp(),
+     "you have selected :"+resp.replace(" ",""));
+     }
+     
 }
