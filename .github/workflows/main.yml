@@ -21,11 +21,6 @@ jobs:
           java-version: 20
       - name: Maven Package
         run: mvn -B clean package -DskipTests
-      - uses: madhead/read-java-properties@latest
-        id: all
-        with:
-          file: framework.properties
-          all: true
           
       - name: Maven Verify
         run: mvn -B clean verify
