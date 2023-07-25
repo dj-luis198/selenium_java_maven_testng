@@ -18,7 +18,7 @@ public class CheckBoxTest extends BaseTest {
 
     @BeforeMethod
     public void initPage() {
-        i++;
+        //i++;
         json = new JsonSimple();
         homePage = new HomePage(driver);
         checkBoxPage = new CheckBoxPage(driver);
