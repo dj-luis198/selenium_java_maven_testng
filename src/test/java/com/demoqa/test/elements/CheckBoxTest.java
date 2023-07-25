@@ -11,7 +11,7 @@ import com.demoqa.test.BaseTest;
 import com.demoqa.util.JsonSimple;
 
 public class CheckBoxTest extends BaseTest {
-    int i = -1;
+    //int i = -1;
     HomePage homePage;
     CheckBoxPage checkBoxPage;
     JsonSimple json;
