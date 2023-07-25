@@ -36,7 +36,7 @@ public class BaseClass {
 		FileReader reader;
 		try {
 			reader = new FileReader(
-					""+name+".properties");
+					"./src/test/resources/config/"+name+".properties");
 			//prop = new Properties();
 			prop.load(reader);
 			return prop;
