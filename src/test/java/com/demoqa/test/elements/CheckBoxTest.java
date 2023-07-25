@@ -1,6 +1,7 @@
 package com.demoqa.test.elements;
 
 import java.io.IOException;
+
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -45,20 +46,21 @@ public class CheckBoxTest extends BaseTest {
         checkBoxPage.checkOption(array);
         String resp = json.GetJsonSimpleString(i, file);
         Assert.assertEquals(checkBoxPage.returnResp(), "you have selected :" + resp.replace(" ", ""));
-    }*/
+    }
 
-    
+    */
      @Test(description="Validate check option Documents")
      public void checkDocumentsTest() throws IOException, ParseException{
-     String array[]=json.GetJsonSimple(4,"CheckBox");
+    String array[]=new String[1];
+     array=json.GetJsonSimple(4,"CheckBox");
      checkBoxPage.expandAll();
      checkBoxPage.checkOption(array);
      String resp= json.GetJsonSimpleString(4,"CheckBox" );
      Assert.assertEquals(checkBoxPage.returnResp(),
      "you have selected :"+resp.replace(" ",""));
-     }
-     
-     /*@Test(description="Validate check option Downloads")
+     } 
+     /* 
+     @Test(description="Validate check option Downloads")
      public void checkDownloadsTest() throws IOException, ParseException{
      String array[]=json.GetJsonSimple(3,"CheckBox");
      checkBoxPage.expandAll();
