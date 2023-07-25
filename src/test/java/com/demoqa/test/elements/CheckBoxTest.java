@@ -12,14 +12,14 @@ import com.demoqa.test.BaseTest;
 import com.demoqa.util.JsonSimple;
 
 public class CheckBoxTest extends BaseTest {
-    //int i = -1;
+    int i = -1;
     HomePage homePage;
     CheckBoxPage checkBoxPage;
     JsonSimple json;
 
     @BeforeMethod
     public void initPage() {
-        //i++;
+        i++;
         json = new JsonSimple();
         homePage = new HomePage(driver);
         checkBoxPage = new CheckBoxPage(driver);
@@ -38,7 +38,7 @@ public class CheckBoxTest extends BaseTest {
         Assert.assertTrue(checkBoxPage.allTogleCollapse());
     }
 
-    /*@Test(description = "Validate check option", invocationCount = 6)
+    @Test(description = "Validate check option", invocationCount = 6)
     public void checkTest() throws IOException, ParseException {
         String file = "CheckBox";
         String array[] = json.GetJsonSimple(i, file);
@@ -48,7 +48,7 @@ public class CheckBoxTest extends BaseTest {
         Assert.assertEquals(checkBoxPage.returnResp(), "you have selected :" + resp.replace(" ", ""));
     }
 
-    */
+    /*
      @Test(description="Validate check option Documents")
      public void checkDocumentsTest() throws IOException, ParseException{
     String array[]=new String[1];
@@ -59,7 +59,7 @@ public class CheckBoxTest extends BaseTest {
      Assert.assertEquals(checkBoxPage.returnResp(),
      "you have selected :"+resp.replace(" ",""));
      } 
-     /* 
+     
      @Test(description="Validate check option Downloads")
      public void checkDownloadsTest() throws IOException, ParseException{
      String array[]=json.GetJsonSimple(3,"CheckBox");
