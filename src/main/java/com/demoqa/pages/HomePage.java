@@ -10,6 +10,7 @@ public class HomePage extends BaseClass {
     private static String elementsText= "//div[@class=\"card mt-4 top-card\"][1]//div[@class=\"card-body\"]";
     private static String textBox="//*[contains(text(),\"Text Box\")]";
     private static String checkBox="//*[contains(text(),\"Check Box\")]";
+    private static String radioButton="(//li[@id='item-2'])[1]";
 
     public HomePage(WebDriver driver){
         BaseClass.driver=driver;
@@ -31,6 +32,10 @@ public class HomePage extends BaseClass {
         click(checkBox);
     }
 
+    public void SelectRadioButtonItem(){
+        click(radioButton);
+    }
+
     public void goToTextBoxPage(){
         this.SelectElements();
         this.SelectTextBoxItem();
@@ -39,6 +44,11 @@ public class HomePage extends BaseClass {
     public void goToCheckBoxPage(){
         this.SelectElements();
         this.SelectCheckBoxItem();
+    }
+
+    public void goToRadioButtonPage(){
+        this.SelectElements();
+        this.SelectRadioButtonItem();
     }
     
 }

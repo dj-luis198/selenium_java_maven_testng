@@ -17,14 +17,14 @@ import static com.demoqa.util.GetBrowserDriver.getBrowserDriver;
 
 public class BaseClass {
 	public static WebDriver driver;
-	public static Properties prop=new Properties();
-	public static Properties propF=new Properties();
-	public static Properties propA=new Properties();
+	public static Properties prop = new Properties();
+	public static Properties propF = new Properties();
+	public static Properties propA = new Properties();
 
 	public static void init() {
-		//Dotenv dotenv = Dotenv.load();
-		//String url = dotenv.get("url");
-		//String browser = dotenv.get("browser");
+		// Dotenv dotenv = Dotenv.load();
+		// String url = dotenv.get("url");
+		// String browser = dotenv.get("browser");
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		driver = getBrowserDriver(propF.getProperty("browser"));
@@ -36,8 +36,8 @@ public class BaseClass {
 		FileReader reader;
 		try {
 			reader = new FileReader(
-					"./src/test/resources/config/"+name+".properties");
-			//prop = new Properties();
+					"./src/test/resources/config/" + name + ".properties");
+			// prop = new Properties();
 			prop.load(reader);
 			return prop;
 		} catch (IOException e) {
@@ -63,6 +63,16 @@ public class BaseClass {
 		try {
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+			throw new Error("El locator " + locator + " no fue encontrado");
+		}
+	}
+
+	private static Boolean NoFindElement(String locator) {
+		String time = propF.getProperty("timeOut");
+		try {
+			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
 		}
@@ -113,5 +123,17 @@ public class BaseClass {
 
 	public static int returnLength(String locator) {
 		return findElements(locator).size();
+	}
+
+	public static Boolean isSelected(String locator) {
+		return findElement(locator).isSelected();
+	}
+
+	public Boolean NoFind(String locator) {
+		return NoFindElement(locator);
+	}
+
+	public static Boolean isDisabled(String locator){
+		return findElement(locator).isDisplayed();
 	}
 }
