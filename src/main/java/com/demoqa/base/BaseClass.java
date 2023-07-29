@@ -9,9 +9,11 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static com.demoqa.util.GetBrowserDriver.getBrowserDriver;
 
@@ -88,6 +90,16 @@ public class BaseClass {
 		}
 	}
 
+	protected static List<WebElement> findElementsXpath(String locator) {
+		String time = propF.getProperty("timeOut");
+		try {
+			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
+		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+			throw new Error("El locator " + locator + " no fue encontrado");
+		}
+	}
+
 	// -----------------------------basicos---------------------------//
 	public static void click(String locator) {
 		try {
@@ -125,6 +137,14 @@ public class BaseClass {
 		return findElements(locator).size();
 	}
 
+	public static int returnLengthXpath(String locator) {
+		return findElementsXpath(locator).size();
+	}
+
+	public static List<WebElement> returnXpath(String locator) {
+		return findElementsXpath(locator);
+	}
+
 	public static Boolean isSelected(String locator) {
 		return findElement(locator).isSelected();
 	}
@@ -133,7 +153,38 @@ public class BaseClass {
 		return NoFindElement(locator);
 	}
 
-	public static Boolean isDisabled(String locator){
+	public static Boolean isEnabled(String locator) {
+		return findElement(locator).isEnabled();
+	}
+
+	public static Boolean isDisplayed(String locator) {
 		return findElement(locator).isDisplayed();
+	}
+
+	public static void typeAndEnter(String locator, String text) {
+		type(locator, text);
+		findElement(locator).sendKeys(Keys.ENTER);
+	}
+
+	public static Boolean getPageSource(String locator) {
+		if (driver.getPageSource().contains(locator)) {
+			return true;
+		}
+		return false;
+	}
+
+	public static Boolean selectPerText(String locator, String text) {
+		Select select = new Select(findElement(locator));
+		select.selectByVisibleText(text);
+		return select.getFirstSelectedOption().getAttribute("value").equals(text);
+	}
+
+	public static List<WebElement> selectGetOptions(String locator){
+		Select select = new Select(findElement(locator));
+		return select.getOptions();
+	}
+
+	public String getAttributeId(String locator){
+		return findElement(locator).getAttribute("id");
 	}
 }

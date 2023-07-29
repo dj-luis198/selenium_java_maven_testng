@@ -51,6 +51,6 @@ public class RadioButtonPage extends BaseClass {
     }
 
     public Boolean isDisabledElement(){
-        return isDisabled(checkedNoRadio);
+        return isDisplayed(checkedNoRadio);
     }
 }
