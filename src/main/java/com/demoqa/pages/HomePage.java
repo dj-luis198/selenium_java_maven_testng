@@ -11,6 +11,7 @@ public class HomePage extends BaseClass {
     private static String textBox="//*[contains(text(),\"Text Box\")]";
     private static String checkBox="//*[contains(text(),\"Check Box\")]";
     private static String radioButton="(//li[@id='item-2'])[1]";
+    private static String webTables="//span[normalize-space()='Web Tables']";
 
     public HomePage(WebDriver driver){
         BaseClass.driver=driver;
@@ -36,6 +37,10 @@ public class HomePage extends BaseClass {
         click(radioButton);
     }
 
+    public void SelectWebTablesItem(){
+        click(webTables);
+    }
+
     public void goToTextBoxPage(){
         this.SelectElements();
         this.SelectTextBoxItem();
@@ -49,6 +54,11 @@ public class HomePage extends BaseClass {
     public void goToRadioButtonPage(){
         this.SelectElements();
         this.SelectRadioButtonItem();
+    }
+
+    public void goToWebTablesPage(){
+        this.SelectElements();
+        this.SelectWebTablesItem();
     }
     
 }
