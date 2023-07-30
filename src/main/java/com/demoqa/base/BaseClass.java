@@ -12,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,6 +23,7 @@ public class BaseClass {
 	public static Properties prop = new Properties();
 	public static Properties propF = new Properties();
 	public static Properties propA = new Properties();
+	public static Actions actions;
 
 	public static void init() {
 		// Dotenv dotenv = Dotenv.load();
@@ -102,8 +104,9 @@ public class BaseClass {
 
 	// -----------------------------basicos---------------------------//
 	public static void click(String locator) {
+		// actions = new Actions(driver);
 		try {
-			findElementClickable(locator).click();
+			(findElementClickable(locator)).click();
 		} catch (ElementClickInterceptedException e) {
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("arguments[0].click()", findElementClickable(locator));
@@ -179,12 +182,22 @@ public class BaseClass {
 		return select.getFirstSelectedOption().getAttribute("value").equals(text);
 	}
 
-	public static List<WebElement> selectGetOptions(String locator){
+	public static List<WebElement> selectGetOptions(String locator) {
 		Select select = new Select(findElement(locator));
 		return select.getOptions();
 	}
 
-	public String getAttributeId(String locator){
+	public String getAttributeId(String locator) {
 		return findElement(locator).getAttribute("id");
+	}
+
+	public static void doubleClick(String locator) {
+		actions = new Actions(driver);
+		actions.doubleClick(findElementClickable(locator)).perform();
+	}
+
+	public static void rightClick(String locator) {
+		actions = new Actions(driver);
+		actions.contextClick(findElementClickable(locator)).perform();
 	}
 }
