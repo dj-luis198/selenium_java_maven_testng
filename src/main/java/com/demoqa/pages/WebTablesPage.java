@@ -2,7 +2,6 @@ package com.demoqa.pages;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.demoqa.base.BaseClass;
 
@@ -26,10 +25,6 @@ public class WebTablesPage extends BaseClass {
     private static String actualPageInput = "//div[@class='-pageJump']//child::input";
     private static String rowGrup = "rt-tr-group";
     private static String rowPerPage = "//select[@aria-label='rows per page']";
-
-     public WebTablesPage(WebDriver driver) {
-        BaseClass.driver = driver;
-    }
 
     public String getDataEdited(String index) {
         return getTextContent("//span[@id='" + index + "']//ancestor::div[@role='rowgroup']");
