@@ -21,8 +21,8 @@ public class CheckBoxTest extends BaseTest {
     public void initPage() {
         i++;
         json = new JsonSimple();
-        homePage = new HomePage(driver);
-        checkBoxPage = new CheckBoxPage(driver);
+        homePage = new HomePage();
+        checkBoxPage = new CheckBoxPage();
         homePage.goToCheckBoxPage();
     }
 

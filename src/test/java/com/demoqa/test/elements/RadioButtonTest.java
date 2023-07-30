@@ -13,8 +13,8 @@ public class RadioButtonTest extends BaseTest{
 
     @BeforeMethod
     public void preconditions(){
-        homePage=new HomePage(driver);
-        radioButtonPage= new RadioButtonPage(driver);
+        homePage=new HomePage();
+        radioButtonPage= new RadioButtonPage();
         homePage.goToRadioButtonPage();
     }
 

@@ -12,7 +12,7 @@ public class TextBoxTest extends BaseTest{
 
     @BeforeMethod
     public void initData(){
-        HomePage homePage=new HomePage(driver);
+        HomePage homePage=new HomePage();
         Faker faker = new Faker();
 
         fullName = faker.name().fullName(); 
@@ -25,7 +25,7 @@ public class TextBoxTest extends BaseTest{
 
     @Test
     public void testTextBoxs(){
-        TextBoxPage textBoxPage = new TextBoxPage(driver);
+        TextBoxPage textBoxPage = new TextBoxPage();
 
         textBoxPage.typeFullName(fullName);
         Assert.assertEquals(fullName,textBoxPage.getTextFullName());

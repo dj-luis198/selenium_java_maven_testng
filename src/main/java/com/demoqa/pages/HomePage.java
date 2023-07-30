@@ -1,21 +1,13 @@
 package com.demoqa.pages;
-
-import org.openqa.selenium.WebDriver;
-
 import com.demoqa.base.BaseClass;
 
 public class HomePage extends BaseClass {
-
 
     private static String elementsText= "//div[@class=\"card mt-4 top-card\"][1]//div[@class=\"card-body\"]";
     private static String textBox="//*[contains(text(),\"Text Box\")]";
     private static String checkBox="//*[contains(text(),\"Check Box\")]";
     private static String radioButton="(//li[@id='item-2'])[1]";
     private static String webTables="//span[normalize-space()='Web Tables']";
-
-    public HomePage(WebDriver driver){
-        BaseClass.driver=driver;
-    }
 
     public String getTitleHomePage(){
         return getTitlePage();

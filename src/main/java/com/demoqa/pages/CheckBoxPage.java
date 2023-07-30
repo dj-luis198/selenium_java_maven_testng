@@ -1,7 +1,5 @@
 package com.demoqa.pages;
 
-import org.openqa.selenium.WebDriver;
-
 import com.demoqa.base.BaseClass;
 
 import net.datafaker.internal.helper.WordUtils;
@@ -11,10 +9,6 @@ public class CheckBoxPage extends BaseClass {
     private static String allToggleColapse = "rct-collapse";
     private static String collapseButton = "//button[@title=\"Collapse all\"]";
     private static String resultText = "//*[@id=\"result\"]";
-
-    public CheckBoxPage(WebDriver driver) {
-        BaseClass.driver = driver;
-    }
 
     public void expandAll() {
         click(expandButton);

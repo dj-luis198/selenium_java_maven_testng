@@ -1,7 +1,5 @@
 package com.demoqa.pages;
 
-import org.openqa.selenium.WebDriver;
-
 import com.demoqa.base.BaseClass;
 
 public class RadioButtonPage extends BaseClass {
@@ -13,10 +11,6 @@ public class RadioButtonPage extends BaseClass {
     private static String checkedImpressive = "//input[@id='impressiveRadio']";
     private static String checkedNoRadio = "//input[@id='noRadio']";
     private static String textSuccess = "//span[@class='text-success']";
-
-    public RadioButtonPage(WebDriver driver) {
-        BaseClass.driver = driver;
-    }
 
     public void clickYes() {
         click(yesRadio);

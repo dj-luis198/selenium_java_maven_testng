@@ -17,8 +17,8 @@ public class WebTablesTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        homePage = new HomePage(driver);
-        webTablesPage = new WebTablesPage(driver);
+        homePage = new HomePage();
+        webTablesPage = new WebTablesPage();
         homePage.goToWebTablesPage();
     }
 
@@ -77,6 +77,7 @@ public class WebTablesTest extends BaseTest {
         email = faker.internet().emailAddress();
         salary = faker.number().numberBetween(1000, 50000);
         department = faker.locality().localeString();
+
         String resultSearch = firstName + lastName + age + email + salary + department + " ";
         webTablesPage.clickAddButton();
         Assert.assertEquals(webTablesPage.returnTextForm(), "Registration Form");
@@ -101,6 +102,7 @@ public class WebTablesTest extends BaseTest {
         email = faker.internet().emailAddress();
         salary = faker.number().numberBetween(1000, 50000);
         department = faker.locality().localeString();
+
         String searchText = firstName.substring(0, 3);
         String resultSearch = firstName + lastName + age + email + salary + department + " ";
         String resultEdit = firstNameEdit + lastNameEdit + ageEdit + emailEdit + salaryEdit + departmentEdit + " ";
@@ -125,6 +127,7 @@ public class WebTablesTest extends BaseTest {
         email = faker.internet().emailAddress();
         salary = faker.number().numberBetween(1000, 50000);
         department = faker.locality().localeString();
+
         String resultSearch = firstName + lastName + age + email + salary + department + " ";
         webTablesPage.clickAddButton();
         Assert.assertEquals(webTablesPage.returnTextForm(), "Registration Form");
