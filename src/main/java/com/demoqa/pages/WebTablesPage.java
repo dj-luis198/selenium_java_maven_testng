@@ -7,24 +7,24 @@ import com.demoqa.base.BaseClass;
 
 public class WebTablesPage extends BaseClass {
 
-    private static String addButton = "//button[@id='addNewRecordButton']";
-    private static String formModal = "//div[@id='registration-form-modal']";
-    private static String firstNameInput = "//input[@id='firstName']";
-    private static String lastNameInput = "//input[@id='lastName']";
-    private static String userEmailInput = "//input[@id='userEmail']";
-    private static String ageInput = "//input[@id='age']";
-    private static String salaryInput = "//input[@id='salary']";
-    private static String departmentInput = "//input[@id='department']";
-    private static String submitButton = "//button[@id='submit']";
-    private static String nextButton = "//button[normalize-space()='Next']";
-    private static String previousButton = "//div[@class='-previous']//button[@type='button']";
-    private static String searchInput = "//input[@id='searchBox']";
-    private static String rowsEmptyTable = "(//div[@role='rowgroup'])//child::div[contains(@class,'-padRow')]";
-    private static String columnHeader = "(//div[contains(@role,'columnheader')])";
-    private static String totalPages = "//span[@class='-totalPages']";
-    private static String actualPageInput = "//div[@class='-pageJump']//child::input";
-    private static String rowGrup = "rt-tr-group";
-    private static String rowPerPage = "//select[@aria-label='rows per page']";
+    private final String addButton = "//button[@id='addNewRecordButton']";
+    private final String formModal = "//div[@id='registration-form-modal']";
+    private final String firstNameInput = "//input[@id='firstName']";
+    private final String lastNameInput = "//input[@id='lastName']";
+    private final String userEmailInput = "//input[@id='userEmail']";
+    private final String ageInput = "//input[@id='age']";
+    private final String salaryInput = "//input[@id='salary']";
+    private final String departmentInput = "//input[@id='department']";
+    private final String submitButton = "//button[@id='submit']";
+    private final String nextButton = "//button[normalize-space()='Next']";
+    private final String previousButton = "//div[@class='-previous']//button[@type='button']";
+    private final String searchInput = "//input[@id='searchBox']";
+    private final String rowsEmptyTable = "(//div[@role='rowgroup'])//child::div[contains(@class,'-padRow')]";
+    private final String columnHeader = "(//div[contains(@role,'columnheader')])";
+    private final String totalPages = "//span[@class='-totalPages']";
+    private final String actualPageInput = "//div[@class='-pageJump']//child::input";
+    private final String rowGrup = "rt-tr-group";
+    private final String rowPerPage = "//select[@aria-label='rows per page']";
 
     public String getDataEdited(String index) {
         return getTextContent("//span[@id='" + index + "']//ancestor::div[@role='rowgroup']");

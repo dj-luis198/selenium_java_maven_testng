@@ -4,10 +4,10 @@ import com.demoqa.base.BaseClass;
 
 public class TextBoxPage extends BaseClass{
 
-    private static String fullNameInput= "//*[@id=\"userName\"]";
-    private static String emailInput="//*[@id=\"userEmail\"]";
-    private static String currentAddressInput="//*[@id=\"currentAddress\"]";
-    private static String permanentAddressInput="//*[@id=\"permanentAddress\"]";
+    private final String fullNameInput= "//*[@id=\"userName\"]";
+    private final String emailInput="//*[@id=\"userEmail\"]";
+    private final String currentAddressInput="//*[@id=\"currentAddress\"]";
+    private final String permanentAddressInput="//*[@id=\"permanentAddress\"]";
     
     public void typeFullName(String text){
         type(fullNameInput,text);

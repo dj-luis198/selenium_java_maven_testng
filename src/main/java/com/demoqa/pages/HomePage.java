@@ -4,12 +4,13 @@ import com.demoqa.base.BaseClass;
 
 public class HomePage extends BaseClass {
 
-    private static String elementsText = "//div[@class=\"card mt-4 top-card\"][1]//div[@class=\"card-body\"]";
-    private static String textBox = "//*[contains(text(),\"Text Box\")]";
-    private static String checkBox = "//*[contains(text(),\"Check Box\")]";
-    private static String radioButton = "(//li[@id='item-2'])[1]";
-    private static String webTables = "//span[normalize-space()='Web Tables']";
-    private static String buttons = "//span[normalize-space()='Buttons']";
+    private final String elementsText = "//div[@class=\"card mt-4 top-card\"][1]//div[@class=\"card-body\"]";
+    private final String textBox = "//*[contains(text(),\"Text Box\")]";
+    private final String checkBox = "//*[contains(text(),\"Check Box\")]";
+    private final String radioButton = "(//li[@id='item-2'])[1]";
+    private final String webTables = "//span[normalize-space()='Web Tables']";
+    private final String buttons = "//span[normalize-space()='Buttons']";
+    private final String links ="//span[normalize-space()='Links']";
 
     public String getTitleHomePage() {
         return getTitlePage();
@@ -17,6 +18,10 @@ public class HomePage extends BaseClass {
 
     public void SelectElements() {
         click(elementsText);
+    }
+
+    public void SelectLinksItem() {
+        click(links);
     }
 
     public void SelectTextBoxItem() {
@@ -62,6 +67,11 @@ public class HomePage extends BaseClass {
     public void goToButtonsPage() {
         this.SelectElements();
         this.SelectButtonsItem();
+    }
+
+     public void goToLinksPage() {
+        this.SelectElements();
+        this.SelectLinksItem();
     }
 
 }

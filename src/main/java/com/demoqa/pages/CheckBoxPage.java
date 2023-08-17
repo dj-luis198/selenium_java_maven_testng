@@ -5,10 +5,10 @@ import com.demoqa.base.BaseClass;
 import net.datafaker.internal.helper.WordUtils;
 
 public class CheckBoxPage extends BaseClass {
-    private static String expandButton = "//button[@title=\"Expand all\"]";
-    private static String allToggleColapse = "rct-collapse";
-    private static String collapseButton = "//button[@title=\"Collapse all\"]";
-    private static String resultText = "//*[@id=\"result\"]";
+    private final String expandButton = "//button[@title=\"Expand all\"]";
+    private final String allToggleColapse = "rct-collapse";
+    private final String collapseButton = "//button[@title=\"Collapse all\"]";
+    private final String resultText = "//*[@id=\"result\"]";
 
     public void expandAll() {
         click(expandButton);

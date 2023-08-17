@@ -15,6 +15,5 @@ public class BaseTest extends BaseClass{
     @AfterMethod
     public void tearDown() {	
 	quit();	
-	}	
-    
+	}    
 }
