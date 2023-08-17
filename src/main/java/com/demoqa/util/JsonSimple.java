@@ -11,14 +11,14 @@ import org.json.simple.parser.ParseException;
 
 public class JsonSimple {
 
-    public String[] GetJsonSimple(int i, String file) throws IOException, ParseException {
+    public String[] GetJsonSimple(int i, String file, String key) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         try {
             FileReader reader = new FileReader("./src/test/resources/fixtures/" + file + ".json");
             Object obj = jsonParser.parse(reader);
             JSONArray list = (JSONArray) obj;// todo el json
             JSONObject values = (JSONObject) list.get(i);// muestra todo el objeto i
-            JSONArray value = (JSONArray) values.get("check");// foco en todo el contenido de check (array)
+            JSONArray value = (JSONArray) values.get(key);// foco en todo el contenido de check (array)
             String[] valor = new String[value.size()];
             for (int j = 0; j < value.size(); j++) {
                 valor[j] = value.get(j).toString();
@@ -30,19 +30,34 @@ public class JsonSimple {
         return null;
     }
 
-    public String GetJsonSimpleString(int i, String file) throws IOException, ParseException {
+    public String GetJsonSimpleString(int i, String file, String key) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         try {
             FileReader reader = new FileReader("./src/test/resources/fixtures/" + file + ".json");
             Object obj = jsonParser.parse(reader);
             JSONArray list = (JSONArray) obj;// todo el json
             JSONObject values = (JSONObject) list.get(i);// muestra todo el objeto i
-            String value = values.get("resp").toString();// get valor de resp y pasarlo a string
+            String value = values.get(key).toString();// get valor de resp y pasarlo a string
             return value;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return null;
     }
+
+    public JSONArray GetJsonSimpleStringAll(String file) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        try {
+            FileReader reader = new FileReader("./src/test/resources/fixtures/" + file + ".json");
+            Object obj = jsonParser.parse(reader);
+            JSONArray list = (JSONArray) obj;// todo el json
+            return list;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
 }

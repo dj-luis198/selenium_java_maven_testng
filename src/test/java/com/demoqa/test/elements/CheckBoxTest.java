@@ -41,10 +41,10 @@ public class CheckBoxTest extends BaseTest {
     @Test(description = "Validate check option", invocationCount = 6)
     public void checkTest() throws IOException, ParseException {
         String file = "CheckBox";
-        String array[] = json.GetJsonSimple(i, file);
+        String array[] = json.GetJsonSimple(i, file,"check");
         checkBoxPage.expandAll();
         checkBoxPage.checkOption(array);
-        String resp = json.GetJsonSimpleString(i, file);
+        String resp = json.GetJsonSimpleString(i, file,"resp");
         Assert.assertEquals(checkBoxPage.returnResp(), "you have selected :" + resp.replace(" ", ""));
     }
 

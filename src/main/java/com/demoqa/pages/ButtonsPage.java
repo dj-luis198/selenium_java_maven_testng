@@ -4,12 +4,12 @@ import com.demoqa.base.BaseClass;
 
 public class ButtonsPage extends BaseClass {
 
-    private static String doubleClickBtn = "//button[@id='doubleClickBtn']";
-    private static String rightClickBtn = "//button[@id='rightClickBtn']";
-    private static String ClickBtn = "(//button[normalize-space()='Click Me'])[1]";
-    private static String doubleClickMessage = "//p[@id='doubleClickMessage']";
-    private static String rightClickMessage = "//p[@id='rightClickMessage']";
-    private static String dynamicClickMessage = "//p[@id='dynamicClickMessage']";
+    private final String doubleClickBtn = "//button[@id='doubleClickBtn']";
+    private final String rightClickBtn = "//button[@id='rightClickBtn']";
+    private final String ClickBtn = "(//button[normalize-space()='Click Me'])[1]";
+    private final String doubleClickMessage = "//p[@id='doubleClickMessage']";
+    private final String rightClickMessage = "//p[@id='rightClickMessage']";
+    private final String dynamicClickMessage = "//p[@id='dynamicClickMessage']";
 
     public void dblClickButton() {
         doubleClick(doubleClickBtn);
