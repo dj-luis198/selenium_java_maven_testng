@@ -5,7 +5,7 @@ import com.demoqa.base.BaseClass;
 public class RadioButtonPage extends BaseClass {
 
     private final String yesRadio = "//label[normalize-space()='Yes']";
-    private final String impressiveRadio = "//label[normalize-space()='Impressive']";
+    private final String impressiveRadio = "//label[@for='impressiveRadio']";
     private final String noRadio = "//label[normalize-space()='No']";
     private final String checkedYes = "//input[@id='yesRadio']";
     private final String checkedImpressive = "//input[@id='impressiveRadio']";
