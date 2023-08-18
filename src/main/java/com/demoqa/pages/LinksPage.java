@@ -12,6 +12,24 @@ public class LinksPage extends BaseClass{
     private final String forbiddenLink ="//a[@id='forbidden']";
     private final String invalidURLLink ="//a[@id='invalid-url']";
     private final String linkResponseMsg ="//p[@id='linkResponse']";
+    private final String newTabSimpleLink="//a[@id='simpleLink']";
+    private final String newTabDinamicLink="//a[@id='dynamicLink']";
+    private final String url ="https://demoqa.com/";
+
+    public Boolean returnURL(){
+        if(getURL().equals(url)){
+            return true;
+        }
+        return false;
+    }
+
+    public void clickNewTabDinamicLink(){
+        clickNewTab(newTabDinamicLink);
+    }
+
+    public void clickNewTabSimpleLink(){
+        clickNewTab(newTabSimpleLink);
+    }
 
     public void clickCreatedLink(){
         click(createdLink);
