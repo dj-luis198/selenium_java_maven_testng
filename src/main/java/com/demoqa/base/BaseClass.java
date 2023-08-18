@@ -17,6 +17,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static com.demoqa.util.GetBrowserDriver.getBrowserDriver;
+import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class BaseClass {
 	private static WebDriver driver;
@@ -109,6 +111,26 @@ public class BaseClass {
 		}
 	}
 
+	protected static void clickNewTab(String locator) {
+		String time = propF.getProperty("timeOut");
+		String originalTap = driver.getWindowHandle();
+		try {
+			(findElementClickable(locator)).click();
+		} catch (ElementClickInterceptedException e) {
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("arguments[0].click()", findElementClickable(locator));
+		}
+		WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+		ewait.until(numberOfWindowsToBe(2));
+		for (String windowHandle : driver.getWindowHandles()) {
+			if (!originalTap.contentEquals(windowHandle)) {
+				driver.switchTo().window(windowHandle);
+				break;
+			}
+		}
+		ewait.until(titleIs("DEMOQA"));
+	}
+
 	protected static void quit() {
 		driver.quit();
 	}
@@ -125,6 +147,10 @@ public class BaseClass {
 
 	protected static String getTitlePage() {
 		return driver.getTitle();
+	}
+
+	protected static String getURL() {
+		return driver.getCurrentUrl();
 	}
 
 	protected static void type(String locator, String text) {
