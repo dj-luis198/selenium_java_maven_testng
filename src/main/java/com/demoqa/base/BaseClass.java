@@ -10,18 +10,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static com.demoqa.util.GetBrowserDriver.getBrowserDriver;
+
+import com.demoqa.util.GetBrowserDriver;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class BaseClass {
-	private static WebDriver driver;
+	private static GetBrowserDriver getBrowser=new GetBrowserDriver();
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
@@ -30,9 +31,9 @@ public class BaseClass {
 	protected static void init() {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
-		driver = getBrowserDriver(propF.getProperty("browser"));
-		driver.get(propA.getProperty("url"));
-		driver.manage().window().maximize();
+		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
+		getBrowser.getDriver().get(propA.getProperty("url"));
+		getBrowser.getDriver().manage().window().maximize();
 	}
 
 	private static Properties init_properties(String name) {
@@ -53,7 +54,7 @@ public class BaseClass {
 	private static WebElement findElement(String locator) {
 		String time = propF.getProperty("timeOut");
 		try {
-			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
@@ -63,7 +64,7 @@ public class BaseClass {
 	private static WebElement findElementClickable(String locator) {
 		String time = propF.getProperty("timeOut");
 		try {
-			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
@@ -73,7 +74,7 @@ public class BaseClass {
 	private static Boolean NoFindElement(String locator) {
 		String time = propF.getProperty("timeOut");
 		try {
-			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
@@ -83,7 +84,7 @@ public class BaseClass {
 	private static List<WebElement> findElements(String locator) {
 		String time = propF.getProperty("timeOut");
 		try {
-			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
@@ -93,7 +94,7 @@ public class BaseClass {
 	private static List<WebElement> findElementsXpath(String locator) {
 		String time = propF.getProperty("timeOut");
 		try {
-			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
@@ -106,25 +107,25 @@ public class BaseClass {
 		try {
 			(findElementClickable(locator)).click();
 		} catch (ElementClickInterceptedException e) {
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
 			jse.executeScript("arguments[0].click()", findElementClickable(locator));
 		}
 	}
 
 	protected static void clickNewTab(String locator) {
 		String time = propF.getProperty("timeOut");
-		String originalTap = driver.getWindowHandle();
+		String originalTap = getBrowser.getDriver().getWindowHandle();
 		try {
 			(findElementClickable(locator)).click();
 		} catch (ElementClickInterceptedException e) {
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
 			jse.executeScript("arguments[0].click()", findElementClickable(locator));
 		}
-		WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		ewait.until(numberOfWindowsToBe(2));
-		for (String windowHandle : driver.getWindowHandles()) {
+		for (String windowHandle : getBrowser.getDriver().getWindowHandles()) {
 			if (!originalTap.contentEquals(windowHandle)) {
-				driver.switchTo().window(windowHandle);
+				getBrowser.getDriver().switchTo().window(windowHandle);
 				break;
 			}
 		}
@@ -132,7 +133,7 @@ public class BaseClass {
 	}
 
 	protected static void quit() {
-		driver.quit();
+		getBrowser.getDriver().quit();
 	}
 
 	protected static String getText(String locator) {
@@ -146,11 +147,11 @@ public class BaseClass {
 	}
 
 	protected static String getTitlePage() {
-		return driver.getTitle();
+		return getBrowser.getDriver().getTitle();
 	}
 
 	protected static String getURL() {
-		return driver.getCurrentUrl();
+		return getBrowser.getDriver().getCurrentUrl();
 	}
 
 	protected static void type(String locator, String text) {
@@ -192,7 +193,7 @@ public class BaseClass {
 	}
 
 	protected static Boolean getPageSource(String locator) {
-		if (driver.getPageSource().contains(locator)) {
+		if (getBrowser.getDriver().getPageSource().contains(locator)) {
 			return true;
 		}
 		return false;
@@ -214,12 +215,12 @@ public class BaseClass {
 	}
 
 	protected static void doubleClick(String locator) {
-		actions = new Actions(driver);
+		actions = new Actions(getBrowser.getDriver());
 		actions.doubleClick(findElementClickable(locator)).perform();
 	}
 
 	protected static void rightClick(String locator) {
-		actions = new Actions(driver);
+		actions = new Actions(getBrowser.getDriver());
 		actions.contextClick(findElementClickable(locator)).perform();
 	}
 }

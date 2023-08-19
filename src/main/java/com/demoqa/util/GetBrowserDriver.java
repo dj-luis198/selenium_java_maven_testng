@@ -8,39 +8,49 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class GetBrowserDriver {
-	static WebDriver driver;
+	public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	
-	public static WebDriver getBrowserDriver(String browser) {
+	public void setDriver(WebDriver driver) {
+		this.driver.set(driver);
+	}
+	
+	public WebDriver getDriver() {
+		return this.driver.get();
+	}
+	
+	public WebDriver getBrowserDriver(String browser) {
 		if(browser!=null) {
 			if(browser.equalsIgnoreCase("chrome")) {
-				driver = setChromeDriver();
+				ChromeOptions chromeOptions = new ChromeOptions();
+		    	//chromeOptions.addArguments("--headless=old");
+				setDriver(new ChromeDriver(chromeOptions));
 			}
-			else if(browser.equalsIgnoreCase("firefox")) {
+			/*else if(browser.equalsIgnoreCase("firefox")) {
 				driver = setFirefoxDriver();
 				
 			}
             else if(browser.equalsIgnoreCase("edge")) {
 				driver = setEdgeDriver();
 				
-			}
-		}return driver;
+			}*/
+		}return getDriver();
 	}
 	
-	private static WebDriver setChromeDriver() {
+	/*private WebDriver setChromeDriver() {
 		ChromeOptions chromeOptions = new ChromeOptions();
-    	chromeOptions.addArguments("--headless=old");
-		driver= new ChromeDriver(chromeOptions);
+    	//chromeOptions.addArguments("--headless=old");
+		setDriver(new ChromeDriver(chromeOptions));
 		return driver;
 	}
 	
-	private static WebDriver setFirefoxDriver() {
+	private WebDriver setFirefoxDriver() {
 		driver= new FirefoxDriver();
 		return driver;
 	}
 
-    private static WebDriver setEdgeDriver() {
+    private WebDriver setEdgeDriver() {
 		driver= new EdgeDriver();
 		return driver;
-	}
+	}*/
 
 }
