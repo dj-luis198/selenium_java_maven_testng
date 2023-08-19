@@ -201,3 +201,4 @@ README.html
 .exercism
 .env
 /test-output
+/.apt_generated_tests/

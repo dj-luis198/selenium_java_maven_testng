@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="1" parallel="tests" name="Suite">
-  <test name="Test">
+<suite name="Suite" thread-count="2" parallel="methods">
+  <listeners>
+    <listener class-name="com.demoqa.test.listeners.MyAnnotationTransformer" />
+  </listeners>
+  <test name="Test1">
     <classes>
-      <class name="com.demoqa.test.TitlePagesTests"/>
-      <class name="com.demoqa.test.elements.WebTablesTest"/>
+      <class name="com.demoqa.test.elements.LinksTest"/>
       <class name="com.demoqa.test.elements.RadioButtonTest"/>
       <class name="com.demoqa.test.elements.CheckBoxTest"/>
-      <class name="com.demoqa.test.elements.TextBoxTest"/>
       <class name="com.demoqa.test.elements.ButtonsTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+      <class name="com.demoqa.test.elements.TextBoxTest"/>
+      <class name="com.demoqa.test.elements.WebTablesTest"/>
+    </classes>  
+    </test>
+</suite>
