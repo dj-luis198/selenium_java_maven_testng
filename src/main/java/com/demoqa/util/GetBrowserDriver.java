@@ -22,7 +22,7 @@ public class GetBrowserDriver {
 		if(browser!=null) {
 			if(browser.equalsIgnoreCase("chrome")) {
 				ChromeOptions chromeOptions = new ChromeOptions();
-		    	//chromeOptions.addArguments("--headless=old");
+		    	chromeOptions.addArguments("--headless=old");
 				setDriver(new ChromeDriver(chromeOptions));
 			}
 			/*else if(browser.equalsIgnoreCase("firefox")) {
