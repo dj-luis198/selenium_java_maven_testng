@@ -3,7 +3,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.demoqa.pages.HomePage;
-import com.demoqa.pages.TextBoxPage;
+import com.demoqa.pages.elements.TextBoxPage;
 import com.demoqa.test.BaseTest;
 import net.datafaker.Faker;
 

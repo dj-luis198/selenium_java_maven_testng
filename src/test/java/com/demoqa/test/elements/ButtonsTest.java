@@ -3,8 +3,9 @@ package com.demoqa.test.elements;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.demoqa.pages.ButtonsPage;
+
 import com.demoqa.pages.HomePage;
+import com.demoqa.pages.elements.ButtonsPage;
 import com.demoqa.test.BaseTest;
 
 public class ButtonsTest extends BaseTest {

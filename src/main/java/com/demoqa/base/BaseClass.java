@@ -22,7 +22,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsT
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class BaseClass {
-	private static GetBrowserDriver getBrowser=new GetBrowserDriver();
+	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
@@ -214,6 +214,18 @@ public class BaseClass {
 		return findElement(locator).getAttribute("id");
 	}
 
+	protected String getAttributeElementNaturalH(WebElement element) {
+		return element.getAttribute("naturalHeight");
+	}
+
+	protected String getAttributeElementSrcText(WebElement element) {
+		return element.getAttribute("src");
+	}
+
+	protected String getAttributeElementHref(WebElement element) {
+		return element.getAttribute("href");
+	}
+
 	protected static void doubleClick(String locator) {
 		actions = new Actions(getBrowser.getDriver());
 		actions.doubleClick(findElementClickable(locator)).perform();
@@ -222,5 +234,9 @@ public class BaseClass {
 	protected static void rightClick(String locator) {
 		actions = new Actions(getBrowser.getDriver());
 		actions.contextClick(findElementClickable(locator)).perform();
+	}
+
+	protected static List<WebElement> returnElements(String locator) {
+		return findElementsXpath(locator);
 	}
 }
