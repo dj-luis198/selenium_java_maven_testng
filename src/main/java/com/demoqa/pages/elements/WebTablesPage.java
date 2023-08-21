@@ -1,4 +1,4 @@
-package com.demoqa.pages;
+package com.demoqa.pages.elements;
 
 import java.util.ArrayList;
 import java.util.List;

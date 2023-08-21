@@ -10,10 +10,15 @@ public class HomePage extends BaseClass {
     private final String radioButton = "(//li[@id='item-2'])[1]";
     private final String webTables = "//span[normalize-space()='Web Tables']";
     private final String buttons = "//span[normalize-space()='Buttons']";
-    private final String links ="//span[normalize-space()='Links']";
+    private final String links = "//span[normalize-space()='Links']";
+    private final String BrokenLinksImages = "//span[normalize-space()='Broken Links - Images']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectBrokenLinksImagesItem() {
+        click(BrokenLinksImages);
     }
 
     public void SelectElements() {
@@ -69,9 +74,13 @@ public class HomePage extends BaseClass {
         this.SelectButtonsItem();
     }
 
-     public void goToLinksPage() {
+    public void goToLinksPage() {
         this.SelectElements();
         this.SelectLinksItem();
     }
 
+    public void goToBrokenLinksImagesPage() {
+        this.SelectElements();
+        this.SelectBrokenLinksImagesItem();
+    }
 }

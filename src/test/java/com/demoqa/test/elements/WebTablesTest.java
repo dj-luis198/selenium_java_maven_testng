@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.demoqa.pages.HomePage;
-import com.demoqa.pages.WebTablesPage;
+import com.demoqa.pages.elements.WebTablesPage;
 import com.demoqa.test.BaseTest;
 import net.datafaker.Faker;
 

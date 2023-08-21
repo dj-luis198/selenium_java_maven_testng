@@ -6,8 +6,9 @@ import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.demoqa.pages.CheckBoxPage;
+
 import com.demoqa.pages.HomePage;
+import com.demoqa.pages.elements.CheckBoxPage;
 import com.demoqa.test.BaseTest;
 import com.demoqa.util.JsonSimple;
 

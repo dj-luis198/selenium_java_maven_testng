@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.demoqa.pages.HomePage;
-import com.demoqa.pages.LinksPage;
+import com.demoqa.pages.elements.LinksPage;
 import com.demoqa.test.BaseTest;
 
 import static io.restassured.RestAssured.*;

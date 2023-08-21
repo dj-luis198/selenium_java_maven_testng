@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.demoqa.pages.HomePage;
-import com.demoqa.pages.RadioButtonPage;
+import com.demoqa.pages.elements.RadioButtonPage;
 import com.demoqa.test.BaseTest;
 
 public class RadioButtonTest extends BaseTest{
