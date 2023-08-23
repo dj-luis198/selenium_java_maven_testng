@@ -11,14 +11,19 @@ public class HomePage extends BaseClass {
     private final String webTables = "//span[normalize-space()='Web Tables']";
     private final String buttons = "//span[normalize-space()='Buttons']";
     private final String links = "//span[normalize-space()='Links']";
-    private final String BrokenLinksImages = "//span[normalize-space()='Broken Links - Images']";
+    private final String brokenLinksImages = "//span[normalize-space()='Broken Links - Images']";
+    private final String uploadAndDownload = "//span[normalize-space()='Upload and Download']";
 
     public String getTitleHomePage() {
         return getTitlePage();
     }
 
+    public void SelectUploadAndDownloadItem() {
+        click(uploadAndDownload);
+    }
+
     public void SelectBrokenLinksImagesItem() {
-        click(BrokenLinksImages);
+        click(brokenLinksImages);
     }
 
     public void SelectElements() {
@@ -82,5 +87,10 @@ public class HomePage extends BaseClass {
     public void goToBrokenLinksImagesPage() {
         this.SelectElements();
         this.SelectBrokenLinksImagesItem();
+    }
+
+    public void goToUploadAndDownloadPage() {
+        this.SelectElements();
+        this.SelectUploadAndDownloadItem();
     }
 }

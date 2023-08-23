@@ -27,7 +27,7 @@ public class BrokenLinksImagesTest extends BaseTest {
     public void validateImagesPage() {
         Assert.assertTrue(brokenLinksImagesPage.returnImages());
     }
-    
+
     @Ignore
     @Test(description = "validate links page")
     public void validateLinksPage() {
@@ -45,7 +45,7 @@ public class BrokenLinksImagesTest extends BaseTest {
                        .then()
                             .extract()
                             .statusCode();
-            if (code == 500) {
+            if (code >= 400) {
                 count++;
                 System.out.println("link broken: " + href);
             } else {
