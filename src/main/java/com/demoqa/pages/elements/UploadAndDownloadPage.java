@@ -30,13 +30,11 @@ public class UploadAndDownloadPage extends BaseClass {
 
     public Boolean verifyDownloadedFilePath() {
         String expectedFileName = getAttributeDownload(downloadButton);
-        System.out.println(expectedFileName);
-        folder = new File(downloadPath);
+        folder = new File(downloadPath).getAbsoluteFile();
         File[] listOfFiles = folder.listFiles();
         for (File listOfFile : listOfFiles) {
             if (listOfFile.isFile()) {
                 String fileName = listOfFile.getName();
-                System.out.println(fileName);
                 if (fileName.matches(expectedFileName))
                     return true;
             }
