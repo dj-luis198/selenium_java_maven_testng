@@ -28,7 +28,9 @@ public class UploadAndDownloadTest extends BaseTest {
     @Test
     public void validateDownloadFile() throws InterruptedException {
         uploadAndDownloadPage.clickDownloadButton();
+        System.out.println("espera");
         Thread.sleep(1000);
+        System.out.println("assert");
         Assert.assertTrue(uploadAndDownloadPage.verifyDownloadedFilePath());
     }
 }
