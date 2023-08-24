@@ -28,7 +28,7 @@ public class BaseClass {
 	private static Properties propA = new Properties();
 	private static Actions actions;
 
-	protected static void init(){
+	protected static void init() {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
@@ -108,7 +108,7 @@ public class BaseClass {
 			(findElementClickable(locator)).click();
 		} catch (ElementClickInterceptedException e) {
 			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click()", findElementClickable(locator));
+			jse.executeScript("arguments[0].click();", findElementClickable(locator));
 		}
 	}
 
@@ -242,5 +242,14 @@ public class BaseClass {
 
 	protected static List<WebElement> returnElements(String locator) {
 		return findElementsXpath(locator);
+	}
+
+	protected static void AdsCSSDisplayNone(String locator) {
+		cSSDisplayNone(findElement(locator));
+	}
+
+	protected static void cSSDisplayNone(WebElement element) {
+		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+		jse.executeScript("arguments[0].style.display = 'none';", element);
 	}
 }

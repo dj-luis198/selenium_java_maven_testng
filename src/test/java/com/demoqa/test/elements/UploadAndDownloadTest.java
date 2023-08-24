@@ -4,19 +4,23 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.demoqa.pages.AdsFooter;
 import com.demoqa.pages.HomePage;
 import com.demoqa.pages.elements.UploadAndDownloadPage;
 import com.demoqa.test.BaseTest;
 
 public class UploadAndDownloadTest extends BaseTest {
     HomePage homePage;
+    AdsFooter adsFooter;
     UploadAndDownloadPage uploadAndDownloadPage;
 
     @BeforeMethod
     public void preconditions() {
+        adsFooter = new AdsFooter();
         homePage = new HomePage();
         uploadAndDownloadPage = new UploadAndDownloadPage();
         homePage.goToUploadAndDownloadPage();
+        adsFooter.deleteAds();
     }
 
     @Test
@@ -28,13 +32,11 @@ public class UploadAndDownloadTest extends BaseTest {
     @Test
     public void validateDownloadFile() {
         uploadAndDownloadPage.clickDownloadButton();
-        System.out.println("espera");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("assert");
         Assert.assertTrue(uploadAndDownloadPage.verifyDownloadedFilePath());
     }
 }

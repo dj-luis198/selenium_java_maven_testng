@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 
 public class GetBrowserDriver {
 	public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -36,23 +38,29 @@ public class GetBrowserDriver {
 				ChromeOptions options = new ChromeOptions();
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
-				System.out.println("get browser, getAbsolutePath" + file.getAbsolutePath());
 				pref.put("download.default_directory", file.getAbsolutePath());
 				options.addArguments("--headless=old");
 				options.setExperimentalOption("prefs", pref);
 				setDriver(new ChromeDriver(options));
 			}
-			/*
-			 * else if(browser.equalsIgnoreCase("firefox")) {
-			 * setDriver(new FirefoxDriver());
-			 * 
-			 * }
-			 */
+
+			else if (browser.equalsIgnoreCase("firefox")) {
+				FirefoxOptions options = new FirefoxOptions();
+				FirefoxProfile profile = new FirefoxProfile();
+				profile.setPreference("pdfjs.disabled", true);
+				profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "image/jpeg");
+				profile.setPreference("browser.download.dir", file.getAbsolutePath());
+				profile.setPreference("browser.download.folderList", 2);
+				options.addArguments("--headless");
+				options.setProfile(profile);
+				setDriver(new FirefoxDriver(options));
+
+			}
+
 			else if (browser.equalsIgnoreCase("edge")) {
 				EdgeOptions options = new EdgeOptions();
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
-				System.out.println("get browser, getAbsolutePath" + file.getAbsolutePath());
 				pref.put("download.default_directory", file.getAbsolutePath());
 				options.addArguments("--headless=old");
 				options.setExperimentalOption("prefs", pref);

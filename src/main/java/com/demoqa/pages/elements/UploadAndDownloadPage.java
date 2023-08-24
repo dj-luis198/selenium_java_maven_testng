@@ -29,28 +29,17 @@ public class UploadAndDownloadPage extends BaseClass {
     }
 
     public Boolean verifyDownloadedFilePath() {
-        System.out.println("estoy comenzando verify ");
         String expectedFileName = getAttributeDownload(downloadButton);
-        System.out.println("get atributo terminado ");
         folder = new File(downloadPath).getAbsoluteFile();
-        System.out.println("verify- folder "+folder);
-        System.out.println("asignacion folder terminada ");
         File[] listOfFiles = folder.listFiles();
-        System.out.println("lista de file terminada ");
         for (File listOfFile : listOfFiles) {
-            System.out.println("estoy en comenzando for");
             if (listOfFile.isFile()) {
-                System.out.println("primer if ");
-                System.out.println("Nombre esperado "+expectedFileName);
                 String fileName = listOfFile.getName();
-                System.out.println("Nombre actual "+expectedFileName);
-                if (fileName.matches(expectedFileName)){
-                   System.out.println("segundo if ");
+                if (fileName.matches(expectedFileName)) {
                     return true;
                 }
             }
         }
-        System.out.println("return false ");
         return false;
     }
 }
