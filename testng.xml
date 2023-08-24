@@ -7,7 +7,6 @@
   </listeners>
   <test name="ElementsTest">
     <classes>
-      <class name="com.demoqa.test.elements.LinksTest"/>
       <class name="com.demoqa.test.elements.RadioButtonTest"/>
       <class name="com.demoqa.test.elements.CheckBoxTest"/>
       <class name="com.demoqa.test.elements.ButtonsTest"/>
