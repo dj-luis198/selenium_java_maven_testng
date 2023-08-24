@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class GetBrowserDriver {
@@ -23,7 +24,7 @@ public class GetBrowserDriver {
 		return this.driver.get();
 	}
 
-	public WebDriver getBrowserDriver(String browser){
+	public WebDriver getBrowserDriver(String browser) {
 		File file = new File("files/downloadFiles");
 		try {
 			FileUtils.cleanDirectory(file);
@@ -35,7 +36,7 @@ public class GetBrowserDriver {
 				ChromeOptions options = new ChromeOptions();
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
-				System.out.println("get browser, getAbsolutePath"+file.getAbsolutePath());
+				System.out.println("get browser, getAbsolutePath" + file.getAbsolutePath());
 				pref.put("download.default_directory", file.getAbsolutePath());
 				options.addArguments("--headless=old");
 				options.setExperimentalOption("prefs", pref);
@@ -46,11 +47,18 @@ public class GetBrowserDriver {
 			 * setDriver(new FirefoxDriver());
 			 * 
 			 * }
-			 * else if(browser.equalsIgnoreCase("edge")) {
-			 * setDriver(new EdgeDriver());
-			 * 
-			 * }
 			 */
+			else if (browser.equalsIgnoreCase("edge")) {
+				EdgeOptions options = new EdgeOptions();
+				Map<String, Object> pref = new HashMap<String, Object>();
+				pref.put("download.prompt_for_download", false);
+				System.out.println("get browser, getAbsolutePath" + file.getAbsolutePath());
+				pref.put("download.default_directory", file.getAbsolutePath());
+				options.addArguments("--headless=old");
+				options.setExperimentalOption("prefs", pref);
+				setDriver(new EdgeDriver(options));
+			}
+
 		}
 		return getDriver();
 	}
