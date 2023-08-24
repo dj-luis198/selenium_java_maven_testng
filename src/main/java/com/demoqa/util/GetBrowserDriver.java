@@ -25,13 +25,14 @@ public class GetBrowserDriver {
 	}
 
 	public WebDriver getBrowserDriver(String browser) throws IOException {
-		File file = new File("files/downloadFiles").getAbsoluteFile();
+		File file = new File("files/downloadFiles");
 		FileUtils.cleanDirectory(file);
 		if (browser != null) {
 			if (browser.equalsIgnoreCase("chrome")) {
 				ChromeOptions options = new ChromeOptions();
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
+				System.out.println("get browser, getAbsolutePath"+file.getAbsolutePath());
 				pref.put("download.default_directory", file.getAbsolutePath());
 				options.addArguments("--headless=old");
 				options.setExperimentalOption("prefs", pref);

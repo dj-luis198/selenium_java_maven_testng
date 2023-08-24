@@ -29,10 +29,11 @@ public class UploadAndDownloadPage extends BaseClass {
     }
 
     public Boolean verifyDownloadedFilePath() {
-        System.out.println("estoycomenzando verify ");
+        System.out.println("estoy comenzando verify ");
         String expectedFileName = getAttributeDownload(downloadButton);
         System.out.println("get atributo terminado ");
         folder = new File(downloadPath).getAbsoluteFile();
+        System.out.println("verify- folder "+folder);
         System.out.println("asignacion folder terminada ");
         File[] listOfFiles = folder.listFiles();
         System.out.println("lista de file terminada ");
