@@ -25,7 +25,7 @@ public class GetBrowserDriver {
 	}
 
 	public WebDriver getBrowserDriver(String browser) throws IOException {
-		File file = new File("files/downloadFiles");
+		File file = new File("files/downloadFiles").getAbsoluteFile();
 		FileUtils.cleanDirectory(file);
 		if (browser != null) {
 			if (browser.equalsIgnoreCase("chrome")) {
