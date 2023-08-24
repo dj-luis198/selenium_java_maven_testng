@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class GetBrowserDriver {
 	public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -24,9 +23,13 @@ public class GetBrowserDriver {
 		return this.driver.get();
 	}
 
-	public WebDriver getBrowserDriver(String browser) throws IOException {
+	public WebDriver getBrowserDriver(String browser){
 		File file = new File("files/downloadFiles");
-		FileUtils.cleanDirectory(file);
+		try {
+			FileUtils.cleanDirectory(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		if (browser != null) {
 			if (browser.equalsIgnoreCase("chrome")) {
 				ChromeOptions options = new ChromeOptions();
