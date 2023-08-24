@@ -28,7 +28,7 @@ public class BaseClass {
 	private static Properties propA = new Properties();
 	private static Actions actions;
 
-	protected static void init() {
+	protected static void init() throws IOException {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
@@ -208,6 +208,10 @@ public class BaseClass {
 	protected static List<WebElement> selectGetOptions(String locator) {
 		Select select = new Select(findElement(locator));
 		return select.getOptions();
+	}
+
+	protected String getAttributeDownload(String locator) {
+		return findElement(locator).getAttribute("download");
 	}
 
 	protected String getAttributeId(String locator) {

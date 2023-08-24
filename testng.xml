@@ -13,6 +13,7 @@
       <class name="com.demoqa.test.elements.ButtonsTest"/>
       <class name="com.demoqa.test.elements.TextBoxTest"/>
       <class name="com.demoqa.test.elements.WebTablesTest"/>
+      <class name="com.demoqa.test.elements.UploadAndDownloadTest"/>
     </classes>  
     </test>
 </suite>
