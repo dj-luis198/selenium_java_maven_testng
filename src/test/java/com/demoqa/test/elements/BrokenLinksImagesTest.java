@@ -3,9 +3,9 @@ package com.demoqa.test.elements;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+import com.demoqa.pages.AdsFooter;
 import com.demoqa.pages.HomePage;
 import com.demoqa.pages.elements.BrokenLinksImagesPage;
 import com.demoqa.test.BaseTest;
@@ -18,18 +18,23 @@ public class BrokenLinksImagesTest extends BaseTest {
     @BeforeMethod
     public void preconditions() {
         homepage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
         brokenLinksImagesPage = new BrokenLinksImagesPage();
         homepage.goToBrokenLinksImagesPage();
+        adsFooter.deleteAds();
     }
-    
-    @Ignore
-    @Test(description = "validate images page")
+
+    @Test
+    public void validate() {
+        //
+    }
+
+    @Test(description = "validate images page", enabled = false)
     public void validateImagesPage() {
         Assert.assertTrue(brokenLinksImagesPage.returnImages());
     }
 
-    @Ignore
-    @Test(description = "validate links page")
+    @Test(description = "validate links page", enabled = false)
     public void validateLinksPage() {
 
         int count = 0;
@@ -40,11 +45,11 @@ public class BrokenLinksImagesTest extends BaseTest {
             String href = getAttributeElementHref(link);
 
             int code = given()
-                       .when()
-                            .get(href)
-                       .then()
-                            .extract()
-                            .statusCode();
+                    .when()
+                    .get(href)
+                    .then()
+                    .extract()
+                    .statusCode();
             if (code >= 400) {
                 count++;
                 System.out.println("link broken: " + href);

@@ -3,6 +3,8 @@ package com.demoqa.test.elements;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.demoqa.pages.AdsFooter;
 import com.demoqa.pages.HomePage;
 import com.demoqa.pages.elements.WebTablesPage;
 import com.demoqa.test.BaseTest;
@@ -12,14 +14,17 @@ public class WebTablesTest extends BaseTest {
     Faker faker = new Faker();
     String firstName, lastName, email, department;
     int salary, age;
+    AdsFooter adsFooter;
     HomePage homePage;
     WebTablesPage webTablesPage;
 
     @BeforeMethod
     public void preconditions() {
+        adsFooter = new AdsFooter();
         homePage = new HomePage();
         webTablesPage = new WebTablesPage();
         homePage.goToWebTablesPage();
+        adsFooter.deleteAds();
     }
 
     @Test(description = "Validate enter 10 users")

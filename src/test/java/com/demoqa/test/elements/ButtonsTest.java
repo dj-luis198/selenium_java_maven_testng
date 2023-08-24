@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.demoqa.pages.AdsFooter;
 import com.demoqa.pages.HomePage;
 import com.demoqa.pages.elements.ButtonsPage;
 import com.demoqa.test.BaseTest;
@@ -15,8 +16,10 @@ public class ButtonsTest extends BaseTest {
     @BeforeMethod
     public void preconditions() {
         homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
         buttonsPage = new ButtonsPage();
         homePage.goToButtonsPage();
+        adsFooter.deleteAds();
     }
 
     @Test(description = "Validate double clic on Button")
