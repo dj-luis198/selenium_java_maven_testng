@@ -28,7 +28,7 @@ public class BaseClass {
 	private static Properties propA = new Properties();
 	private static Actions actions;
 
-	protected static void init() throws IOException {
+	protected static void init(){
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));

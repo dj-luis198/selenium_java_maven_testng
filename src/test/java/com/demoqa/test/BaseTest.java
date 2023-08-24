@@ -10,7 +10,7 @@ import com.demoqa.base.BaseClass;
 public class BaseTest extends BaseClass{
 
     @BeforeMethod
-    public void setUp() throws IOException{
+    public void setUp(){
             init();	
     }
 
