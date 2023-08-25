@@ -252,4 +252,8 @@ public class BaseClass {
 		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
 		jse.executeScript("arguments[0].style.display = 'none';", element);
 	}
+
+	protected static String returnCSSColor(String locator) {
+		return findElement(locator).getCssValue("color");
+	}
 }
