@@ -13,9 +13,14 @@ public class HomePage extends BaseClass {
     private final String links = "//span[normalize-space()='Links']";
     private final String brokenLinksImages = "//span[normalize-space()='Broken Links - Images']";
     private final String uploadAndDownload = "//span[normalize-space()='Upload and Download']";
+    private final String dynamicProperties = "//span[normalize-space()='Dynamic Properties']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectDynamicPropertiesItem() {
+        click(dynamicProperties);
     }
 
     public void SelectUploadAndDownloadItem() {
@@ -92,5 +97,10 @@ public class HomePage extends BaseClass {
     public void goToUploadAndDownloadPage() {
         this.SelectElements();
         this.SelectUploadAndDownloadItem();
+    }
+
+    public void goToDynamicPropertiesPage() {
+        this.SelectElements();
+        this.SelectDynamicPropertiesItem();
     }
 }
