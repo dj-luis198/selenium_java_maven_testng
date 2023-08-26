@@ -4,10 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.demoqa.pages.AdsFooter;
-import com.demoqa.pages.HomePage;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.DynamicPropertiesPage;
-import com.demoqa.test.BaseTest;
+import com.demoqa.test.base.BaseTest;
 
 public class DynamicPropertiesTest extends BaseTest {
     DynamicPropertiesPage dinamicPropertiesPage;
@@ -34,13 +34,21 @@ public class DynamicPropertiesTest extends BaseTest {
 
     @Test(description = "Valid button change color")
     public void validChangeColor() {
-        Assert.assertEquals(dinamicPropertiesPage.returnColor(), "rgba(255, 255, 255, 1)");
+        if (dinamicPropertiesPage.returnColor().equals("rgba(255, 255, 255, 1)")
+                || dinamicPropertiesPage.returnColor().equals("rgb(255, 255, 255)")) {
+            Assert.assertTrue(true);
+        } else
+            Assert.assertTrue(false);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(dinamicPropertiesPage.returnColor(), "rgba(220, 53, 69, 1)");
+        if (dinamicPropertiesPage.returnColor().equals("rgba(220, 53, 69, 1)")
+                || dinamicPropertiesPage.returnColor().equals("rgb(220, 53, 69)")) {
+            Assert.assertTrue(true);
+        } else
+            Assert.assertTrue(false);
     }
 
     @Test(description = "Valid button is visible")
