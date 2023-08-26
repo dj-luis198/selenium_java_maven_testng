@@ -16,6 +16,7 @@
       <class name="com.demoqa.test.elements.UploadAndDownloadTest"/>
       <class name="com.demoqa.test.elements.DynamicPropertiesTest"/>
       <class name="com.demoqa.test.elements.BrokenLinksImagesTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.BrowserWindowsTest"/>
     </classes>  
     </test>
 </suite>
