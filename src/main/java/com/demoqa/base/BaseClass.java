@@ -129,6 +129,13 @@ public class BaseClass {
 				break;
 			}
 		}
+		//ewait.until(titleIs(title));
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	protected static void quit() {

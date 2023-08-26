@@ -1,5 +1,4 @@
 package com.demoqa.test.base;
-import java.io.IOException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
