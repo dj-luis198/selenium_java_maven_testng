@@ -5,6 +5,7 @@ import com.demoqa.base.BaseClass;
 public class HomePage extends BaseClass {
 
     private final String elementsText = "//div[@class=\"card mt-4 top-card\"][1]//div[@class=\"card-body\"]";
+    private final String AlertsFrameWindowsText = "//h5[normalize-space()='Alerts, Frame & Windows']";
     private final String textBox = "//*[contains(text(),\"Text Box\")]";
     private final String checkBox = "//*[contains(text(),\"Check Box\")]";
     private final String radioButton = "(//li[@id='item-2'])[1]";
@@ -14,9 +15,14 @@ public class HomePage extends BaseClass {
     private final String brokenLinksImages = "//span[normalize-space()='Broken Links - Images']";
     private final String uploadAndDownload = "//span[normalize-space()='Upload and Download']";
     private final String dynamicProperties = "//span[normalize-space()='Dynamic Properties']";
+    private final String BrowserWindows = "//span[normalize-space()='Browser Windows']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectBrowserWindowsItem() {
+        click(BrowserWindows);
     }
 
     public void SelectDynamicPropertiesItem() {
@@ -33,6 +39,10 @@ public class HomePage extends BaseClass {
 
     public void SelectElements() {
         click(elementsText);
+    }
+
+    public void SelectAlertsFrameWindows() {
+        click(AlertsFrameWindowsText);
     }
 
     public void SelectLinksItem() {
@@ -102,5 +112,10 @@ public class HomePage extends BaseClass {
     public void goToDynamicPropertiesPage() {
         this.SelectElements();
         this.SelectDynamicPropertiesItem();
+    }
+
+    public void goToAlertsFrameWindowsPage() {
+        this.SelectAlertsFrameWindows();
+        this.SelectBrowserWindowsItem();
     }
 }

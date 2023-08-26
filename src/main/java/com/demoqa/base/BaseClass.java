@@ -129,7 +129,6 @@ public class BaseClass {
 				break;
 			}
 		}
-		ewait.until(titleIs("DEMOQA"));
 	}
 
 	protected static void quit() {
