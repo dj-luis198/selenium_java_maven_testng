@@ -19,7 +19,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.demoqa.util.GetBrowserDriver;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class BaseClass {
 	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
