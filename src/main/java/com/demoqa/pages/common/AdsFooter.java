@@ -1,4 +1,4 @@
-package com.demoqa.pages;
+package com.demoqa.pages.common;
 
 import com.demoqa.base.BaseClass;
 

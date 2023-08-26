@@ -4,10 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.demoqa.pages.AdsFooter;
-import com.demoqa.pages.HomePage;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.UploadAndDownloadPage;
-import com.demoqa.test.BaseTest;
+import com.demoqa.test.base.BaseTest;
 
 public class UploadAndDownloadTest extends BaseTest {
     HomePage homePage;
