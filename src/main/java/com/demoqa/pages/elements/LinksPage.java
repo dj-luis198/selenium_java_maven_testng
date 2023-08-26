@@ -15,7 +15,6 @@ public class LinksPage extends BaseClass{
     private final String newTabSimpleLink="//a[@id='simpleLink']";
     private final String newTabDinamicLink="//a[@id='dynamicLink']";
     private final String url ="https://demoqa.com/";
-
     public Boolean returnURL(){
         if(getURL().equals(url)){
             return true;
