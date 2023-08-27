@@ -179,7 +179,7 @@ public class BaseClass {
 
 	protected static Boolean isSelected(String locator) {
 		try {
-			Thread.sleep(300);
+			Thread.sleep(400);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -192,7 +192,7 @@ public class BaseClass {
 
 	protected static Boolean isEnabled(String locator) {
 		try {
-			Thread.sleep(300);
+			Thread.sleep(400);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -201,7 +201,7 @@ public class BaseClass {
 
 	protected static Boolean isDisplayed(String locator) {
 		try {
-			Thread.sleep(300);
+			Thread.sleep(400);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
