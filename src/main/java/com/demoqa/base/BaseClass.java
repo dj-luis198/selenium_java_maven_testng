@@ -178,6 +178,11 @@ public class BaseClass {
 	}
 
 	protected static Boolean isSelected(String locator) {
+		try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return findElement(locator).isSelected();
 	}
 
@@ -186,10 +191,20 @@ public class BaseClass {
 	}
 
 	protected static Boolean isEnabled(String locator) {
+		try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return findElement(locator).isEnabled();
 	}
 
 	protected static Boolean isDisplayed(String locator) {
+		try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return findElement(locator).isDisplayed();
 	}
 
