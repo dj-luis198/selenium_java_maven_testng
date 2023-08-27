@@ -4,13 +4,10 @@ import com.demoqa.base.BaseClass;
 
 public class AccordianPage extends BaseClass {
     private final String section1Button = "//div[@id='section1Heading']";
-    private final String section1 = "//div[@id='section1Heading']/parent::div";
     private final String section1Content = "//div[@id='section1Content']/parent::div";
     private final String section2Button = "//div[@id='section2Heading']";
-    private final String section2 = "//div[@id='section2Heading']/parent::div";
     private final String section2Content = "//div[@id='section2Content']/parent::div";
     private final String section3Button = "//div[@id='section3Heading']";
-    private final String section3 = "//div[@id='section3Heading']/parent::div";
     private final String section3Content = "//div[@id='section3Content']/parent::div";
 
     public void clickSection1() {
