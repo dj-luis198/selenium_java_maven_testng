@@ -19,6 +19,7 @@
       <class name="com.demoqa.test.AlertsFrameWindows.BrowserWindowsTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.AlertsTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.FramesTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.NestedFramesTest"/>
     </classes>  
     </test>
 </suite>

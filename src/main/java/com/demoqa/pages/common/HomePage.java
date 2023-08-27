@@ -18,9 +18,14 @@ public class HomePage extends BaseClass {
     private final String BrowserWindows = "//span[normalize-space()='Browser Windows']";
     private final String alerts = "//span[normalize-space()='Alerts']";
     private final String frames = "//span[normalize-space()='Frames']";
+    private final String nestedFrames = "//span[normalize-space()='Nested Frames']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectNestedFramesItem() {
+        click(nestedFrames);
     }
 
     public void SelectFramesItem() {
@@ -137,5 +142,10 @@ public class HomePage extends BaseClass {
     public void goToFramesPage() {
         this.SelectAlertsFrameWindows();
         this.SelectFramesItem();
+    }
+
+    public void goToNestedFramesPage() {
+        this.SelectAlertsFrameWindows();
+        this.SelectNestedFramesItem();
     }
 }
