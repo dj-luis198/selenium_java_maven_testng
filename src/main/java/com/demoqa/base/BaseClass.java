@@ -272,7 +272,7 @@ public class BaseClass {
 		return text;
 	}
 
-	protected static void confirmAlertOk(){
+	protected static void confirmAlertOk() {
 		String time = propF.getProperty("timeOut");
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		ewait.until(ExpectedConditions.alertIsPresent());
@@ -280,7 +280,7 @@ public class BaseClass {
 		alert.accept();
 	}
 
-	protected static void confirmAlertCancel(){
+	protected static void confirmAlertCancel() {
 		String time = propF.getProperty("timeOut");
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		ewait.until(ExpectedConditions.alertIsPresent());
@@ -288,11 +288,20 @@ public class BaseClass {
 		alert.dismiss();
 	}
 
-	protected static void promptAlert(String text){
+	protected static void promptAlert(String text) {
 		String time = propF.getProperty("timeOut");
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
 		alert.sendKeys(text);
 		alert.accept();
+	}
+
+	protected static void switchToTheFrame(String locator) {
+		WebElement iframe = findElement(locator);
+		getBrowser.getDriver().switchTo().frame(iframe);
+	}
+
+	protected static void returnDefaultContent() {
+		getBrowser.getDriver().switchTo().defaultContent();
 	}
 }

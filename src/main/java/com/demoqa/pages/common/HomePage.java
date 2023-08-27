@@ -17,9 +17,14 @@ public class HomePage extends BaseClass {
     private final String dynamicProperties = "//span[normalize-space()='Dynamic Properties']";
     private final String BrowserWindows = "//span[normalize-space()='Browser Windows']";
     private final String alerts = "//span[normalize-space()='Alerts']";
+    private final String frames = "//span[normalize-space()='Frames']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectFramesItem() {
+        click(frames);
     }
 
     public void SelectAlertsItem() {
@@ -127,5 +132,10 @@ public class HomePage extends BaseClass {
     public void goToAlertsPage() {
         this.SelectAlertsFrameWindows();
         this.SelectAlertsItem();
+    }
+
+    public void goToFramesPage() {
+        this.SelectAlertsFrameWindows();
+        this.SelectFramesItem();
     }
 }

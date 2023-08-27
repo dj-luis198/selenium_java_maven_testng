@@ -18,6 +18,7 @@
       <class name="com.demoqa.test.elements.BrokenLinksImagesTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.BrowserWindowsTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.AlertsTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.FramesTest"/>
     </classes>  
     </test>
 </suite>
