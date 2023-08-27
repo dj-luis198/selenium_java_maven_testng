@@ -20,9 +20,15 @@ public class HomePage extends BaseClass {
     private final String frames = "//span[normalize-space()='Frames']";
     private final String nestedFrames = "//span[normalize-space()='Nested Frames']";
     private final String modalDialogs = "//span[normalize-space()='Modal Dialogs']";
+    private final String widgets = "//div[normalize-space()='Widgets']";
+    private final String accordian = "//span[normalize-space()='Accordian']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectAccordianItem() {
+        click(accordian);
     }
 
     public void SelectModalDialogsItem() {
@@ -59,6 +65,10 @@ public class HomePage extends BaseClass {
 
     public void SelectElements() {
         click(elementsText);
+    }
+
+    public void SelectWidgets() {
+        click(widgets);
     }
 
     public void SelectAlertsFrameWindows() {
@@ -157,5 +167,10 @@ public class HomePage extends BaseClass {
     public void goToModalDialogsPage() {
         this.SelectAlertsFrameWindows();
         this.SelectModalDialogsItem();
+    }
+
+    public void goToAccordianPage() {
+        this.SelectWidgets();
+        this.SelectAccordianItem();
     }
 }
