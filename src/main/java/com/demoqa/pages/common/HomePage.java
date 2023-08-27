@@ -19,9 +19,14 @@ public class HomePage extends BaseClass {
     private final String alerts = "//span[normalize-space()='Alerts']";
     private final String frames = "//span[normalize-space()='Frames']";
     private final String nestedFrames = "//span[normalize-space()='Nested Frames']";
+    private final String modalDialogs = "//span[normalize-space()='Modal Dialogs']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectModalDialogsItem() {
+        click(modalDialogs);
     }
 
     public void SelectNestedFramesItem() {
@@ -147,5 +152,10 @@ public class HomePage extends BaseClass {
     public void goToNestedFramesPage() {
         this.SelectAlertsFrameWindows();
         this.SelectNestedFramesItem();
+    }
+
+    public void goToModalDialogsPage() {
+        this.SelectAlertsFrameWindows();
+        this.SelectModalDialogsItem();
     }
 }
