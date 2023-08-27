@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -128,7 +129,7 @@ public class BaseClass {
 				break;
 			}
 		}
-		//ewait.until(titleIs(title));
+		// ewait.until(titleIs(title));
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -260,5 +261,38 @@ public class BaseClass {
 
 	protected static String returnCSSColor(String locator) {
 		return findElement(locator).getCssValue("color");
+	}
+
+	protected static String acceptCommonAlert() {
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
+		String text = alert.getText();
+		alert.accept();
+		return text;
+	}
+
+	protected static void confirmAlertOk(){
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		ewait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = getBrowser.getDriver().switchTo().alert();
+		alert.accept();
+	}
+
+	protected static void confirmAlertCancel(){
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		ewait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = getBrowser.getDriver().switchTo().alert();
+		alert.dismiss();
+	}
+
+	protected static void promptAlert(String text){
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
+		alert.sendKeys(text);
+		alert.accept();
 	}
 }
