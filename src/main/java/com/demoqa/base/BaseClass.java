@@ -319,4 +319,9 @@ public class BaseClass {
 	protected static void returnDefaultContent() {
 		getBrowser.getDriver().switchTo().defaultContent();
 	}
+
+	protected static void mostrar(String locator){
+		
+		System.out.println(getBrowser.getDriver().getPageSource());
+	}
 }
