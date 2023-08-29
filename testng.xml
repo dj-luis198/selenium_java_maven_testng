@@ -20,8 +20,9 @@
       <class name="com.demoqa.test.AlertsFrameWindows.AlertsTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.FramesTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.NestedFramesTest"/>
-       <class name="com.demoqa.test.AlertsFrameWindows.ModalDialogsTest"/>
-       <class name="com.demoqa.test.widgets.AccordianTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.ModalDialogsTest"/>
+      <class name="com.demoqa.test.widgets.AccordianTest"/>
+      <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
     </classes>  
     </test>
 </suite>

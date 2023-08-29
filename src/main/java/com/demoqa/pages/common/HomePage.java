@@ -22,9 +22,14 @@ public class HomePage extends BaseClass {
     private final String modalDialogs = "//span[normalize-space()='Modal Dialogs']";
     private final String widgets = "//div[normalize-space()='Widgets']";
     private final String accordian = "//span[normalize-space()='Accordian']";
+    private final String autoComplete = "//span[normalize-space()='Auto Complete']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectAutoCompleteItem() {
+        click(autoComplete);
     }
 
     public void SelectAccordianItem() {
@@ -172,5 +177,10 @@ public class HomePage extends BaseClass {
     public void goToAccordianPage() {
         this.SelectWidgets();
         this.SelectAccordianItem();
+    }
+
+    public void goToAutoCompletePage() {
+        this.SelectWidgets();
+        this.SelectAutoCompleteItem();
     }
 }

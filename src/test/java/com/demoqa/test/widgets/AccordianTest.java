@@ -21,7 +21,7 @@ public class AccordianTest extends BaseTest {
         adsFooter.deleteAds();
     }
 
-    @Test
+    @Test(dataProviderDynamicClass = "")
     public void validateSection1Accordian() {
         Assert.assertTrue(accordianPage.isDisplayedSection1());
         Assert.assertFalse(accordianPage.isDisplayedSection2());
