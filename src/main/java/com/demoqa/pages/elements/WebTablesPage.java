@@ -44,7 +44,7 @@ public class WebTablesPage extends BaseClass {
         int rows = returnLength(rowGrup);
 
         if (getPageSource("-padRow")) {
-            int rowsEmpty = returnXpath(rowsEmptyTable).size();
+            int rowsEmpty = returnElements(rowsEmptyTable).size();
             for (int i = 1; i <= (rows - rowsEmpty); i++) {
                 if (pers.equals(getTextContent("(//div[@role='rowgroup'])[" + i
                         + "]"))) {
@@ -60,7 +60,7 @@ public class WebTablesPage extends BaseClass {
         int rows = returnLength(rowGrup);
 
         if (getPageSource("-padRow")) {
-            int rowsEmpty = returnXpath(rowsEmptyTable).size();
+            int rowsEmpty = returnElements(rowsEmptyTable).size();
             for (int i = 1; i <= (rows - rowsEmpty); i++) {
                 if (pers.equals(getTextContent("(//div[@role='rowgroup'])[" + i
                         + "]"))) {
@@ -79,7 +79,7 @@ public class WebTablesPage extends BaseClass {
     public Boolean returnHaveResult() {
         int rows = returnLength(rowGrup);
         if (getPageSource("-padRow")) {
-            int rowsEmpty = returnXpath(rowsEmptyTable).size();
+            int rowsEmpty = returnElements(rowsEmptyTable).size();
             if (!(rows == rowsEmpty)) {
                 return true;
             }
@@ -123,8 +123,12 @@ public class WebTablesPage extends BaseClass {
         return true;
     }
 
-    public Boolean selectRowsPerPageTable(String text) {
-        return selectPerText(rowPerPage, text);
+    public void selectRowsPerPageTable(String text) {
+        selectPerText(rowPerPage, text);
+    }
+
+    public String verifyIsSelect() {
+        return isSelectValue(rowPerPage);
     }
 
     public Boolean isEnabledButton(String locator) {
@@ -209,7 +213,7 @@ public class WebTablesPage extends BaseClass {
         int columns = returnLengthXpath(columnHeader);
         int rows = returnLength(rowGrup);
         if (getPageSource("-padRow")) {
-            int rowsEmpty = returnXpath(rowsEmptyTable).size();
+            int rowsEmpty = returnElements(rowsEmptyTable).size();
             for (int i = 1; i <= (columns - 1); i++) {
                 if (!pers.get(i - 1).equals(getTextContent("(//div[@role='rowgroup'])[" + (rows - rowsEmpty)
                         + "]//child::div[@role='gridcell'][" + i + "]"))) {

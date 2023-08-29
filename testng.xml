@@ -23,6 +23,7 @@
       <class name="com.demoqa.test.AlertsFrameWindows.ModalDialogsTest"/>
       <class name="com.demoqa.test.widgets.AccordianTest"/>
       <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
+      <class name="com.demoqa.test.widgets.DatePickerTest"/>
     </classes>  
     </test>
 </suite>

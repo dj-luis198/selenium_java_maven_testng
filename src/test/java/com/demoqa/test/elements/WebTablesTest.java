@@ -65,6 +65,7 @@ public class WebTablesTest extends BaseTest {
             Assert.assertEquals(webTablesPage.returnTextForm(), "Registration Form");
             webTablesPage.register(firstName, lastName, age, email, salary, department);
         }
+        Assert.assertEquals(webTablesPage.verifyIsSelect(), "5");
         Assert.assertTrue(webTablesPage.isEnabledPreviousButton());
         Assert.assertFalse(webTablesPage.isEnabledNextButton());
         webTablesPage.ClickPreviousButton();
