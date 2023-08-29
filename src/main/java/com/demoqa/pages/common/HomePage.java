@@ -23,9 +23,14 @@ public class HomePage extends BaseClass {
     private final String widgets = "//div[normalize-space()='Widgets']";
     private final String accordian = "//span[normalize-space()='Accordian']";
     private final String autoComplete = "//span[normalize-space()='Auto Complete']";
+    private final String datePicker = "//span[normalize-space()='Date Picker']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectDatePickerItem() {
+        click(datePicker);
     }
 
     public void SelectAutoCompleteItem() {
@@ -182,5 +187,10 @@ public class HomePage extends BaseClass {
     public void goToAutoCompletePage() {
         this.SelectWidgets();
         this.SelectAutoCompleteItem();
+    }
+
+    public void goToDatePickerPage() {
+        this.SelectWidgets();
+        this.SelectDatePickerItem();
     }
 }

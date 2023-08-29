@@ -101,7 +101,159 @@ public class BaseClass {
 		}
 	}
 
-	// -----------------------------basicos---------------------------//
+	// -------------------------Basic--------------------------//
+
+	protected static void quit() {
+		getBrowser.getDriver().quit();
+	}
+
+	protected static String getTitlePage() {
+		return getBrowser.getDriver().getTitle();
+	}
+
+	protected static String getURL() {
+		return getBrowser.getDriver().getCurrentUrl();
+	}
+
+	protected static Boolean isSelected(String locator) {
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return findElement(locator).isSelected();
+	}
+
+	protected static Boolean isEnabled(String locator) {
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return findElement(locator).isEnabled();
+	}
+
+	protected static Boolean isDisplayed(String locator) {
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return findElement(locator).isDisplayed();
+	}
+
+	protected Boolean NoFind(String locator) {
+		return NoFindElement(locator);
+	}
+
+	protected static Boolean getPageSource(String locator) {
+		if (getBrowser.getDriver().getPageSource().contains(locator)) {
+			return true;
+		}
+		return false;
+	}
+
+	// -----------------------------Type---------------------------//
+
+	protected static void type(String locator, String text) {
+		findElement(locator).clear();
+		findElement(locator).sendKeys(text);
+	}
+
+	protected static void typeDatePicker(String locator, String text) {
+		findElement(locator).sendKeys(Keys.CONTROL + "a");
+		findElement(locator).sendKeys(Keys.DELETE);
+		findElement(locator).sendKeys(text);
+	}
+
+	protected static void typeAndEnter(String locator, String text) {
+		type(locator, text);
+		findElement(locator).sendKeys(Keys.ENTER);
+	}
+
+	// -----------------------------Return size---------------------------//
+
+	protected static int returnLength(String locator) {
+		return findElements(locator).size();
+	}
+
+	protected static int returnLengthXpath(String locator) {
+		return findElementsXpath(locator).size();
+	}
+
+	// ------------------------Return List<WebElement>---------------------//
+
+	protected static List<WebElement> returnElements(String locator) {
+		return findElementsXpath(locator);
+	}
+
+	// ----------------------------------Select--------------------------------------//
+	protected static void selectPerText(String locator, String text) {
+		Select select = new Select(findElement(locator));
+		select.selectByVisibleText(text);
+	}
+
+	protected static String isSelectValue(String locator) {
+		Select select = new Select(findElement(locator));
+		return select.getFirstSelectedOption().getAttribute("value");
+	}
+
+	protected static String isSelectInnerText(String locator) {
+		Select select = new Select(findElement(locator));
+		return select.getFirstSelectedOption().getAttribute("innerText");
+	}
+
+	protected static List<WebElement> selectGetOptions(String locator) {
+		Select select = new Select(findElement(locator));
+		return select.getOptions();
+	}
+	// ----------------------------------getAtribute--------------------------------------//
+
+	protected static String getText(String locator) {
+		String text = findElement(locator).getAttribute("value");
+		return text;
+	}
+
+	protected static String getTextContent(String locator) {
+		String text = findElement(locator).getAttribute("textContent");
+		return text;
+	}
+
+	protected static String getAttributeInnerText(String locator) {
+		String text = findElement(locator).getAttribute("innerText");
+		return text;
+	}
+
+	protected String getAttributeDownload(String locator) {
+		return findElement(locator).getAttribute("download");
+	}
+
+	protected String getAttributeId(String locator) {
+		return findElement(locator).getAttribute("id");
+	}
+
+	protected String getAttributeElementNaturalH(WebElement element) {
+		return element.getAttribute("naturalHeight");
+	}
+
+	protected String getAttributeElementSrcText(WebElement element) {
+		return element.getAttribute("src");
+	}
+
+	protected String getAttributeElementHref(WebElement element) {
+		return element.getAttribute("href");
+	}
+
+	protected static String getAttributeElementContent(WebElement element) {
+		return element.getAttribute("textContent");
+	}
+
+	protected String getAttributeDefaultValue(String locator) {
+		return findElement(locator).getAttribute("defaultValue");
+	}
+
+	// ----------------------------------click--------------------------------------//
+
 	protected static void click(String locator) {
 		// actions = new Actions(driver);
 		try {
@@ -109,6 +261,26 @@ public class BaseClass {
 		} catch (ElementClickInterceptedException e) {
 			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
 			jse.executeScript("arguments[0].click();", findElementClickable(locator));
+		}
+	}
+
+	protected static void clickNormal(String locator) {
+		// actions = new Actions(driver);
+		try {
+			(findElementClickable(locator)).click();
+		} catch (ElementClickInterceptedException e) {
+			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+			jse.executeScript("arguments[0].click();", findElementClickable(locator));
+		}
+	}
+
+	protected static void clickElement(WebElement element) {
+		// actions = new Actions(driver);
+		try {
+			element.click();
+		} catch (ElementClickInterceptedException e) {
+			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+			jse.executeScript("arguments[0].click();", element);
 		}
 	}
 
@@ -135,120 +307,6 @@ public class BaseClass {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
-	}
-
-	protected static void quit() {
-		getBrowser.getDriver().quit();
-	}
-
-	protected static String getText(String locator) {
-		String text = findElement(locator).getAttribute("value");
-		return text;
-	}
-
-	protected static String getTextContent(String locator) {
-		String text = findElement(locator).getAttribute("textContent");
-		return text;
-	}
-
-	protected static String getTitlePage() {
-		return getBrowser.getDriver().getTitle();
-	}
-
-	protected static String getURL() {
-		return getBrowser.getDriver().getCurrentUrl();
-	}
-
-	protected static void type(String locator, String text) {
-		findElement(locator).clear();
-		findElement(locator).sendKeys(text);
-	}
-
-	protected static int returnLength(String locator) {
-		return findElements(locator).size();
-	}
-
-	protected static int returnLengthXpath(String locator) {
-		return findElementsXpath(locator).size();
-	}
-
-	protected static List<WebElement> returnXpath(String locator) {
-		return findElementsXpath(locator);
-	}
-
-	protected static Boolean isSelected(String locator) {
-		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return findElement(locator).isSelected();
-	}
-
-	protected Boolean NoFind(String locator) {
-		return NoFindElement(locator);
-	}
-
-	protected static Boolean isEnabled(String locator) {
-		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return findElement(locator).isEnabled();
-	}
-
-	protected static Boolean isDisplayed(String locator) {
-		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return findElement(locator).isDisplayed();
-	}
-
-	protected static void typeAndEnter(String locator, String text) {
-		type(locator, text);
-		findElement(locator).sendKeys(Keys.ENTER);
-	}
-
-	protected static Boolean getPageSource(String locator) {
-		if (getBrowser.getDriver().getPageSource().contains(locator)) {
-			return true;
-		}
-		return false;
-	}
-
-	protected static Boolean selectPerText(String locator, String text) {
-		Select select = new Select(findElement(locator));
-		select.selectByVisibleText(text);
-		return select.getFirstSelectedOption().getAttribute("value").equals(text);
-	}
-
-	protected static List<WebElement> selectGetOptions(String locator) {
-		Select select = new Select(findElement(locator));
-		return select.getOptions();
-	}
-
-	protected String getAttributeDownload(String locator) {
-		return findElement(locator).getAttribute("download");
-	}
-
-	protected String getAttributeId(String locator) {
-		return findElement(locator).getAttribute("id");
-	}
-
-	protected String getAttributeElementNaturalH(WebElement element) {
-		return element.getAttribute("naturalHeight");
-	}
-
-	protected String getAttributeElementSrcText(WebElement element) {
-		return element.getAttribute("src");
-	}
-
-	protected String getAttributeElementHref(WebElement element) {
-		return element.getAttribute("href");
 	}
 
 	protected static void doubleClick(String locator) {
@@ -261,9 +319,7 @@ public class BaseClass {
 		actions.contextClick(findElementClickable(locator)).perform();
 	}
 
-	protected static List<WebElement> returnElements(String locator) {
-		return findElementsXpath(locator);
-	}
+	// ----------------------------------CSS--------------------------------------//
 
 	protected static void AdsCSSDisplayNone(String locator) {
 		cSSDisplayNone(findElement(locator));
@@ -277,6 +333,8 @@ public class BaseClass {
 	protected static String returnCSSColor(String locator) {
 		return findElement(locator).getCssValue("color");
 	}
+
+	// --------------------------------Alert------------------------------------//
 
 	protected static String acceptCommonAlert() {
 		String time = propF.getProperty("timeOut");
@@ -311,6 +369,8 @@ public class BaseClass {
 		alert.accept();
 	}
 
+	// -------------------------------Frame-------------------------------------//
+
 	protected static void switchToTheFrame(String locator) {
 		WebElement iframe = findElement(locator);
 		getBrowser.getDriver().switchTo().frame(iframe);
@@ -318,10 +378,5 @@ public class BaseClass {
 
 	protected static void returnDefaultContent() {
 		getBrowser.getDriver().switchTo().defaultContent();
-	}
-
-	protected static void mostrar(String locator){
-		
-		System.out.println(getBrowser.getDriver().getPageSource());
 	}
 }
