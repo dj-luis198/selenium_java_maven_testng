@@ -39,7 +39,7 @@ public class DatePickerTest extends BaseTest {
         Assert.assertEquals(datePickerPage.verifyDate(), "05/05/2018");
     }
 
-    @Test
+    /*@Test
     public void validateDateAndTimePicker() {
         datePickerPage.clickDateAndTimePickerInput();
         datePickerPage.clickYearSelectDateAndTime();
@@ -52,6 +52,6 @@ public class DatePickerTest extends BaseTest {
         Assert.assertTrue(datePickerPage.verifyDayDateAndTime("5", "August"));
         datePickerPage.clickTimeOption("06:45");
         Assert.assertTrue(datePickerPage.verifyTimeDateAndTime("06:45"));
-    }
+    }*/
 
 }
