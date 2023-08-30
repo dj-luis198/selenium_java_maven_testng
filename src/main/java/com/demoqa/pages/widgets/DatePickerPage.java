@@ -12,7 +12,7 @@ public class DatePickerPage extends BaseClass {
     private final String yearSelect = "//select[@class='react-datepicker__year-select']";
     private final String monthSelect = "//select[@class='react-datepicker__month-select']";
     private final String dateAndTimePickerInput = "//input[@id='dateAndTimePickerInput']";
-    private final String yearSelectDateAndTime = "//div[contains(@class,'react-datepicker__year-dropdown-container')]";
+    private final String yearSelectDateAndTime = "//div[@class='react-datepicker__year-read-view']";
     private final String yearOption = "//div[contains(@class,'react-datepicker__year-option')]";
     private final String monthOption = "//div[@class='react-datepicker__month-read-view']";
     private final String selectYear = "//span[@class='react-datepicker__year-read-view--selected-year']";
@@ -34,7 +34,7 @@ public class DatePickerPage extends BaseClass {
     }
 
     public void clickTimeOption(String time) {
-        click("//li[contains(@class,'react-datepicker__time-list-item')][text()='" + time + "']");
+        clickJS("//li[contains(@class,'react-datepicker__time-list-item')][text()='" + time + "']");
     }
 
     public String verifyMonthDateAndTime() {
@@ -46,11 +46,11 @@ public class DatePickerPage extends BaseClass {
     }
 
     public void clickMonth() {
-        click(monthOption);
+        clickJS(monthOption);
     }
 
     public void clickMonthOption(String month) {
-        click("//div[@class='react-datepicker__month-dropdown']//div[text()='" + month + "']");
+        clickJS("//div[@class='react-datepicker__month-dropdown']//div[text()='" + month + "']");
     }
 
     public String removeSymbol(String text) {
@@ -88,11 +88,11 @@ public class DatePickerPage extends BaseClass {
     }
 
     public void clickYearSelectDateAndTime() {
-        click(yearSelectDateAndTime);
+        clickJS(yearSelectDateAndTime);
     }
 
     public void clickDateAndTimePickerInput() {
-        click(dateAndTimePickerInput);
+        clickJS(dateAndTimePickerInput);
     }
 
     public void selectDay(String day, String month) {
@@ -112,7 +112,7 @@ public class DatePickerPage extends BaseClass {
     }
 
     public Boolean verifyDay(String day, String month) {
-        click(datePickerMonthYearInput);
+        clickJS(datePickerMonthYearInput);
         if (day.equals(getTextContent("//div[contains(@class,'react-datepicker__day--selected')]"))) {
             return true;
         }
@@ -136,7 +136,7 @@ public class DatePickerPage extends BaseClass {
     }
 
     public void clickDatePicker() {
-        click(datePickerMonthYearInput);
+        clickJS(datePickerMonthYearInput);
     }
 
     public void typeDate(String date) {
