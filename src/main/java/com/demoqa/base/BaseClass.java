@@ -269,6 +269,11 @@ public class BaseClass {
 			jse.executeScript("arguments[0].click();", findElement(locator));
 	}
 
+	protected static void clickElementJS(WebElement element) {
+			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+			jse.executeScript("arguments[0].click();", element);
+	}
+
 	protected static void clickElement(WebElement element) {
 		// actions = new Actions(driver);
 		try {

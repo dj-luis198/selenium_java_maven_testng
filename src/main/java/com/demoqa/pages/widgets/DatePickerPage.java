@@ -70,17 +70,17 @@ public class DatePickerPage extends BaseClass {
             if ((yearInt >= lastYearOption) && ((Integer.parseInt(year)) <= firstYearOption)) {
                 for (int i = 1; i < sizeYearOptions - 1; i++) {
                     if ((year).equals(removeSymbol(getAttributeElementContent(yearOptions.get(i))))) {
-                        clickElement(yearOptions.get(i));
+                        clickElementJS(yearOptions.get(i));
                         flag = true;
                         break;
                     }
                 }
             } else {
                 if (yearInt < lastYearOption) {
-                    clickElement(yearOptions.get(sizeYearOptions - 1));
+                    clickElementJS(yearOptions.get(sizeYearOptions - 1));
                 } else {
                     if (yearInt > firstYearOption) {
-                        clickElement(yearOptions.get(0));
+                        clickElementJS(yearOptions.get(0));
                     }
                 }
             }
@@ -104,7 +104,7 @@ public class DatePickerPage extends BaseClass {
         if (Integer.parseInt(day) <= lastDay) {
             for (WebElement elementDay : listDays) {
                 if (day.equals(getAttributeElementContent(elementDay))) {
-                    clickElement(elementDay);
+                    clickElementJS(elementDay);
                     break;
                 }
             }
