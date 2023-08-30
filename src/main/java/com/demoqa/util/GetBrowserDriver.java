@@ -39,7 +39,7 @@ public class GetBrowserDriver {
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
 				pref.put("download.default_directory", file.getAbsolutePath());
-				options.addArguments("--headless=old");
+				options.addArguments("--headless=new");
 				options.setExperimentalOption("prefs", pref);
 				setDriver(new ChromeDriver(options));
 			}
