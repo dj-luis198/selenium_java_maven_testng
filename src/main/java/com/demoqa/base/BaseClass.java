@@ -265,13 +265,13 @@ public class BaseClass {
 	}
 
 	protected static void clickJS(String locator) {
-			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click();", findElement(locator));
+		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+		jse.executeScript("arguments[0].click();", findElement(locator));
 	}
 
 	protected static void clickElementJS(WebElement element) {
-			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click();", element);
+		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+		jse.executeScript("arguments[0].click();", element);
 	}
 
 	protected static void clickElement(WebElement element) {
@@ -378,5 +378,12 @@ public class BaseClass {
 
 	protected static void returnDefaultContent() {
 		getBrowser.getDriver().switchTo().defaultContent();
+	}
+
+	// -------------------------------Move-------------------------------------//
+
+	protected static void dragAndDropBy(String locator, int x, int y) {
+		actions = new Actions(getBrowser.getDriver());
+		actions.dragAndDropBy(findElement(locator), x, y).perform();
 	}
 }
