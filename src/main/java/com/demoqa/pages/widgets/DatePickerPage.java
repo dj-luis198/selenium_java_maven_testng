@@ -88,7 +88,7 @@ public class DatePickerPage extends BaseClass {
     }
 
     public void clickYearSelectDateAndTime() {
-        clickNormal(yearSelectDateAndTime);
+        click(yearSelectDateAndTime);
     }
 
     public void clickDateAndTimePickerInput() {

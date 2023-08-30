@@ -264,16 +264,6 @@ public class BaseClass {
 		}
 	}
 
-	protected static void clickNormal(String locator) {
-		// actions = new Actions(driver);
-		try {
-			(findElementClickable(locator)).click();
-		} catch (ElementClickInterceptedException e) {
-			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click();", findElementClickable(locator));
-		}
-	}
-
 	protected static void clickElement(WebElement element) {
 		// actions = new Actions(driver);
 		try {
