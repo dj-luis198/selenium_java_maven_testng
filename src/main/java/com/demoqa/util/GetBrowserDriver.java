@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -40,8 +41,9 @@ public class GetBrowserDriver {
 				pref.put("download.prompt_for_download", false);
 				pref.put("download.default_directory", file.getAbsolutePath());
 				options.addArguments("--headless=new");
-				options.addArguments("--window-size=1920,1080");
+				//options.addArguments("--window-size=1920,1080");
 				options.setExperimentalOption("prefs", pref);
+				options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 				setDriver(new ChromeDriver(options));
 			}
 

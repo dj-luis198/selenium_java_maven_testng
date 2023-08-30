@@ -4,7 +4,7 @@ import com.demoqa.base.BaseClass;
 
 public class HomePage extends BaseClass {
 
-    private final String elementsText = "//div[@class=\"card mt-4 top-card\"][1]//div[@class=\"card-body\"]";
+    private final String elementsText = "//h5[normalize-space()='Elements']";
     private final String AlertsFrameWindowsText = "//h5[normalize-space()='Alerts, Frame & Windows']";
     private final String textBox = "//*[contains(text(),\"Text Box\")]";
     private final String checkBox = "//*[contains(text(),\"Check Box\")]";
