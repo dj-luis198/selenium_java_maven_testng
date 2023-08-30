@@ -8,6 +8,9 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.DatePickerPage;
 import com.demoqa.test.base.BaseTest;
+import com.demoqa.test.dataProvider.DatePicker.DatePickerData;
+import com.demoqa.test.dataProvider.DatePicker.DatePickerDataTime;
+import com.demoqa.test.dataProvider.DatePicker.DatePickerInputData;
 
 public class DatePickerTest extends BaseTest {
     DatePickerPage datePickerPage;
@@ -21,37 +24,37 @@ public class DatePickerTest extends BaseTest {
         adsFooter.deleteAds();
     }
 
-    @Test
-    public void validateDatePickerMonthYearInput() {
-        datePickerPage.typeDate("05/10/2020");
-        Assert.assertEquals(datePickerPage.verifyDate(), "05/10/2020");
+    @Test(dataProvider="DatePickerInputData",dataProviderClass = DatePickerInputData.class)
+    public void validateDatePickerMonthYearInput(String date) {
+        datePickerPage.typeDate(date);
+        Assert.assertEquals(datePickerPage.verifyDate(), date);
     }
 
-    @Test
-    public void validateDatePickerMonthYear() {
+    @Test(dataProvider="DatePickerData",dataProviderClass = DatePickerData.class)
+    public void validateDatePickerMonthYear(String year, String month, String day, String date) {
         datePickerPage.clickDatePicker();
-        datePickerPage.selectYear("2018");
-        Assert.assertEquals(datePickerPage.verifyYear(), "2018");
-        datePickerPage.selectMonth("May");
-        Assert.assertEquals(datePickerPage.verifyMonth(), "May");
-        datePickerPage.selectDay("5", "May");
-        Assert.assertTrue(datePickerPage.verifyDay("5", "May"));
-        Assert.assertEquals(datePickerPage.verifyDate(), "05/05/2018");
+        datePickerPage.selectYear(year);
+        Assert.assertEquals(datePickerPage.verifyYear(), year);
+        datePickerPage.selectMonth(month);
+        Assert.assertEquals(datePickerPage.verifyMonth(), month);
+        datePickerPage.selectDay(day, month);
+        Assert.assertTrue(datePickerPage.verifyDay(day, month));
+        Assert.assertEquals(datePickerPage.verifyDate(), date);
     }
 
-    @Test
-    public void validateDateAndTimePicker() {
+    @Test(dataProvider="DatePickerDataTime",dataProviderClass = DatePickerDataTime.class)
+    public void validateDateAndTimePicker(String year, String month, String day, String date,String time) {
         datePickerPage.clickDateAndTimePickerInput();
         datePickerPage.clickYearSelectDateAndTime();
-        datePickerPage.clickOptionYear("2023");
-        Assert.assertEquals(datePickerPage.verifyYearDateAndTime(), "2023");
+        datePickerPage.clickOptionYear(year);
+        Assert.assertEquals(datePickerPage.verifyYearDateAndTime(), year);
         datePickerPage.clickMonth();
-        datePickerPage.clickMonthOption("August");
-        Assert.assertEquals(datePickerPage.verifyMonthDateAndTime(), "August");
-        datePickerPage.selectDay("5", "August");
-        Assert.assertTrue(datePickerPage.verifyDayDateAndTime("5", "August"));
-        datePickerPage.clickTimeOption("06:45");
-        Assert.assertTrue(datePickerPage.verifyTimeDateAndTime("06:45"));
+        datePickerPage.clickMonthOption(month);
+        Assert.assertEquals(datePickerPage.verifyMonthDateAndTime(), month);
+        datePickerPage.selectDay(day, month);
+        Assert.assertTrue(datePickerPage.verifyDayDateAndTime(day, month));
+        datePickerPage.clickTimeOption(time);
+        Assert.assertTrue(datePickerPage.verifyTimeDateAndTime(time));
     }
 
 }
