@@ -264,6 +264,11 @@ public class BaseClass {
 		}
 	}
 
+	protected static void clickJS(String locator) {
+			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+			jse.executeScript("arguments[0].click();", findElement(locator));
+	}
+
 	protected static void clickElement(WebElement element) {
 		// actions = new Actions(driver);
 		try {
