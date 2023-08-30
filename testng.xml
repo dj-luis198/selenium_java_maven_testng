@@ -16,14 +16,22 @@
       <class name="com.demoqa.test.elements.UploadAndDownloadTest"/>
       <class name="com.demoqa.test.elements.DynamicPropertiesTest"/>
       <class name="com.demoqa.test.elements.BrokenLinksImagesTest"/>
+    </classes>  
+    </test>
+    <test name="AlertsFrameWindows">
+    <classes>
       <class name="com.demoqa.test.AlertsFrameWindows.BrowserWindowsTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.AlertsTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.FramesTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.NestedFramesTest"/>
       <class name="com.demoqa.test.AlertsFrameWindows.ModalDialogsTest"/>
+    </classes>
+    </test>
+    <test name="widgets">
+    <classes>
       <class name="com.demoqa.test.widgets.AccordianTest"/>
       <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
       <class name="com.demoqa.test.widgets.DatePickerTest"/>
-    </classes>  
+    </classes>
     </test>
 </suite>
