@@ -32,6 +32,7 @@
       <class name="com.demoqa.test.widgets.AccordianTest"/>
       <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
       <class name="com.demoqa.test.widgets.DatePickerTest"/>
+      <class name="com.demoqa.test.widgets.SliderTest"/>
     </classes>
     </test>
 </suite>
