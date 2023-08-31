@@ -386,4 +386,12 @@ public class BaseClass {
 		actions = new Actions(getBrowser.getDriver());
 		actions.dragAndDropBy(findElement(locator), x, y).perform();
 	}
+
+	// -------------------------------wait-------------------------------------//
+
+	protected static Boolean waitProgressBar(String locator) {
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		return ewait.until(ExpectedConditions.attributeToBe(findElement(locator), "aria-valuenow", "100"));
+	}
 }

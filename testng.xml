@@ -33,6 +33,7 @@
       <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
       <class name="com.demoqa.test.widgets.DatePickerTest"/>
       <class name="com.demoqa.test.widgets.SliderTest"/>
+      <class name="com.demoqa.test.widgets.ProgressBarTest"/>
     </classes>
     </test>
 </suite>
