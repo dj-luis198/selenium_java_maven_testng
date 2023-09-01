@@ -10,6 +10,8 @@ import com.demoqa.pages.elements.LinksPage;
 import com.demoqa.test.base.BaseTest;
 
 import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
 
 public class LinksTest extends BaseTest {
         LinksPage linksPage;
@@ -43,7 +45,6 @@ public class LinksTest extends BaseTest {
                                 .when()
                                 .get("/created")
                                 .then()
-                                .log().all()
                                 .statusCode(201);
                 Assert.assertEquals(linksPage.returnLinkResponseMsg(),
                                 "Link has responded with staus 201 and status text Created");
@@ -57,7 +58,6 @@ public class LinksTest extends BaseTest {
                                 .when()
                                 .get("/no-content")
                                 .then()
-                                .log().all()
                                 .statusCode(204);
                 Assert.assertEquals(linksPage.returnLinkResponseMsg(),
                                 "Link has responded with staus 204 and status text No Content");
@@ -73,7 +73,6 @@ public class LinksTest extends BaseTest {
                                 .log().all()
                                 .get("/moved")
                                 .then()
-                                .log().all()
                                 .statusCode(301);
                 Assert.assertEquals(linksPage.returnLinkResponseMsg(),
                                 "Link has responded with staus 301 and status text Moved Permanently");
@@ -87,7 +86,6 @@ public class LinksTest extends BaseTest {
                                 .when()
                                 .get("/bad-request")
                                 .then()
-                                .log().all()
                                 .statusCode(400);
                 Assert.assertEquals(linksPage.returnLinkResponseMsg(),
                                 "Link has responded with staus 400 and status text Bad Request");
@@ -101,7 +99,6 @@ public class LinksTest extends BaseTest {
                                 .when()
                                 .get("/unauthorized")
                                 .then()
-                                .log().all()
                                 .statusCode(401);
                 Assert.assertEquals(linksPage.returnLinkResponseMsg(),
                                 "Link has responded with staus 401 and status text Unauthorized");
@@ -115,7 +112,6 @@ public class LinksTest extends BaseTest {
                                 .when()
                                 .get("/forbidden")
                                 .then()
-                                .log().all()
                                 .statusCode(403);
                 Assert.assertEquals(linksPage.returnLinkResponseMsg(),
                                 "Link has responded with staus 403 and status text Forbidden");
@@ -129,7 +125,6 @@ public class LinksTest extends BaseTest {
                                 .when()
                                 .get("/invalid-url")
                                 .then()
-                                .log().all()
                                 .statusCode(404);
                 Assert.assertEquals(linksPage.returnLinkResponseMsg(),
                                 "Link has responded with staus 404 and status text Not Found");
