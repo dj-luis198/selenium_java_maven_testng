@@ -10,8 +10,6 @@ import com.demoqa.pages.elements.LinksPage;
 import com.demoqa.test.base.BaseTest;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
 
 public class LinksTest extends BaseTest {
         LinksPage linksPage;

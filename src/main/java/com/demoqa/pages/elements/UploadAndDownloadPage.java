@@ -1,6 +1,9 @@
 package com.demoqa.pages.elements;
 
 import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 
 import com.demoqa.base.BaseClass;
 
@@ -36,10 +39,21 @@ public class UploadAndDownloadPage extends BaseClass {
             if (listOfFile.isFile()) {
                 String fileName = listOfFile.getName();
                 if (fileName.matches(expectedFileName)) {
+                    clearFiles();
                     return true;
                 }
             }
         }
+        clearFiles();
         return false;
+    }
+
+    public void clearFiles(){
+         File file = new File("files/downloadFiles");
+		try {
+			FileUtils.cleanDirectory(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 }
