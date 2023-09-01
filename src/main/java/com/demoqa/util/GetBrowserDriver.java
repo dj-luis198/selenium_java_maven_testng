@@ -29,11 +29,6 @@ public class GetBrowserDriver {
 
 	public WebDriver getBrowserDriver(String browser) {
 		File file = new File("files/downloadFiles");
-		try {
-			FileUtils.cleanDirectory(file);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		if (browser != null) {
 			if (browser.equalsIgnoreCase("chrome")) {
 				ChromeOptions options = new ChromeOptions();
