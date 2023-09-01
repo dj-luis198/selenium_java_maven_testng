@@ -252,6 +252,14 @@ public class BaseClass {
 		return findElement(locator).getAttribute("defaultValue");
 	}
 
+	protected String getAttributeAriaSelected(String locator) {
+		return findElement(locator).getAttribute("ariaSelected");
+	}
+
+	protected String getAttributeAriaDisabled(String locator) {
+		return findElement(locator).getAttribute("ariaDisabled");
+	}
+
 	// ----------------------------------click--------------------------------------//
 
 	protected static void click(String locator) {

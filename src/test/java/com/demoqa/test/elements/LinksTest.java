@@ -68,7 +68,6 @@ public class LinksTest extends BaseTest {
                 given()
                                 .redirects().follow(false)
                                 .when()
-                                .log().all()
                                 .get("/moved")
                                 .then()
                                 .statusCode(301);
