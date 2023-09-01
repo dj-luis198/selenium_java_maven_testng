@@ -28,7 +28,7 @@ public class GetBrowserDriver {
 	}
 
 	public WebDriver getBrowserDriver(String browser) {
-		File file = new File("files/downloadFiles").getAbsoluteFile();
+		File file = new File("files/downloadFiles");
 		try {
 			FileUtils.cleanDirectory(file);
 		} catch (IOException e) {
