@@ -1,7 +1,6 @@
 package com.demoqa.test.widgets;
 
 import org.testng.Assert;
-import org.testng.AssertJUnit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
