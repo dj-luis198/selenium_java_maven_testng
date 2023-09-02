@@ -26,9 +26,14 @@ public class HomePage extends BaseClass {
     private final String datePicker = "//span[normalize-space()='Date Picker']";
     private final String slider = "//span[normalize-space()='Slider']";
     private final String progressBar = "//span[normalize-space()='Progress Bar']";
+    private final String tabs = "//span[normalize-space()='Tabs']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectTabsItem() {
+        click(tabs);
     }
 
     public void SelectProgressBarItem() {
@@ -212,5 +217,10 @@ public class HomePage extends BaseClass {
     public void goToProgressBarPage() {
         this.SelectWidgets();
         this.SelectProgressBarItem();
+    }
+
+    public void goToTabsPage() {
+        this.SelectWidgets();
+        this.SelectTabsItem();
     }
 }
