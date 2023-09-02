@@ -28,9 +28,14 @@ public class HomePage extends BaseClass {
     private final String progressBar = "//span[normalize-space()='Progress Bar']";
     private final String tabs = "//span[normalize-space()='Tabs']";
     private final String toolTips = "//span[normalize-space()='Tool Tips']";
+    private final String menu = "//span[normalize-space()='Menu']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectMenuItem() {
+        click(menu);
     }
 
     public void SelectToolTipsItem() {
@@ -232,5 +237,10 @@ public class HomePage extends BaseClass {
     public void goToToolTipsPage() {
         this.SelectWidgets();
         this.SelectToolTipsItem();
+    }
+
+    public void goToMenuPage() {
+        this.SelectWidgets();
+        this.SelectMenuItem();
     }
 }
