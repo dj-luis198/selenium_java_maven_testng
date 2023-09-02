@@ -28,8 +28,10 @@ public class MenuPage extends BaseClass {
 
     public Boolean verifyItem3() {
         if (returnCSSBackground(ancestorItem3).equals("rgba(0, 63, 32, 1)")) {
+            clearActions();
             return true;
         }
+        clearActions();
         return false;
     }
 
@@ -39,10 +41,13 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifySubSubItem2() {
+        System.out.println(returnCSSBackground(ancestorSubSubItem2));
         if (returnCSSBackground(ancestorSubSubItem2).equals("rgba(0, 63, 32, 1)") &&
                 verifyItem2()) {
+                    clearActions();
             return true;
         }
+        clearActions();
         return false;
     }
 
@@ -52,9 +57,12 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifySubSubItem1() {
+        System.out.println(returnCSSBackground(ancestorSubSubItem1));
         if (returnCSSBackground(ancestorSubSubItem1).equals("rgba(0, 63, 32, 1)")) {
+            clearActions();
             return true;
         }
+        clearActions();
         return false;
     }
 
@@ -64,12 +72,13 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifySubSubList() {
-        if (returnCSSBackground(ancestorSubSubList).equals("rgba(0, 63, 32, 1)") &&
-                verifyItem2()) {
+        if (returnCSSBackground(ancestorSubSubList).equals("rgba(0, 63, 32, 1)")) {
             if (isDisplayed(subSubItem1) && isDisplayed(subSubItem2)) {
+                clearActions();
                 return true;
             }
         }
+        clearActions();
         return false;
     }
 
@@ -81,8 +90,10 @@ public class MenuPage extends BaseClass {
     public Boolean verifySubItem2() {
         if (returnCSSBackground(ancestorSubItem2).equals("rgba(0, 63, 32, 1)") &&
                 returnCSSBackground(ancestorItem2).equals("rgba(0, 63, 32, 1)")) {
+                    clearActions();
             return true;
         }
+        clearActions();
         return false;
     }
 
@@ -93,8 +104,10 @@ public class MenuPage extends BaseClass {
 
     public Boolean verifySubItem1() {
         if (returnCSSBackground(ancestorSubItem1).equals("rgba(0, 63, 32, 1)")) {
+            clearActions();
             return true;
         }
+        clearActions();
         return false;
     }
 
@@ -106,9 +119,11 @@ public class MenuPage extends BaseClass {
     public Boolean verifyItem2() {
         if (returnCSSBackground(ancestorItem2).equals("rgba(0, 63, 32, 1)")) {
             if (isDisplayed(subItem1) && isDisplayed(subItem2) && isDisplayed(subSubList)) {
+                clearActions();
                 return true;
             }
         }
+        clearActions();
         return false;
     }
 
@@ -119,8 +134,10 @@ public class MenuPage extends BaseClass {
 
     public Boolean verifyItem1() {
         if (returnCSSBackground(ancestorItem1).equals("rgba(0, 63, 32, 1)")) {
+            clearActions();
             return true;
         }
+        clearActions();
         return false;
     }
 }
