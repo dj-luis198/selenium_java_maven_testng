@@ -22,7 +22,7 @@ public class MenuPage extends BaseClass {
     private final String item3 = "//a[normalize-space()='Main Item 3']";
 
     public void moveToItem3() {
-        scrollToElement(item3);
+        //scrollToElement(item3);
         moveToElement(item3);
     }
 
@@ -34,7 +34,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubSubItem2() {
-        scrollToElement(subSubItem2);
+        //scrollToElement(subSubItem2);
         moveToElement(subSubItem2);
     }
 
@@ -47,7 +47,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubSubItem1() {
-        scrollToElement(subSubItem1);
+        //scrollToElement(subSubItem1);
         moveToElement(subSubItem1);
     }
 
@@ -59,7 +59,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubSubList() {
-        scrollToElement(subSubList);
+        //scrollToElement(subSubList);
         moveToElement(subSubList);
     }
 
@@ -74,7 +74,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubItem2() {
-        scrollToElement(subItem2);
+        //scrollToElement(subItem2);
         moveToElement(subItem2);
     }
 
@@ -87,7 +87,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubItem1() {
-        scrollToElement(subItem1);
+        //scrollToElement(subItem1);
         moveToElement(subItem1);
     }
 
@@ -99,7 +99,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToItem2() {
-        scrollToElement(item2);
+        //scrollToElement(item2);
         moveToElement(item2);
     }
 
@@ -113,7 +113,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToItem1() {
-        scrollToElement(item1);
+        //scrollToElement(item1);
         moveToElement(item1);
     }
 
