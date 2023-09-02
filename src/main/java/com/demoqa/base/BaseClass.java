@@ -388,11 +388,21 @@ public class BaseClass {
 		getBrowser.getDriver().switchTo().defaultContent();
 	}
 
-	// -------------------------------Move-------------------------------------//
+	// ------------------------------Actions------------------------------------//
 
 	protected static void dragAndDropBy(String locator, int x, int y) {
 		actions = new Actions(getBrowser.getDriver());
 		actions.dragAndDropBy(findElement(locator), x, y).perform();
+	}
+
+	protected static void scrollToElement(String locator) {
+		actions = new Actions(getBrowser.getDriver());
+		actions.scrollToElement(findElement(locator)).pause(Duration.ofSeconds(1)).perform();
+	}
+
+	protected static void moveToElement(String locator) {
+		actions = new Actions(getBrowser.getDriver());
+		actions.moveToElement(findElement(locator)).pause(Duration.ofSeconds(1)).perform();
 	}
 
 	// -------------------------------wait-------------------------------------//
