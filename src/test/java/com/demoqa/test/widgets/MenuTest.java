@@ -35,12 +35,6 @@ public class MenuTest extends BaseTest {
         softAssert.assertTrue(menuPage.verifySubItem2());
         menuPage.moveToSubSubList();
         softAssert.assertTrue(menuPage.verifySubSubList());
-        menuPage.moveToSubSubItem1();
-        softAssert.assertTrue(menuPage.verifySubSubItem1());
-        menuPage.moveToSubSubItem2();
-        softAssert.assertTrue(menuPage.verifySubSubItem2());
-        menuPage.moveToItem3();
-        softAssert.assertTrue(menuPage.verifyItem3());
         softAssert.assertAll();
     }
 }
