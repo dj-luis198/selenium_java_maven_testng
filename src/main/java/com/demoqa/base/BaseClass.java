@@ -404,6 +404,11 @@ public class BaseClass {
 		actions.scrollToElement(findElement(locator)).pause(Duration.ofSeconds(1)).perform();
 	}
 
+	protected static void scrollToElementJS(String locator) {
+		JavascriptExecutor executor = (JavascriptExecutor) getBrowser.getDriver();
+		executor.executeScript("arguments[0].scrollIntoView(true);", findElement(locator));
+	}
+
 	protected static void moveToElement(String locator) {
 		actions = new Actions(getBrowser.getDriver());
 		actions.moveToElement(findElement(locator)).pause(Duration.ofSeconds(1)).perform();

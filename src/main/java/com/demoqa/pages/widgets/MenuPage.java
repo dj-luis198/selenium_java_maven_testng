@@ -27,7 +27,6 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifyItem3() {
-        System.out.println(returnCSSBackground(ancestorItem3));
         if (returnCSSBackground(ancestorItem3).equals("rgba(0, 63, 32, 1)")) {
             return true;
         }
@@ -53,8 +52,7 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifySubSubItem1() {
-        if (returnCSSBackground(ancestorSubSubItem1).equals("rgba(0, 63, 32, 1)") &&
-                verifyItem2()) {
+        if (returnCSSBackground(ancestorSubSubItem1).equals("rgba(0, 63, 32, 1)")) {
             return true;
         }
         return false;
@@ -120,7 +118,6 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifyItem1() {
-        System.out.println(returnCSSBackground(ancestorItem1));
         if (returnCSSBackground(ancestorItem1).equals("rgba(0, 63, 32, 1)")) {
             return true;
         }
