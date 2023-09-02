@@ -342,6 +342,10 @@ public class BaseClass {
 		return findElement(locator).getCssValue("color");
 	}
 
+	protected static String returnCSSBackground(String locator) {
+		return findElement(locator).getCssValue("background-color");
+	}
+
 	// --------------------------------Alert------------------------------------//
 
 	protected static String acceptCommonAlert() {
