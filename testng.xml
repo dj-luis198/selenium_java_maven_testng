@@ -34,6 +34,7 @@
       <class name="com.demoqa.test.widgets.DatePickerTest"/>
       <class name="com.demoqa.test.widgets.SliderTest"/>
       <class name="com.demoqa.test.widgets.ProgressBarTest"/>
+      <class name="com.demoqa.test.widgets.ToolTipsTest"/>
     </classes>
     </test>
 </suite>
