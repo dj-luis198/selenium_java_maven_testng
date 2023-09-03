@@ -65,8 +65,11 @@ public class MenuTest extends BaseTest {
     @Test
     public void validateMenuBarSubSubItem1() {
         menuPage.moveToItem2();
+        System.out.println("paso moveItem2");
         menuPage.moveToSubSubList();
+        System.out.println("paso moveToSubSubList");
         menuPage.moveToSubSubItem2();
+        System.out.println("moveToSubSubItem2");
         Assert.assertTrue(menuPage.verifySubSubItem2());
     }
 
