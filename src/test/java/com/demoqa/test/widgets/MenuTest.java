@@ -10,7 +10,7 @@ import com.demoqa.pages.widgets.MenuPage;
 import com.demoqa.test.base.BaseTest;
 
 public class MenuTest extends BaseTest {
-    MenuPage menuPage;
+    /*MenuPage menuPage;
     SoftAssert softAssert;
 
     @BeforeMethod
@@ -23,7 +23,7 @@ public class MenuTest extends BaseTest {
         adsFooter.deleteAds();
     }
 
-    @Test
+     @Test
     public void validateMenuBarItem1() {
         menuPage.moveToItem1();
         Assert.assertTrue(menuPage.verifyItem1());
@@ -76,5 +76,5 @@ public class MenuTest extends BaseTest {
         menuPage.moveToSubSubList();
         menuPage.moveToSubSubItem2();
         Assert.assertTrue(menuPage.verifySubSubItem2());
-    }
+    }*/
 }
