@@ -52,8 +52,8 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubSubItem1() {
-        scrollToElement(subSubItem1);
-        moveToElement(subSubItem1);
+        //scrollToElement(subSubItem1);
+        moveToElements(item2,subSubList,subSubItem1);
     }
 
     public Boolean verifySubSubItem1() {
