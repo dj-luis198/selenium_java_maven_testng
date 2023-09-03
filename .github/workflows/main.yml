@@ -22,6 +22,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 20
+          cache: maven
+
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
       - name: Maven Package
         run: mvn -B clean package -DskipTests
           
