@@ -439,4 +439,10 @@ public class BaseClass {
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		ewait.until(ExpectedConditions.visibilityOf(findElement(locator)));
 	}
+
+	protected static void waitElementToBeClickable(String locator) {
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
+	}
 }
