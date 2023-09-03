@@ -67,6 +67,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubSubList() {
+        waitVisibilityOf(subSubList);
         scrollToElement(subSubList);
         moveToElement(subSubList);
         waitVisibilityOf(subSubItem2);
