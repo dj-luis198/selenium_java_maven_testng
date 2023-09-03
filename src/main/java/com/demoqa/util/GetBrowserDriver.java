@@ -35,6 +35,7 @@ public class GetBrowserDriver {
 				options.addArguments("--headless=new");
 				options.addArguments("--window-size=1920,1080");
 				options.addArguments("--disable-extensions");
+				options.addArguments("--disable-dev-shm-usage");
 				options.addArguments("--disable-gpu");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--start-maximized");

@@ -24,6 +24,7 @@ public class MenuPage extends BaseClass {
     public void moveToItem3() {
         scrollToElement(item3);
         moveToElement(item3);
+        click(item3);
     }
 
     public Boolean verifyItem3() {
@@ -38,6 +39,7 @@ public class MenuPage extends BaseClass {
     public void moveToSubSubItem2() {
         scrollToElement(subSubItem2);
         moveToElement(subSubItem2);
+        click(subSubItem2);
     }
 
     public Boolean verifySubSubItem2() {
@@ -54,6 +56,7 @@ public class MenuPage extends BaseClass {
     public void moveToSubSubItem1() {
         scrollToElement(subSubItem1);
         moveToElement(subSubItem1);
+        click(subSubItem1);
     }
 
     public Boolean verifySubSubItem1() {
@@ -67,16 +70,11 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubSubList() {
-        waitVisibilityOf(subSubList);
-        System.out.println("subSubList es visible");
         scrollToElement(subSubList);
-        System.out.println("scroll a subSubList");
-        //waitElementToBeClickable(subSubList);
         moveToElement(subSubList);
-        System.out.println("se movio a subSubList");
         click(subSubList);
+        waitVisibilityOf(subSubItem1);
         waitVisibilityOf(subSubItem2);
-        System.out.println("subSubItem2 es visible");
     }
 
     public Boolean verifySubSubList() {
@@ -109,6 +107,7 @@ public class MenuPage extends BaseClass {
     public void moveToSubItem1() {
         scrollToElement(subItem1);
         moveToElement(subItem1);
+        click(subItem1);
     }
 
     public Boolean verifySubItem1() {
@@ -123,6 +122,9 @@ public class MenuPage extends BaseClass {
     public void moveToItem2() {
         scrollToElement(item2);
         moveToElement(item2);
+        click(item2);
+        waitVisibilityOf(subItem1);
+        waitVisibilityOf(subItem2);
         waitVisibilityOf(subSubList);
     }
 
@@ -140,6 +142,7 @@ public class MenuPage extends BaseClass {
     public void moveToItem1() {
         scrollToElement(item1);
         moveToElement(item1);
+        click(item1);
     }
 
     public Boolean verifyItem1() {

@@ -5,9 +5,36 @@
     <listener class-name="com.demoqa.test.listeners.MyListeners"/>
     <listener class-name="com.demoqa.test.listeners.MyAnnotationTransformer"/>
   </listeners>
+  <test name="ElementsTest">
+    <classes>
+      <class name="com.demoqa.test.elements.LinksTest"/>
+      <class name="com.demoqa.test.elements.RadioButtonTest"/>
+      <class name="com.demoqa.test.elements.CheckBoxTest"/>
+      <class name="com.demoqa.test.elements.ButtonsTest"/>
+      <class name="com.demoqa.test.elements.TextBoxTest"/>
+      <class name="com.demoqa.test.elements.WebTablesTest"/>
+      <class name="com.demoqa.test.elements.UploadAndDownloadTest"/>
+      <class name="com.demoqa.test.elements.DynamicPropertiesTest"/>
+      <class name="com.demoqa.test.elements.BrokenLinksImagesTest"/>
+    </classes>  
+    </test>
+    <test name="AlertsFrameWindows">
+    <classes>
+      <class name="com.demoqa.test.AlertsFrameWindows.BrowserWindowsTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.AlertsTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.FramesTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.NestedFramesTest"/>
+      <class name="com.demoqa.test.AlertsFrameWindows.ModalDialogsTest"/>
+    </classes>
+    </test>
     <test name="widgets">
     <classes>
-      <class name="com.demoqa.test.widgets.MenuTest"/>
+      <class name="com.demoqa.test.widgets.AccordianTest"/>
+      <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
+      <class name="com.demoqa.test.widgets.DatePickerTest"/>
+      <class name="com.demoqa.test.widgets.SliderTest"/>
+      <class name="com.demoqa.test.widgets.ProgressBarTest"/>
+      <class name="com.demoqa.test.widgets.ToolTipsTest"/>
     </classes>
     </test>
 </suite>
