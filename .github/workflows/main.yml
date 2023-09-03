@@ -24,12 +24,6 @@ jobs:
           java-version: 20
           cache: maven
 
-      - name: Remove Chrome
-        run: sudo apt purge google-chrome-stable
-      - name: Remove default Chromium
-        run: sudo apt purge chromium-browser
-      - name: Install a new Chromium
-        run: sudo apt install -y chromium-browser
       - name: Maven Package
         run: mvn -B clean package -DskipTests
           
