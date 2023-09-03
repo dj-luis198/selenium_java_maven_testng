@@ -32,8 +32,11 @@ public class GetBrowserDriver {
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
 				pref.put("download.default_directory", file.getAbsolutePath());
-				//options.addArguments("--headless=new");
-				//options.addArguments("--window-size=1920,1080");
+				options.addArguments("--headless=new");
+				options.addArguments("--window-size=1920,1080");
+				options.addArguments("--disable-extensions");
+				options.addArguments("--disable-gpu");
+				options.addArguments("--no-sandbox");
 				options.addArguments("--start-maximized");
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.EAGER);
