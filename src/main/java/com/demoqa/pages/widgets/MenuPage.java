@@ -74,6 +74,7 @@ public class MenuPage extends BaseClass {
         waitElementToBeClickable(subSubList);
         moveToElement(subSubList);
         System.out.println("se movio a subSubList");
+        click(subSubList);
         waitVisibilityOf(subSubItem2);
         System.out.println("subSubItem2 es visible");
     }
@@ -92,6 +93,7 @@ public class MenuPage extends BaseClass {
     public void moveToSubItem2() {
         scrollToElement(subItem2);
         moveToElement(subItem2);
+        click(subItem2);
     }
 
     public Boolean verifySubItem2() {
