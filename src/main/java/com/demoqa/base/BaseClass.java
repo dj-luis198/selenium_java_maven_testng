@@ -415,6 +415,13 @@ public class BaseClass {
 		actions.moveToElement(findElement(locator)).pause(Duration.ofSeconds(1)).perform();
 	}
 
+	protected static void moveToElements(String locator1, String locator2, String locator3) {
+		actions = new Actions(getBrowser.getDriver());
+		actions.moveToElement(findElement(locator1)).pause(Duration.ofSeconds(1)).moveToElement(findElement(locator2))
+				.pause(Duration.ofSeconds(1)).moveToElement(findElement(locator3)).pause(Duration.ofSeconds(1))
+				.perform();
+	}
+
 	protected static void clearActions() {
 		((RemoteWebDriver) getBrowser.getDriver()).resetInputState();
 	}
