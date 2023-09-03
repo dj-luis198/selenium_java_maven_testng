@@ -433,4 +433,10 @@ public class BaseClass {
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		return ewait.until(ExpectedConditions.attributeToBe(findElement(locator), "aria-valuenow", "100"));
 	}
+
+	protected static void waitVisibilityOf(String locator) {
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		ewait.until(ExpectedConditions.visibilityOf(findElement(locator)));
+	}
 }
