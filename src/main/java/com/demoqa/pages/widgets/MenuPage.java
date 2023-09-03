@@ -52,8 +52,8 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToSubSubItem1() {
-        //scrollToElement(subSubItem1);
-        moveToElements(item2,subSubList,subSubItem1);
+        scrollToElement(subSubItem1);
+        moveToElement(subSubItem1);
     }
 
     public Boolean verifySubSubItem1() {
@@ -69,6 +69,7 @@ public class MenuPage extends BaseClass {
     public void moveToSubSubList() {
         scrollToElement(subSubList);
         moveToElement(subSubList);
+        waitVisibilityOf(subSubItem2);
     }
 
     public Boolean verifySubSubList() {
@@ -114,6 +115,7 @@ public class MenuPage extends BaseClass {
     public void moveToItem2() {
         scrollToElement(item2);
         moveToElement(item2);
+        waitVisibilityOf(subSubList);
     }
 
     public Boolean verifyItem2() {
