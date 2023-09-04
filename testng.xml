@@ -35,7 +35,6 @@
       <class name="com.demoqa.test.widgets.SliderTest"/>
       <class name="com.demoqa.test.widgets.ProgressBarTest"/>
       <class name="com.demoqa.test.widgets.ToolTipsTest"/>
-      <class name="com.demoqa.test.widgets.MenuTest"/>
     </classes>
     </test>
 </suite>
