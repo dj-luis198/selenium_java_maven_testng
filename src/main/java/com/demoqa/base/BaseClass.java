@@ -426,6 +426,12 @@ public class BaseClass {
 		((RemoteWebDriver) getBrowser.getDriver()).resetInputState();
 	}
 
+	protected static void scrollToElementJs(String locator) {
+		((JavascriptExecutor) getBrowser.getDriver()).executeScript("arguments[0].scrollIntoView(true);",
+				findElement(locator));
+		waitVisibilityOf(locator);
+	}
+
 	// -------------------------------wait-------------------------------------//
 
 	protected static Boolean waitProgressBar(String locator) {
