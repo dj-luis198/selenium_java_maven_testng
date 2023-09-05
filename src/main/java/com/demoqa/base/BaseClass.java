@@ -56,7 +56,6 @@ public class BaseClass {
 	}
 
 	protected static String takesScreenshot(String testName) throws IOException {
-        //TakesScreenshot takesScreenshot = ((TakesScreenshot)) getBrowser.getDriver();
         File sourceFile = ((TakesScreenshot)getBrowser.getDriver()).getScreenshotAs(OutputType.FILE);
         File destFile = new File(System.getProperty("user.dir")+"/Screenshots/"+testName+".jpg");
         FileUtils.copyFile(sourceFile, destFile);
@@ -429,8 +428,8 @@ public class BaseClass {
 
 	protected static void moveToElements(String locator1, String locator2, String locator3) {
 		actions = new Actions(getBrowser.getDriver());
-		actions.moveToElement(findElement(locator1)).pause(Duration.ofSeconds(1)).moveToElement(findElement(locator2))
-				.pause(Duration.ofSeconds(1)).moveToElement(findElement(locator3)).pause(Duration.ofSeconds(1))
+		actions.moveToElement(findElement(locator1)).pause(Duration.ofSeconds(2)).moveToElement(findElement(locator2))
+				.pause(Duration.ofSeconds(2)).moveToElement(findElement(locator3)).pause(Duration.ofSeconds(2))
 				.perform();
 	}
 
@@ -453,14 +452,12 @@ public class BaseClass {
 	}
 
 	protected static void waitVisibilityOf(String locator) {
-		String time = propF.getProperty("timeOut");
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		ewait.until(ExpectedConditions.visibilityOf(findElement(locator)));
 	}
 
 	protected static void waitElementToBeClickable(String locator) {
-		String time = propF.getProperty("timeOut");
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
 	}
 }

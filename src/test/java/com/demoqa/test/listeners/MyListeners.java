@@ -13,6 +13,7 @@ import com.demoqa.base.BaseClass;
 import com.demoqa.util.ExtentReportGenerator;
 
 public class MyListeners extends BaseClass implements ITestListener {
+    
     ExtentReports report = ExtentReportGenerator.getExtentReport();
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
     ExtentTest eTest;
@@ -22,7 +23,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         String testName = result.getMethod().getMethodName();
         eTest = report.createTest(testName);
         extentTest.set(eTest);
-        extentTest.get().log(Status.INFO, testName + "has started execution");
+        extentTest.get().log(Status.INFO, testName + " has started execution");
     }
 
     @Override
@@ -45,5 +46,16 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onFinish(ITestContext context) {
         report.flush();
+    }
+
+    @Override
+    public void onTestFailedWithTimeout(ITestResult result) {
+        extentTest.get().fail(result.getThrowable());
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        String testName = result.getMethod().getMethodName();
+        extentTest.get().log(Status.SKIP, testName + " re-run test skipped");
     }
 }
