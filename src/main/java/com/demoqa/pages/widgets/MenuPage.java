@@ -23,7 +23,6 @@ public class MenuPage extends BaseClass {
 
     public void moveToItem3() {
         moveToElement(item3);
-        click(item3);
     }
 
     public Boolean verifyItem3() {
@@ -37,7 +36,6 @@ public class MenuPage extends BaseClass {
 
     public void moveToSubSubItem2() {
         moveToElement(subSubItem2);
-        click(subSubItem2);
     }
 
     public Boolean verifySubSubItem2() {
@@ -53,7 +51,6 @@ public class MenuPage extends BaseClass {
 
     public void moveToSubSubItem1() {
         moveToElement(subSubItem1);
-        click(subSubItem1);
     }
 
     public Boolean verifySubSubItem1() {
@@ -68,7 +65,6 @@ public class MenuPage extends BaseClass {
 
     public void moveToSubSubList() {
         moveToElement(subSubList);
-        click(subSubList);
         waitVisibilityOf(subSubItem1);
         waitVisibilityOf(subSubItem2);
     }
@@ -86,7 +82,6 @@ public class MenuPage extends BaseClass {
 
     public void moveToSubItem2() {
         moveToElement(subItem2);
-        click(subItem2);
     }
 
     public Boolean verifySubItem2() {
@@ -101,7 +96,6 @@ public class MenuPage extends BaseClass {
 
     public void moveToSubItem1() {
         moveToElement(subItem1);
-        click(subItem1);
     }
 
     public Boolean verifySubItem1() {
@@ -115,7 +109,6 @@ public class MenuPage extends BaseClass {
 
     public void moveToItem2() {
         moveToElement(item2);
-        click(item2);
         waitVisibilityOf(subItem1);
         waitVisibilityOf(subItem2);
         waitVisibilityOf(subSubList);
@@ -133,7 +126,7 @@ public class MenuPage extends BaseClass {
     }
 
     public void moveToItem1() {
-        click(item1);
+        moveToElement(item1);
     }
 
     public Boolean verifyItem1() {
