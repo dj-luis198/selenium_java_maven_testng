@@ -57,7 +57,7 @@ public class BaseClass {
 
 	protected static String takesScreenshot(String testName) throws IOException {
         File sourceFile = ((TakesScreenshot)getBrowser.getDriver()).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(System.getProperty("user.dir")+"/Screenshots/"+testName+".jpg");
+        File destFile = new File(System.getProperty("user.dir")+"/ExtentReports/Screenshots/"+testName+".jpg");
         FileUtils.copyFile(sourceFile, destFile);
        return destFile.getAbsolutePath();
     }
