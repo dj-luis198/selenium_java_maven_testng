@@ -1,4 +1,4 @@
-# [DEMOQA.COM](https://demoqa.com) CYPRESS TESTS
+# [DEMOQA.COM](https://demoqa.com) SELENIUM WEBDRIVER TESTS
 
 [![Feature Branch](https://github.com/dj-luis198/selenium_java_maven_testng/actions/workflows/main.yml/badge.svg)](https://github.com/dj-luis198/selenium_java_maven_testng/actions/workflows/main.yml)
 
