@@ -40,7 +40,7 @@ public class GetBrowserDriver {
 				options.addArguments("--no-sandbox");
 				options.addArguments("--start-maximized");
 				options.setExperimentalOption("prefs", pref);
-				//options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+				options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 				setDriver(new ChromeDriver(options));
 			}
 
