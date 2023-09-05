@@ -1,16 +1,20 @@
 package com.demoqa.base;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -50,6 +54,14 @@ public class BaseClass {
 		}
 		return null;
 	}
+
+	protected static String takesScreenshot(String testName) throws IOException {
+        //TakesScreenshot takesScreenshot = ((TakesScreenshot)) getBrowser.getDriver();
+        File sourceFile = ((TakesScreenshot)getBrowser.getDriver()).getScreenshotAs(OutputType.FILE);
+        File destFile = new File(System.getProperty("user.dir")+"/Screenshots/"+testName+".jpg");
+        FileUtils.copyFile(sourceFile, destFile);
+       return destFile.getAbsolutePath();
+    }
 
 	// ----------------------------findElement(s)---------------------//
 	private static WebElement findElement(String locator) {
