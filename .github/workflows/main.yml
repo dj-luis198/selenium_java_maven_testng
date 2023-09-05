@@ -1,4 +1,4 @@
-name: Feature Branch
+name: DemoQA Selenium Ubuntu
 
 on:
   push:
