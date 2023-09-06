@@ -119,6 +119,10 @@ public class BaseClass {
 		getBrowser.getDriver().quit();
 	}
 
+	protected static void close() {
+		getBrowser.getDriver().close();
+	}
+
 	protected static String getTitlePage() {
 		return getBrowser.getDriver().getTitle();
 	}
