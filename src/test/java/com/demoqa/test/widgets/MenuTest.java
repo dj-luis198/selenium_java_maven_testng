@@ -63,6 +63,7 @@ public class MenuTest extends BaseTest {
     public void validateMenuBarSubSubItem1() {
         menuPage.moveToItem2();
         menuPage.moveToSubSubList();
+        menuPage.moveToSubItem1();
         Assert.assertTrue(menuPage.verifySubSubItem1());
     }
 
@@ -70,6 +71,7 @@ public class MenuTest extends BaseTest {
     public void validateMenuBarSubSubItem2() {
         menuPage.moveToItem2();
         menuPage.moveToSubSubList();
+         menuPage.moveToSubItem2();
         Assert.assertTrue(menuPage.verifySubSubItem2());
     }
 }
