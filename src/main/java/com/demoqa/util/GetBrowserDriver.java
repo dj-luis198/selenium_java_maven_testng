@@ -39,6 +39,7 @@ public class GetBrowserDriver {
 				options.addArguments("--disable-gpu");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--start-maximized");
+				options.addArguments("--start-fullscreen");
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 				setDriver(new ChromeDriver(options));
