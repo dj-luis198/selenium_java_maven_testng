@@ -39,7 +39,6 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifySubSubItem2() {
-        System.out.println(returnCSSBackground(ancestorSubSubItem2));
         if (returnCSSBackground(ancestorSubSubItem2).equals("rgba(0, 63, 32, 1)") &&
                 verifyItem2()) {
                     clearActions();
@@ -54,7 +53,6 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifySubSubItem1() {
-        System.out.println(returnCSSBackground(ancestorSubSubItem1));
         if (returnCSSBackground(ancestorSubSubItem1).equals("rgba(0, 63, 32, 1)")) {
             clearActions();
             return true;
