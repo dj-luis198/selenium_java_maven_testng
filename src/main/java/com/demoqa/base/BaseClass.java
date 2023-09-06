@@ -42,10 +42,10 @@ public class BaseClass {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
-		//getBrowser.getDriver().manage().window().maximize();
+		// getBrowser.getDriver().manage().window().maximize();
 		getBrowser.getDriver().manage().window().fullscreen();
 		getBrowser.getDriver().get(propA.getProperty("url"));
-		
+
 	}
 
 	private static Properties init_properties(String name) {
@@ -174,6 +174,10 @@ public class BaseClass {
 			return true;
 		}
 		return false;
+	}
+
+	protected static void printPageSource() {
+		System.out.println(getBrowser.getDriver().getPageSource());
 	}
 
 	// -----------------------------Type---------------------------//
