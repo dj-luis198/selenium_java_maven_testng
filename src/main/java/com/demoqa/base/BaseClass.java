@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -32,6 +33,10 @@ public class BaseClass {
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
 	private static Actions actions;
+
+	public static WebDriver getDriver() {
+		return getBrowser.getDriver();
+	}
 
 	protected static void init() {
 		propF = init_properties("framework");
@@ -55,12 +60,12 @@ public class BaseClass {
 		return null;
 	}
 
-	protected static String takesScreenshot(String testName) throws IOException {
-        File sourceFile = ((TakesScreenshot)getBrowser.getDriver()).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(System.getProperty("user.dir")+"/ExtentReports/Screenshots/"+testName+".jpg");
-        FileUtils.copyFile(sourceFile, destFile);
-       return destFile.getAbsolutePath();
-    }
+	protected static String takesScreenshot(String testName, WebDriver driver) throws IOException {
+		File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File destFile = new File(System.getProperty("user.dir") + "/ExtentReports/Screenshots/" + testName + ".jpg");
+		FileUtils.copyFile(sourceFile, destFile);
+		return destFile.getAbsolutePath();
+	}
 
 	// ----------------------------findElement(s)---------------------//
 	private static WebElement findElement(String locator) {
