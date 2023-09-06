@@ -2,6 +2,7 @@ package com.demoqa.test.listeners;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -13,7 +14,7 @@ import com.demoqa.base.BaseClass;
 import com.demoqa.util.ExtentReportGenerator;
 
 public class MyListeners extends BaseClass implements ITestListener {
-    
+
     ExtentReports report = ExtentReportGenerator.getExtentReport();
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
     ExtentTest eTest;
@@ -34,9 +35,18 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-       String testName = result.getMethod().getMethodName();
+        WebDriver driver = null;
+        String testName = result.getMethod().getMethodName();
+        Object testObject = result.getMethod();
+        Class<?> clazz = result.getTestClass().getRealClass().getSuperclass().getSuperclass();
+
         try {
-            extentTest.get().addScreenCaptureFromPath(takesScreenshot(testName), testName);
+            driver = (WebDriver) clazz.getMethod("getDriver").invoke(testObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            extentTest.get().addScreenCaptureFromPath(takesScreenshot(testName, driver), testName);
         } catch (IOException e) {
             e.printStackTrace();
         }
