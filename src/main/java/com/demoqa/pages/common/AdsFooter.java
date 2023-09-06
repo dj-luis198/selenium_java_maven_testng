@@ -1,5 +1,7 @@
 package com.demoqa.pages.common;
 
+import java.time.Duration;
+
 import com.demoqa.base.BaseClass;
 
 public class AdsFooter extends BaseClass {
@@ -15,5 +17,10 @@ public class AdsFooter extends BaseClass {
         AdsCSSDisplayNone(footer);
         AdsCSSDisplayNone(sidebar);
         AdsCSSDisplayNone(header);
+        try {
+            Thread.sleep(Duration.ofSeconds(1));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
