@@ -42,8 +42,9 @@ public class BaseClass {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
-		getBrowser.getDriver().get(propA.getProperty("url"));
 		getBrowser.getDriver().manage().window().maximize();
+		getBrowser.getDriver().get(propA.getProperty("url"));
+		
 	}
 
 	private static Properties init_properties(String name) {
