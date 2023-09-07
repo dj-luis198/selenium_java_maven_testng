@@ -39,4 +39,9 @@
       <class name="com.demoqa.test.widgets.SelectMenuTest"/>
     </classes>
     </test>
+    <test name="Forms">
+    <classes>
+      <class name="com.demoqa.test.forms.FormTest"/>
+    </classes>
+    </test>
 </suite>

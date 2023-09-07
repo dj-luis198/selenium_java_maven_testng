@@ -30,9 +30,19 @@ public class HomePage extends BaseClass {
     private final String toolTips = "//span[normalize-space()='Tool Tips']";
     private final String menu = "//span[normalize-space()='Menu']";
     private final String selectMenu = "//span[normalize-space()='Select Menu']";
+    private final String forms = "//h5[normalize-space()='Forms']";
+    private final String practiceForm = "//span[normalize-space()='Practice Form']";
 
     public String getTitleHomePage() {
         return getTitlePage();
+    }
+
+    public void SelectPracticeFormItem() {
+        click(practiceForm);
+    }
+
+    public void SelectForms() {
+        click(forms);
     }
 
     public void SelectSelectMenuItem() {
@@ -252,5 +262,10 @@ public class HomePage extends BaseClass {
     public void goToSelectMenuPage() {
         this.SelectWidgets();
         this.SelectSelectMenuItem();
+    }
+
+    public void goToFormsPage() {
+        this.SelectForms();
+        this.SelectPracticeFormItem();
     }
 }

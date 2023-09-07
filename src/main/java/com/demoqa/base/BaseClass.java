@@ -147,6 +147,15 @@ public class BaseClass {
 		return findElement(locator).isSelected();
 	}
 
+	protected static Boolean isSelected(WebElement element) {
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return element.isSelected();
+	}
+
 	protected static Boolean isEnabled(String locator) {
 		try {
 			Thread.sleep(400);
@@ -184,6 +193,10 @@ public class BaseClass {
 
 	protected static void type(String locator, String text) {
 		findElement(locator).clear();
+		findElement(locator).sendKeys(text);
+	}
+
+	protected static void typeSimple(String locator, String text) {
 		findElement(locator).sendKeys(text);
 	}
 
@@ -277,6 +290,10 @@ public class BaseClass {
 
 	protected String getAttributeDefaultValue(String locator) {
 		return findElement(locator).getAttribute("defaultValue");
+	}
+
+	protected String getAttributeDefaultValue(WebElement element) {
+		return element.getAttribute("defaultValue");
 	}
 
 	protected String getAttributeAriaSelected(String locator) {
