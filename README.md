@@ -10,7 +10,7 @@ Link a reporte de pruebas  https://dj-luis198.github.io/selenium_java_maven_test
 
 ## Pre requisitos
 Se requiere tener descargado java, Apache Maven y configurada la variable de entorno tanto de java como de Maven.
-> Usé versiones `20.0.2` , `3.9.3` de java y apache maven, respectivamente. Le sugiero que use la misma versión o versiones posteriores.
+> Versiones `20.0.2` , `3.9.3` de java y apache maven, respectivamente. Le sugiero que use la misma versión o versiones posteriores.
 
 ## Pruebas
-Ejecutar `mvn clean verify` en la treminal de su editor de codigo favorito para correr todas las pruebas en paralelo.
+Ejecutar `mvn clean verify` en la terminal de su editor de codigo favorito para correr todas las pruebas en paralelo.
