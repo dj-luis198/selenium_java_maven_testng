@@ -5,10 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.BrokenLinksImagesPage;
-import com.demoqa.test.base.BaseTest;
 
 import static io.restassured.RestAssured.*;
 

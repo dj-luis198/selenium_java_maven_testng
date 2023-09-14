@@ -1,16 +1,19 @@
-package com.demoqa.test.dataProvider;
+package com.demoqa.util.dataProvider;
 
 import java.io.IOException;
+
 import org.testng.annotations.DataProvider;
+
 import com.demoqa.util.ReadExcel;
 
-public class SliderData {
+public class AutoCompleteData {
     ReadExcel readExcel = new ReadExcel();
 
-    @DataProvider(name = "SliderData",parallel = false)
+    @DataProvider(name = "MultipleSelecColorData", parallel = false)
     public String[][] dataTest() throws IOException {
-        String path = "src/test/resources/excel/SliderData.xlsx";
+        String path = "src/test/resources/excel/MultiSelect.xlsx";
         String[][] data = readExcel.readData(path);
         return data;
     }
+
 }

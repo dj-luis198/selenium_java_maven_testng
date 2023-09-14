@@ -3,10 +3,11 @@ package com.demoqa.test.forms;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.forms.FormPage;
-import com.demoqa.test.base.BaseTest;
 
 public class FormTest extends BaseTest {
     FormPage formPage;

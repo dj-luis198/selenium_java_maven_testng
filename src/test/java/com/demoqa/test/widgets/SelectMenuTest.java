@@ -3,10 +3,11 @@ package com.demoqa.test.widgets;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.SelectMenuPage;
-import com.demoqa.test.base.BaseTest;
 
 public class SelectMenuTest extends BaseTest {
     SelectMenuPage selectMenuPage;

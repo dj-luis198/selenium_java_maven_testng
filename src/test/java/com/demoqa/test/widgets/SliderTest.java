@@ -2,11 +2,12 @@ package com.demoqa.test.widgets;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.SliderPage;
-import com.demoqa.test.base.BaseTest;
-import com.demoqa.test.dataProvider.SliderData;
+import com.demoqa.util.dataProvider.SliderData;
 
 public class SliderTest extends BaseTest {
     SliderPage sliderPage;

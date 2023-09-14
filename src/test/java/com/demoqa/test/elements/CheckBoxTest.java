@@ -7,10 +7,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.CheckBoxPage;
-import com.demoqa.test.base.BaseTest;
 import com.demoqa.util.JsonSimple;
 
 public class CheckBoxTest extends BaseTest {

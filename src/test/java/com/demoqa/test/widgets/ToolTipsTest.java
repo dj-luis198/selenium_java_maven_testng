@@ -4,10 +4,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.ToolTipsPage;
-import com.demoqa.test.base.BaseTest;
 
 public class ToolTipsTest extends BaseTest {
     ToolTipsPage toolTipsPage;
