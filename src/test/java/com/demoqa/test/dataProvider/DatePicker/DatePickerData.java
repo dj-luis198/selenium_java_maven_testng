@@ -9,7 +9,7 @@ import com.demoqa.util.ReadExcel;
 public class DatePickerData {
     ReadExcel readExcel = new ReadExcel();
 
-    @DataProvider(name = "DatePickerData", parallel = true)
+    @DataProvider(name = "DatePickerData", parallel = false)
     public String[][] dataTest() throws IOException {
         String path = "src/test/resources/excel/DatePickerData.xlsx";
         String[][] data = readExcel.readData(path);

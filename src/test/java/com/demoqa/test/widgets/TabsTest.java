@@ -17,6 +17,7 @@ public class TabsTest extends BaseTest {
         tabsPage = new TabsPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToTabsPage();
         adsFooter.deleteAds();
     }

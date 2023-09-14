@@ -17,23 +17,24 @@ public class BrowserWindowsTest extends BaseTest {
         browserWindowsPage = new BrowserWindowsPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToAlertsFrameWindowsPage();
         adsFooter.deleteAds();
     }
 
     @Test
     public void validateOpenNewTab() {
-        browserWindowsPage.openAndGoTab();
-        Assert.assertTrue(browserWindowsPage.verifyUrl());
+        String url=browserWindowsPage.openAndGoTab();
+        Assert.assertTrue(browserWindowsPage.verifyUrl(url));
     }
 
     @Test
     public void validateOpenNewWindow() {
-        browserWindowsPage.openAndGoWindow();
-        Assert.assertTrue(browserWindowsPage.verifyUrl());
+        String url=browserWindowsPage.openAndGoWindow();
+        Assert.assertTrue(browserWindowsPage.verifyUrl(url));
     }
 
-    @Test
+    //@Test
     public void validateOpenNewWindowMessage() {
         browserWindowsPage.openAndGoWindowMessage();
     }

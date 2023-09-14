@@ -19,6 +19,7 @@ public class ToolTipsTest extends BaseTest {
         toolTipsPage = new ToolTipsPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToToolTipsPage();
         adsFooter.deleteAds();
     }

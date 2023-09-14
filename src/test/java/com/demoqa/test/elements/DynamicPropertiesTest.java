@@ -17,6 +17,7 @@ public class DynamicPropertiesTest extends BaseTest {
         dinamicPropertiesPage = new DynamicPropertiesPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToDynamicPropertiesPage();
         adsFooter.deleteAds();
     }

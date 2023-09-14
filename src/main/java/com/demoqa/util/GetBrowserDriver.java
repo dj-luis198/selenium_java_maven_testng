@@ -38,7 +38,7 @@ public class GetBrowserDriver {
 				options.addArguments("--disable-dev-shm-usage");
 				options.addArguments("--disable-gpu");
 				options.addArguments("--no-sandbox");
-				options.addArguments("--start-maximized");
+				//options.addArguments("--start-maximized");
 				options.addArguments("--start-fullscreen");
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);

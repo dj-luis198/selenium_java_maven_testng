@@ -16,6 +16,7 @@ public class MenuTest extends BaseTest {
         menuPage = new MenuPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToMenuPage();
         adsFooter.deleteAds();
     }

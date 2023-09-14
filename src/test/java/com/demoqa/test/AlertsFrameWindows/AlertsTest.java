@@ -21,6 +21,7 @@ public class AlertsTest extends BaseTest {
         alertsPage = new AlertsPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToAlertsPage();
         adsFooter.deleteAds();
     }

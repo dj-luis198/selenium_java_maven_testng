@@ -9,7 +9,7 @@ import com.demoqa.util.ReadExcel;
 public class AutoCompleteData {
     ReadExcel readExcel = new ReadExcel();
 
-    @DataProvider(name = "MultipleSelecColorData", parallel = true)
+    @DataProvider(name = "MultipleSelecColorData", parallel = false)
     public String[][] dataTest() throws IOException {
         String path = "src/test/resources/excel/MultiSelect.xlsx";
         String[][] data = readExcel.readData(path);

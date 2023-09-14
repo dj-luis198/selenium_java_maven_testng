@@ -17,6 +17,7 @@ public class FramesTest extends BaseTest {
         framesPage = new FramesPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToFramesPage();
         adsFooter.deleteAds();
     }

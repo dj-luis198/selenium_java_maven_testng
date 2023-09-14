@@ -13,15 +13,16 @@ import com.demoqa.test.base.BaseTest;
 import static io.restassured.RestAssured.*;
 
 public class BrokenLinksImagesTest extends BaseTest {
-    HomePage homepage;
+    HomePage homePage;
     BrokenLinksImagesPage brokenLinksImagesPage;
 
     @BeforeMethod
     public void preconditions() {
-        homepage = new HomePage();
+        homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
         brokenLinksImagesPage = new BrokenLinksImagesPage();
-        homepage.goToBrokenLinksImagesPage();
+        homePage.goToHome();
+        homePage.goToBrokenLinksImagesPage();
         adsFooter.deleteAds();
     }
 

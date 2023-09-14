@@ -14,12 +14,14 @@ import com.demoqa.test.dataProvider.DatePicker.DatePickerInputData;
 
 public class DatePickerTest extends BaseTest {
     DatePickerPage datePickerPage;
+    HomePage homePage;
 
     @BeforeMethod
     public void preconditions() {
         datePickerPage = new DatePickerPage();
-        HomePage homePage = new HomePage();
+        homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToDatePickerPage();
         adsFooter.deleteAds();
     }

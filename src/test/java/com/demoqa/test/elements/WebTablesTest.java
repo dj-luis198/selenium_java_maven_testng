@@ -24,6 +24,7 @@ public class WebTablesTest extends BaseTest {
         adsFooter = new AdsFooter();
         homePage = new HomePage();
         webTablesPage = new WebTablesPage();
+        homePage.goToHome();
         homePage.goToWebTablesPage();
         adsFooter.deleteAds();
     }

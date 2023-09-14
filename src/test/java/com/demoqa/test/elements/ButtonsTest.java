@@ -18,6 +18,7 @@ public class ButtonsTest extends BaseTest {
         homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
         buttonsPage = new ButtonsPage();
+        homePage.goToHome();
         homePage.goToButtonsPage();
         adsFooter.deleteAds();
     }

@@ -16,6 +16,7 @@ public class FormTest extends BaseTest {
         formPage = new FormPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToFormsPage();
         adsFooter.deleteAds();
     }
