@@ -14,23 +14,25 @@ public class BrowserWindowsPage extends BaseClass {
         clickNewTab(messageWindowButton);
     }
 
-    public void openAndGoWindow() {
-        clickNewTab(windowButton);
+    public String openAndGoWindow() {
+        String url=clickNewTab(windowButton);
+        return url;
     }
 
-    public void openAndGoTab() {
-        clickNewTab(tabButton);
+    public String openAndGoTab() {
+        String url=clickNewTab(tabButton);
+        return url;
     }
 
-    public Boolean verifyUrl() {
-        if (sampleURL.equals(getURL())) {
+    public Boolean verifyUrl(String url) {
+        if (sampleURL.equals(url)) {
             return true;
         }
         return false;
     }
 
-    public Boolean verifyBlankUrl() {
-        if (blankURL.equals(getURL())) {
+    public Boolean verifyBlankUrl(String url) {
+        if (blankURL.equals(url)) {
             return true;
         }
         return false;

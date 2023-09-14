@@ -18,6 +18,7 @@ public class AutoCompleteTest extends BaseTest {
         autoCompletePage = new AutoCompletePage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToAutoCompletePage();
         adsFooter.deleteAds();
     }

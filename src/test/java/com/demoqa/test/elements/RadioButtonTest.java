@@ -19,6 +19,7 @@ public class RadioButtonTest extends BaseTest {
         homePage = new HomePage();
         adsFooter = new AdsFooter();
         radioButtonPage = new RadioButtonPage();
+        homePage.goToHome();
         homePage.goToRadioButtonPage();
         adsFooter.deleteAds();
     }

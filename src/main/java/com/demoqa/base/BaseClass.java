@@ -42,8 +42,8 @@ public class BaseClass {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
-		// getBrowser.getDriver().manage().window().maximize();
-		getBrowser.getDriver().manage().window().fullscreen();
+		//getBrowser.getDriver().manage().window().maximize();
+		// getBrowser.getDriver().manage().window().fullscreen();
 		getBrowser.getDriver().get(propA.getProperty("url"));
 
 	}
@@ -121,6 +121,10 @@ public class BaseClass {
 	}
 
 	// -------------------------Basic--------------------------//
+
+	protected static void goTo() {
+		getBrowser.getDriver().get(propA.getProperty("url"));
+	}
 
 	protected static void quit() {
 		getBrowser.getDriver().quit();
@@ -336,7 +340,7 @@ public class BaseClass {
 		}
 	}
 
-	protected static void clickNewTab(String locator) {
+	protected static String clickNewTab(String locator) {
 		String time = propF.getProperty("timeOut");
 		String originalTap = getBrowser.getDriver().getWindowHandle();
 		try {
@@ -359,6 +363,13 @@ public class BaseClass {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		String url = getURL();
+		// Close the tab or window
+		getBrowser.getDriver().close();
+
+		// Switch back to the old tab or window
+		getBrowser.getDriver().switchTo().window(originalTap);
+		return url;
 	}
 
 	protected static void doubleClick(String locator) {

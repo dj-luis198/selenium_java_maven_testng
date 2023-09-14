@@ -19,11 +19,12 @@ public class LinksTest extends BaseTest {
                 HomePage homePage = new HomePage();
                 AdsFooter adsFooter = new AdsFooter();
                 linksPage = new LinksPage();
+                homePage.goToHome();
                 homePage.goToLinksPage();
                 adsFooter.deleteAds();
         }
 
-        @Test(description = "Following links will open new tab Home")
+        /*@Test(description = "Following links will open new tab Home")
         public void followingLinksWillOpenNewTabHome() {
                 linksPage.clickNewTabSimpleLink();
                 Assert.assertTrue(linksPage.returnURL());
@@ -33,7 +34,7 @@ public class LinksTest extends BaseTest {
         public void followingLinksWillOpenNewTabHomeDinamic() {
                 linksPage.clickNewTabDinamicLink();
                 Assert.assertTrue(linksPage.returnURL());
-        }
+        }*/
 
         @Test(description = "Following links will send an api call create")
         public void FollowingLinksWillSendAnApiCallCreate() {

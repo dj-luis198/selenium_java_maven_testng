@@ -16,6 +16,7 @@ public class SliderTest extends BaseTest {
         sliderPage = new SliderPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToSliderPage();
         adsFooter.deleteAds();
     }

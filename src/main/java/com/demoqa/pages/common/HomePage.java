@@ -33,6 +33,10 @@ public class HomePage extends BaseClass {
     private final String forms = "//h5[normalize-space()='Forms']";
     private final String practiceForm = "//span[normalize-space()='Practice Form']";
 
+    public void goToHome() {
+        goTo();
+    }
+
     public String getTitleHomePage() {
         return getTitlePage();
     }

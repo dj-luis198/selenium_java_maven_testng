@@ -17,6 +17,7 @@ public class AccordianTest extends BaseTest {
         accordianPage = new AccordianPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToAccordianPage();
         adsFooter.deleteAds();
     }

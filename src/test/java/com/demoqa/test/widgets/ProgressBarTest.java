@@ -17,6 +17,7 @@ public class ProgressBarTest extends BaseTest {
         progressBarPage = new ProgressBarPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToProgressBarPage();
         adsFooter.deleteAds();
     }

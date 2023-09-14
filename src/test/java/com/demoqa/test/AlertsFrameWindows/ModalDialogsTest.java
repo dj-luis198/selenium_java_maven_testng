@@ -17,6 +17,7 @@ public class ModalDialogsTest extends BaseTest{
         modalDialogsPage = new ModalDialogsPage();
         HomePage homePage= new HomePage();
         AdsFooter adsFooter=new AdsFooter();
+        homePage.goToHome();
         homePage.goToModalDialogsPage();
         adsFooter.deleteAds(); 
     }

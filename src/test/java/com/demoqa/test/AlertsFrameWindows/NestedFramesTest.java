@@ -15,9 +15,10 @@ public class NestedFramesTest extends BaseTest {
     @BeforeMethod
     public void preconditions() {
         nestedFramesPages = new NestedFramesPages();
-        HomePage homepage = new HomePage();
+        HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
-        homepage.goToNestedFramesPage();
+        homePage.goToHome();
+        homePage.goToNestedFramesPage();
         adsFooter.deleteAds();
     }
 

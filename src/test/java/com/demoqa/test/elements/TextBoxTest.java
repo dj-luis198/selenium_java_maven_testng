@@ -24,6 +24,7 @@ public class TextBoxTest extends BaseTest {
         email = faker.internet().emailAddress();
         currentAddress = faker.address().fullAddress();
         permanentAddress = faker.address().fullAddress();
+        homePage.goToHome();
         homePage.goToTextBoxPage();
         adsFooter.deleteAds();
     }

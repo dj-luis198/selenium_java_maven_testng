@@ -16,6 +16,7 @@ public class SelectMenuTest extends BaseTest {
         selectMenuPage = new SelectMenuPage();
         HomePage homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
         homePage.goToSelectMenuPage();
         adsFooter.deleteAds();
     }

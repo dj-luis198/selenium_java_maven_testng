@@ -19,6 +19,7 @@ public class UploadAndDownloadTest extends BaseTest {
         adsFooter = new AdsFooter();
         homePage = new HomePage();
         uploadAndDownloadPage = new UploadAndDownloadPage();
+        homePage.goToHome();
         homePage.goToUploadAndDownloadPage();
         adsFooter.deleteAds();
     }

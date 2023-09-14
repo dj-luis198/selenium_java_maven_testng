@@ -24,6 +24,7 @@ public class CheckBoxTest extends BaseTest {
         homePage = new HomePage();
         AdsFooter adsFooter = new AdsFooter();
         checkBoxPage = new CheckBoxPage();
+        homePage.goToHome();
         homePage.goToCheckBoxPage();
         adsFooter.deleteAds();
     }
