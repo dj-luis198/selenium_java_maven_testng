@@ -4,13 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.DatePickerPage;
-import com.demoqa.test.base.BaseTest;
-import com.demoqa.test.dataProvider.DatePicker.DatePickerData;
-import com.demoqa.test.dataProvider.DatePicker.DatePickerDataTime;
-import com.demoqa.test.dataProvider.DatePicker.DatePickerInputData;
+import com.demoqa.util.dataProvider.DatePicker.DatePickerData;
+import com.demoqa.util.dataProvider.DatePicker.DatePickerDataTime;
+import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
 
 public class DatePickerTest extends BaseTest {
     DatePickerPage datePickerPage;

@@ -2,8 +2,8 @@ package com.demoqa.test;
 
 import org.testng.annotations.Test;
 
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.HomePage;
-import com.demoqa.test.base.BaseTest;
 
 public class TitlePagesTests extends BaseTest{
  HomePage homePage;

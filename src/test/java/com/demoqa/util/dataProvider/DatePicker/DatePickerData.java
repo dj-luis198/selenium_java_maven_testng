@@ -1,4 +1,4 @@
-package com.demoqa.test.dataProvider;
+package com.demoqa.util.dataProvider.DatePicker;
 
 import java.io.IOException;
 
@@ -6,14 +6,13 @@ import org.testng.annotations.DataProvider;
 
 import com.demoqa.util.ReadExcel;
 
-public class AutoCompleteData {
+public class DatePickerData {
     ReadExcel readExcel = new ReadExcel();
 
-    @DataProvider(name = "MultipleSelecColorData", parallel = false)
+    @DataProvider(name = "DatePickerData", parallel = false)
     public String[][] dataTest() throws IOException {
-        String path = "src/test/resources/excel/MultiSelect.xlsx";
+        String path = "src/test/resources/excel/DatePickerData.xlsx";
         String[][] data = readExcel.readData(path);
         return data;
     }
-
 }

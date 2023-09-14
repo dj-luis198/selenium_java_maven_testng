@@ -1,4 +1,4 @@
-package com.demoqa.test.listeners;
+package com.demoqa.util.listeners;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -10,7 +10,7 @@ public class MyAnnotationTransformer implements IAnnotationTransformer{
 
     @Override
     public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
-        annotation.setRetryAnalyzer(com.demoqa.test.listeners.MyRetryAnalyzer.class);
+        annotation.setRetryAnalyzer(com.demoqa.util.listeners.MyRetryAnalyzer.class);
     }
     
 }

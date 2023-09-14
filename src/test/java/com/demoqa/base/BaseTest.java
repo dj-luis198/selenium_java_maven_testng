@@ -1,4 +1,4 @@
-package com.demoqa.test.base;
+package com.demoqa.base;
 
 import java.time.Duration;
 
@@ -6,8 +6,6 @@ import org.testng.annotations.AfterClass;
 
 import org.testng.annotations.BeforeClass;
 
-
-import com.demoqa.base.BaseClass;
 
 public class BaseTest extends BaseClass {
 

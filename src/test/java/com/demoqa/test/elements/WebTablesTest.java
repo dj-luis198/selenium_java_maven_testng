@@ -4,10 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.WebTablesPage;
-import com.demoqa.test.base.BaseTest;
 
 import net.datafaker.Faker;
 
@@ -37,7 +37,7 @@ public class WebTablesTest extends BaseTest {
             age = faker.number().numberBetween(18, 100);
             email = faker.internet().emailAddress();
             salary = faker.number().numberBetween(1000, 50000);
-            department = faker.locality().localeString();
+            department = faker.name().lastName();
 
             webTablesPage.clickAddButton();
             Assert.assertEquals(webTablesPage.returnTextForm(), "Registration Form");
@@ -61,7 +61,7 @@ public class WebTablesTest extends BaseTest {
             age = faker.number().numberBetween(18, 100);
             email = faker.internet().emailAddress();
             salary = faker.number().numberBetween(1000, 50000);
-            department = faker.locality().localeString();
+            department = faker.name().lastName();
             webTablesPage.clickAddButton();
             Assert.assertEquals(webTablesPage.returnTextForm(), "Registration Form");
             webTablesPage.register(firstName, lastName, age, email, salary, department);
@@ -84,7 +84,7 @@ public class WebTablesTest extends BaseTest {
         age = faker.number().numberBetween(18, 100);
         email = faker.internet().emailAddress();
         salary = faker.number().numberBetween(1000, 50000);
-        department = faker.locality().localeString();
+        department = faker.name().lastName();
 
         String resultSearch = firstName + lastName + age + email + salary + department + " ";
         webTablesPage.clickAddButton();
@@ -103,13 +103,13 @@ public class WebTablesTest extends BaseTest {
         int ageEdit = faker.number().numberBetween(18, 100);
         String emailEdit = faker.internet().emailAddress();
         int salaryEdit = faker.number().numberBetween(1000, 50000);
-        String departmentEdit = faker.locality().localeString();
+        String departmentEdit = faker.name().lastName();
         firstName = faker.name().firstName();
         lastName = faker.name().lastName();
         age = faker.number().numberBetween(18, 100);
         email = faker.internet().emailAddress();
         salary = faker.number().numberBetween(1000, 50000);
-        department = faker.locality().localeString();
+        department = faker.name().lastName();
 
         String searchText = firstName.substring(0, 3);
         String resultSearch = firstName + lastName + age + email + salary + department + " ";
@@ -134,7 +134,7 @@ public class WebTablesTest extends BaseTest {
         age = faker.number().numberBetween(18, 100);
         email = faker.internet().emailAddress();
         salary = faker.number().numberBetween(1000, 50000);
-        department = faker.locality().localeString();
+        department = faker.name().lastName();
 
         String resultSearch = firstName + lastName + age + email + salary + department + " ";
         webTablesPage.clickAddButton();

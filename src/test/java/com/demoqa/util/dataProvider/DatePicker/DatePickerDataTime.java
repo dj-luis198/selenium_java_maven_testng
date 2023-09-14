@@ -1,4 +1,4 @@
-package com.demoqa.test.dataProvider.DatePicker;
+package com.demoqa.util.dataProvider.DatePicker;
 
 import java.io.IOException;
 

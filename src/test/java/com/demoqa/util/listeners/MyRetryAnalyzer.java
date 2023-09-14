@@ -1,4 +1,4 @@
-package com.demoqa.test.listeners;
+package com.demoqa.util.listeners;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
