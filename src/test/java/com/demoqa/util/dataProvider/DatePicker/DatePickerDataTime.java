@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
 
-import com.demoqa.util.ReadExcel;
+import com.demoqa.util.XLUtility;
 
 public class DatePickerDataTime {
-    ReadExcel readExcel = new ReadExcel();
+    XLUtility readExcel = new XLUtility();
 
     @DataProvider(name = "DatePickerDataTime", parallel = false)
     public String[][] dataTest() throws IOException {
