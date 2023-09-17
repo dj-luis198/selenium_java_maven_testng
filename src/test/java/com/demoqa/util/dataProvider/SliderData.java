@@ -2,10 +2,10 @@ package com.demoqa.util.dataProvider;
 
 import java.io.IOException;
 import org.testng.annotations.DataProvider;
-import com.demoqa.util.ReadExcel;
+import com.demoqa.util.XLUtility;
 
 public class SliderData {
-    ReadExcel readExcel = new ReadExcel();
+    XLUtility readExcel = new XLUtility();
 
     @DataProvider(name = "SliderData",parallel = false)
     public String[][] dataTest() throws IOException {

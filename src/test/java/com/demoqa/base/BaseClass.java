@@ -48,7 +48,7 @@ public class BaseClass {
 
 	}
 
-	private static Properties init_properties(String name) {
+	protected static Properties init_properties(String name) {
 		FileReader reader;
 		try {
 			reader = new FileReader(
