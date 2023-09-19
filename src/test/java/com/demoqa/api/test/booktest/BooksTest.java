@@ -1,17 +1,14 @@
 package com.demoqa.api.test.booktest;
 
 import java.util.ArrayList;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.demoqa.api.endpoints.BooksEndPoints;
 import com.demoqa.api.payload.Isbn;
 import com.demoqa.api.payload.User;
 import com.demoqa.api.payload.UserBook;
 import com.demoqa.api.payload.UserBooks;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import io.restassured.response.Response;
 
 public class BooksTest {

@@ -2,7 +2,6 @@ package com.demoqa.api.test.booktest;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.demoqa.api.endpoints.BooksEndPoints;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 import io.restassured.response.Response;
@@ -16,5 +15,4 @@ public class GetBooks {
         Assert.assertEquals(response.statusCode(), 200);
         response.then().assertThat().body(matchesJsonSchemaInClasspath("BooksSchema.json"));
     }
-    
 }

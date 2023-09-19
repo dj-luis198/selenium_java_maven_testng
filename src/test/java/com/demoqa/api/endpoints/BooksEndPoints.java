@@ -2,12 +2,10 @@ package com.demoqa.api.endpoints;
 
 import java.util.Properties;
 import static io.restassured.RestAssured.*;
-
 import com.demoqa.api.payload.User;
 import com.demoqa.api.payload.UserBook;
 import com.demoqa.api.payload.UserBooks;
 import com.demoqa.base.BaseClass;
-
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -30,8 +28,7 @@ public class BooksEndPoints extends BaseClass{
         prop = BaseClass.init_properties("routes");
         String post_books_url = prop.getProperty("post_books_url");
         Response response =
-            given()
-                
+            given()     
                 .accept(ContentType.JSON)
                 .contentType("application/json")
                 .header("Authorization","Bearer "+token)

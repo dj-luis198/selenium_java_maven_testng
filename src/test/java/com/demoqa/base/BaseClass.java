@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -22,9 +21,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.demoqa.util.GetBrowserDriver;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
 
 public class BaseClass {
@@ -42,8 +39,6 @@ public class BaseClass {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
 		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
-		//getBrowser.getDriver().manage().window().maximize();
-		// getBrowser.getDriver().manage().window().fullscreen();
 		getBrowser.getDriver().get(propA.getProperty("url"));
 
 	}
@@ -504,7 +499,7 @@ public class BaseClass {
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
 	}
 
-	protected static void irA(String url){
+	protected static void irA(String url) {
 		getBrowser.getDriver().get(url);
 	}
 }
