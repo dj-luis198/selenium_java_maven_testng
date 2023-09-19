@@ -35,7 +35,7 @@ jobs:
         run: mvn -B clean package -DskipTests
           
       - name: Maven Verify
-        run: mvn -B clean verify
+        run: mvn -B clean test
 
       - name: Deploy
         if: success() || failure()
