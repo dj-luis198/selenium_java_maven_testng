@@ -7,6 +7,7 @@ import com.demoqa.api.endpoints.BooksEndPoints;
 import com.demoqa.api.payload.User;
 import com.demoqa.api.payload.UserBook;
 import com.demoqa.util.dataProvider.apiData;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 import io.restassured.response.Response;
 
@@ -25,6 +26,7 @@ public class PutBook {
         Response response = BooksEndPoints.putBook(user, userBook, token, book2);
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
+        response.then().assertThat().body(matchesJsonSchemaInClasspath("FUserSchema.json"));
     }
     
 }

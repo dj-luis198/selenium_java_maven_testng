@@ -48,7 +48,7 @@ public class BaseClass {
 
 	}
 
-	protected static Properties init_properties(String name) {
+	public static Properties init_properties(String name) {
 		FileReader reader;
 		try {
 			reader = new FileReader(
@@ -502,5 +502,9 @@ public class BaseClass {
 	protected static void waitElementToBeClickable(String locator) {
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
+	}
+
+	protected static void irA(String url){
+		getBrowser.getDriver().get(url);
 	}
 }
