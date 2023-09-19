@@ -11,6 +11,7 @@ import com.demoqa.api.endpoints.UserEndPoints;
 import com.demoqa.api.payload.User;
 import com.demoqa.util.XLUtility;
 import com.demoqa.util.dataProvider.apiData;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 import io.restassured.response.Response;
 
@@ -25,6 +26,7 @@ public class PostToken {
         Response response = UserEndPoints.tokenUser(user);
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
+        response.then().assertThat().body(matchesJsonSchemaInClasspath("schemas\\TokenSchema.json"));
         this.token = response.jsonPath().get("token");
     }
 
