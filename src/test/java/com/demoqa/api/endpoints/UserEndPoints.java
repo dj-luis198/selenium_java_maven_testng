@@ -16,7 +16,6 @@ public class UserEndPoints extends BaseClass{
         String post_url = prop.getProperty("post_url");
         Response response =
             given()
-                //.accept(ContentType.JSON)
                 .contentType("application/json")
                 .body(payload).log().all()
             .when()
@@ -77,7 +76,5 @@ public class UserEndPoints extends BaseClass{
             .when()
                 .delete(delete_url);
             return response;
-    }
-
-    
+    } 
 }

@@ -2,16 +2,10 @@ package com.demoqa.api.test.usertests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
-
-
 import com.demoqa.api.endpoints.UserEndPoints;
 import com.demoqa.api.payload.User;
 import com.demoqa.util.dataProvider.apiData;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
-
 import io.restassured.response.Response;
 
 public class GetUser {
@@ -27,6 +21,6 @@ public class GetUser {
         response.then().assertThat().body(matchesJsonSchemaInClasspath("FUserSchema.json"));
         Assert.assertEquals(response.body().jsonPath().get("username"), user.getUserName());
         Assert.assertEquals(response.body().jsonPath().get("userId"), id);
-        Assert.assertEquals(response.body().jsonPath().get("books").toString(),"[]");
+        Assert.assertEquals(response.body().jsonPath().get("books").toString(), "[]");
     }
 }

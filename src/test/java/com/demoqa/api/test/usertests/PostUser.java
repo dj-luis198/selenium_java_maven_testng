@@ -1,19 +1,15 @@
 package com.demoqa.api.test.usertests;
 
 import java.io.IOException;
-
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-
 import com.demoqa.api.endpoints.UserEndPoints;
 import com.demoqa.api.payload.User;
 import com.demoqa.util.XLUtility;
 import com.demoqa.util.dataProvider.apiData;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
-
-
 import io.restassured.response.Response;
 
 public class PostUser {
@@ -29,7 +25,7 @@ public class PostUser {
     Assert.assertEquals(response.statusCode(), 201);
     response.then().assertThat().body(matchesJsonSchemaInClasspath("UserSchema.json"));
     Assert.assertEquals(response.body().jsonPath().get("username"), user.getUserName());
-    Assert.assertEquals(response.body().jsonPath().get("books").toString(),"[]");
+    Assert.assertEquals(response.body().jsonPath().get("books").toString(), "[]");
     this.id = response.jsonPath().get("userID");
   }
 
