@@ -13,4 +13,4 @@ Se requiere tener descargado java, Apache Maven y configurada la variable de ent
 > Versiones `20.0.2` , `3.9.3` de java y apache maven, respectivamente. Le sugiero que use la misma versión o versiones posteriores.
 
 ## Pruebas
-Ejecutar `mvn clean verify` en la terminal de su editor de codigo favorito para correr todas las pruebas en paralelo.
+Ejecutar `mvn clean test` en la terminal de su editor de codigo favorito para correr todas las pruebas en paralelo.
