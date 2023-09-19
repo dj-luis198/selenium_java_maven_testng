@@ -14,7 +14,7 @@ public class GetBooks {
         Response response = BooksEndPoints.getBooks();
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
-        response.then().assertThat().body(matchesJsonSchemaInClasspath("schemas\\BooksSchema.json"));
+        response.then().assertThat().body(matchesJsonSchemaInClasspath("BooksSchema.json"));
     }
     
 }

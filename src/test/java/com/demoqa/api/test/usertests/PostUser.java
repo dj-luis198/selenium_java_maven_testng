@@ -27,7 +27,7 @@ public class PostUser {
     Response response = UserEndPoints.postUser(user);
     response.then().log().all();
     Assert.assertEquals(response.statusCode(), 201);
-    response.then().assertThat().body(matchesJsonSchemaInClasspath("schemas\\UserSchema.json"));
+    response.then().assertThat().body(matchesJsonSchemaInClasspath("UserSchema.json"));
     Assert.assertEquals(response.body().jsonPath().get("username"), user.getUserName());
     Assert.assertEquals(response.body().jsonPath().get("books").toString(),"[]");
     this.id = response.jsonPath().get("userID");

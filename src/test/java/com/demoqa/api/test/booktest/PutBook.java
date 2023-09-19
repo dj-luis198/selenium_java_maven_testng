@@ -26,7 +26,7 @@ public class PutBook {
         Response response = BooksEndPoints.putBook(user, userBook, token, book2);
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
-        response.then().assertThat().body(matchesJsonSchemaInClasspath("schemas\\FUserSchema.json"));
+        response.then().assertThat().body(matchesJsonSchemaInClasspath("FUserSchema.json"));
     }
     
 }

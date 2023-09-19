@@ -24,7 +24,7 @@ public class GetUser {
         Response response = UserEndPoints.getUser(user, token, id);
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
-        response.then().assertThat().body(matchesJsonSchemaInClasspath("schemas\\FUserSchema.json"));
+        response.then().assertThat().body(matchesJsonSchemaInClasspath("FUserSchema.json"));
         Assert.assertEquals(response.body().jsonPath().get("username"), user.getUserName());
         Assert.assertEquals(response.body().jsonPath().get("userId"), id);
         Assert.assertEquals(response.body().jsonPath().get("books").toString(),"[]");

@@ -26,7 +26,7 @@ public class PostToken {
         Response response = UserEndPoints.tokenUser(user);
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
-        response.then().assertThat().body(matchesJsonSchemaInClasspath("schemas\\TokenSchema.json"));
+        response.then().assertThat().body(matchesJsonSchemaInClasspath("TokenSchema.json"));
         this.token = response.jsonPath().get("token");
     }
 
