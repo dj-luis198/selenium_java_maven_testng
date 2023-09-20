@@ -91,7 +91,20 @@ public class BaseClass {
 			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
-			throw new Error("El locator " + locator + " no fue encontrado");
+			System.out.println(e);
+			return false;
+		}
+	}
+
+	private static Boolean noFindElements(String locator) {
+		String time = propF.getProperty("timeOut");
+		try {
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			return ewait.until(ExpectedConditions
+					.invisibilityOfAllElements(getBrowser.getDriver().findElements(By.xpath(locator))));
+		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+			System.out.println(e);
+			return false;
 		}
 	}
 
@@ -175,6 +188,10 @@ public class BaseClass {
 
 	protected Boolean NoFind(String locator) {
 		return NoFindElement(locator);
+	}
+
+	protected Boolean NoFindElements(String locator) {
+		return noFindElements(locator);
 	}
 
 	protected static Boolean getPageSource(String locator) {
