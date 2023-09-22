@@ -1,27 +1,38 @@
 package com.demoqa.test.bookStore;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import com.demoqa.base.BaseTestMethod;
+
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.bookStore.BooksStorePage;
 import com.demoqa.pages.bookStore.LoginStorePage;
 import com.demoqa.pages.bookStore.ProfileStorePage;
 import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 import com.demoqa.util.dataProvider.bookStoreE2EData;
 
-public class BookStoreTest extends BaseTestMethod {
-    BooksStorePage booksStore = new BooksStorePage();
-    LoginStorePage loginStorePage = new LoginStorePage();
-    ProfileStorePage profileStorePage = new ProfileStorePage();
-    AdsFooter adsFooter = new AdsFooter();
+public class BookStoreTest extends BaseTest {
+
+    BooksStorePage booksStore;
+    LoginStorePage loginStorePage;
+    ProfileStorePage profileStorePage;
+    AdsFooter adsFooter;
+
+    @BeforeClass
+    public void preconditions(){
+        booksStore = new BooksStorePage();
+        loginStorePage = new LoginStorePage();
+        profileStorePage = new ProfileStorePage();
+        HomePage homePage= new HomePage();
+        adsFooter= new AdsFooter();
+        homePage.goToLoginPage();
+        adsFooter.deleteAds();
+    }
 
     @Test(dataProvider = "bookStoreE2E", dataProviderClass = bookStoreE2EData.class)
     public void booksStoreE2E(String userName, String pass, String books) {
-        loginStorePage.goToLoginStore();
-        adsFooter.deleteAds();
-        loginStorePage.typeUserName(userName);
-        loginStorePage.typeUserPass(pass);
-        loginStorePage.clickLoginButton();
+        loginStorePage.LoginUser(userName, pass);
         adsFooter.deleteAds();
         Assert.assertEquals(profileStorePage.returnUserName(), userName);
         profileStorePage.clickGoToBookStoreButton();

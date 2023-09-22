@@ -7,6 +7,12 @@ public class LoginStorePage extends BaseClass{
     private final String passInput="//input[@id='password']";
     private final String loginButton="//button[@id='login']";
 
+    public void LoginUser(String userName, String Pass){
+        this.typeUserName(userName);
+        this.typeUserPass(Pass);
+        this.clickLoginButton();
+    }
+
     public void typeUserName(String text){
         type(userNameInput, text);
     }
@@ -18,9 +24,4 @@ public class LoginStorePage extends BaseClass{
     public void clickLoginButton(){
         click(loginButton);
     }
-
-    public void goToLoginStore(){
-        irA("https://demoqa.com/login");
-    }
-    
 }
