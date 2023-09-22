@@ -11,7 +11,7 @@ public class bookStoreE2EData {
 
     @DataProvider(name = "bookStoreE2E",parallel = false)
     public String[][] bookStoreE2E() throws IOException {
-        String path = "src/test/resources/excel/bookStoreE2E.xlsx";
+        String path = "src/test/resources/excel/bookStoreE2E1.xlsx";
         String[][] data = readExcel.readData(path);
         return data;
     }

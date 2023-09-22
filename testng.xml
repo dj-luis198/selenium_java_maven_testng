@@ -59,7 +59,7 @@
       <class name="com.demoqa.test.forms.FormTest"/>
     </classes>
     </test>
-    <test name="e2e Book Store">
+    <test name="e2e Book Store" parallel="false">
     <classes>
       <class name="com.demoqa.test.bookStore.BookStoreTest"/>
     </classes>
