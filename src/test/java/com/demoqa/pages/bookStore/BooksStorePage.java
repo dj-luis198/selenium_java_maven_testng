@@ -17,20 +17,14 @@ public class BooksStorePage extends BaseClass {
     private final String backToBooksButton = "//div[@class='text-left fullButton']//button[@id='addNewRecordButton']";
     private final String profileButton = "//span[normalize-space()='Profile']";
 
-    public void selectBooks(String text) {
-        List<String> booksList = new ArrayList<String>(Arrays.asList(text.split(",")));
-        for (String book : booksList) {
-            List<WebElement> elements = returnElements(linkBookSpan);
-            for (WebElement element : elements) {
-                if (getAttributeElementContent(element).equals(book)) {
-                    clickElement(element);
+    public void selectBooks(String books) {
+        List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(",")));
+            for (String book : booksList) {
+                    click("//a[contains(text(),\""+book+"\")]");
                     this.clickAddToYouCollection();
                     this.acceptAlert();
                     this.clickBackToBook();
-                    break;
-                }
             }
-        }
     }
 
     public void clickProfile() {

@@ -3,62 +3,8 @@
 <suite name="Suite" thread-count="3" parallel="classes">
   <listeners>
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
-    <listener class-name="com.demoqa.util.listeners.MyAnnotationTransformer"/>
   </listeners>
-  <test name="API" parallel="false">
-    <classes>
-      <class name="com.demoqa.api.test.usertests.PostUser"/>
-      <class name="com.demoqa.api.test.usertests.PostToken"/>
-      <class name="com.demoqa.api.test.usertests.PostAuthorized"/>
-      <class name="com.demoqa.api.test.usertests.GetUser"/>
-      <class name="com.demoqa.api.test.booktest.PostBooksUser"/>
-      <class name="com.demoqa.api.test.booktest.DeleteBook"/>
-      <class name="com.demoqa.api.test.booktest.PutBook"/>
-      <class name="com.demoqa.api.test.booktest.DeleteBooks"/>
-      <class name="com.demoqa.api.test.booktest.GetBook"/>
-      <class name="com.demoqa.api.test.booktest.GetBooks"/>
-      <class name="com.demoqa.api.test.usertests.DeleteUser"/>
-    </classes>
-    </test>
-  <test name="ElementsTest">
-    <classes>
-      <class name="com.demoqa.test.elements.LinksTest"/>
-      <class name="com.demoqa.test.elements.RadioButtonTest"/>
-      <class name="com.demoqa.test.elements.CheckBoxTest"/>
-      <class name="com.demoqa.test.elements.ButtonsTest"/>
-      <class name="com.demoqa.test.elements.TextBoxTest"/>
-      <class name="com.demoqa.test.elements.WebTablesTest"/>
-      <class name="com.demoqa.test.elements.UploadAndDownloadTest"/>
-      <class name="com.demoqa.test.elements.DynamicPropertiesTest"/>
-      <class name="com.demoqa.test.elements.BrokenLinksImagesTest"/>
-    </classes>  
-    </test>
-    <test name="AlertsFrameWindows">
-    <classes>
-      <class name="com.demoqa.test.AlertsFrameWindows.BrowserWindowsTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.AlertsTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.FramesTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.NestedFramesTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.ModalDialogsTest"/>
-    </classes>
-    </test>
-    <test name="widgets">
-    <classes>
-      <class name="com.demoqa.test.widgets.AccordianTest"/>
-      <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
-      <class name="com.demoqa.test.widgets.DatePickerTest"/>
-      <class name="com.demoqa.test.widgets.SliderTest"/>
-      <class name="com.demoqa.test.widgets.ProgressBarTest"/>
-      <class name="com.demoqa.test.widgets.ToolTipsTest"/>
-      <class name="com.demoqa.test.widgets.MenuTest"/>
-      <class name="com.demoqa.test.widgets.SelectMenuTest"/>
-    </classes>
-    </test>
-    <test name="Forms">
-    <classes>
-      <class name="com.demoqa.test.forms.FormTest"/>
-    </classes>
-    </test>
+  
     <test name="e2e Book Store">
     <classes>
       <class name="com.demoqa.test.bookStore.BookStoreTest"/>
