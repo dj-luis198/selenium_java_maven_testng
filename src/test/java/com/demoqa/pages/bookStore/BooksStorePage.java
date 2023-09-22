@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.openqa.selenium.WebElement;
-
 import com.demoqa.base.BaseClass;
 
 public class BooksStorePage extends BaseClass {
     private final String userNameLabel = "//label[@id='userName-value']";
-    private final String linkBookSpan = "//div[@class='action-buttons']/child::span";
     private final String titleBookSpan = "//div[@id='title-wrapper']//label[@id='userName-value']";
     private final String addToCollectionButton = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']";
     private final String textAlertAddBook = "Book added to your collection.";
@@ -49,16 +46,6 @@ public class BooksStorePage extends BaseClass {
 
     public String returnBookName() {
         return getTextContent(titleBookSpan);
-    }
-
-    public void selectBook(String text) {
-        List<WebElement> elements = returnElements(linkBookSpan);
-        for (WebElement element : elements) {
-            if (getAttributeElementContent(element).equals(text)) {
-                clickElement(element);
-                break;
-            }
-        }
     }
 
     public String returnUserName() {
