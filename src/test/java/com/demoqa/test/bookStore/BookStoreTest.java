@@ -6,14 +6,14 @@ import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.demoqa.base.BaseTest;
+import com.demoqa.base.BaseTestMethod;
 import com.demoqa.pages.bookStore.BooksStorePage;
 import com.demoqa.pages.bookStore.LoginStorePage;
 import com.demoqa.pages.bookStore.ProfileStorePage;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.util.dataProvider.bookStoreE2EData;
 
-public class BookStoreTest extends BaseTest {
+public class BookStoreTest extends BaseTestMethod {
     BooksStorePage booksStore = new BooksStorePage();
     LoginStorePage loginStorePage = new LoginStorePage();
     ProfileStorePage profileStorePage = new ProfileStorePage();
