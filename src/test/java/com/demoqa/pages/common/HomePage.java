@@ -32,6 +32,16 @@ public class HomePage extends BaseClass {
     private final String selectMenu = "//span[normalize-space()='Select Menu']";
     private final String forms = "//h5[normalize-space()='Forms']";
     private final String practiceForm = "//span[normalize-space()='Practice Form']";
+    private final String bookStore = "//h5[normalize-space()='Book Store Application']";
+    private final String login = "//span[normalize-space()='Login']";
+
+    public void SelectBookStoreItem() {
+        click(login);
+    }
+
+    public void SelectBookStore() {
+        click(bookStore);
+    }
 
     public void goToHome() {
         goTo();
@@ -271,5 +281,10 @@ public class HomePage extends BaseClass {
     public void goToFormsPage() {
         this.SelectForms();
         this.SelectPracticeFormItem();
+    }
+
+    public void goToLoginPage() {
+        this.SelectBookStore();
+        this.SelectBookStoreItem();
     }
 }

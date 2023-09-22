@@ -52,8 +52,4 @@ public class BooksStorePage extends BaseClass {
         return getTextContent(userNameLabel);
     }
 
-    public void goToBooksStore() {
-        irA("https://demoqa.com/books");
-    }
-
 }
