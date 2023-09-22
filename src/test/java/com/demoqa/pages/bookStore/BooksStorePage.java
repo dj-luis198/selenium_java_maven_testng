@@ -18,11 +18,9 @@ public class BooksStorePage extends BaseClass {
     private final String profileButton = "//span[normalize-space()='Profile']";
 
     public void selectBooks(String text) {
-        List<String> booksList = new ArrayList<String>(Arrays.asList(text.split(",")));
-        for (String book : booksList) {
             List<WebElement> elements = returnElements(linkBookSpan);
             for (WebElement element : elements) {
-                if (getAttributeElementOuterText(element).equals(book)) {
+                if (getAttributeElementOuterText(element).equals(text)) {
                     clickElement(element);
                     this.clickAddToYouCollection();
                     this.acceptAlert();
@@ -30,7 +28,6 @@ public class BooksStorePage extends BaseClass {
                     break;
                 }
             }
-        }
     }
 
     public void clickProfile() {

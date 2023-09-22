@@ -1,5 +1,9 @@
 package com.demoqa.test.bookStore;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
@@ -17,6 +21,7 @@ public class BookStoreTest extends BaseTest {
 
     @Test(dataProvider = "bookStoreE2E",dataProviderClass = bookStoreE2EData.class)
     public void booksStoreE2E(String userName, String pass, String books) {
+        List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(",")));
         loginStorePage.goToLoginStore();
         adsFooter.deleteAds();
         loginStorePage.typeUserName(userName);
@@ -27,14 +32,18 @@ public class BookStoreTest extends BaseTest {
         profileStorePage.clickGoToBookStoreButton();
         adsFooter.deleteAds();
         Assert.assertEquals(booksStore.returnUserName(), userName);
-        booksStore.selectBooks(books);
+        for (String book : booksList) {
+            booksStore.selectBooks(book);
+        }
         booksStore.clickProfile();
         Assert.assertTrue(profileStorePage.verifyBooksList(books));
         profileStorePage.deleteBooks(books);
         Assert.assertTrue(profileStorePage.verifyBooksDelete(books));
         profileStorePage.clickGoToBookStoreButton();
         adsFooter.deleteAds();
-        booksStore.selectBooks(books);
+        for (String book : booksList) {
+            booksStore.selectBooks(book);
+        }
         booksStore.clickProfile();
         profileStorePage.clickDeleteAllBooks();
         profileStorePage.confirmSmallModal();
