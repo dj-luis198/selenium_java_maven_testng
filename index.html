@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">DEMOQA Reports</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Sep 22, 2023 01:31:24 PM</span></a>
+<a href="#"><span class="badge badge-primary">Sep 22, 2023 01:46:46 PM</span></a>
 </li>
 </ul>
 </div>
@@ -86,7 +86,7 @@
           <div class="test-detail">
             <p class="name">booksStoreE2E</p>
             <p class="text-sm">
-              <span>1:31:34 PM</span> / <span>00:00:07:136</span>
+              <span>1:46:58 PM</span> / <span>00:00:07:031</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -95,9 +95,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">booksStoreE2E</h5>
-<span class='badge badge-success'>09.22.2023 1:31:34 PM</span>
-<span class='badge badge-danger'>09.22.2023 1:31:41 PM</span>
-<span class='badge badge-default'>00:00:07:136</span>
+<span class='badge badge-success'>09.22.2023 1:46:58 PM</span>
+<span class='badge badge-danger'>09.22.2023 1:47:05 PM</span>
+<span class='badge badge-default'>00:00:07:031</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -113,14 +113,14 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:31:34 PM</td>
+        <td>1:46:58 PM</td>
         <td>
           booksStoreE2E has started execution
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>1:31:41 PM</td>
+        <td>1:47:05 PM</td>
         <td>
           <textarea readonly class="code-block">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
   (Session info: chrome=117.0.5938.92)
@@ -128,10 +128,10 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.12.0', revision: '249f2a7d1b*'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.2.0-1011-azure', java.version: '20.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [87b362a3b586493b2028832e8762e978, getElementAttribute {id=2C804E5FD1FE499E96E7E8233DBE7E5F_element_183, name=textContent}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.92, chrome: {chromedriverVersion: 117.0.5938.88 (be6afae47212..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:32865}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:32865/devtoo..., se:cdpVersion: 117.0.5938.92, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on linux (87b362a3b586493b2028832e8762e978)] -> xpath: //div[@class='action-buttons']/child::span]
-Session ID: 87b362a3b586493b2028832e8762e978
+Command: [6dcd8ab87f2c6d7e33ede064eb3c443e, getElementAttribute {id=414BE742483C0361DD0F9E239A760B75_element_78, name=outerText}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.92, chrome: {chromedriverVersion: 117.0.5938.88 (be6afae47212..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:33125}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:33125/devtoo..., se:cdpVersion: 117.0.5938.92, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on linux (6dcd8ab87f2c6d7e33ede064eb3c443e)] -> xpath: //div[@class='action-buttons']/child::span]
+Session ID: 6dcd8ab87f2c6d7e33ede064eb3c443e
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
@@ -144,7 +144,7 @@ Session ID: 87b362a3b586493b2028832e8762e978
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
 	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:150)
-	at com.demoqa.base.BaseClass.getAttributeElementContent(BaseClass.java:304)
+	at com.demoqa.base.BaseClass.getAttributeElementOuterText(BaseClass.java:308)
 	at com.demoqa.pages.bookStore.BooksStorePage.selectBooks(BooksStorePage.java:25)
 	at com.demoqa.test.bookStore.BookStoreTest.booksStoreE2E(BookStoreTest.java:30)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
@@ -227,7 +227,7 @@ Session ID: 87b362a3b586493b2028832e8762e978
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>13:31:34 PM</td>
+<td>13:46:58 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='1'>booksStoreE2E</a>
 </td>
@@ -249,13 +249,13 @@ Session ID: 87b362a3b586493b2028832e8762e978
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Sep 22, 2023 01:31:24 PM</h3>
+<h3>Sep 22, 2023 01:46:46 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Sep 22, 2023 01:31:44 PM</h3>
+<h3>Sep 22, 2023 01:47:08 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -325,7 +325,7 @@ Session ID: 87b362a3b586493b2028832e8762e978
 </div></div>
 <script>
 var timeline = {
-"booksStoreE2E":7.136
+"booksStoreE2E":7.031
 };
 </script>
 <div class="row">
