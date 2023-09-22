@@ -22,7 +22,7 @@ public class BooksStorePage extends BaseClass {
         for (String book : booksList) {
             List<WebElement> elements = returnElements(linkBookSpan);
             for (WebElement element : elements) {
-                if (getAttributeElementContent(element).equals(book)) {
+                if (getAttributeElementOuterText(element).equals(book)) {
                     clickElement(element);
                     this.clickAddToYouCollection();
                     this.acceptAlert();

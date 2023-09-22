@@ -304,6 +304,10 @@ public class BaseClass {
 		return element.getAttribute("textContent");
 	}
 
+	protected static String getAttributeElementOuterText(WebElement element) {
+		return element.getAttribute("outerText");
+	}
+
 	protected String getAttributeDefaultValue(String locator) {
 		return findElement(locator).getAttribute("defaultValue");
 	}
