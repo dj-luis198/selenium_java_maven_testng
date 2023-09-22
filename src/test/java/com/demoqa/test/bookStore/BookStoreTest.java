@@ -1,6 +1,7 @@
 package com.demoqa.test.bookStore;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.demoqa.base.BaseTestMethod;
 import com.demoqa.pages.bookStore.BooksStorePage;
@@ -10,10 +11,18 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.util.dataProvider.bookStoreE2EData;
 
 public class BookStoreTest extends BaseTestMethod {
-    BooksStorePage booksStore = new BooksStorePage();
-    LoginStorePage loginStorePage = new LoginStorePage();
-    ProfileStorePage profileStorePage = new ProfileStorePage();
-    AdsFooter adsFooter = new AdsFooter();
+    BooksStorePage booksStore;
+    LoginStorePage loginStorePage;
+    ProfileStorePage profileStorePage;
+    AdsFooter adsFooter;
+
+    @BeforeMethod
+    public void preconditions(){
+    booksStore = new BooksStorePage();
+    loginStorePage = new LoginStorePage();
+    profileStorePage = new ProfileStorePage();
+    adsFooter = new AdsFooter();
+    }
 
     @Test(dataProvider = "bookStoreE2E", dataProviderClass = bookStoreE2EData.class)
     public void booksStoreE2E(String userName, String pass, String books) {

@@ -5,7 +5,7 @@
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
   </listeners>
   
-    <test name="e2e Book Store">
+    <test name="e2e Book Store" parallel="false">
     <classes>
       <class name="com.demoqa.test.bookStore.BookStoreTest"/>
     </classes>
