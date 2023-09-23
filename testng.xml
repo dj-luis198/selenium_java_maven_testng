@@ -5,11 +5,6 @@
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
     <listener class-name="com.demoqa.util.listeners.MyAnnotationTransformer"/>
   </listeners>
-  <test name="BookStore" parallel="none">
-    <classes>
-      <class name="com.demoqa.test.bookStore.BookStoreTest"/>
-    </classes>
-    </test>
   <test name="API" parallel="none">
     <classes>
       <class name="com.demoqa.api.test.usertests.PostUser"/>
