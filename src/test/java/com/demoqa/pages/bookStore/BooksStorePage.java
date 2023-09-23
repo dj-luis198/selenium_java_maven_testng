@@ -38,7 +38,7 @@ public class BooksStorePage extends BaseClass {
     }
 
     public void acceptAlert() {
-        acceptCommonAlert();
+        confirmAlertOk();
     }
 
     public void clickAddToYouCollection() {

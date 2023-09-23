@@ -40,11 +40,13 @@ public class BookStoreTest extends BaseTest{
         adsFooter.deleteAds();
         System.out.println("delete ads");
         Assert.assertEquals(profileStorePage.returnUserName(), userName);
+        System.out.println("assert username paso");
         profileStorePage.clickGoToBookStoreButton();
         System.out.println("ir a book store");
         adsFooter.deleteAds();
         System.out.println("delete ads");
         Assert.assertEquals(booksStore.returnUserName(), userName);
+        System.out.println("assert username paso");
         booksStore.selectBooks(books);
         System.out.println("selecciona los libros");
         booksStore.clickProfile();
