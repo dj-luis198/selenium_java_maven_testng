@@ -434,11 +434,10 @@ public class BaseClass {
 	}
 
 	protected static String acceptCommonAlert() {
-		//String time = propF.getProperty("timeOut");
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
+		String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)*2));
 		try {
-        ewait.until(ExpectedConditions.alertIsPresent());
-		Alert alert = getBrowser.getDriver().switchTo().alert();
+        Alert alert =ewait.until(ExpectedConditions.alertIsPresent());
 		String text = alert.getText();
 		alert.accept();
 		return text;
@@ -525,7 +524,7 @@ public class BaseClass {
 
 	protected static Boolean waitProgressBar(String locator) {
 		String time = propF.getProperty("timeOut");
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)*5));
 		return ewait.until(ExpectedConditions.attributeToBe(findElement(locator), "aria-valuenow", "100"));
 	}
 
