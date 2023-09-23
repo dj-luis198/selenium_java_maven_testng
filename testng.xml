@@ -58,8 +58,7 @@
     <classes>
       <class name="com.demoqa.test.forms.FormTest"/>
     </classes>
-    </test>
-    <test name="e2e Book Store" parallel="none">
+    </test><test name="e2e Book Store">
     <classes>
       <class name="com.demoqa.test.bookStore.BookStoreTest"/>
     </classes>
