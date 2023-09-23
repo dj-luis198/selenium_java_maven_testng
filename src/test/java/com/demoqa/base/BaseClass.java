@@ -420,22 +420,23 @@ public class BaseClass {
 
 	// --------------------------------Alert------------------------------------//
 
-	protected boolean isAlertPresent(){
-		boolean foundAlert = false;
-    String time = propF.getProperty("timeOut");
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+	protected String isAlertPresent(){
+    //String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
     try {
-        ewait.until(ExpectedConditions.alertIsPresent());
-        foundAlert = true;
-    } catch (TimeoutException e) {
-        foundAlert = false;
+        Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
+		String text = alert.getText();
+		alert.accept();
+		return text;
+    } catch (org.openqa.selenium.TimeoutException e) {
+		System.out.println("no hay alerta");
     }
-    return foundAlert;
+    return "no hay alerta";
 	}
 
 	protected static String acceptCommonAlert() {
-		String time = propF.getProperty("timeOut");
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		//String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
 		String text = alert.getText();
 		alert.accept();

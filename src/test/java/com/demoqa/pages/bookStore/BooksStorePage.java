@@ -38,11 +38,11 @@ public class BooksStorePage extends BaseClass {
     }
 
     public void acceptAlert() {
-        if(isAlertPresent()){
-           String text=acceptCommonAlert();
+        String text= isAlertPresent();
+        if(text.equals("Book added to your collection.")||text.equals("Book already present in the your collection!")){
             System.out.println(text);
         }else {
-            System.out.println("No hay alerta");
+            System.out.println(text);
         }
     }
 
