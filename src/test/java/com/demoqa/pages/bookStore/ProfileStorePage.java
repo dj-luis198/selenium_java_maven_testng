@@ -93,7 +93,7 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public void acceptAlert() {
-        acceptCommonAlert();
+        confirmAlertOk();
     }
 
     public void confirmSmallModal() {

@@ -14,12 +14,18 @@ public class BooksStorePage extends BaseClass {
     private final String profileButton = "//span[normalize-space()='Profile']";
 
     public void selectBooks(String books) {
+        System.out.println("Select books ........ paso string a array");
         List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(",")));
+        System.out.println("comienza for");
             for (String book : booksList) {
                     click("//a[contains(text(),\""+book+"\")]");
+                    System.out.println("click a "+book);
                     this.clickAddToYouCollection();
+                    System.out.println("click add colecction");
                     this.acceptAlert();
+                    System.out.println("acept alert");
                     this.clickBackToBook();
+                    System.out.println("click back to book");
             }
     }
 
@@ -32,7 +38,7 @@ public class BooksStorePage extends BaseClass {
     }
 
     public void acceptAlert() {
-        acceptCommonAlert();
+        confirmAlertOk();
     }
 
     public void clickAddToYouCollection() {
