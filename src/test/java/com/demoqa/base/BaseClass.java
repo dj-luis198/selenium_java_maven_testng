@@ -429,6 +429,7 @@ public class BaseClass {
 		alert.accept();
 		return text;
     } catch (org.openqa.selenium.TimeoutException e) {
+		System.out.println("algo paso no se encontro alerta");
     }
     return "no hay alerta";
 	}
