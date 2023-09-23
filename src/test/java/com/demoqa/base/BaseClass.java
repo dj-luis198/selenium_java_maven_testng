@@ -14,6 +14,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -419,9 +420,23 @@ public class BaseClass {
 
 	// --------------------------------Alert------------------------------------//
 
+	protected String isAlertPresent(){
+    //String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
+    try {
+        Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
+		String text = alert.getText();
+		alert.accept();
+		return text;
+    } catch (org.openqa.selenium.TimeoutException e) {
+		System.out.println("no hay alerta");
+    }
+    return "no hay alerta";
+	}
+
 	protected static String acceptCommonAlert() {
-		String time = propF.getProperty("timeOut");
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		//String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
 		String text = alert.getText();
 		alert.accept();
