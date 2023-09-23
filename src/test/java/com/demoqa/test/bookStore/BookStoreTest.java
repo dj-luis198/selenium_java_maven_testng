@@ -71,6 +71,7 @@ public class BookStoreTest extends BaseTest{
         System.out.println("confirm modal");
         profileStorePage.acceptAlertDeleteAll();
         System.out.println("confirm alert");
+        Assert.assertTrue(profileStorePage.verifyDeleteAllBooks());
         profileStorePage.clickLogOut();
         System.out.println("logout");
         homePage.goToHome();
