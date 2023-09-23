@@ -57,6 +57,23 @@ public class BookStoreTest extends BaseTest{
         profileStorePage.deleteBooks(books);
         System.out.println("elimina libros");
         Assert.assertTrue(profileStorePage.verifyBooksDelete(books));
+        profileStorePage.clickGoToBookStoreButton();
+        System.out.println("ir a bookstore por segunda vez");
+        adsFooter.deleteAds();
+        System.out.println("delete ads");
+        booksStore.selectBooks(books);
+        System.out.println("select segunda camada de libros");
+        booksStore.clickProfile();
+        System.out.println("ir a profile");
+        adsFooter.deleteAds();
+        System.out.println("delete ads");
+        profileStorePage.clickDeleteAllBooks();
+        System.out.println("elimino todos los libros");
+        profileStorePage.confirmSmallModal();
+        System.out.println("confirma modal");
+        profileStorePage.acceptAlertDeleteAll();
+        System.out.println("asepto alerta");
+        Assert.assertTrue(profileStorePage.verifyDeleteAllBooks());
     }
 
     @AfterMethod
