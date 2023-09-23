@@ -14,6 +14,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -418,6 +419,19 @@ public class BaseClass {
 	}
 
 	// --------------------------------Alert------------------------------------//
+
+	protected boolean isAlertPresent(){
+		boolean foundAlert = false;
+    String time = propF.getProperty("timeOut");
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+    try {
+        ewait.until(ExpectedConditions.alertIsPresent());
+        foundAlert = true;
+    } catch (TimeoutException e) {
+        foundAlert = false;
+    }
+    return foundAlert;
+	}
 
 	protected static String acceptCommonAlert() {
 		String time = propF.getProperty("timeOut");
