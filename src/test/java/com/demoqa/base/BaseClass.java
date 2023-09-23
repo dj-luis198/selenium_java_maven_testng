@@ -430,7 +430,6 @@ public class BaseClass {
 		alert.accept();
 		return text;
     } catch (org.openqa.selenium.TimeoutException e) {
-		System.out.println("no hay alerta");
     }
     return "no hay alerta";
 	}
@@ -438,10 +437,15 @@ public class BaseClass {
 	protected static String acceptCommonAlert() {
 		//String time = propF.getProperty("timeOut");
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
-		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
+		try {
+        ewait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = getBrowser.getDriver().switchTo().alert();
 		String text = alert.getText();
 		alert.accept();
 		return text;
+    } catch (org.openqa.selenium.TimeoutException e) {
+    }
+    return "no hay alerta";
 	}
 
 	protected static void confirmAlertOk() {
