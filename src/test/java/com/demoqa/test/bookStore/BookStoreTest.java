@@ -40,6 +40,7 @@ public class BookStoreTest extends BaseTest{
         Assert.assertEquals(booksStore.returnUserName(), userName);
         booksStore.selectBooks(books);
         booksStore.clickProfile();
+        adsFooter.deleteAds();
         Assert.assertTrue(profileStorePage.verifyBooksList(books));
         profileStorePage.deleteBooks(books);
         Assert.assertTrue(profileStorePage.verifyBooksDelete(books));
@@ -47,6 +48,7 @@ public class BookStoreTest extends BaseTest{
         adsFooter.deleteAds();
         booksStore.selectBooks(books);
         booksStore.clickProfile();
+        adsFooter.deleteAds();
         profileStorePage.clickDeleteAllBooks();
         profileStorePage.confirmSmallModal();
         profileStorePage.acceptAlertDeleteAll();
@@ -56,10 +58,12 @@ public class BookStoreTest extends BaseTest{
     @AfterMethod
     public void deleteBooks(){
         booksStore.clickProfile();
+        adsFooter.deleteAds();
         profileStorePage.clickDeleteAllBooks();
         profileStorePage.confirmSmallModal();
         profileStorePage.acceptAlertDeleteAll();
         profileStorePage.clickLogOut();
         homePage.goToHome();
+        adsFooter.deleteAds();
     }
 }
