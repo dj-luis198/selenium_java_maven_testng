@@ -4,8 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import com.demoqa.base.BaseTestMethod;
+import com.demoqa.base.BaseTest;
 import com.demoqa.pages.bookStore.BooksStorePage;
 import com.demoqa.pages.bookStore.LoginStorePage;
 import com.demoqa.pages.bookStore.ProfileStorePage;
@@ -13,8 +12,8 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.util.dataProvider.bookStoreE2EData;
 
-public class BookStoreTest extends BaseTestMethod{
-
+public class BookStoreTest extends BaseTest{
+    HomePage homePage;
     BooksStorePage booksStore;
     LoginStorePage loginStorePage;
     ProfileStorePage profileStorePage;
@@ -25,7 +24,7 @@ public class BookStoreTest extends BaseTestMethod{
         booksStore = new BooksStorePage();
         loginStorePage = new LoginStorePage();
         profileStorePage = new ProfileStorePage();
-        HomePage homePage= new HomePage();
+        homePage= new HomePage();
         adsFooter= new AdsFooter();
         homePage.goToLoginPage();
         adsFooter.deleteAds();
@@ -61,6 +60,6 @@ public class BookStoreTest extends BaseTestMethod{
         profileStorePage.confirmSmallModal();
         profileStorePage.acceptAlertDeleteAll();
         profileStorePage.clickLogOut();
-
+        homePage.goToHome();
     }
 }
