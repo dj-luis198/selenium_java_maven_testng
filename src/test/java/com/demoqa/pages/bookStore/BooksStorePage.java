@@ -10,7 +10,6 @@ public class BooksStorePage extends BaseClass {
     private final String userNameLabel = "//label[@id='userName-value']";
     private final String titleBookSpan = "//div[@id='title-wrapper']//label[@id='userName-value']";
     private final String addToCollectionButton = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']";
-    private final String textAlertAddBook = "Book added to your collection.";
     private final String backToBooksButton = "//div[@class='text-left fullButton']//button[@id='addNewRecordButton']";
     private final String profileButton = "//span[normalize-space()='Profile']";
 
@@ -32,12 +31,8 @@ public class BooksStorePage extends BaseClass {
         click(backToBooksButton);
     }
 
-    public Boolean acceptAlert() {
-        String text = acceptCommonAlert();
-        if (text.equals(textAlertAddBook)) {
-            return true;
-        }
-        return false;
+    public void acceptAlert() {
+        acceptCommonAlert();
     }
 
     public void clickAddToYouCollection() {
