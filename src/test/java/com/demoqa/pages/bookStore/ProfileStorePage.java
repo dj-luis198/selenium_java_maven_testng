@@ -14,17 +14,11 @@ public class ProfileStorePage extends BaseClass {
     private final String goToStoreButton = "//button[@id='gotoStore']";
     private final String booksGrid = "//span[contains(@id,'see-book-')]";
     private final String smalModalOkButton = "//button[@id='closeSmallModal-ok']";
-    private final String textAlert = "Book deleted.";
     private final String deleteAllButton = "//div[@class='text-right button di']//button[@id='submit']";
     private final String logOut = "//button[contains(text(),'Log out')]";
-    private final String textAlertDeleteAll="All Books deleted.";
 
-    public Boolean acceptAlertDeleteAll() {
-        String text = acceptCommonAlert();
-        if (text.equals(textAlertDeleteAll)) {
-            return true;
-        }
-        return false;
+    public void acceptAlertDeleteAll() {
+        acceptCommonAlert();
     }
 
     public void clickLogOut() {
@@ -98,12 +92,8 @@ public class ProfileStorePage extends BaseClass {
         return true;
     }
 
-    public Boolean acceptAlert() {
-        String text = acceptCommonAlert();
-        if (text.equals(textAlert)) {
-            return true;
-        }
-        return false;
+    public void acceptAlert() {
+        acceptCommonAlert();
     }
 
     public void confirmSmallModal() {

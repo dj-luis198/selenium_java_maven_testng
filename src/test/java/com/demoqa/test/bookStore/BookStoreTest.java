@@ -1,10 +1,11 @@
 package com.demoqa.test.bookStore;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.demoqa.base.BaseTest;
+import com.demoqa.base.BaseTestMethod;
 import com.demoqa.pages.bookStore.BooksStorePage;
 import com.demoqa.pages.bookStore.LoginStorePage;
 import com.demoqa.pages.bookStore.ProfileStorePage;
@@ -12,14 +13,14 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.util.dataProvider.bookStoreE2EData;
 
-public class BookStoreTest extends BaseTest {
+public class BookStoreTest extends BaseTestMethod{
 
     BooksStorePage booksStore;
     LoginStorePage loginStorePage;
     ProfileStorePage profileStorePage;
     AdsFooter adsFooter;
 
-    @BeforeClass
+    @BeforeMethod
     public void preconditions(){
         booksStore = new BooksStorePage();
         loginStorePage = new LoginStorePage();
@@ -31,7 +32,7 @@ public class BookStoreTest extends BaseTest {
     }
 
     @Test(dataProvider = "bookStoreE2E", dataProviderClass = bookStoreE2EData.class)
-    public void booksStoreE2E(String userName, String pass, String books) {
+    public void booksStoreE2ETest(String userName, String pass, String books) {
         loginStorePage.LoginUser(userName, pass);
         adsFooter.deleteAds();
         Assert.assertEquals(profileStorePage.returnUserName(), userName);
@@ -51,6 +52,15 @@ public class BookStoreTest extends BaseTest {
         profileStorePage.confirmSmallModal();
         profileStorePage.acceptAlertDeleteAll();
         Assert.assertTrue(profileStorePage.verifyDeleteAllBooks());
+    }
+
+    @AfterMethod
+    public void deleteBooks(){
+        booksStore.clickProfile();
+        profileStorePage.clickDeleteAllBooks();
+        profileStorePage.confirmSmallModal();
+        profileStorePage.acceptAlertDeleteAll();
         profileStorePage.clickLogOut();
+
     }
 }
