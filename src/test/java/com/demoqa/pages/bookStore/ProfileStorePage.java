@@ -93,7 +93,12 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public void acceptAlert() {
-        confirmAlertOk();
+        String text=acceptCommonAlert();
+        if(text.equals("Book added to your collection.")||text.equals("Book already present in the your collection!")){
+            System.out.println(text);
+        }else{
+            System.out.println("no esperado el texto es "+text);
+        }
     }
 
     public void confirmSmallModal() {
