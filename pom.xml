@@ -132,7 +132,10 @@
           <version>2.22.1</version>
           <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
+            <suiteXmlFile>api.xml</suiteXmlFile>
+            <suiteXmlFile>chrome.xml</suiteXmlFile>
+            <suiteXmlFile>edge.xml</suiteXmlFile>
+            <suiteXmlFile>firefox.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
         </plugin>
