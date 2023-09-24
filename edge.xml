@@ -5,21 +5,7 @@
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
     <listener class-name="com.demoqa.util.listeners.MyAnnotationTransformer"/>
   </listeners>
-  <test name="API" parallel="none">
-    <classes>
-      <class name="com.demoqa.api.test.usertests.PostUser"/>
-      <class name="com.demoqa.api.test.usertests.PostToken"/>
-      <class name="com.demoqa.api.test.usertests.PostAuthorized"/>
-      <class name="com.demoqa.api.test.usertests.GetUser"/>
-      <class name="com.demoqa.api.test.booktest.PostBooksUser"/>
-      <class name="com.demoqa.api.test.booktest.DeleteBook"/>
-      <class name="com.demoqa.api.test.booktest.PutBook"/>
-      <class name="com.demoqa.api.test.booktest.DeleteBooks"/>
-      <class name="com.demoqa.api.test.booktest.GetBook"/>
-      <class name="com.demoqa.api.test.booktest.GetBooks"/>
-      <class name="com.demoqa.api.test.usertests.DeleteUser"/>
-    </classes>
-    </test>
+  <parameter name="browser" value="edge"/>
   <test name="ElementsTest">
     <classes>
       <class name="com.demoqa.test.elements.LinksTest"/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API">
+  <listeners>
+    <listener class-name="com.demoqa.util.listeners.MyAnnotationTransformer"/>
+  </listeners>
+  <test name="API Book Store" parallel="none">
+    <classes>
+      <class name="com.demoqa.api.test.usertests.PostUser"/>
+      <class name="com.demoqa.api.test.usertests.PostToken"/>
+      <class name="com.demoqa.api.test.usertests.PostAuthorized"/>
+      <class name="com.demoqa.api.test.usertests.GetUser"/>
+      <class name="com.demoqa.api.test.booktest.PostBooksUser"/>
+      <class name="com.demoqa.api.test.booktest.DeleteBook"/>
+      <class name="com.demoqa.api.test.booktest.PutBook"/>
+      <class name="com.demoqa.api.test.booktest.DeleteBooks"/>
+      <class name="com.demoqa.api.test.booktest.GetBook"/>
+      <class name="com.demoqa.api.test.booktest.GetBooks"/>
+      <class name="com.demoqa.api.test.usertests.DeleteUser"/>
+    </classes>
+    </test>
+</suite>
