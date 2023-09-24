@@ -39,7 +39,7 @@ public class BaseClass {
 	protected static void init() {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
-		getBrowser.setDriver(getBrowser.getBrowserDriver(propF.getProperty("browser")));
+		getBrowser.getBrowserDriver(propF.getProperty("browser"));
 		getBrowser.getDriver().get(propA.getProperty("url"));
 
 	}
