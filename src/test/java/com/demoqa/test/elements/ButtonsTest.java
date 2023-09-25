@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.ButtonsPage;
 
+@Test(groups = "ButtonsTest")
 public class ButtonsTest extends BaseTest {
     HomePage homePage;
     ButtonsPage buttonsPage;

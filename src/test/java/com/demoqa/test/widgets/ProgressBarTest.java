@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.ProgressBarPage;
 
+@Test(groups = "ProgressBarTest")
 public class ProgressBarTest extends BaseTest {
     ProgressBarPage progressBarPage;
 

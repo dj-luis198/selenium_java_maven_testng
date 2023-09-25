@@ -10,6 +10,7 @@ import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.AutoCompletePage;
 import com.demoqa.util.dataProvider.AutoCompleteData;
 
+@Test(groups = "AutoCompleteTest")
 public class AutoCompleteTest extends BaseTest {
     AutoCompletePage autoCompletePage;
 

@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.UploadAndDownloadPage;
 
+@Test(groups = "UploadAndDownloadTest")
 public class UploadAndDownloadTest extends BaseTest {
     HomePage homePage;
     AdsFooter adsFooter;

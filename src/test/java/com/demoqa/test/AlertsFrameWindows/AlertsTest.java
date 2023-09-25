@@ -11,6 +11,7 @@ import com.demoqa.pages.common.HomePage;
 
 import net.datafaker.Faker;
 
+@Test(groups = "AlertsTest")
 public class AlertsTest extends BaseTest {
     AlertsPage alertsPage;
 

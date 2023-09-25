@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.MenuPage;
 
+@Test(groups = "MenuTest")
 public class MenuTest extends BaseTest {
     MenuPage menuPage;
 

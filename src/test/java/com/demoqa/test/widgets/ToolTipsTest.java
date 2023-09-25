@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.ToolTipsPage;
 
+@Test(groups = "ToolTipsTest")
 public class ToolTipsTest extends BaseTest {
     ToolTipsPage toolTipsPage;
     SoftAssert softAssert;

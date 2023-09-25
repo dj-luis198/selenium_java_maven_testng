@@ -12,6 +12,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.util.dataProvider.bookStoreE2EData;
 
+@Test(groups = "BookStoreTest")
 public class BookStoreTest extends BaseTest{
     HomePage homePage;
     BooksStorePage booksStore;

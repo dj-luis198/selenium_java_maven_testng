@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.forms.FormPage;
 
+@Test(groups = "FormTest")
 public class FormTest extends BaseTest {
     FormPage formPage;
 

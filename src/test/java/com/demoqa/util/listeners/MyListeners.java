@@ -24,7 +24,9 @@ public class MyListeners extends BaseClass implements ITestListener {
         String testName = result.getMethod().getMethodName();
         eTest = report.createTest(testName);
         extentTest.set(eTest);
-        extentTest.get().log(Status.INFO, testName + " has started execution");
+        extentTest.get().assignCategory(result.getMethod().getGroups());
+        extentTest.get().assignDevice(result.getTestContext().getCurrentXmlTest().getParameter("browser"));
+        extentTest.get().info(result.getMethod().getDescription());
     }
 
     @Override

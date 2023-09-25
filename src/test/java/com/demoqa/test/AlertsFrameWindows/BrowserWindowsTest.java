@@ -9,6 +9,7 @@ import com.demoqa.pages.AlertsFrameWindows.BrowserWindowsPage;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
+@Test(groups = "BrowserWindowsTest")
 public class BrowserWindowsTest extends BaseTest {
     BrowserWindowsPage browserWindowsPage;
 

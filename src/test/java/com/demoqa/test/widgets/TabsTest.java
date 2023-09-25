@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.TabsPage;
 
+@Test(groups = "TabsTest")
 public class TabsTest extends BaseTest {
     TabsPage tabsPage;
 

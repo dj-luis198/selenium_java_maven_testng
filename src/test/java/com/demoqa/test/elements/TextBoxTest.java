@@ -11,6 +11,7 @@ import com.demoqa.pages.elements.TextBoxPage;
 
 import net.datafaker.Faker;
 
+@Test(groups = "TextBoxTest")
 public class TextBoxTest extends BaseTest {
     AdsFooter adsFooter;
     private String fullName, email, currentAddress, permanentAddress;

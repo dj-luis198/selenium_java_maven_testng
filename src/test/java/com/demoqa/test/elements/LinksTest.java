@@ -11,6 +11,7 @@ import com.demoqa.pages.elements.LinksPage;
 
 import static io.restassured.RestAssured.*;
 
+@Test(groups = "LinksTest")
 public class LinksTest extends BaseTest {
         LinksPage linksPage;
 
