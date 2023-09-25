@@ -7,6 +7,7 @@ import com.demoqa.api.payload.User;
 import com.demoqa.util.dataProvider.apiData;
 import io.restassured.response.Response;
 
+@Test(groups = "API")
 public class PostAuthorized {
 
     @Test(dataProvider = "bookUsercol3Data", dataProviderClass = apiData.class)
