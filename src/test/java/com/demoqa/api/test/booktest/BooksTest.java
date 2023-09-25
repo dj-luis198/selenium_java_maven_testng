@@ -11,6 +11,7 @@ import com.demoqa.api.payload.UserBooks;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 
+@Test(groups = "API")
 public class BooksTest {
     UserBook userBook;
     Isbn isbn;

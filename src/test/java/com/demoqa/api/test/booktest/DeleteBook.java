@@ -8,6 +8,7 @@ import com.demoqa.api.payload.UserBook;
 import com.demoqa.util.dataProvider.apiData;
 import io.restassured.response.Response;
 
+@Test(groups = "API")
 public class DeleteBook {
     User user;
     UserBook userBook;

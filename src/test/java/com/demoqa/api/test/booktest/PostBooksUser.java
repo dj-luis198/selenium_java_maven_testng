@@ -10,6 +10,7 @@ import com.demoqa.api.payload.UserBooks;
 import com.demoqa.util.dataProvider.apiData;
 import io.restassured.response.Response;
 
+@Test(groups = "API")
 public class PostBooksUser {
     User user;
     UserBooks userBooks;
