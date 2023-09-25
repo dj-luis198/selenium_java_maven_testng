@@ -25,8 +25,19 @@ public class MyListeners extends BaseClass implements ITestListener {
         eTest = report.createTest(testName);
         extentTest.set(eTest);
         extentTest.get().assignCategory(result.getMethod().getGroups());
-        extentTest.get().assignDevice(result.getTestContext().getCurrentXmlTest().getParameter("browser"));
         extentTest.get().info(result.getMethod().getDescription());
+        String groups[] = result.getMethod().getGroups();
+        Boolean flag = false;
+        for (String group : groups) {
+            if (group.equals("API")) {
+                flag = true;
+            }
+        }
+        if (!flag) {
+            extentTest.get().assignDevice(result.getTestContext().getCurrentXmlTest().getParameter("browser"));
+        }else {
+            extentTest.get().assignDevice("API");
+        }
     }
 
     @Override
