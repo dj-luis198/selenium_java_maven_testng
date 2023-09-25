@@ -9,6 +9,7 @@ import com.demoqa.pages.AlertsFrameWindows.NestedFramesPages;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
+@Test(groups = "NestedFramesTest")
 public class NestedFramesTest extends BaseTest {
     NestedFramesPages nestedFramesPages;
 

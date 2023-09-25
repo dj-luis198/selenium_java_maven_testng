@@ -9,6 +9,7 @@ import com.demoqa.pages.AlertsFrameWindows.FramesPage;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
+@Test(groups = "FramesTest")
 public class FramesTest extends BaseTest {
     FramesPage framesPage;
 

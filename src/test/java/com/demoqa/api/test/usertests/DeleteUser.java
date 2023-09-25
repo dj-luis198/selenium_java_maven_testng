@@ -7,6 +7,7 @@ import com.demoqa.api.payload.User;
 import com.demoqa.util.dataProvider.apiData;
 import io.restassured.response.Response;
 
+@Test(groups = "API")
 public class DeleteUser {
 
     @Test(dataProvider = "bookUsercol4Data", dataProviderClass = apiData.class)

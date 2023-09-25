@@ -9,6 +9,7 @@ import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.SliderPage;
 import com.demoqa.util.dataProvider.SliderData;
 
+@Test(groups = "SliderTest")
 public class SliderTest extends BaseTest {
     SliderPage sliderPage;
 

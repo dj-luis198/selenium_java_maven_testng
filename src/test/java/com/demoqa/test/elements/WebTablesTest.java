@@ -11,6 +11,7 @@ import com.demoqa.pages.elements.WebTablesPage;
 
 import net.datafaker.Faker;
 
+@Test(groups = "WebTablesTest")
 public class WebTablesTest extends BaseTest {
     Faker faker = new Faker();
     String firstName, lastName, email, department;

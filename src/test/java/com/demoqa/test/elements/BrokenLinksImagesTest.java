@@ -12,6 +12,7 @@ import com.demoqa.pages.elements.BrokenLinksImagesPage;
 
 import static io.restassured.RestAssured.*;
 
+@Test(groups = "BrokenLinksImagesTest")
 public class BrokenLinksImagesTest extends BaseTest {
     HomePage homePage;
     BrokenLinksImagesPage brokenLinksImagesPage;

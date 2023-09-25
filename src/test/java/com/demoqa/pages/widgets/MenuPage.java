@@ -130,7 +130,6 @@ public class MenuPage extends BaseClass {
     }
 
     public Boolean verifyItem1() {
-        System.out.println(returnCSSBackground(ancestorItem1));
         if (returnCSSBackground(ancestorItem1).equals("rgba(0, 63, 32, 1)")||returnCSSBackground(ancestorItem1).equals("rgb(0, 63, 32)")) {
             clearActions();
             return true;

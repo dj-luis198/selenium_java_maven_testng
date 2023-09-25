@@ -12,6 +12,7 @@ import com.demoqa.util.dataProvider.DatePicker.DatePickerData;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerDataTime;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
 
+@Test(groups = "DatePickerTest")
 public class DatePickerTest extends BaseTest {
     DatePickerPage datePickerPage;
     HomePage homePage;

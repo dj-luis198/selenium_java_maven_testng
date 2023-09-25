@@ -8,6 +8,7 @@ import com.demoqa.util.dataProvider.apiData;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 import io.restassured.response.Response;
 
+@Test(groups = "API")
 public class GetUser {
 
     @Test(dataProvider = "bookUsercol4Data", dataProviderClass = apiData.class)

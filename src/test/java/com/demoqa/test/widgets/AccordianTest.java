@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.AccordianPage;
 
+@Test(groups = "AccordianTest")
 public class AccordianTest extends BaseTest {
     AccordianPage accordianPage;
 
@@ -22,7 +23,7 @@ public class AccordianTest extends BaseTest {
         adsFooter.deleteAds();
     }
 
-    @Test(dataProviderDynamicClass = "")
+    @Test
     public void validateSection1Accordian() {
         Assert.assertTrue(accordianPage.isDisplayedSection1());
         Assert.assertFalse(accordianPage.isDisplayedSection2());

@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.RadioButtonPage;
 
+@Test(groups = "RadioButtonTest")
 public class RadioButtonTest extends BaseTest {
     AdsFooter adsFooter;
     HomePage homePage;

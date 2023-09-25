@@ -24,7 +24,20 @@ public class MyListeners extends BaseClass implements ITestListener {
         String testName = result.getMethod().getMethodName();
         eTest = report.createTest(testName);
         extentTest.set(eTest);
-        extentTest.get().log(Status.INFO, testName + " has started execution");
+        extentTest.get().assignCategory(result.getMethod().getGroups());
+        extentTest.get().info(result.getMethod().getDescription());
+        String groups[] = result.getMethod().getGroups();
+        Boolean flag = false;
+        for (String group : groups) {
+            if (group.equals("API")) {
+                flag = true;
+            }
+        }
+        if (!flag) {
+            extentTest.get().assignDevice(result.getTestContext().getCurrentXmlTest().getParameter("browser"));
+        }else {
+            extentTest.get().assignDevice("API");
+        }
     }
 
     @Override

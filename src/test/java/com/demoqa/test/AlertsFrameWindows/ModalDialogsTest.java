@@ -9,6 +9,7 @@ import com.demoqa.pages.AlertsFrameWindows.ModalDialogsPage;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
+@Test(groups = "ModalDialogsTest")
 public class ModalDialogsTest extends BaseTest{
     ModalDialogsPage modalDialogsPage;
 

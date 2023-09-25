@@ -9,6 +9,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.DynamicPropertiesPage;
 
+@Test(groups = "DynamicPropertiesTest")
 public class DynamicPropertiesTest extends BaseTest {
     DynamicPropertiesPage dinamicPropertiesPage;
 

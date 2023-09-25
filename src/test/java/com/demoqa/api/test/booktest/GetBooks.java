@@ -6,6 +6,7 @@ import com.demoqa.api.endpoints.BooksEndPoints;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 import io.restassured.response.Response;
 
+@Test(groups = "API")
 public class GetBooks {
 
     @Test
