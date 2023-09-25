@@ -36,8 +36,8 @@ public class BrowserWindowsTest extends BaseTest {
     }
 
     //@Test
-    public void validateOpenNewWindowMessage() {
+    /*public void validateOpenNewWindowMessage() {
         browserWindowsPage.openAndGoWindowMessage();
-    }
+    }*/
 
 }

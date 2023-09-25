@@ -26,7 +26,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         extentTest.set(eTest);
         extentTest.get().assignCategory(result.getMethod().getGroups());
         extentTest.get().info(result.getMethod().getDescription());
-        /*String groups[] = result.getMethod().getGroups();
+        String groups[] = result.getMethod().getGroups();
         Boolean flag = false;
         for (String group : groups) {
             if (group.equals("API")) {
@@ -37,7 +37,7 @@ public class MyListeners extends BaseClass implements ITestListener {
             extentTest.get().assignDevice(result.getTestContext().getCurrentXmlTest().getParameter("browser"));
         }else {
             extentTest.get().assignDevice("API");
-        }*/
+        }
     }
 
     @Override
