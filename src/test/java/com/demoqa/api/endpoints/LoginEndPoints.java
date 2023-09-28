@@ -1,0 +1,57 @@
+package com.demoqa.api.endpoints;
+import java.util.Properties;
+import java.util.Set;
+import org.openqa.selenium.Cookie;
+import com.demoqa.api.payload.User;
+import com.demoqa.base.BaseClass;
+import com.google.gson.Gson;
+import io.restassured.response.Response;
+import static io.restassured.RestAssured.*;
+
+public class LoginEndPoints extends BaseClass{
+private static Properties prop = new Properties();
+
+// forma en qu se obtienen datos necesarios y se crean cookies necesarias para acceder
+// las cookies se guardan en una variable y pueden usarse para iniciar secion sin logear por GUI
+
+    public static void postLogin(User payload){
+        Gson gson= new Gson();
+        String bodyJson= gson.toJson(payload);
+            prop = BaseClass.init_properties("routes");
+            String post_login_url = prop.getProperty("post_login_url");
+            Response response = 
+                given()
+                    .contentType("application/json")
+                    .body(bodyJson).log().all()
+                .when()
+                    .post(post_login_url);
+                    response.then().log().all();
+
+                    String id= response.jsonPath().get("userId");
+                    Cookie idc= new Cookie("userID",id);
+                    String name= response.jsonPath().get("username");
+                    Cookie userNamec= new Cookie("userName",name);
+                    String token= response.jsonPath().get("token");
+                    Cookie tokenc= new Cookie("token",token);
+                    String expires= response.jsonPath().get("expires");
+                    Cookie expiresc= new Cookie("expires",expires);
+                    Set<Cookie> driverCookies= getDriver().manage().getCookies();
+                    System.out.println("cookies1 size: "+driverCookies.size());
+                    getDriver().manage().addCookie(idc);
+                    getDriver().manage().addCookie(userNamec);
+                    getDriver().manage().addCookie(tokenc);
+                    getDriver().manage().addCookie(expiresc);
+                    Set<Cookie> driverCookies2= getDriver().manage().getCookies();
+                    System.out.println("cookies2 size: "+driverCookies2.size());
+                    refreshPage();
+    }
+
+    public static void refreshPage(){
+        getDriver().get("https://demoqa.com/profile");
+    }
+
+    public static void goToLoginPage(){
+        getDriver().manage().deleteAllCookies();
+        getDriver().get("https://demoqa.com/login");
+    }
+}
