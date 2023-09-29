@@ -16,7 +16,7 @@ Se utilizan distintos métodos para proveer datos a las pruebas, por medio de Js
 
 Las pruebas API se realizan con Rest Assured, validando tanto datos como schemas.
 
-Para reporte de pruebas se realiza con Extent reports.
+Para el reporte de pruebas se utiliza Extent reports.
 
 Las pruebas se corren en paralelo y en caso de fallar una o más de ellas se correran hasta 2 veces más cada una para así descartar falsos negativos.
 
