@@ -10,6 +10,7 @@ import static io.restassured.RestAssured.*;
 
 public class LoginEndPoints extends BaseClass{
 private static Properties prop = new Properties();
+static Set<Cookie> driverCookies;
 
 // forma en qu se obtienen datos necesarios y se crean cookies necesarias para acceder
 // las cookies se guardan en una variable y pueden usarse para iniciar secion sin logear por GUI
@@ -35,14 +36,11 @@ private static Properties prop = new Properties();
                     Cookie tokenc= new Cookie("token",token);
                     String expires= response.jsonPath().get("expires");
                     Cookie expiresc= new Cookie("expires",expires);
-                    Set<Cookie> driverCookies= getDriver().manage().getCookies();
-                    System.out.println("cookies1 size: "+driverCookies.size());
                     getDriver().manage().addCookie(idc);
                     getDriver().manage().addCookie(userNamec);
                     getDriver().manage().addCookie(tokenc);
                     getDriver().manage().addCookie(expiresc);
-                    Set<Cookie> driverCookies2= getDriver().manage().getCookies();
-                    System.out.println("cookies2 size: "+driverCookies2.size());
+                    driverCookies= getDriver().manage().getCookies();
                     refreshPage();
     }
 
