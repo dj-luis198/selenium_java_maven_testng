@@ -7,21 +7,15 @@ Link a reporte de pruebas  https://dj-luis198.github.io/selenium_java_maven_test
 ----------------------------
 
 [DemoQA](https://demoqa.com) es una página provista por toolsqa.com para realizar practicas con Selenium. La misma posee módulos como botones, menús, formularios, etc.
-
 En estas pruebas automatizadas se utilizó Selenium WebDriver con Java aplicando el patron de diseño POM (Page Object Model).
+Además:
 
-Las pruebas se realizan en los browsers Chrome, Firefox y Edge; dando un total de 325 test.
-
-Se utilizan distintos métodos para proveer datos a las pruebas, por medio de JsonSimple, Faker data y Data Provider con Excel.
-
-Las pruebas API se realizan con Rest Assured, validando tanto datos como schemas.
-
-Para el reporte de pruebas se utiliza Extent reports.
-
-Las pruebas se corren en paralelo y en caso de fallar una o más de ellas se correran hasta 2 veces más cada una para así descartar falsos negativos.
-
-En su mayoría las assercions son hard-Assercions, pero a modo de práctica se introducen soft-Assercions.
-
+- Las pruebas se realizan en los browsers Chrome, Firefox y Edge; dando un total de 325 test.
+- Se utilizan distintos métodos para proveer datos a las pruebas, por medio de JsonSimple, Faker data y Data Provider con Excel.
+- Las pruebas API se realizan con Rest Assured, validando tanto datos como schemas.
+- Para el reporte de pruebas se utiliza Extent reports.
+- Las pruebas se corren en paralelo y en caso de fallar una o más de ellas se correran hasta 2 veces más cada una para así descartar falsos negativos.
+- En su mayoría las assercions son hard-Assercions, pero a modo de práctica se introducen soft-Assercions.
 
 ## Pre requisitos
 Se requiere tener descargado java, Apache Maven y configurada la variable de entorno tanto de java como de Maven.
