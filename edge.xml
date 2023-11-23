@@ -3,7 +3,6 @@
 <suite name="Suite" thread-count="4" parallel="classes">
   <listeners>
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
-    <listener class-name="com.demoqa.util.listeners.MyAnnotationTransformer"/>
   </listeners>
   <parameter name="browser" value="edge"/>
   <test name="ElementsTest">
