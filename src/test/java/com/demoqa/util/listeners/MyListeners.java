@@ -63,6 +63,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        extentTest.get().log(Status.FAIL, testName + "test fail");
         extentTest.get().fail(result.getThrowable());
     }
 
@@ -79,6 +80,6 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         String testName = result.getMethod().getMethodName();
-        extentTest.get().log(Status.SKIP, testName + " re-run test skipped");
+        extentTest.get().log(Status.SKIP, testName + "test skipped");
     }
 }
