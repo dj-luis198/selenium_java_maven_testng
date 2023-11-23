@@ -63,6 +63,8 @@ public class MyListeners extends BaseClass implements ITestListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        extentTest.get().log(Status.FAIL,"Test Failed");
         extentTest.get().fail(result.getThrowable());
     }
 
