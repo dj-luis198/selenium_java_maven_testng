@@ -37,7 +37,7 @@ public class BrokenLinksImagesTest extends BaseTest {
         Assert.assertTrue(brokenLinksImagesPage.returnImages());
     }
 
-    @Test(description = "validate links page", enabled = false)
+    @Test(description = "validate links page")
     public void validateLinksPage() {
 
         int count = 0;
