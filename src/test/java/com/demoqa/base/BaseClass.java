@@ -12,8 +12,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -30,7 +32,6 @@ public class BaseClass {
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
-	private static Actions actions;
 
 	public static WebDriver getDriver() {
 		return getBrowser.getDriver();
@@ -65,45 +66,44 @@ public class BaseClass {
 		return destFile.getAbsolutePath();
 	}
 
-	// ----------------------------findElement(s)---------------------//
-	private static WebElement findElement(String locator) {
-		String time = propF.getProperty("timeOut");
-		try {
-			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-			return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
-		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
-			throw new Error("El locator " + locator + " no fue encontrado");
-		}
-	}
+private static WebElement findElement(String locator) {
+    String time = propF.getProperty("timeOut");
+    Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+    try {
+        return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
+    } catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+        throw new Error("El locator " + locator + " no fue encontrado");
+    }
+}
 
-	private static WebElement findElementClickable(String locator) {
-		String time = propF.getProperty("timeOut");
-		try {
-			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-			return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
-			throw new Error("El locator " + locator + " no fue encontrado");
-		}
+private static WebElement findElementClickable(String locator) {
+	String time = propF.getProperty("timeOut");
+	Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+	try {
+		return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+	} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+		throw new Error("El locator " + locator + " no fue encontrado");
 	}
+}
 
-	private static Boolean NoFindElement(String locator) {
-		String time = propF.getProperty("timeOut");
-		try {
-			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
-		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
-			System.out.println(e);
-			return false;
-		}
-	}
+private static boolean noFindElement(String locator) {
+    String time = propF.getProperty("timeOut");
+    try {
+        Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+        return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
+    } catch (TimeoutException | NoSuchElementException e) {
+        System.out.println(e);
+        return false;
+    }
+}
 
-	private static Boolean noFindElements(String locator) {
+	private static boolean noFindElements(String locator) {
 		String time = propF.getProperty("timeOut");
 		try {
 			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions
 					.invisibilityOfAllElements(getBrowser.getDriver().findElements(By.xpath(locator))));
-		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+		} catch (TimeoutException | NoSuchElementException e) {
 			System.out.println(e);
 			return false;
 		}
@@ -114,7 +114,7 @@ public class BaseClass {
 		try {
 			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(locator)));
-		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+		} catch (TimeoutException | NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
 		}
 	}
@@ -124,7 +124,7 @@ public class BaseClass {
 		try {
 			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
-		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+		} catch (TimeoutException | NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
 		}
 	}
@@ -188,7 +188,7 @@ public class BaseClass {
 	}
 
 	protected Boolean NoFind(String locator) {
-		return NoFindElement(locator);
+		return noFindElement(locator);
 	}
 
 	protected Boolean NoFindElements(String locator) {
@@ -327,15 +327,15 @@ public class BaseClass {
 
 	// ----------------------------------click--------------------------------------//
 
-	protected static void click(String locator) {
-		// actions = new Actions(driver);
-		try {
-			(findElementClickable(locator)).click();
-		} catch (ElementClickInterceptedException e) {
-			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click();", findElementClickable(locator));
-		}
+protected static void click(String locator) {
+	try {
+		WebElement element = findElementClickable(locator);
+		element.click();
+	} catch (ElementClickInterceptedException e) {
+		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+		jse.executeScript("arguments[0].click();", findElementClickable(locator));
 	}
+}
 
 	protected static void clickJS(String locator) {
 		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
@@ -390,12 +390,12 @@ public class BaseClass {
 	}
 
 	protected static void doubleClick(String locator) {
-		actions = new Actions(getBrowser.getDriver());
+		Actions actions = new Actions(getBrowser.getDriver());
 		actions.doubleClick(findElementClickable(locator)).perform();
 	}
 
 	protected static void rightClick(String locator) {
-		actions = new Actions(getBrowser.getDriver());
+		Actions actions = new Actions(getBrowser.getDriver());
 		actions.contextClick(findElementClickable(locator)).perform();
 	}
 
@@ -485,13 +485,15 @@ public class BaseClass {
 
 	// ------------------------------Actions------------------------------------//
 
-	protected static void dragAndDropBy(String locator, int x, int y) {
-		actions = new Actions(getBrowser.getDriver());
-		actions.dragAndDropBy(findElement(locator), x, y).perform();
-	}
+protected static void dragAndDropBy(String locator, int x, int y) {
+    WebElement element = findElement(locator);
+    new Actions(getBrowser.getDriver())
+            .dragAndDropBy(element, x, y)
+            .perform();
+}
 
 	protected static void scrollToElement(String locator) {
-		actions = new Actions(getBrowser.getDriver());
+		Actions actions = new Actions(getBrowser.getDriver());
 		actions.scrollToElement(findElement(locator)).pause(Duration.ofSeconds(1)).perform();
 	}
 
@@ -501,12 +503,12 @@ public class BaseClass {
 	}
 
 	protected static void moveToElement(String locator) {
-		actions = new Actions(getBrowser.getDriver());
+		Actions actions = new Actions(getBrowser.getDriver());
 		actions.moveToElement(findElement(locator)).pause(Duration.ofSeconds(1)).perform();
 	}
 
 	protected static void moveToElements(String locator1, String locator2, String locator3) {
-		actions = new Actions(getBrowser.getDriver());
+		Actions actions = new Actions(getBrowser.getDriver());
 		actions.moveToElement(findElement(locator1)).pause(Duration.ofSeconds(2)).moveToElement(findElement(locator2))
 				.pause(Duration.ofSeconds(2)).moveToElement(findElement(locator3)).pause(Duration.ofSeconds(2))
 				.perform();
