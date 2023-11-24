@@ -4,7 +4,7 @@
   <listeners>
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
   </listeners>
-  <test name="API Book Store" parallel="none">
+  <test name="API Book Store" parallel="none" verbose="10">
     <classes>
       <class name="com.demoqa.api.test.usertests.PostUser"/>
       <class name="com.demoqa.api.test.usertests.PostToken"/>
