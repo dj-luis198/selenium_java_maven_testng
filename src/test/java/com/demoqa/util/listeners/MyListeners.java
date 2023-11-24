@@ -50,6 +50,7 @@ public class MyListeners extends BaseClass implements ITestListener {
     public void onTestFailure(ITestResult result) {
         WebDriver driver = null;
         String testName = result.getMethod().getMethodName();
+        String testNameScreen = result.getMethod().getMethodName()+result.getTestContext().getCurrentXmlTest().getParameter("browser"); 
         Object testObject = result.getMethod();
         Class<?> clazz = result.getTestClass().getRealClass().getSuperclass().getSuperclass();
 
@@ -59,7 +60,7 @@ public class MyListeners extends BaseClass implements ITestListener {
             e.printStackTrace();
         }
         try {
-            extentTest.get().addScreenCaptureFromPath(takesScreenshot(testName, driver), testName);
+            extentTest.get().addScreenCaptureFromPath(takesScreenshot(testNameScreen, driver), testName);
         } catch (IOException e) {
             e.printStackTrace();
         }

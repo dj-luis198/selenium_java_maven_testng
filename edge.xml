@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite" thread-count="4" parallel="classes">
   <listeners>
+    <listener class-name="com.demoqa.util.listeners.MyAnnotationTransformer"/>
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
   </listeners>
   <parameter name="browser" value="edge"/>
