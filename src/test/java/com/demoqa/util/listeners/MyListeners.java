@@ -82,5 +82,6 @@ public class MyListeners extends BaseClass implements ITestListener {
     public void onTestSkipped(ITestResult result) {
         String testName = result.getMethod().getMethodName();
         extentTest.get().log(Status.SKIP, testName + "test skipped");
+        extentTest.get().skip(result.getThrowable());
     }
 }
