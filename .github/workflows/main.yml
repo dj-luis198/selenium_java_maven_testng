@@ -17,7 +17,7 @@ jobs:
       - uses: igorjs/gh-actions-clean-workflow@v4
         with:
           token: ${{secrets.GITHUB_TOKEN}} # optional
-          days_old: 100 # optional
+          days_old: "100" # optional
           runs_to_keep: 0 # optional
   test:
     name: Test
