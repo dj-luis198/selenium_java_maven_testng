@@ -28,21 +28,27 @@
         <artifactId>extentreports</artifactId>
         <version>5.1.0</version>
     </dependency>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-devtools-v116</artifactId>
-        <version>4.12.0</version>
-    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v119 -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-devtools-v119</artifactId>
+    <version>4.15.0</version>
+</dependency>
     <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
-        <version>2.0.7</version>
+        <version>2.0.9</version>
         <scope>test</scope>
     </dependency>
     <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>2.0.7</version>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>3.0.0-alpha1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>3.0.0-alpha1</version>
     </dependency>
     <dependency>
         <groupId>io.github.cdimascio</groupId>
@@ -59,11 +65,13 @@
         <artifactId>json-simple</artifactId>
         <version>1.1.1</version>
     </dependency>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.11.0</version>
-    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.15.0</version>
+</dependency>
+
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
@@ -131,6 +139,12 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
           <configuration>
+          <properties>
+            <property>
+             <name>surefire.testng.verbose</name>
+             <value>10</value>
+            </property>
+          </properties>
           <suiteXmlFiles>
             <suiteXmlFile>test.xml</suiteXmlFile>
           </suiteXmlFiles>
