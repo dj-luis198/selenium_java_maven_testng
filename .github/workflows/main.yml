@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: igorjs/gh-actions-clean-workflow@v4
         with:
-          days_old: "14" # optional
+          days_old: "20" # optional
           runs_to_keep: "2" # optional
   test:
     name: Test
