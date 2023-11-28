@@ -14,7 +14,7 @@ public class MyRetryAnalyzer implements IRetryAnalyzer {
          System.out.println("fallo de prueba context: " + result.getTestContext());
          System.out.println("fallo de prueba: " + result.getMethod().getMethodName());
          counter++;
-         System.out.println("intento no: " + counter + " de 2");
+         System.out.println("reintento Nº: " + counter + " de 1");
          System.out.println("----------------------------------------------------------");
          return true;
       }
