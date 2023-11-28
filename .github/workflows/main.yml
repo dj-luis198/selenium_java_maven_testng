@@ -9,15 +9,6 @@ on:
      - cron: '0 1,2,3,5,6,7,9,10,11 * * *'
 
 jobs:
-  clean-logs:
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - uses: igorjs/gh-actions-clean-workflow@v4
-        with:
-          days_old: "20" # optional
-          runs_to_keep: "2" # optional
   test:
     name: Test
     runs-on: ubuntu-latest
