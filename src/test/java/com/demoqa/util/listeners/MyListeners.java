@@ -38,12 +38,14 @@ public class MyListeners extends BaseClass implements ITestListener {
         }else {
             extentTest.get().assignDevice("API");
         }
+        System.out.println("test started: " + testName);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         String testName = result.getMethod().getMethodName();
         extentTest.get().log(Status.PASS, testName + " got successfully executed");
+        System.out.println("test passed: " + testName);
     }
 
     @Override
@@ -66,6 +68,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         }
         extentTest.get().log(Status.FAIL, testName + "test fail");
         extentTest.get().fail(result.getThrowable());
+        System.out.println("test failed: " + testName);
     }
 
     @Override
@@ -76,6 +79,7 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
         extentTest.get().fail(result.getThrowable());
+        System.out.println("test failed with timeout: " + result.getMethod().getMethodName());
     }
 
     @Override
@@ -83,5 +87,6 @@ public class MyListeners extends BaseClass implements ITestListener {
         String testName = result.getMethod().getMethodName();
         extentTest.get().log(Status.SKIP, testName + "test skipped");
         extentTest.get().skip(result.getThrowable());
+        System.out.println("test skipped: " + testName);
     }
 }
