@@ -38,14 +38,14 @@ public class MyListeners extends BaseClass implements ITestListener {
         }else {
             extentTest.get().assignDevice("API");
         }
-        System.out.println("---------- test started: " + testName + " ----------");
+        System.out.println("\u001B[35m---------- test started: " + testName + " ----------\u001B[0m");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         String testName = result.getMethod().getMethodName();
         extentTest.get().log(Status.PASS, testName + " got successfully executed");
-        System.out.println("\u001B[32mGreen test passed: " + testName );
+        System.out.println("\u001B[32m test passed: " + testName + "\u001B[0m");
     }
 
     @Override
@@ -68,7 +68,8 @@ public class MyListeners extends BaseClass implements ITestListener {
         }
         extentTest.get().log(Status.FAIL, testName + "test fail");
         extentTest.get().fail(result.getThrowable());
-        System.out.println("\u001B[31mRed test failed: " + testName);
+        System.out.println("\u001B[31m test failed: " + testName+ "\u001B[0m");
+        System.out.println("\u001B[31m"+result.getThrowable()+"\u001B[0m");
     }
 
     @Override
@@ -79,7 +80,8 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
         extentTest.get().fail(result.getThrowable());
-        System.out.println("\u001B[31mRed test failed with timeout: " + result.getMethod().getMethodName());
+        System.out.println("\u001B[31m test failed with timeout: " + result.getMethod().getMethodName()+ "\u001B[0m");
+        System.out.println("\u001B[31m"+result.getThrowable()+"\u001B[0m");
     }
 
     @Override
@@ -87,6 +89,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         String testName = result.getMethod().getMethodName();
         extentTest.get().log(Status.SKIP, testName + "test skipped");
         extentTest.get().skip(result.getThrowable());
-        System.out.println("\u001B[33mYellow test skipped: " + testName);
+        System.out.println("\u001B[33m test skipped: " + testName+ "\u001B[0m");
+        System.out.println("\u001B[33m"+result.getThrowable()+"\u001B[0m");
     }
 }

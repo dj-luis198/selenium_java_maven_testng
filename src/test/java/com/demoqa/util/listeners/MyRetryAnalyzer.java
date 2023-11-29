@@ -11,10 +11,9 @@ public class MyRetryAnalyzer implements IRetryAnalyzer {
    public boolean retry(ITestResult result) {
       if (counter < retryLimit) {
          System.out.println("---------------------------------------------------------");
-         System.out.println("fallo de prueba context: " + result.getTestContext());
-         System.out.println("fallo de prueba: " + result.getMethod().getMethodName());
+         System.out.println("Fail Test: " + result.getMethod().getMethodName());
          counter++;
-         System.out.println("reintento Nº: " + counter + " de 1");
+         System.out.println("Retry number: " + counter + " de 1");
          System.out.println("----------------------------------------------------------");
          return true;
       }
