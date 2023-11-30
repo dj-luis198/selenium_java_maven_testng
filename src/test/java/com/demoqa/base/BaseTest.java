@@ -5,17 +5,19 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-public class BaseTest extends BaseClass {
+import com.demoqa.util.listeners.MyReRunConfig;
+
+public class BaseTest extends MyReRunConfig{
 
     
     @BeforeClass
     @Parameters(value = {"browser"})
     public void setUp(@Optional("chrome")String browser) {
-        init(browser);
+        BaseClass.init(browser);
     }
 
     @AfterClass
     public void tearDown() throws InterruptedException {
-        quit();
+        BaseClass.quit();
     }
 }
