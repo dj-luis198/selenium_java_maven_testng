@@ -115,7 +115,18 @@ Hybrid GUI API test
 [Login cookies](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/bookStoreHybridGuiApi/BookStoreCookies1.java)
 
 
+## Utilidades
 
+[Extent Report](src/test/java/com/demoqa/util/ExtentReportGenerator.java)
 
+[My rerun config](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/listeners/MyReRunConfig.java) (Rerun before y after anotaciones luego de ocurrido algun error en ellos)
+
+[My rerun analiyzer](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/listeners/MyRetryAnalyzer.java) (Rerun test que fallaron para descartar falsos negativos)
+
+[Listeners](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/listeners/MyListeners.java)
+
+[Lectura y escritura excel]([src/test/java/com/demoqa/util/ExtentReportGenerator.java](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/XLUtility.java)https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/XLUtility.java)
+
+[Lectura JSON](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/JsonSimple.java)
 
 
