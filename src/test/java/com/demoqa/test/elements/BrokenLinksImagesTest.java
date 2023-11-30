@@ -4,7 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.demoqa.base.BaseTest;
+
+import com.demoqa.base.BaseClass;
 import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.BrokenLinksImagesPage;
@@ -12,7 +13,7 @@ import static io.restassured.RestAssured.*;
 import java.util.List;
 
 @Test(groups = "BrokenLinksImagesTest")
-public class BrokenLinksImagesTest extends BaseTest {
+public class BrokenLinksImagesTest extends BaseClass {
     HomePage homePage;
     BrokenLinksImagesPage brokenLinksImagesPage;
 
