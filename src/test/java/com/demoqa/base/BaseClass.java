@@ -25,9 +25,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.demoqa.util.GetBrowserDriver;
+import com.demoqa.util.listeners.MyReRunConfig;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
 
-public class BaseClass {
+public class BaseClass extends MyReRunConfig{
 	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
