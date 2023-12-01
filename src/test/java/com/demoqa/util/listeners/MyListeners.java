@@ -1,7 +1,4 @@
 package com.demoqa.util.listeners;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -48,29 +45,29 @@ public class MyListeners extends BaseClass implements ITestListener {
         System.out.println("\u001B[32m test passed: " + testName + "\u001B[0m");
     }
 
-    @Override
-    public void onTestFailure(ITestResult result) {
-        WebDriver driver = null;
-        String testName = result.getMethod().getMethodName();
-        String testNameScreen = result.getMethod().getMethodName()+result.getTestContext().getCurrentXmlTest().getParameter("browser"); 
-        Object testObject = result.getMethod();
-        Class<?> clazz = result.getTestClass().getRealClass().getSuperclass().getSuperclass();
+@Override
+public void onTestFailure(ITestResult result) {
+    String testName = result.getMethod().getMethodName();
+    String testNameScreen = result.getMethod().getMethodName() +
+            result.getTestContext().getCurrentXmlTest().getParameter("browser");
+    Object testObject = result.getMethod();
 
+    Class<?> clazz = result.getTestClass().getRealClass().getSuperclass().getSuperclass();
+    if(clazz != null) {
         try {
-            driver = (WebDriver) clazz.getMethod("getDriver").invoke(testObject);
+            WebDriver driver = (WebDriver) clazz.getMethod("getDriver").invoke(testObject);
+            extentTest.get().addScreenCaptureFromPath(takesScreenshot(testNameScreen, driver), testName);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        try {
-            extentTest.get().addScreenCaptureFromPath(takesScreenshot(testNameScreen, driver), testName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        extentTest.get().log(Status.FAIL, testName + "test fail");
-        extentTest.get().fail(result.getThrowable());
-        System.out.println("\u001B[31m test failed: " + testName+ "\u001B[0m");
-        System.out.println("\u001B[31m"+result.getThrowable()+"\u001B[0m");
     }
+
+    extentTest.get().log(Status.FAIL, testName + "test fail");
+    extentTest.get().fail(result.getThrowable());
+
+    System.out.println("\u001B[31m test failed: " + testName + "\u001B[0m");
+    System.out.println("\u001B[31m" + result.getThrowable() + "\u001B[0m");
+}
 
     @Override
     public void onFinish(ITestContext context) {
