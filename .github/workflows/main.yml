@@ -19,7 +19,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 20
-          cache: maven
+          cache: 'maven'
           
       - name: Maven Verify
         run: mvn -B clean test
