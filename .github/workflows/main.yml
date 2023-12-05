@@ -20,6 +20,7 @@ jobs:
           distribution: 'temurin'
           java-version: 20
           cache: 'maven'
+          cache-dependency-path: '**/pom.xml'
           
       - name: Maven Verify
         run: mvn -B clean test
