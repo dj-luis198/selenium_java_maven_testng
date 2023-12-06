@@ -5,9 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -80,22 +83,23 @@ public String[][] readData(String path) throws IOException {
     }
 }
 
-public void setCellData(String path, int rownum, int colnum, String data) throws IOException {
-    try (FileInputStream fis = new FileInputStream(path);
-         XSSFWorkbook workbook = new XSSFWorkbook(fis);
+public void setCellData(String path, int rownum, int colnum, String data) {
+    try (Workbook workbook = WorkbookFactory.create(new File(path));
          FileOutputStream fos = new FileOutputStream(path)) {
-        XSSFSheet sheet = workbook.getSheetAt(0);
-        XSSFRow row = sheet.getRow(rownum + 1);
-        XSSFCell cell = row.getCell(colnum);
-        cell = row.createCell(colnum);
+
+        Sheet sheet = workbook.getSheetAt(0);
+        Row row = sheet.getRow(rownum + 1);
+        Cell cell = row.createCell(colnum);
         cell.setCellValue(data);
+
         workbook.write(fos);
-        workbook.close();
-        fis.close();
-        fos.close();
+    } catch (IOException e) {
+        e.printStackTrace();
     }
 }
+
 }
+
 // para leer
 /*
  * @DataProvider
