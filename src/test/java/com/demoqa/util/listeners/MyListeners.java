@@ -16,27 +16,33 @@ public class MyListeners extends BaseClass implements ITestListener {
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
     ExtentTest eTest;
 
-    @Override
-    public void onTestStart(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
-        eTest = report.createTest(testName);
-        extentTest.set(eTest);
-        extentTest.get().assignCategory(result.getMethod().getGroups());
-        extentTest.get().info(result.getMethod().getDescription());
-        String groups[] = result.getMethod().getGroups();
-        Boolean flag = false;
-        for (String group : groups) {
-            if (group.equals("API")) {
-                flag = true;
-            }
+@Override
+public void onTestStart(ITestResult result) {
+    String browser = result.getTestContext().getCurrentXmlTest().getParameter("browser");
+    String testName = result.getMethod().getMethodName();
+    
+    eTest = report.createTest(testName);
+    extentTest.set(eTest);
+    extentTest.get().assignCategory(result.getMethod().getGroups());
+    extentTest.get().info(result.getMethod().getDescription());
+    
+    boolean flag = false;
+    for (String group : result.getMethod().getGroups()) {
+        if (group.equals("API")) {
+            flag = true;
+            break;
         }
-        if (!flag) {
-            extentTest.get().assignDevice(result.getTestContext().getCurrentXmlTest().getParameter("browser"));
-        }else {
-            extentTest.get().assignDevice("API");
-        }
-        System.out.println("\u001B[35m---------- test started: " + testName + " ----------\u001B[0m");
     }
+    
+    if (!flag) {
+        extentTest.get().assignDevice(browser);
+    } else {
+        browser = "API";
+        extentTest.get().assignDevice(browser);
+    }
+    
+    System.out.println("\u001B[35m---------- test started: " + testName + " browser:" + browser + "----------\u001B[0m");
+}
 
     @Override
     public void onTestSuccess(ITestResult result) {

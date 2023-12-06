@@ -90,6 +90,9 @@ public void setCellData(String path, int rownum, int colnum, String data) throws
         cell = row.createCell(colnum);
         cell.setCellValue(data);
         workbook.write(fos);
+        workbook.close();
+        fis.close();
+        fos.close();
     }
 }
 }
