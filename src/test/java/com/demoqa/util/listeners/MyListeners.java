@@ -41,7 +41,7 @@ public void onTestStart(ITestResult result) {
         extentTest.get().assignDevice(browser);
     }
     
-    System.out.println("\u001B[35m---------- test started: " + testName + " browser:" + browser + "----------\u001B[0m");
+    System.out.println("\u001B[35m---------- test started: " + testName + " browser:" + browser + " ----------\u001B[0m");
 }
 
     @Override

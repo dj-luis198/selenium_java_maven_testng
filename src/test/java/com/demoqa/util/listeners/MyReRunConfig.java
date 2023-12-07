@@ -11,7 +11,7 @@ public class MyReRunConfig implements IConfigurable {
     public void run(IConfigureCallBack callBack, ITestResult testResult) {
         callBack.runConfigurationMethod(testResult);
         if (testResult.getThrowable() != null) {
-            for (int i = 0; i <= 2; i++) {
+            for (int i = 0; i <= 1; i++) {
                 System.err.println("Retrying " + parseType(testResult) + " method : " +
                         testResult.getMethod().getQualifiedName());
                 callBack.runConfigurationMethod(testResult);

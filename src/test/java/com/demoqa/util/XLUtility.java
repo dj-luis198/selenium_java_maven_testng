@@ -84,15 +84,15 @@ public String[][] readData(String path) throws IOException {
 }
 
 public void setCellData(String path, int rownum, int colnum, String data) {
-    try (Workbook workbook = WorkbookFactory.create(new File(path));
-         FileOutputStream fos = new FileOutputStream(path)) {
-
+    try (Workbook workbook = WorkbookFactory.create(new File(path))) {
         Sheet sheet = workbook.getSheetAt(0);
         Row row = sheet.getRow(rownum + 1);
         Cell cell = row.createCell(colnum);
         cell.setCellValue(data);
-
-        workbook.write(fos);
+    
+        try (FileOutputStream fos = new FileOutputStream(path)) {
+            workbook.write(fos);
+        }
     } catch (IOException e) {
         e.printStackTrace();
     }
