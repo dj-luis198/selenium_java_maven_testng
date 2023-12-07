@@ -1,4 +1,4 @@
-name: DemoQA Selenium Ubuntu
+name: DemoQA Selenium Windows-latest
 
 on:
   push:
@@ -19,8 +19,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 20
-          cache: 'maven'
-          cache-dependency-path: '**/pom.xml'
           
       - name: Maven Verify
         run: mvn -B clean test
