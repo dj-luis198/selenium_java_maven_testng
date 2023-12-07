@@ -65,7 +65,7 @@ public class BaseClass extends MyReRunConfig{
 		File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File destFile = new File(System.getProperty("user.dir") + "/ExtentReports/Screenshots/" + testName + ".png");
 		FileUtils.copyFile(sourceFile, destFile);
-		return destFile.getAbsolutePath();
+		return "Screenshots/"+destFile.getName();
 	}
 
 private static WebElement findElement(String locator) {
