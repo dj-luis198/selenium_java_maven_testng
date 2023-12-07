@@ -7,7 +7,7 @@ import org.testng.annotations.Parameters;
 
 public class BaseTest extends BaseClass {
 
-    @BeforeClass(timeOut = 10000)
+    @BeforeClass
     @Parameters(value = { "browser" })
     public void setUp(@Optional("chrome") String browser) {
         init(browser);
