@@ -16,6 +16,8 @@ public class ExtentReportGenerator {
         sparkReporter.config().setReportName("DEMOQA Reports");
         report.attachReporter(sparkReporter);
         report.setSystemInfo("Tester","Daniel Farias");
+        report.setSystemInfo("os", "windows");
+        report.setSystemInfo("browser", "chrome, firefox, edge");
         return report;
 
     }

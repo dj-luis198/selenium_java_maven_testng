@@ -20,6 +20,7 @@ public class MyListeners extends BaseClass implements ITestListener {
 public void onTestStart(ITestResult result) {
     String browser = result.getTestContext().getCurrentXmlTest().getParameter("browser");
     String testName = result.getMethod().getMethodName();
+    String divice = System.getProperty("os.name")+"-"+ System.getProperty("os.version")+"-"+System.getProperty("os.arch");
     
     eTest = report.createTest(testName);
     extentTest.set(eTest);
@@ -35,10 +36,10 @@ public void onTestStart(ITestResult result) {
     }
     
     if (!flag) {
-        extentTest.get().assignDevice(browser);
+        extentTest.get().assignDevice(divice+"-"+browser);
     } else {
         browser = "API";
-        extentTest.get().assignDevice(browser);
+        extentTest.get().assignDevice(divice+"-"+browser);
     }
     
     System.out.println("\u001B[35m---------- test started: " + testName + " browser:" + browser + " ----------\u001B[0m");
