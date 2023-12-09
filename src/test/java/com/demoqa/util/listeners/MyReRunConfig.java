@@ -17,12 +17,6 @@ public class MyReRunConfig implements IConfigurable {
                 callBack.runConfigurationMethod(testResult);
                 if (testResult.getThrowable() == null) {
                     break;
-                }else {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
         }
