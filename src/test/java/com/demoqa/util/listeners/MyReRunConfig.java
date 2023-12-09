@@ -18,10 +18,8 @@ public class MyReRunConfig implements IConfigurable {
                 if (testResult.getThrowable() == null) {
                     break;
                 }else {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if(i == 1) {
+                        testResult.setEndMillis(5000L);
                     }
                 }
             }
