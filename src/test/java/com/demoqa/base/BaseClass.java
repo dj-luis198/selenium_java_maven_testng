@@ -137,8 +137,8 @@ private static boolean noFindElement(String locator) {
 		getBrowser.getDriver().get(propA.getProperty("url"));
 	}
 
-	protected static void quit() {
-		getBrowser.getDriver().quit();
+	public static void quit() {
+		getBrowser.quitDriver();
 	}
 
 	protected static void close() {
@@ -172,11 +172,6 @@ private static boolean noFindElement(String locator) {
 	}
 
 	protected static Boolean isEnabled(String locator) {
-		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		return findElement(locator).isEnabled();
 	}
 

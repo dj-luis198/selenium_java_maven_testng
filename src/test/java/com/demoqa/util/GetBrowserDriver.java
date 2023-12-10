@@ -24,6 +24,14 @@ public class GetBrowserDriver {
 		return this.driver.get();
 	}
 
+	public void quitDriver() {
+		WebDriver driver = this.driver.get();
+		if (driver != null) {
+			driver.quit();
+			this.driver.remove();
+		}
+	}
+
 	public WebDriver getBrowserDriver(String browser) {
 		File file = new File("files/downloadFiles");
 		if (browser != null) {

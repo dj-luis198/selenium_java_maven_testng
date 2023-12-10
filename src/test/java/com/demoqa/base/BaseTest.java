@@ -14,7 +14,7 @@ public class BaseTest extends BaseClass {
     }
 
     @AfterClass
-    public void tearDown() throws InterruptedException {
+    public void tearDown() {
         quit();
     }
 }

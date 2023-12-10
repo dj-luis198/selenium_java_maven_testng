@@ -28,11 +28,13 @@
         <artifactId>extentreports</artifactId>
         <version>5.1.0</version>
     </dependency>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-devtools-v119</artifactId>
-        <version>4.15.0</version>
-    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v120 -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-devtools-v120</artifactId>
+    <version>4.16.1</version>
+</dependency>
+
     <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
@@ -64,11 +66,11 @@
         <artifactId>json-simple</artifactId>
         <version>1.1.1</version>
     </dependency>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.15.0</version>
-    </dependency>
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.16.1</version>
+</dependency>
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
@@ -85,6 +87,11 @@
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>2.13.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>5.2.5</version>
     </dependency>
     <dependency>
         <groupId>org.apache.poi</groupId>
