@@ -20,7 +20,7 @@ public class HomePage extends BaseClass {
     private final String frames = "//span[normalize-space()='Frames']";
     private final String nestedFrames = "//span[normalize-space()='Nested Frames']";
     private final String modalDialogs = "//span[normalize-space()='Modal Dialogs']";
-    private final String widgets = "//div[normalize-space()='Widgets']";
+    private final String widgets = "//h5[normalize-space()='Widgets']";
     private final String accordian = "//span[normalize-space()='Accordian']";
     private final String autoComplete = "//span[normalize-space()='Auto Complete']";
     private final String datePicker = "//span[normalize-space()='Date Picker']";

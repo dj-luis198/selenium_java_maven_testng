@@ -45,6 +45,7 @@ public class MyReRunConfig implements IConfigurable {
         if (method.isBeforeClassConfiguration()) {
             return "@BeforeClass";
         }
+
         if (method.isAfterClassConfiguration()) {
             return "@AfterClass";
         }

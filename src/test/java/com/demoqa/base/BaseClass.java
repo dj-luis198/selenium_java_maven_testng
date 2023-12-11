@@ -25,11 +25,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.demoqa.util.GetBrowserDriver;
-import com.demoqa.util.listeners.MyReRunConfig;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
 
-public class BaseClass extends MyReRunConfig{
+public class BaseClass{
 	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
@@ -75,6 +74,17 @@ private static WebElement findElement(String locator) {
         return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     } catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
         throw new Error("El locator " + locator + " no fue encontrado");
+    }
+}
+
+private static boolean findElementClickableBoolean(String locator) {
+    String time = propF.getProperty("timeOut");
+    Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+    try {
+        ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+        return true;
+    } catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+        return false;
     }
 }
 
@@ -137,8 +147,8 @@ private static boolean noFindElement(String locator) {
 		getBrowser.getDriver().get(propA.getProperty("url"));
 	}
 
-	protected static void quit() {
-		getBrowser.getDriver().quit();
+	public static void quit() {
+		getBrowser.quitDriver();
 	}
 
 	protected static void close() {
@@ -172,11 +182,6 @@ private static boolean noFindElement(String locator) {
 	}
 
 	protected static Boolean isEnabled(String locator) {
-		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		return findElement(locator).isEnabled();
 	}
 
@@ -197,11 +202,18 @@ private static boolean noFindElement(String locator) {
 		return noFindElements(locator);
 	}
 
-	protected static Boolean getPageSource(String locator) {
-		if (getBrowser.getDriver().getPageSource().contains(locator)) {
-			return true;
+	protected static boolean serchLocator(String locator) {
+		return findElementClickableBoolean(locator);
+	}
+
+	protected static boolean getPageSource(String locator) {
+		String time = propF.getProperty("timeOut");
+		try {
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			return wait.until(driver -> getBrowser.getDriver().getPageSource().contains(locator));
+		} catch (TimeoutException e) {
+			return false;
 		}
-		return false;
 	}
 
 	protected static void printPageSource() {
