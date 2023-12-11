@@ -1,5 +1,5 @@
 package com.demoqa.util.listeners;
-/* 
+
 import org.testng.IConfigurable;
 import org.testng.IConfigureCallBack;
 import org.testng.ITestNGMethod;
@@ -45,7 +45,7 @@ public class MyReRunConfig implements IConfigurable {
         if (method.isBeforeClassConfiguration()) {
             return "@BeforeClass";
         }
-        
+
         if (method.isAfterClassConfiguration()) {
             return "@AfterClass";
         }
@@ -55,4 +55,4 @@ public class MyReRunConfig implements IConfigurable {
         return "@AfterMethod";
     }
 
-}*/
+}
