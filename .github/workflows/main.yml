@@ -19,8 +19,8 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4.0.0
         with:
-          distribution: 'temurin'
-          java-version: 21
+          distribution: 'Microsoft-8526870'
+          java-version: 21.0.1
           
       - name: Maven Verify
         run: mvn -B clean test
