@@ -25,7 +25,7 @@ jobs:
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1.4.0
         with:
-          chrome-version: 119.0.6045.200
+          chrome-version: 119
   
       - name: Maven Verify
         run: mvn -B clean test
