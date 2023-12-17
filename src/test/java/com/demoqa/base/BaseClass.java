@@ -29,21 +29,21 @@ import com.demoqa.util.GetBrowserDriver;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
 
-public class BaseClass{
+public class BaseClass {
 	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
 
-	protected static WebDriver getDriver() {
+	protected WebDriver getDriver() {
 		return getBrowser.getDriver();
 	}
 
-	protected static void init(String browser) {
+	protected void init(String browser) {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
-		getBrowser.getBrowserDriver(browser);
-		getBrowser.getDriver().get(propA.getProperty("url"));
+		WebDriver driver = getBrowser.getBrowserDriver(browser);
+		driver.get(propA.getProperty("url"));
 
 	}
 
@@ -65,50 +65,50 @@ public class BaseClass{
 		File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File destFile = new File(System.getProperty("user.dir") + "/ExtentReports/Screenshots/" + testName + ".png");
 		FileUtils.copyFile(sourceFile, destFile);
-		return "Screenshots/"+destFile.getName();
+		return "Screenshots/" + destFile.getName();
 	}
 
-private static WebElement findElement(String locator) {
-    String time = propF.getProperty("timeOut");
-    Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-    try {
-        return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
-    } catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
-        throw new Error("El locator " + locator + " no fue encontrado");
-    }
-}
-
-private static boolean findElementClickableBoolean(String locator) {
-    String time = propF.getProperty("timeOut");
-    Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-    try {
-        ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-        return true;
-    } catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
-        return false;
-    }
-}
-
-private static WebElement findElementClickable(String locator) {
-	String time = propF.getProperty("timeOut");
-	Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-	try {
-		return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-	} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
-		throw new Error("El locator " + locator + " no fue encontrado");
+	private static WebElement findElement(String locator) {
+		String time = propF.getProperty("timeOut");
+		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		try {
+			return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
+		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+			throw new Error("El locator " + locator + " no fue encontrado");
+		}
 	}
-}
 
-private static boolean noFindElement(String locator) {
-    String time = propF.getProperty("timeOut");
-    try {
-        Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-        return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
-    } catch (TimeoutException | NoSuchElementException e) {
-        System.out.println(e);
-        return false;
-    }
-}
+	private static boolean findElementClickableBoolean(String locator) {
+		String time = propF.getProperty("timeOut");
+		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		try {
+			ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+			return true;
+		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+			return false;
+		}
+	}
+
+	private static WebElement findElementClickable(String locator) {
+		String time = propF.getProperty("timeOut");
+		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		try {
+			return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+			throw new Error("El locator " + locator + " no fue encontrado");
+		}
+	}
+
+	private static boolean noFindElement(String locator) {
+		String time = propF.getProperty("timeOut");
+		try {
+			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
+		} catch (TimeoutException | NoSuchElementException e) {
+			System.out.println(e);
+			return false;
+		}
+	}
 
 	private static boolean noFindElements(String locator) {
 		String time = propF.getProperty("timeOut");
@@ -148,21 +148,21 @@ private static boolean noFindElement(String locator) {
 		getBrowser.getDriver().get(propA.getProperty("url"));
 	}
 
-	protected static String getBrowser() {
+	protected String getBrowser() {
 		WebDriver driver = getDriver();
-        Capabilities capabilities = ((RemoteWebDriver) driver).getCapabilities();
-        String browserName;
-		if(capabilities.getBrowserName().equals("MicrosoftEdge")) {
+		Capabilities capabilities = ((RemoteWebDriver) driver).getCapabilities();
+		String browserName;
+		if (capabilities.getBrowserName().equals("MicrosoftEdge")) {
 			browserName = "edge";
 		} else {
-			if(capabilities.getBrowserName().equals("chrome")) {
+			if (capabilities.getBrowserName().equals("chrome")) {
 				browserName = "chrome";
 			} else {
 				browserName = "firefox";
 			}
 		}
 		return browserName;
-	  }
+	}
 
 	protected static void quit() {
 		getBrowser.quitDriver();
@@ -358,15 +358,15 @@ private static boolean noFindElement(String locator) {
 
 	// ----------------------------------click--------------------------------------//
 
-protected static void click(String locator) {
-	try {
-		WebElement element = findElementClickable(locator);
-		element.click();
-	} catch (ElementClickInterceptedException e) {
-		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-		jse.executeScript("arguments[0].click();", findElementClickable(locator));
+	protected static void click(String locator) {
+		try {
+			WebElement element = findElementClickable(locator);
+			element.click();
+		} catch (ElementClickInterceptedException e) {
+			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+			jse.executeScript("arguments[0].click();", findElementClickable(locator));
+		}
 	}
-}
 
 	protected static void clickJS(String locator) {
 		JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
@@ -451,32 +451,32 @@ protected static void click(String locator) {
 
 	// --------------------------------Alert------------------------------------//
 
-	protected static String isAlertPresent(){
-    //String time = propF.getProperty("timeOut");
+	protected static String isAlertPresent() {
+		// String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
-    try {
-        ewait.until(ExpectedConditions.alertIsPresent());
-		Alert alert = getBrowser.getDriver().switchTo().alert();
-		String text = alert.getText();
-		alert.accept();
-		return text;
-    } catch (org.openqa.selenium.TimeoutException e) {
-		System.out.println("algo paso no se encontro alerta");
-    }
-    return "no hay alerta";
+		try {
+			ewait.until(ExpectedConditions.alertIsPresent());
+			Alert alert = getBrowser.getDriver().switchTo().alert();
+			String text = alert.getText();
+			alert.accept();
+			return text;
+		} catch (org.openqa.selenium.TimeoutException e) {
+			System.out.println("algo paso no se encontro alerta");
+		}
+		return "no hay alerta";
 	}
 
 	protected static String acceptCommonAlert() {
 		String time = propF.getProperty("timeOut");
-		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)*2));
+		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time) * 2));
 		try {
-        Alert alert =ewait.until(ExpectedConditions.alertIsPresent());
-		String text = alert.getText();
-		alert.accept();
-		return text;
-    } catch (org.openqa.selenium.TimeoutException e) {
-    }
-    return "no hay alerta";
+			Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
+			String text = alert.getText();
+			alert.accept();
+			return text;
+		} catch (org.openqa.selenium.TimeoutException e) {
+		}
+		return "no hay alerta";
 	}
 
 	protected static void confirmAlertOk() {
@@ -516,12 +516,12 @@ protected static void click(String locator) {
 
 	// ------------------------------Actions------------------------------------//
 
-protected static void dragAndDropBy(String locator, int x, int y) {
-    WebElement element = findElement(locator);
-    new Actions(getBrowser.getDriver())
-            .dragAndDropBy(element, x, y)
-            .perform();
-}
+	protected static void dragAndDropBy(String locator, int x, int y) {
+		WebElement element = findElement(locator);
+		new Actions(getBrowser.getDriver())
+				.dragAndDropBy(element, x, y)
+				.perform();
+	}
 
 	protected static void scrollToElement(String locator) {
 		Actions actions = new Actions(getBrowser.getDriver());
@@ -559,7 +559,7 @@ protected static void dragAndDropBy(String locator, int x, int y) {
 
 	protected static Boolean waitProgressBar(String locator) {
 		String time = propF.getProperty("timeOut");
-		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)*5));
+		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time) * 5));
 		return ewait.until(ExpectedConditions.attributeToBe(findElement(locator), "aria-valuenow", "100"));
 	}
 
