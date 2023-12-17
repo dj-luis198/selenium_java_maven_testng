@@ -11,10 +11,11 @@ public class BookStoreCookies1 extends BaseTest {
 
     @BeforeClass
     public void preconditions() {
+        LoginEndPoints loginEndPoints = new LoginEndPoints();
         User userLogin = new User();
         userLogin.setUserName("login");
         userLogin.setPassword("Az25288@");
-        LoginEndPoints.postLogin(userLogin);
+        loginEndPoints.postLogin(userLogin);
     }
 
     @Test

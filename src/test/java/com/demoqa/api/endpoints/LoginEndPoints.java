@@ -15,7 +15,7 @@ static Set<Cookie> driverCookies;
 // forma en qu se obtienen datos necesarios y se crean cookies necesarias para acceder
 // las cookies se guardan en una variable y pueden usarse para iniciar secion sin logear por GUI
 
-    public static void postLogin(User payload){
+    public void postLogin(User payload){
         Gson gson= new Gson();
         String bodyJson= gson.toJson(payload);
             prop = BaseClass.init_properties("routes");
@@ -44,11 +44,11 @@ static Set<Cookie> driverCookies;
                     refreshPage();
     }
 
-    public static void refreshPage(){
+    public void refreshPage(){
         getDriver().get("https://demoqa.com/profile");
     }
 
-    public static void goToLoginPage(){
+    public void goToLoginPage(){
         getDriver().manage().deleteAllCookies();
         getDriver().get("https://demoqa.com/login");
     }
