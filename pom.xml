@@ -30,8 +30,8 @@
     </dependency>
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-devtools-v120</artifactId>
-        <version>4.16.1</version>
+        <artifactId>selenium-devtools-v119</artifactId>
+        <version>4.15.0</version>
     </dependency>
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -67,7 +67,7 @@
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        <version>4.16.1</version>
+        <version>4.15.0</version>
     </dependency>
     <dependency>
         <groupId>org.testng</groupId>
