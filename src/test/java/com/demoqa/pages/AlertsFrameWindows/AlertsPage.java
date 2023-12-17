@@ -1,6 +1,8 @@
 package com.demoqa.pages.AlertsFrameWindows;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class AlertsPage extends BaseClass {
 
@@ -78,4 +80,11 @@ public class AlertsPage extends BaseClass {
         return false;
     }
 
+    public void goToAlerts(HomePage homePage){
+        homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToAlertsPage();
+        adsFooter.deleteAds();
+    }
 }

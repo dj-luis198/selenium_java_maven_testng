@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.FramesPage;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 
 @Test(groups = "FramesTest")
 public class FramesTest extends BaseTest {
@@ -15,12 +13,16 @@ public class FramesTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        framesPage = new FramesPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToFramesPage();
-        adsFooter.deleteAds();
+        try {
+            framesPage = new FramesPage();
+            framesPage.goToFrames();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            framesPage = new FramesPage();
+            framesPage.goToFrames();
+        }
     }
 
     @Test

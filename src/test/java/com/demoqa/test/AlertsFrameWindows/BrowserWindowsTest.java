@@ -6,21 +6,25 @@ import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.BrowserWindowsPage;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 @Test(groups = "BrowserWindowsTest")
 public class BrowserWindowsTest extends BaseTest {
     BrowserWindowsPage browserWindowsPage;
+    HomePage homePage;
 
     @BeforeMethod
     public void preconditions() {
+        try {
+            browserWindowsPage = new BrowserWindowsPage();
+            browserWindowsPage.goToBrowserWindows(homePage);
+        } catch (Exception e) {
+        System.out.println("Pre condiciones fallidas, iniciando setUp "+e);
+        String browser= getBrowser();
+        setUp(browser);
         browserWindowsPage = new BrowserWindowsPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToAlertsFrameWindowsPage();
-        adsFooter.deleteAds();
+            browserWindowsPage.goToBrowserWindows(homePage);
+      }   
     }
 
     @Test

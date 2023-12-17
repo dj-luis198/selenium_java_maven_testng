@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.CheckBoxPage;
 import com.demoqa.util.JsonSimple;
@@ -20,14 +19,19 @@ public class CheckBoxTest extends BaseTest {
     JsonSimple json;
 
     @BeforeMethod
-    public void initPage() {
-        json = new JsonSimple();
-        homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        checkBoxPage = new CheckBoxPage();
-        homePage.goToHome();
-        homePage.goToCheckBoxPage();
-        adsFooter.deleteAds();
+    public void preconditions() {
+        try {
+            json = new JsonSimple();
+            checkBoxPage = new CheckBoxPage();
+            checkBoxPage.goToCheckBox(homePage);
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            json = new JsonSimple();
+            checkBoxPage = new CheckBoxPage();
+            checkBoxPage.goToCheckBox(homePage);
+        }
     }
 
     @Test(description = "Validate button expand All")

@@ -6,25 +6,27 @@ import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.ModalDialogsPage;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 
 @Test(groups = "ModalDialogsTest")
-public class ModalDialogsTest extends BaseTest{
+public class ModalDialogsTest extends BaseTest {
     ModalDialogsPage modalDialogsPage;
 
     @BeforeMethod
-    public void preconditions(){
-        modalDialogsPage = new ModalDialogsPage();
-        HomePage homePage= new HomePage();
-        AdsFooter adsFooter=new AdsFooter();
-        homePage.goToHome();
-        homePage.goToModalDialogsPage();
-        adsFooter.deleteAds(); 
+    public void preconditions() {
+        try {
+            modalDialogsPage = new ModalDialogsPage();
+            modalDialogsPage.goToModalDialogs();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            modalDialogsPage = new ModalDialogsPage();
+            modalDialogsPage.goToModalDialogs();
+        }
     }
 
     @Test
-    public void ValidateSmallModal(){
+    public void ValidateSmallModal() {
         modalDialogsPage.clickShowSmallModalButton();
         Assert.assertTrue(modalDialogsPage.verifyFadeModalBackdropIsVisible());
         Assert.assertTrue(modalDialogsPage.verifyDialogModalIsVisible());
@@ -36,7 +38,7 @@ public class ModalDialogsTest extends BaseTest{
     }
 
     @Test
-    public void ValidateLargeModal(){
+    public void ValidateLargeModal() {
         modalDialogsPage.clickShowLargeModalButton();
         Assert.assertTrue(modalDialogsPage.verifyFadeModalBackdropIsVisible());
         Assert.assertTrue(modalDialogsPage.verifyDialogModalIsVisible());
@@ -46,5 +48,5 @@ public class ModalDialogsTest extends BaseTest{
         Assert.assertFalse(modalDialogsPage.verifyFadeModalBackdropIsNoVisible());
         Assert.assertFalse(modalDialogsPage.verifyDialogModalIsNoVisible());
     }
-    
+
 }

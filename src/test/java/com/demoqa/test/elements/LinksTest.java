@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.LinksPage;
 
@@ -13,29 +12,36 @@ import static io.restassured.RestAssured.*;
 
 @Test(groups = "LinksTest")
 public class LinksTest extends BaseTest {
+        HomePage homePage;
         LinksPage linksPage;
 
         @BeforeMethod
         public void preconditions() {
-                HomePage homePage = new HomePage();
-                AdsFooter adsFooter = new AdsFooter();
-                linksPage = new LinksPage();
-                homePage.goToHome();
-                homePage.goToLinksPage();
-                adsFooter.deleteAds();
+                try {
+                        linksPage = new LinksPage();
+                        linksPage.goToLinks(homePage);
+                } catch (Exception e) {
+                        System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+                        String browser = getBrowser();
+                        setUp(browser);
+                        linksPage = new LinksPage();
+                        linksPage.goToLinks(homePage);
+                }
         }
 
-        /*@Test(description = "Following links will open new tab Home")
-        public void followingLinksWillOpenNewTabHome() {
-                linksPage.clickNewTabSimpleLink();
-                Assert.assertTrue(linksPage.returnURL());
-        }
-
-        @Test(description = "Following links will open new tab Home dinamic link")
-        public void followingLinksWillOpenNewTabHomeDinamic() {
-                linksPage.clickNewTabDinamicLink();
-                Assert.assertTrue(linksPage.returnURL());
-        }*/
+        /*
+         * @Test(description = "Following links will open new tab Home")
+         * public void followingLinksWillOpenNewTabHome() {
+         * linksPage.clickNewTabSimpleLink();
+         * Assert.assertTrue(linksPage.returnURL());
+         * }
+         * 
+         * @Test(description = "Following links will open new tab Home dinamic link")
+         * public void followingLinksWillOpenNewTabHomeDinamic() {
+         * linksPage.clickNewTabDinamicLink();
+         * Assert.assertTrue(linksPage.returnURL());
+         * }
+         */
 
         @Test(description = "Following links will send an api call create")
         public void FollowingLinksWillSendAnApiCallCreate() {

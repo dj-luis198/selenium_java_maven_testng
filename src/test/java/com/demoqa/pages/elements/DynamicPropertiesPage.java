@@ -1,6 +1,8 @@
 package com.demoqa.pages.elements;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class DynamicPropertiesPage extends BaseClass {
     private final String enableAfterButton = "//button[@id='enableAfter']";
@@ -24,6 +26,14 @@ public class DynamicPropertiesPage extends BaseClass {
             return true;
         }
         return false;
+    }
+
+    public void goToDynamicProperties(HomePage homePage) {
+        homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToDynamicPropertiesPage();
+        adsFooter.deleteAds();
     }
 
 }

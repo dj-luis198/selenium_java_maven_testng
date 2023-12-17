@@ -1,6 +1,8 @@
 package com.demoqa.pages.elements;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class RadioButtonPage extends BaseClass {
 
@@ -46,5 +48,13 @@ public class RadioButtonPage extends BaseClass {
 
     public Boolean isDisabledElement(){
         return isDisplayed(checkedNoRadio);
+    }
+
+    public void goToRadioButton(HomePage homePage) {
+        homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToRadioButtonPage();
+        adsFooter.deleteAds();
     }
 }

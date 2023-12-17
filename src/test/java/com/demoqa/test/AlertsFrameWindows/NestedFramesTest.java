@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.NestedFramesPages;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 
 @Test(groups = "NestedFramesTest")
 public class NestedFramesTest extends BaseTest {
@@ -15,12 +13,16 @@ public class NestedFramesTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        nestedFramesPages = new NestedFramesPages();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToNestedFramesPage();
-        adsFooter.deleteAds();
+        try {
+            nestedFramesPages = new NestedFramesPages();
+            nestedFramesPages.goToNestedFrames();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            nestedFramesPages = new NestedFramesPages();
+            nestedFramesPages.goToNestedFrames();
+        }
     }
 
     @Test

@@ -1,6 +1,8 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class ProgressBarPage extends BaseClass{
     private final String startButton= "//button[@id='startStopButton']";
@@ -18,4 +20,12 @@ public class ProgressBarPage extends BaseClass{
     public Boolean verifyResetButton(){
         return isDisplayed(resetButton);
     } 
+
+    public void goToProgressBar(){
+        HomePage homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToProgressBarPage();
+        adsFooter.deleteAds();
+    }
 }
