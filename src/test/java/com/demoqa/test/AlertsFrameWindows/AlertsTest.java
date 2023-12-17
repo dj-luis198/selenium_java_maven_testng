@@ -3,10 +3,8 @@ package com.demoqa.test.AlertsFrameWindows;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.AlertsPage;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 import net.datafaker.Faker;
@@ -14,17 +12,22 @@ import net.datafaker.Faker;
 @Test(groups = "AlertsTest")
 public class AlertsTest extends BaseTest {
     AlertsPage alertsPage;
+    HomePage homePage;
 
     Faker fake = new Faker();
 
     @BeforeMethod
     public void preconditions() {
+        try {
+            alertsPage = new AlertsPage();
+            alertsPage.goToAlerts(homePage);
+        } catch (Exception e) {
+        System.out.println("Pre condiciones fallidas, iniciando setUp "+e);
+        String browser= getBrowser();
+        setUp(browser);
         alertsPage = new AlertsPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToAlertsPage();
-        adsFooter.deleteAds();
+            alertsPage.goToAlerts(homePage);
+      }   
     }
 
     @Test

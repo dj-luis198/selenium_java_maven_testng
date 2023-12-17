@@ -5,22 +5,26 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.DynamicPropertiesPage;
 
 @Test(groups = "DynamicPropertiesTest")
 public class DynamicPropertiesTest extends BaseTest {
+    HomePage homePage;
     DynamicPropertiesPage dinamicPropertiesPage;
 
     @BeforeMethod
     public void preconditions() {
-        dinamicPropertiesPage = new DynamicPropertiesPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToDynamicPropertiesPage();
-        adsFooter.deleteAds();
+        try {
+            dinamicPropertiesPage = new DynamicPropertiesPage();
+            dinamicPropertiesPage.goToDynamicProperties(homePage);
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            dinamicPropertiesPage = new DynamicPropertiesPage();
+            dinamicPropertiesPage.goToDynamicProperties(homePage);
+        }
     }
 
     @Test(description = "Valid Enable button After 5 Seg")

@@ -8,7 +8,7 @@ import io.restassured.filter.session.SessionFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class BookStoreEndPoints {
+public class BookStoreEndPoints extends BaseClass{
     private static Properties prop = new Properties();
     static SessionFilter sessionFilter = new SessionFilter();
 
@@ -23,7 +23,7 @@ public class BookStoreEndPoints {
     } 
 
     public static Response getBooksStore(String id){
-            prop = BaseClass.init_properties("routes");
+            prop = init_properties("routes");
            String delete_url = prop.getProperty("delete_url");
            Response response =
                given()

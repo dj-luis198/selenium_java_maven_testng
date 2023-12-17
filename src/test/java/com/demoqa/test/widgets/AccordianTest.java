@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.AccordianPage;
 
 @Test(groups = "AccordianTest")
@@ -15,12 +13,16 @@ public class AccordianTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        accordianPage = new AccordianPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToAccordianPage();
-        adsFooter.deleteAds();
+        try {
+            accordianPage = new AccordianPage();
+            accordianPage.goToAccordian();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            accordianPage = new AccordianPage();
+            accordianPage.goToAccordian();
+        }
     }
 
     @Test

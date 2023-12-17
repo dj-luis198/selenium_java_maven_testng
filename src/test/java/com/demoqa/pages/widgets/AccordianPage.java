@@ -1,6 +1,8 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class AccordianPage extends BaseClass {
     private final String section1Button = "//div[@id='section1Heading']";
@@ -32,6 +34,14 @@ public class AccordianPage extends BaseClass {
 
     public Boolean isDisplayedSection3() {
         return isDisplayed(section3Content);
+    }
+
+    public void goToAccordian(){
+        HomePage homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToAccordianPage();
+        adsFooter.deleteAds();
     }
 
 }

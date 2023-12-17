@@ -9,6 +9,7 @@ import java.util.Properties;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -34,7 +35,7 @@ public class BaseClass{
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
 
-	public static WebDriver getDriver() {
+	protected static WebDriver getDriver() {
 		return getBrowser.getDriver();
 	}
 
@@ -46,7 +47,7 @@ public class BaseClass{
 
 	}
 
-	public static Properties init_properties(String name) {
+	protected static Properties init_properties(String name) {
 		FileReader reader;
 		try {
 			reader = new FileReader(
@@ -147,7 +148,23 @@ private static boolean noFindElement(String locator) {
 		getBrowser.getDriver().get(propA.getProperty("url"));
 	}
 
-	public static void quit() {
+	protected static String getBrowser() {
+		WebDriver driver = getDriver();
+        Capabilities capabilities = ((RemoteWebDriver) driver).getCapabilities();
+        String browserName;
+		if(capabilities.getBrowserName().equals("MicrosoftEdge")) {
+			browserName = "edge";
+		} else {
+			if(capabilities.getBrowserName().equals("chrome")) {
+				browserName = "chrome";
+			} else {
+				browserName = "firefox";
+			}
+		}
+		return browserName;
+	  }
+
+	protected static void quit() {
 		getBrowser.quitDriver();
 	}
 
@@ -194,11 +211,11 @@ private static boolean noFindElement(String locator) {
 		return findElement(locator).isDisplayed();
 	}
 
-	protected Boolean NoFind(String locator) {
+	protected static Boolean NoFind(String locator) {
 		return noFindElement(locator);
 	}
 
-	protected Boolean NoFindElements(String locator) {
+	protected static Boolean NoFindElements(String locator) {
 		return noFindElements(locator);
 	}
 
@@ -295,23 +312,23 @@ private static boolean noFindElement(String locator) {
 		return text;
 	}
 
-	protected String getAttributeDownload(String locator) {
+	protected static String getAttributeDownload(String locator) {
 		return findElement(locator).getAttribute("download");
 	}
 
-	protected String getAttributeId(String locator) {
+	protected static String getAttributeId(String locator) {
 		return findElement(locator).getAttribute("id");
 	}
 
-	protected String getAttributeElementNaturalH(WebElement element) {
+	protected static String getAttributeElementNaturalH(WebElement element) {
 		return element.getAttribute("naturalHeight");
 	}
 
-	protected String getAttributeElementSrcText(WebElement element) {
+	protected static String getAttributeElementSrcText(WebElement element) {
 		return element.getAttribute("src");
 	}
 
-	protected String getAttributeElementHref(WebElement element) {
+	protected static String getAttributeElementHref(WebElement element) {
 		return element.getAttribute("href");
 	}
 
@@ -323,19 +340,19 @@ private static boolean noFindElement(String locator) {
 		return element.getAttribute("outerText");
 	}
 
-	protected String getAttributeDefaultValue(String locator) {
+	protected static String getAttributeDefaultValue(String locator) {
 		return findElement(locator).getAttribute("defaultValue");
 	}
 
-	protected String getAttributeDefaultValue(WebElement element) {
+	protected static String getAttributeDefaultValue(WebElement element) {
 		return element.getAttribute("defaultValue");
 	}
 
-	protected String getAttributeAriaSelected(String locator) {
+	protected static String getAttributeAriaSelected(String locator) {
 		return findElement(locator).getAttribute("ariaSelected");
 	}
 
-	protected String getAttributeAriaDisabled(String locator) {
+	protected static String getAttributeAriaDisabled(String locator) {
 		return findElement(locator).getAttribute("ariaDisabled");
 	}
 
@@ -434,7 +451,7 @@ protected static void click(String locator) {
 
 	// --------------------------------Alert------------------------------------//
 
-	protected String isAlertPresent(){
+	protected static String isAlertPresent(){
     //String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
     try {

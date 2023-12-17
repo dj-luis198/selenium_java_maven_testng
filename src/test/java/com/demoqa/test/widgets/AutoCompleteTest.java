@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.AutoCompletePage;
 import com.demoqa.util.dataProvider.AutoCompleteData;
 
@@ -16,12 +14,16 @@ public class AutoCompleteTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        autoCompletePage = new AutoCompletePage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToAutoCompletePage();
-        adsFooter.deleteAds();
+        try {
+            autoCompletePage = new AutoCompletePage();
+            autoCompletePage.goToAutoComplete();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            autoCompletePage = new AutoCompletePage();
+            autoCompletePage.goToAutoComplete();
+        }
     }
 
     @Test(dataProvider = "MultipleSelecColorData", dataProviderClass = AutoCompleteData.class)

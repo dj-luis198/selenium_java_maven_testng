@@ -1,6 +1,8 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class SelectMenuPage extends BaseClass {
     private final String selectValue = "//div[@id='withOptGroup']";
@@ -49,5 +51,13 @@ public class SelectMenuPage extends BaseClass {
             return true;
         }
         return false;
+    }
+
+    public void goToSelectMenu(){
+        HomePage homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToSelectMenuPage();
+        adsFooter.deleteAds();
     }
 }

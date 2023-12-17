@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.MenuPage;
 
 @Test(groups = "MenuTest")
@@ -15,15 +13,19 @@ public class MenuTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        menuPage = new MenuPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToMenuPage();
-        adsFooter.deleteAds();
+        try {
+            menuPage = new MenuPage();
+            menuPage.goToMenu();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            menuPage = new MenuPage();
+            menuPage.goToMenu();
+        }
     }
 
-     @Test
+    @Test
     public void validateMenuBarItem1() {
         menuPage.moveToItem1();
         Assert.assertTrue(menuPage.verifyItem1());
@@ -74,7 +76,7 @@ public class MenuTest extends BaseTest {
     public void validateMenuBarSubSubItem2() {
         menuPage.moveToItem2();
         menuPage.moveToSubSubList();
-         menuPage.moveToSubItem2();
+        menuPage.moveToSubItem2();
         Assert.assertTrue(menuPage.verifySubSubItem2());
     }
 }

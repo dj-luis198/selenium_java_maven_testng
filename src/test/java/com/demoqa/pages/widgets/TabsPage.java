@@ -1,6 +1,8 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class TabsPage extends BaseClass {
 
@@ -53,4 +55,11 @@ public class TabsPage extends BaseClass {
         return false;
     }
 
+    public void goToTabs(){
+        HomePage homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToTabsPage();
+        adsFooter.deleteAds();
+    }
 }

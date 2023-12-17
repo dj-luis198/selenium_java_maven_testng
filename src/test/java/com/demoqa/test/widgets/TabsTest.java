@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.TabsPage;
 
 @Test(groups = "TabsTest")
@@ -15,12 +13,16 @@ public class TabsTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        tabsPage = new TabsPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToTabsPage();
-        adsFooter.deleteAds();
+        try {
+            tabsPage = new TabsPage();
+            tabsPage.goToTabs();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            tabsPage = new TabsPage();
+            tabsPage.goToTabs();
+        }
     }
 
     @Test

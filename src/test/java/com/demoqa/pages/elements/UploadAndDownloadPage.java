@@ -6,6 +6,8 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class UploadAndDownloadPage extends BaseClass {
     private String downloadPath = "files/downloadFiles";
@@ -55,5 +57,13 @@ public class UploadAndDownloadPage extends BaseClass {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+    }
+
+    public void goToUploadAndDownload(HomePage homePage){
+        AdsFooter adsFooter = new AdsFooter();
+        homePage = new HomePage();
+        homePage.goToHome();
+        homePage.goToUploadAndDownloadPage();
+        adsFooter.deleteAds();
     }
 }

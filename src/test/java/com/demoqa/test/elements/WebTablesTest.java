@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.WebTablesPage;
 
@@ -16,18 +15,21 @@ public class WebTablesTest extends BaseTest {
     Faker faker = new Faker();
     String firstName, lastName, email, department;
     int salary, age;
-    AdsFooter adsFooter;
     HomePage homePage;
     WebTablesPage webTablesPage;
 
     @BeforeMethod
     public void preconditions() {
-        adsFooter = new AdsFooter();
-        homePage = new HomePage();
-        webTablesPage = new WebTablesPage();
-        homePage.goToHome();
-        homePage.goToWebTablesPage();
-        adsFooter.deleteAds();
+        try {
+            webTablesPage = new WebTablesPage();
+            webTablesPage.goToWebTables(homePage);
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            webTablesPage = new WebTablesPage();
+            webTablesPage.goToWebTables(homePage);
+        }
     }
 
     @Test(description = "Validate enter 10 users")

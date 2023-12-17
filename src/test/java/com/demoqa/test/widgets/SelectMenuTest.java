@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.SelectMenuPage;
 
 @Test(groups = "SelectMenuTest")
@@ -15,12 +13,16 @@ public class SelectMenuTest extends BaseTest {
 
     @BeforeMethod
     public void preconditions() {
-        selectMenuPage = new SelectMenuPage();
-        HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToSelectMenuPage();
-        adsFooter.deleteAds();
+        try {
+            selectMenuPage = new SelectMenuPage();
+            selectMenuPage.goToSelectMenu();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            selectMenuPage = new SelectMenuPage();
+            selectMenuPage.goToSelectMenu();
+        }
     }
 
     @Test

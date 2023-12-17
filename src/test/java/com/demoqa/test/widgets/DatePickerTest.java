@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
-import com.demoqa.pages.common.AdsFooter;
-import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.widgets.DatePickerPage;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerData;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerDataTime;
@@ -15,25 +13,28 @@ import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
 @Test(groups = "DatePickerTest")
 public class DatePickerTest extends BaseTest {
     DatePickerPage datePickerPage;
-    HomePage homePage;
 
     @BeforeMethod
     public void preconditions() {
-        datePickerPage = new DatePickerPage();
-        homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
-        homePage.goToHome();
-        homePage.goToDatePickerPage();
-        adsFooter.deleteAds();
+        try {
+            datePickerPage = new DatePickerPage();
+            datePickerPage.goToDatePicker();
+        } catch (Exception e) {
+            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            datePickerPage = new DatePickerPage();
+            datePickerPage.goToDatePicker();
+        }
     }
 
-    @Test(dataProvider="DatePickerInputData",dataProviderClass = DatePickerInputData.class)
+    @Test(dataProvider = "DatePickerInputData", dataProviderClass = DatePickerInputData.class)
     public void validateDatePickerMonthYearInput(String date) {
         datePickerPage.typeDate(date);
         Assert.assertEquals(datePickerPage.verifyDate(), date);
     }
 
-    @Test(dataProvider="DatePickerData",dataProviderClass = DatePickerData.class)
+    @Test(dataProvider = "DatePickerData", dataProviderClass = DatePickerData.class)
     public void validateDatePickerMonthYear(String year, String month, String day, String date) {
         datePickerPage.clickDatePicker();
         datePickerPage.selectYear(year);
@@ -45,8 +46,8 @@ public class DatePickerTest extends BaseTest {
         Assert.assertEquals(datePickerPage.verifyDate(), date);
     }
 
-    @Test(dataProvider="DatePickerDataTime",dataProviderClass = DatePickerDataTime.class)
-    public void validateDateAndTimePicker(String year, String month, String day, String date,String time) {
+    @Test(dataProvider = "DatePickerDataTime", dataProviderClass = DatePickerDataTime.class)
+    public void validateDateAndTimePicker(String year, String month, String day, String date, String time) {
         datePickerPage.clickDateAndTimePickerInput();
         datePickerPage.clickYearSelectDateAndTime();
         datePickerPage.clickOptionYear(year);

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import com.demoqa.base.BaseClass;
+import com.demoqa.pages.common.AdsFooter;
+import com.demoqa.pages.common.HomePage;
 
 public class BrokenLinksImagesPage extends BaseClass {
     private final String imagesImg = "//img[contains(@src,'images')]";
@@ -34,5 +36,13 @@ public class BrokenLinksImagesPage extends BaseClass {
 
     public String returnHref(WebElement element) {
         return getAttributeElementHref(element);
+    }
+
+    public void goToBrokenLinksImages(HomePage homePage){
+        homePage = new HomePage();
+        AdsFooter adsFooter = new AdsFooter();
+        homePage.goToHome();
+        homePage.goToBrokenLinksImagesPage();
+        adsFooter.deleteAds();
     }
 }
