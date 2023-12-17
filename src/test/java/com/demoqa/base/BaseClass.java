@@ -35,7 +35,7 @@ public class BaseClass {
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
 
-	protected WebDriver getDriver() {
+	public static WebDriver getDriver() {
 		return getBrowser.getDriver();
 	}
 
