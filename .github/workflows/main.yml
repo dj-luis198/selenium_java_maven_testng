@@ -1,4 +1,4 @@
-name: DemoQA Selenium Windows-latest
+name: DemoQA Selenium ubuntu-latest
 
 on:
   push:
@@ -12,6 +12,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
