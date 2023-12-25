@@ -19,13 +19,9 @@ public class BooksStorePage extends BaseClass {
         System.out.println("comienza for");
             for (String book : booksList) {
                     click("//a[contains(text(),\""+book+"\")]");
-                    System.out.println("click a "+book);
                     this.clickAddToYouCollection();
-                    System.out.println("click add colecction");
                     this.acceptAlert();
-                    System.out.println("acept alert");
                     this.clickBackToBook();
-                    System.out.println("click back to book");
             }
     }
 
@@ -50,7 +46,6 @@ public class BooksStorePage extends BaseClass {
     public void acceptAlert() {
         String text= isAlertPresent();
         if(text.equals("Book added to your collection.")||text.equals("Book already present in the your collection!")){
-            System.out.println(text);
         }else {
             System.out.println(text);
         }

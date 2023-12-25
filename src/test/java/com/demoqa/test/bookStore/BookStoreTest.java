@@ -29,54 +29,34 @@ public class BookStoreTest extends BaseTest{
         homePage= new HomePage();
         adsFooter= new AdsFooter();
         homePage.goToLoginPage();
-        System.out.println("go to login page");
         adsFooter.deleteAds();
-        System.out.println("delete ads");
     }
 
     @Test(dataProvider = "bookStoreE2E", dataProviderClass = bookStoreE2EData.class)
     public void booksStoreE2ETest(String userName, String pass, String books) {
         loginStorePage.LoginUser(userName, pass);
-        System.out.println("ingrese datos de login");
         adsFooter.deleteAds();
-        System.out.println("delete ads");
         Assert.assertEquals(profileStorePage.returnUserName(), userName);
-        System.out.println("assert username paso");
         profileStorePage.clickGoToBookStoreButton();
-        System.out.println("ir a book store");
         adsFooter.deleteAds();
-        System.out.println("delete ads");
         Assert.assertEquals(booksStore.returnUserName(), userName);
-        System.out.println("assert username paso");
         booksStore.selectBooks(books);
-        System.out.println("selecciona los libros");
         booksStore.clickProfile();
-        System.out.println("ir a profile");
         adsFooter.deleteAds();
-        System.out.println("delete ads");
         Assert.assertTrue(profileStorePage.verifyBooksList(books));
         profileStorePage.deleteBooks(books);
-        System.out.println("elimina libros");
         Assert.assertTrue(profileStorePage.verifyBooksDelete(books));
     }
 
     @AfterMethod
     public void deleteBooks(){
         booksStore.clickProfile();
-        System.out.println("after comienza... voy a profile");
         adsFooter.deleteAds();
-        System.out.println("delete ads");
         profileStorePage.clickDeleteAllBooks();
-        System.out.println("delete todos los libros");
         profileStorePage.confirmSmallModal();
-        System.out.println("confirm modal");
         profileStorePage.acceptAlertDeleteAll();
-        System.out.println("confirm alert");
         Assert.assertTrue(profileStorePage.verifyDeleteAllBooks());
         profileStorePage.clickLogOut();
-        System.out.println("logout");
         homePage.goToHome();
-        System.out.println("ir a home");
-        System.out.println("delete ads y fin after.......");
     }
 }
