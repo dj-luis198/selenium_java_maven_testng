@@ -37,7 +37,7 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public Boolean verifyBooksDelete(String text) {
-        List<String> booksList = new ArrayList<String>(Arrays.asList(text.split(",")));
+        List<String> booksList = booksList(text);
         if (!NoFindElements(booksGrid)) {
             List<WebElement> books = returnElements(booksGrid);
             if (books.size() > 0) {
@@ -55,7 +55,7 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public void deleteBooks(String text) {
-        List<String> booksList = new ArrayList<String>(Arrays.asList(text.split(",")));
+        List<String> booksList = booksList(text);
         for (String book : booksList) {
             this.deleteBook(book);
             this.confirmSmallModal();
@@ -64,7 +64,7 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public Boolean verifyBooksList(String text) {
-        List<String> booksList = new ArrayList<String>(Arrays.asList(text.split(",")));
+        List<String> booksList = booksList(text);
         List<WebElement> books = returnElements(booksGrid);
         if (books.size() >= booksList.size()) {
             for (WebElement book : books) {
@@ -76,6 +76,10 @@ public class ProfileStorePage extends BaseClass {
             }
         }
         return false;
+    }
+
+    public List<String> booksList(String text) {
+        return new ArrayList<String>(Arrays.asList(text.split(";")));
     }
 
     public Boolean VerifyBookDelete(String text) {
@@ -123,6 +127,11 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public void clickGoToBookStoreButton() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(goToStoreButton);
     }
 

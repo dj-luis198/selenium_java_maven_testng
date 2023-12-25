@@ -15,7 +15,7 @@ public class BooksStorePage extends BaseClass {
 
     public void selectBooks(String books) {
         System.out.println("Select books ........ paso string a array");
-        List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(",")));
+        List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(";")));
         System.out.println("comienza for");
             for (String book : booksList) {
                     click("//a[contains(text(),\""+book+"\")]");
@@ -30,10 +30,20 @@ public class BooksStorePage extends BaseClass {
     }
 
     public void clickProfile() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(profileButton);
     }
 
     public void clickBackToBook() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(backToBooksButton);
     }
 
@@ -51,6 +61,11 @@ public class BooksStorePage extends BaseClass {
     }
 
     public String returnBookName() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return getTextContent(titleBookSpan);
     }
 

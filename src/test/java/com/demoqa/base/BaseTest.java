@@ -21,7 +21,7 @@ public class BaseTest extends BaseClass {
             } catch (Exception e) {
                 e.printStackTrace();
                 retryCount++;
-                System.out.println("Reintentando inicialización (Intento " + retryCount + ")");
+                System.out.println("Reintentando inicializacion (Intento " + retryCount + ")");
             }
         }
 

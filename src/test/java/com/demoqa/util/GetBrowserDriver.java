@@ -1,6 +1,7 @@
 package com.demoqa.util;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.PageLoadStrategy;
@@ -49,6 +50,7 @@ public class GetBrowserDriver {
 				options.addArguments("--start-fullscreen");
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+				options.setScriptTimeout(Duration.ofSeconds(10));
 				setDriver(new ChromeDriver(options));
 			}
 
@@ -61,6 +63,7 @@ public class GetBrowserDriver {
 				profile.setPreference("browser.download.folderList", 2);
 				options.addArguments("--headless");
 				options.setProfile(profile);
+				options.setScriptTimeout(Duration.ofSeconds(10));
 				setDriver(new FirefoxDriver(options));
 				getDriver().manage().window().fullscreen();
 			}
@@ -79,6 +82,7 @@ public class GetBrowserDriver {
 				options.addArguments("--start-fullscreen");
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+				options.setScriptTimeout(Duration.ofSeconds(10));
 				setDriver(new EdgeDriver(options));
 			}
 
