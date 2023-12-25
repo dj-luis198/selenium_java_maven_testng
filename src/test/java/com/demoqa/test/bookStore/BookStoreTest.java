@@ -22,7 +22,6 @@ public class BookStoreTest extends BaseTest{
 
     @BeforeMethod
     public void preconditions(){
-        System.out.println("comienzan precondiciones");
         booksStore = new BooksStorePage();
         loginStorePage = new LoginStorePage();
         profileStorePage = new ProfileStorePage();

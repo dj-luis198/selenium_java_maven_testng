@@ -16,7 +16,6 @@ public class BooksStorePage extends BaseClass {
     public void selectBooks(String books) {
         System.out.println("Select books ........ paso string a array");
         List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(";")));
-        System.out.println("comienza for");
             for (String book : booksList) {
                     click("//a[contains(text(),\""+book+"\")]");
                     this.clickAddToYouCollection();
