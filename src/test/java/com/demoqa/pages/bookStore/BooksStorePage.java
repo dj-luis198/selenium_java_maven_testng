@@ -14,7 +14,6 @@ public class BooksStorePage extends BaseClass {
     private final String profileButton = "//span[normalize-space()='Profile']";
 
     public void selectBooks(String books) {
-        System.out.println("Select books ........ paso string a array");
         List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(";")));
             for (String book : booksList) {
                     click("//a[contains(text(),\""+book+"\")]");
