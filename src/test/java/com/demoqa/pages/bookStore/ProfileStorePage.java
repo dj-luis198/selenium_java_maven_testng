@@ -33,6 +33,11 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public void clickDeleteAllBooks() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(deleteAllButton);
     }
 
@@ -106,10 +111,20 @@ public class ProfileStorePage extends BaseClass {
     }
 
     public void confirmSmallModal() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(smalModalOkButton);
     }
 
     public void deleteBook(String text) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click("(//span[contains(@id,\"" + text
                 + "\")]/parent::div/parent::div/following-sibling::div)[3]/child::div/child::span[@id='delete-record-undefined']");
     }
