@@ -143,7 +143,6 @@
           <configuration>
           <suiteXmlFiles>
             <suiteXmlFile>test.xml</suiteXmlFile>
-            
           </suiteXmlFiles>
         </configuration>
         </plugin>
