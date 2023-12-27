@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.MenuPage;
 
-@Test(groups = "MenuTest")
+@Test(groups = "MenuTest", timeOut = 30000)
 public class MenuTest extends BaseTest {
     MenuPage menuPage;
 

@@ -12,7 +12,7 @@ import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.CheckBoxPage;
 import com.demoqa.util.JsonSimple;
 
-@Test(groups = "CheckBoxTest")
+@Test(groups = "CheckBoxTest",timeOut = 30000)
 public class CheckBoxTest extends BaseTest {
     HomePage homePage;
     CheckBoxPage checkBoxPage;

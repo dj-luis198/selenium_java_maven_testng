@@ -8,7 +8,7 @@ import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.DynamicPropertiesPage;
 
-@Test(groups = "DynamicPropertiesTest")
+@Test(groups = "DynamicPropertiesTest", timeOut = 30000)
 public class DynamicPropertiesTest extends BaseTest {
     HomePage homePage;
     DynamicPropertiesPage dinamicPropertiesPage;
