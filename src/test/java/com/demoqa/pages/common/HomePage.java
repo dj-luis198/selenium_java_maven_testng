@@ -40,6 +40,7 @@ public class HomePage extends BaseClass {
     }
 
     public void SelectBookStore() {
+        goToHome();
         click(bookStore);
     }
 
