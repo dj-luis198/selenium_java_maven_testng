@@ -3,17 +3,17 @@
 <suite name="API">
   <test name="API Book Store" parallel="none">
     <classes>
-      <class name="com.demoqa.api.test.usertests.PostUser"/>
-      <class name="com.demoqa.api.test.usertests.PostToken"/>
-      <class name="com.demoqa.api.test.usertests.PostAuthorized"/>
-      <class name="com.demoqa.api.test.usertests.GetUser"/>
-      <class name="com.demoqa.api.test.booktest.PostBooksUser"/>
-      <class name="com.demoqa.api.test.booktest.DeleteBook"/>
-      <class name="com.demoqa.api.test.booktest.PutBook"/>
-      <class name="com.demoqa.api.test.booktest.DeleteBooks"/>
-      <class name="com.demoqa.api.test.booktest.GetBook"/>
-      <class name="com.demoqa.api.test.booktest.GetBooks"/>
-      <class name="com.demoqa.api.test.usertests.DeleteUser"/>
+      <class name="com.demoqa.test.api.usertests.PostUser"/>
+      <class name="com.demoqa.test.api.usertests.PostToken"/>
+      <class name="com.demoqa.test.api.usertests.PostAuthorized"/>
+      <class name="com.demoqa.test.api.usertests.GetUser"/>
+      <class name="com.demoqa.test.api.booktest.PostBooksUser"/>
+      <class name="com.demoqa.test.api.booktest.DeleteBook"/>
+      <class name="com.demoqa.test.api.booktest.PutBook"/>
+      <class name="com.demoqa.test.api.booktest.DeleteBooks"/>
+      <class name="com.demoqa.test.api.booktest.GetBook"/>
+      <class name="com.demoqa.test.api.booktest.GetBooks"/>
+      <class name="com.demoqa.test.api.usertests.DeleteUser"/>
     </classes>
     </test>
 </suite>
