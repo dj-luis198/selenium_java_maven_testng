@@ -362,9 +362,12 @@ public class BaseClass {
 		try {
 			WebElement element = findElementClickable(locator);
 			element.click();
-		} catch (ElementClickInterceptedException e) {
-			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click();", findElementClickable(locator));
+		} catch (Exception e) {
+			try {
+				clickJS(locator);
+			} catch (Exception ex) {
+				throw new Error("No se pudo hacer clic en el elemento: " + locator + " : " + ex.getMessage());
+			}
 		}
 	}
 
@@ -379,12 +382,14 @@ public class BaseClass {
 	}
 
 	protected static void clickElement(WebElement element) {
-		// actions = new Actions(driver);
 		try {
 			element.click();
-		} catch (ElementClickInterceptedException e) {
-			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click();", element);
+		} catch (Exception e) {
+			try {
+				clickElementJS(element);
+			} catch (Exception ex) {
+				throw new Error("No se pudo hacer clic en el elemento: " + element + " : " + ex.getMessage());
+			}
 		}
 	}
 
@@ -427,7 +432,20 @@ public class BaseClass {
 
 	protected static void rightClick(String locator) {
 		Actions actions = new Actions(getBrowser.getDriver());
-		actions.contextClick(findElementClickable(locator)).perform();
+		WebElement element = findElementClickable(locator);
+		try {
+			actions.contextClick(element).perform();
+		} catch (Exception e) {
+			try {
+				JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
+				String rightClickScript = "var ev = document.createEvent('MouseEvent');"
+						+ "ev.initMouseEvent('contextmenu', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 2, null);"
+						+ "arguments[0].dispatchEvent(ev);";
+				jse.executeScript(rightClickScript, element);
+			} catch (Exception ex) {
+				throw new Error("No se pudo hacer clic derecho en el elemento: " + locator + " : " + ex.getMessage());
+			}
+		}
 	}
 
 	// ----------------------------------CSS--------------------------------------//
