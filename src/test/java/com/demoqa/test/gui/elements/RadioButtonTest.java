@@ -8,7 +8,7 @@ import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.RadioButtonPage;
 
-@Test(groups = "RadioButtonTest")
+@Test(groups = "RadioButtonTest", timeOut = 30000)
 public class RadioButtonTest extends BaseTest {
 
   HomePage homePage;
