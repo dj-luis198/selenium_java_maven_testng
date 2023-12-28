@@ -27,8 +27,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.demoqa.util.GetBrowserDriver;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
-
 public class BaseClass {
 	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
 	private static Properties prop = new Properties();
@@ -384,34 +382,29 @@ public class BaseClass {
 		}
 	}
 
-	protected static String clickNewTab(String locator) {
-		String originalTap = getBrowser.getDriver().getWindowHandle();
+	protected static String openNewTabAndSwitch(String locator) {
+		String originalURL = getURL();
+		WebDriver driver = getBrowser.getDriver();
+		String originalTab = driver.getWindowHandle();
+		WebElement element = findElementClickable(locator);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		try {
-			(findElementClickable(locator)).click();
+			element.click();
 		} catch (ElementClickInterceptedException e) {
-			JavascriptExecutor jse = (JavascriptExecutor) getBrowser.getDriver();
-			jse.executeScript("arguments[0].click()", findElementClickable(locator));
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("arguments[0].click()", element);
 		}
-		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
-		ewait.until(numberOfWindowsToBe(2));
-		for (String windowHandle : getBrowser.getDriver().getWindowHandles()) {
-			if (!originalTap.contentEquals(windowHandle)) {
-				getBrowser.getDriver().switchTo().window(windowHandle);
+		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+		for (String windowHandle : driver.getWindowHandles()) {
+			if (!originalTab.equals(windowHandle)) {
+				driver.switchTo().window(windowHandle);
 				break;
 			}
 		}
-		// ewait.until(titleIs(title));
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		wait.until(ExpectedConditions.not(ExpectedConditions.urlContains(originalURL)));
 		String url = getURL();
-		// Close the tab or window
-		getBrowser.getDriver().close();
-
-		// Switch back to the old tab or window
-		getBrowser.getDriver().switchTo().window(originalTap);
+		driver.close();
+		driver.switchTo().window(originalTab);
 		return url;
 	}
 
