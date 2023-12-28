@@ -34,6 +34,8 @@ public class BaseClass {
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
+	private static String time;
+	private static String url;
 
 	public static WebDriver getDriver() {
 		return getBrowser.getDriver();
@@ -42,8 +44,10 @@ public class BaseClass {
 	protected void init(String browser) {
 		propF = init_properties("framework");
 		propA = init_properties("aplication");
+		time = propF.getProperty("timeOut");
+		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
-		driver.get(propA.getProperty("url"));
+		driver.get(url);
 
 	}
 
@@ -69,7 +73,6 @@ public class BaseClass {
 	}
 
 	private static WebElement findElement(String locator) {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		try {
 			return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
@@ -79,7 +82,6 @@ public class BaseClass {
 	}
 
 	private static boolean findElementClickableBoolean(String locator) {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		try {
 			ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
@@ -90,7 +92,6 @@ public class BaseClass {
 	}
 
 	private static WebElement findElementClickable(String locator) {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		try {
 			return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
@@ -100,7 +101,6 @@ public class BaseClass {
 	}
 
 	private static boolean noFindElement(String locator) {
-		String time = propF.getProperty("timeOut");
 		try {
 			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
@@ -111,7 +111,6 @@ public class BaseClass {
 	}
 
 	private static boolean noFindElements(String locator) {
-		String time = propF.getProperty("timeOut");
 		try {
 			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions
@@ -123,7 +122,6 @@ public class BaseClass {
 	}
 
 	private static List<WebElement> findElements(String locator) {
-		String time = propF.getProperty("timeOut");
 		try {
 			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(locator)));
@@ -133,7 +131,6 @@ public class BaseClass {
 	}
 
 	private static List<WebElement> findElementsXpath(String locator) {
-		String time = propF.getProperty("timeOut");
 		try {
 			Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
@@ -224,7 +221,6 @@ public class BaseClass {
 	}
 
 	protected static boolean getPageSource(String locator) {
-		String time = propF.getProperty("timeOut");
 		try {
 			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 			return wait.until(driver -> getBrowser.getDriver().getPageSource().contains(locator));
@@ -394,7 +390,6 @@ public class BaseClass {
 	}
 
 	protected static String clickNewTab(String locator) {
-		String time = propF.getProperty("timeOut");
 		String originalTap = getBrowser.getDriver().getWindowHandle();
 		try {
 			(findElementClickable(locator)).click();
@@ -470,7 +465,6 @@ public class BaseClass {
 	// --------------------------------Alert------------------------------------//
 
 	protected static String isAlertPresent() {
-		// String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		try {
 			ewait.until(ExpectedConditions.alertIsPresent());
@@ -485,7 +479,6 @@ public class BaseClass {
 	}
 
 	protected static String acceptCommonAlert() {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time) * 2));
 		try {
 			Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
@@ -498,7 +491,6 @@ public class BaseClass {
 	}
 
 	protected static void confirmAlertOk() {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		ewait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = getBrowser.getDriver().switchTo().alert();
@@ -506,7 +498,6 @@ public class BaseClass {
 	}
 
 	protected static void confirmAlertCancel() {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		ewait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = getBrowser.getDriver().switchTo().alert();
@@ -514,7 +505,6 @@ public class BaseClass {
 	}
 
 	protected static void promptAlert(String text) {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
 		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
 		alert.sendKeys(text);
@@ -576,7 +566,6 @@ public class BaseClass {
 	// -------------------------------wait-------------------------------------//
 
 	protected static Boolean waitProgressBar(String locator) {
-		String time = propF.getProperty("timeOut");
 		Wait<WebDriver> ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time) * 5));
 		return ewait.until(ExpectedConditions.attributeToBe(findElement(locator), "aria-valuenow", "100"));
 	}
