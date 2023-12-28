@@ -9,74 +9,63 @@ import com.demoqa.baseapi.payload.User;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class UserEndPoints extends BaseClass{
-    private static Properties prop = new Properties();
-    
+public class UserEndPoints extends BaseClass {
+    private static Properties prop = BaseClass.initProperties("routes");;
 
-    public static Response postUser(User payload){
-        prop = BaseClass.init_properties("routes");
+    public static Response postUser(User payload) {
         String post_url = prop.getProperty("post_url");
-        Response response =
-            given()
+        Response response = given()
                 .contentType("application/json")
                 .body(payload).log().all()
-            .when()
+                .when()
                 .post(post_url);
-            return response;
+        return response;
     }
 
-    public static Response tokenUser(User payload){
-        prop = BaseClass.init_properties("routes");
+    public static Response tokenUser(User payload) {
         String token_url = prop.getProperty("token_url");
-        Response response =
-            given()
+        Response response = given()
                 .accept(ContentType.JSON)
-                .header("Content-type","application/json")
+                .header("Content-type", "application/json")
                 .body(payload).log().all()
-            .when()
+                .when()
                 .post(token_url);
-            return response;
+        return response;
     }
 
-    public static Response authorizedUser(User payload,String token){
-         prop = BaseClass.init_properties("routes");
+    public static Response authorizedUser(User payload, String token) {
         String authorized_url = prop.getProperty("authorized_url");
-        Response response =
-            given()
+        Response response = given()
                 .accept(ContentType.JSON)
-                .header("Content-type","application/json")
-                .header("Authorization","Bearer "+token)
+                .header("Content-type", "application/json")
+                .header("Authorization", "Bearer " + token)
                 .body(payload).log().all()
-            .when()
+                .when()
                 .post(authorized_url);
-            return response;
+        return response;
     }
 
-    public static Response getUser(User payload,String token,String id){
-         prop = BaseClass.init_properties("routes");
+    public static Response getUser(User payload, String token, String id) {
         String get_url = prop.getProperty("get_url");
-        Response response =
-            given()
+        Response response = given()
                 .accept(ContentType.JSON)
-                .header("Authorization","Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .auth().basic(payload.getUserName(), payload.getPassword())
                 .pathParam("UUID", id).log().all()
-            .when()
+                .when()
                 .get(get_url);
-            return response;
+        return response;
     }
 
-    public static Response deleteUser(User payload,String token,String id){
-         prop = BaseClass.init_properties("routes");
+    public static Response deleteUser(User payload, String token, String id) {
         String delete_url = prop.getProperty("delete_url");
-        Response response =
-            given()
+        Response response = given()
                 .accept(ContentType.JSON)
-                .header("Authorization","Bearer "+token)
+                .header("Authorization", "Bearer " + token)
                 .auth().basic(payload.getUserName(), payload.getPassword())
                 .pathParam("UUID", id).log().all()
-            .when()
+                .when()
                 .delete(delete_url);
-            return response;
-    } 
+        return response;
+    }
 }

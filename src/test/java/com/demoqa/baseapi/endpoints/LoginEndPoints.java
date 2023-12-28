@@ -19,7 +19,7 @@ static Set<Cookie> driverCookies;
     public void postLogin(User payload){
         Gson gson= new Gson();
         String bodyJson= gson.toJson(payload);
-            prop = BaseClass.init_properties("routes");
+            prop = BaseClass.initProperties("routes");
             String post_login_url = prop.getProperty("post_login_url");
             Response response = 
                 given()

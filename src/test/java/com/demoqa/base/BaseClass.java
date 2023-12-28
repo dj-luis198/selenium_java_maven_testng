@@ -1,7 +1,7 @@
 package com.demoqa.base;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -42,8 +42,8 @@ public class BaseClass {
 	}
 
 	protected void init(String browser) {
-		propF = init_properties("framework");
-		propA = init_properties("aplication");
+		propF = initProperties("framework");
+		propA = initProperties("aplication");
 		time = propF.getProperty("timeOut");
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
@@ -51,18 +51,13 @@ public class BaseClass {
 
 	}
 
-	protected static Properties init_properties(String name) {
-		FileReader reader;
-		try {
-			reader = new FileReader(
-					"./src/test/resources/config/" + name + ".properties");
-			prop.load(reader);
-			return prop;
+	protected static Properties initProperties(String name) {
+		try (FileInputStream fis = new FileInputStream("./src/test/resources/config/" + name + ".properties")) {
+			prop.load(fis);
 		} catch (IOException e) {
-
 			e.printStackTrace();
 		}
-		return null;
+		return prop;
 	}
 
 	protected static String takesScreenshot(String testName, WebDriver driver) throws IOException {
