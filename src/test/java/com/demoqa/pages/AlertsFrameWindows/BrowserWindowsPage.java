@@ -13,16 +13,16 @@ public class BrowserWindowsPage extends BaseClass {
 
 
     public void openAndGoWindowMessage() {
-        clickNewTab(messageWindowButton);
+        openNewTabAndSwitch(messageWindowButton);
     }
 
     public String openAndGoWindow() {
-        String url=clickNewTab(windowButton);
+        String url=openNewTabAndSwitch(windowButton);
         return url;
     }
 
     public String openAndGoTab() {
-        String url=clickNewTab(tabButton);
+        String url=openNewTabAndSwitch(tabButton);
         return url;
     }
 
