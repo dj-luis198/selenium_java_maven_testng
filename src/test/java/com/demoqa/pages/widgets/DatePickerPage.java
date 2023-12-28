@@ -122,7 +122,7 @@ public class DatePickerPage extends BaseClass {
     }
 
     public void selectMonth(String month) {
-        selectPerText(monthSelect, month);
+        selectOptionByText(monthSelect, month);
     }
 
     public String verifyMonth() {
@@ -130,7 +130,7 @@ public class DatePickerPage extends BaseClass {
     }
 
     public void selectYear(String year) {
-        selectPerText(yearSelect, year);
+        selectOptionByText(yearSelect, year);
     }
 
     public String verifyYear() {

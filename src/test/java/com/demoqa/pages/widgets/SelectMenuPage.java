@@ -13,7 +13,7 @@ public class SelectMenuPage extends BaseClass {
     private final String oldSelectMenu = "//select[@id='oldSelectMenu']";
 
     public void selectOldMenu(String text) {
-        selectPerText(oldSelectMenu, text);
+        selectOptionByText(oldSelectMenu, text);
     }
 
     public Boolean verifySelectText(String text) {

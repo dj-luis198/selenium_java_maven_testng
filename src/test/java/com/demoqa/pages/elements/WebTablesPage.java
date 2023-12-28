@@ -126,7 +126,7 @@ public class WebTablesPage extends BaseClass {
     }
 
     public void selectRowsPerPageTable(String text) {
-        selectPerText(rowPerPage, text);
+        selectOptionByText(rowPerPage, text);
     }
 
     public String verifyIsSelect() {

@@ -26,11 +26,11 @@ public class LinksPage extends BaseClass {
     }
 
     public void clickNewTabDinamicLink() {
-        clickNewTab(newTabDinamicLink);
+        openNewTabAndSwitch(newTabDinamicLink);
     }
 
     public void clickNewTabSimpleLink() {
-        clickNewTab(newTabSimpleLink);
+        openNewTabAndSwitch(newTabSimpleLink);
     }
 
     public void clickCreatedLink() {
