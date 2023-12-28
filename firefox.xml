@@ -4,46 +4,46 @@
   <parameter name="browser" value="firefox"/>
   <test name="ElementsTest">
     <classes>
-      <class name="com.demoqa.test.elements.LinksTest"/>
-      <class name="com.demoqa.test.elements.RadioButtonTest"/>
-      <class name="com.demoqa.test.elements.CheckBoxTest"/>
-      <class name="com.demoqa.test.elements.ButtonsTest"/>
-      <class name="com.demoqa.test.elements.TextBoxTest"/>
-      <class name="com.demoqa.test.elements.WebTablesTest"/>
-      <class name="com.demoqa.test.elements.UploadAndDownloadTest"/>
-      <class name="com.demoqa.test.elements.DynamicPropertiesTest"/>
-      <class name="com.demoqa.test.elements.BrokenLinksImagesTest"/>
+      <class name="com.demoqa.test.gui.elements.LinksTest"/>
+      <class name="com.demoqa.test.gui.elements.RadioButtonTest"/>
+      <class name="com.demoqa.test.gui.elements.CheckBoxTest"/>
+      <class name="com.demoqa.test.gui.elements.ButtonsTest"/>
+      <class name="com.demoqa.test.gui.elements.TextBoxTest"/>
+      <class name="com.demoqa.test.gui.elements.WebTablesTest"/>
+      <class name="com.demoqa.test.gui.elements.UploadAndDownloadTest"/>
+      <class name="com.demoqa.test.gui.elements.DynamicPropertiesTest"/>
+      <class name="com.demoqa.test.gui.elements.BrokenLinksImagesTest"/>
     </classes>  
     </test>
     <test name="AlertsFrameWindows">
     <classes>
-      <class name="com.demoqa.test.AlertsFrameWindows.BrowserWindowsTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.AlertsTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.FramesTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.NestedFramesTest"/>
-      <class name="com.demoqa.test.AlertsFrameWindows.ModalDialogsTest"/>
+      <class name="com.demoqa.test.gui.AlertsFrameWindows.BrowserWindowsTest"/>
+      <class name="com.demoqa.test.gui.AlertsFrameWindows.AlertsTest"/>
+      <class name="com.demoqa.test.gui.AlertsFrameWindows.FramesTest"/>
+      <class name="com.demoqa.test.gui.AlertsFrameWindows.NestedFramesTest"/>
+      <class name="com.demoqa.test.gui.AlertsFrameWindows.ModalDialogsTest"/>
     </classes>
     </test>
     <test name="widgets">
     <classes>
-      <class name="com.demoqa.test.widgets.AccordianTest"/>
-      <class name="com.demoqa.test.widgets.AutoCompleteTest"/>
-      <class name="com.demoqa.test.widgets.DatePickerTest"/>
-      <class name="com.demoqa.test.widgets.SliderTest"/>
-      <class name="com.demoqa.test.widgets.ProgressBarTest"/>
-      <class name="com.demoqa.test.widgets.ToolTipsTest"/>
-      <class name="com.demoqa.test.widgets.MenuTest"/>
-      <class name="com.demoqa.test.widgets.SelectMenuTest"/>
+      <class name="com.demoqa.test.gui.widgets.AccordianTest"/>
+      <class name="com.demoqa.test.gui.widgets.AutoCompleteTest"/>
+      <class name="com.demoqa.test.gui.widgets.DatePickerTest"/>
+      <class name="com.demoqa.test.gui.widgets.SliderTest"/>
+      <class name="com.demoqa.test.gui.widgets.ProgressBarTest"/>
+      <class name="com.demoqa.test.gui.widgets.ToolTipsTest"/>
+      <class name="com.demoqa.test.gui.widgets.MenuTest"/>
+      <class name="com.demoqa.test.gui.widgets.SelectMenuTest"/>
     </classes>
     </test>
     <test name="Forms">
     <classes>
-      <class name="com.demoqa.test.forms.FormTest"/>
+      <class name="com.demoqa.test.gui.forms.FormTest"/>
     </classes>
     </test>
     <test name="BookStore">
     <classes>
-      <class name="com.demoqa.test.bookStore.BookStoreTest"/>
+      <class name="com.demoqa.test.gui.bookStore.BookStoreTest"/>
     </classes>
     </test>
 </suite>
