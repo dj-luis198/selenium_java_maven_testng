@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
 
 
 public class apiData extends BaseClass{
-    private static Properties prop = init_properties("dataProviderPath");
+    private static Properties prop = initProperties("dataProviderPath");
    
     XLUtility excel;
 

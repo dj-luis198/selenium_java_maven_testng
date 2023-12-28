@@ -25,7 +25,7 @@ public class BookStoreEndPoints extends BaseClass{
     } 
 
     public static Response getBooksStore(String id){
-            prop = init_properties("routes");
+            prop = initProperties("routes");
            String delete_url = prop.getProperty("delete_url");
            Response response =
                given()
