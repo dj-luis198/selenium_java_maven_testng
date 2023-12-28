@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.FramesPage;
 
-@Test(groups = "FramesTest")
+@Test(groups = "FramesTest", timeOut = 30000)
 public class FramesTest extends BaseTest {
     FramesPage framesPage;
 

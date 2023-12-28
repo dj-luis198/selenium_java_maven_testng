@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.ModalDialogsPage;
 
-@Test(groups = "ModalDialogsTest")
+@Test(groups = "ModalDialogsTest", timeOut = 30000)
 public class ModalDialogsTest extends BaseTest {
     ModalDialogsPage modalDialogsPage;
 

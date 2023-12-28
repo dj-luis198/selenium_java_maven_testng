@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.elements.ButtonsPage;
 
-@Test(groups = "ButtonsTest")
+@Test(groups = "ButtonsTest", timeOut = 30000)
 public class ButtonsTest extends BaseTest {
   ButtonsPage buttonsPage;
 

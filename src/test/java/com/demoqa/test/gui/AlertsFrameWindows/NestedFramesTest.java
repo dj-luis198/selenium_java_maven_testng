@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.NestedFramesPages;
 
-@Test(groups = "NestedFramesTest")
+@Test(groups = "NestedFramesTest", timeOut = 30000)
 public class NestedFramesTest extends BaseTest {
     NestedFramesPages nestedFramesPages;
 

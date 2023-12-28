@@ -11,7 +11,7 @@ import com.demoqa.pages.elements.BrokenLinksImagesPage;
 import static io.restassured.RestAssured.*;
 import java.util.List;
 
-@Test(groups = "BrokenLinksImagesTest")
+@Test(groups = "BrokenLinksImagesTest", timeOut = 30000)
 public class BrokenLinksImagesTest extends BaseTest {
     HomePage homePage;
     BrokenLinksImagesPage brokenLinksImagesPage;

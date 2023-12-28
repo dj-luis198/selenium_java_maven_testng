@@ -8,7 +8,7 @@ import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.BrowserWindowsPage;
 import com.demoqa.pages.common.HomePage;
 
-@Test(groups = "BrowserWindowsTest")
+@Test(groups = "BrowserWindowsTest", timeOut = 30000)
 public class BrowserWindowsTest extends BaseTest {
     BrowserWindowsPage browserWindowsPage;
     HomePage homePage;

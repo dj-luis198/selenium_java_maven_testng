@@ -7,7 +7,7 @@ import org.testng.asserts.SoftAssert;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.ToolTipsPage;
 
-@Test(groups = "ToolTipsTest")
+@Test(groups = "ToolTipsTest", timeOut = 30000)
 public class ToolTipsTest extends BaseTest {
     ToolTipsPage toolTipsPage;
     SoftAssert softAssert;

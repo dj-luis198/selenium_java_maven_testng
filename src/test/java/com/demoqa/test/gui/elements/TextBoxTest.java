@@ -10,7 +10,7 @@ import com.demoqa.pages.elements.TextBoxPage;
 
 import net.datafaker.Faker;
 
-@Test(groups = "TextBoxTest")
+@Test(groups = "TextBoxTest", timeOut = 30000)
 public class TextBoxTest extends BaseTest {
   HomePage homePage;
   private String fullName, email, currentAddress, permanentAddress;

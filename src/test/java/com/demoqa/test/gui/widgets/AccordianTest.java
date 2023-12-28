@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.AccordianPage;
 
-@Test(groups = "AccordianTest")
+@Test(groups = "AccordianTest", timeOut = 30000)
 public class AccordianTest extends BaseTest {
     AccordianPage accordianPage;
 

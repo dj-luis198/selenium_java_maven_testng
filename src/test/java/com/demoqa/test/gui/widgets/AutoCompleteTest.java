@@ -8,7 +8,7 @@ import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.AutoCompletePage;
 import com.demoqa.util.dataProvider.AutoCompleteData;
 
-@Test(groups = "AutoCompleteTest")
+@Test(groups = "AutoCompleteTest", timeOut = 30000)
 public class AutoCompleteTest extends BaseTest {
     AutoCompletePage autoCompletePage;
 

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.forms.FormPage;
 
-@Test(groups = "FormTest")
+@Test(groups = "FormTest", timeOut = 30000)
 public class FormTest extends BaseTest {
     FormPage formPage;
 

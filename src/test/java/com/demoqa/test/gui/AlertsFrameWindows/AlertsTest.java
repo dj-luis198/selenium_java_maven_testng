@@ -9,7 +9,7 @@ import com.demoqa.pages.common.HomePage;
 
 import net.datafaker.Faker;
 
-@Test(groups = "AlertsTest", timeOut = 60000)
+@Test(groups = "AlertsTest", timeOut = 30000)
 public class AlertsTest extends BaseTest {
     AlertsPage alertsPage;
     HomePage homePage;

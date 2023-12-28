@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.ProgressBarPage;
 
-@Test(groups = "ProgressBarTest")
+@Test(groups = "ProgressBarTest", timeOut = 40000)
 public class ProgressBarTest extends BaseTest {
     ProgressBarPage progressBarPage;
 

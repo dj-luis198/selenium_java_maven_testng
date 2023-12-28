@@ -10,7 +10,7 @@ import com.demoqa.util.dataProvider.DatePicker.DatePickerData;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerDataTime;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
 
-@Test(groups = "DatePickerTest")
+@Test(groups = "DatePickerTest", timeOut = 40000)
 public class DatePickerTest extends BaseTest {
     DatePickerPage datePickerPage;
 

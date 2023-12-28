@@ -7,7 +7,7 @@ import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.SliderPage;
 import com.demoqa.util.dataProvider.SliderData;
 
-@Test(groups = "SliderTest")
+@Test(groups = "SliderTest", timeOut = 30000)
 public class SliderTest extends BaseTest {
     SliderPage sliderPage;
 
