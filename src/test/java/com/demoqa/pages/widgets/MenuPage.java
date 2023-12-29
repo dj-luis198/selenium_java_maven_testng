@@ -66,8 +66,8 @@ public class MenuPage extends BaseClass {
 
     public void moveToSubSubList() {
         moveToElement(subSubList);
-        waitVisibilityOf(subSubItem1);
-        waitVisibilityOf(subSubItem2);
+        waitVisibilityOf(subSubItem1,3);
+        waitVisibilityOf(subSubItem2,   3);
     }
 
     public Boolean verifySubSubList() {
@@ -111,9 +111,9 @@ public class MenuPage extends BaseClass {
 
     public void moveToItem2() {
         moveToElement(item2);
-        waitVisibilityOf(subItem1);
-        waitVisibilityOf(subItem2);
-        waitVisibilityOf(subSubList);
+        waitVisibilityOf(subItem1,3);
+        waitVisibilityOf(subItem2,3);
+        waitVisibilityOf(subSubList,3);
     }
 
     public Boolean verifyItem2() {

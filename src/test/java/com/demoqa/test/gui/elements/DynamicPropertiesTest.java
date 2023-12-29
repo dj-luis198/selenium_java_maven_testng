@@ -30,11 +30,7 @@ public class DynamicPropertiesTest extends BaseTest {
     @Test(description = "Valid Enable button After 5 Seg")
     public void validEnableAfter() {
         Assert.assertFalse(dinamicPropertiesPage.returnStatusEnabled());
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        dinamicPropertiesPage.waitChange();
         Assert.assertTrue(dinamicPropertiesPage.returnStatusEnabled());
     }
 
@@ -45,11 +41,7 @@ public class DynamicPropertiesTest extends BaseTest {
             Assert.assertTrue(true);
         } else
             Assert.assertTrue(false);
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        dinamicPropertiesPage.waitChangeColor();
         if (dinamicPropertiesPage.returnColor().equals("rgba(220, 53, 69, 1)")
                 || dinamicPropertiesPage.returnColor().equals("rgb(220, 53, 69)")) {
             Assert.assertTrue(true);
@@ -60,11 +52,7 @@ public class DynamicPropertiesTest extends BaseTest {
     @Test(description = "Valid button is visible")
     public void validButtonIsVisible() {
         Assert.assertTrue(dinamicPropertiesPage.returnIsNoVisible());
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        dinamicPropertiesPage.waitChangeVisible();
         Assert.assertTrue(dinamicPropertiesPage.returnIsVisible());
     }
 

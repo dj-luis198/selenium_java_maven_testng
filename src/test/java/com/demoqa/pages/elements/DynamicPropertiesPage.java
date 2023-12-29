@@ -36,4 +36,16 @@ public class DynamicPropertiesPage extends BaseClass {
         adsFooter.deleteAds();
     }
 
+    public void waitChange(){
+        waitNotVisibiliy(enableAfterButton,3);
+    }
+
+    public void waitChangeColor(){
+        waitNotVisibiliy(colorChangeButton,3);
+    }
+
+    public void waitChangeVisible(){
+        waitVisibilityOf(visibleAfterButton,3);
+    }
+
 }

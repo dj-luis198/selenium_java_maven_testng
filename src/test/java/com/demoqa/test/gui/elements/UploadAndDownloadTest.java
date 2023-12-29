@@ -36,11 +36,7 @@ public class UploadAndDownloadTest extends BaseTest {
     @Test
     public void validateDownloadFile() {
         uploadAndDownloadPage.clickDownloadButton();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        uploadAndDownloadPage.waitDownload();
         Assert.assertTrue(uploadAndDownloadPage.verifyDownloadedFilePath());
     }
 }

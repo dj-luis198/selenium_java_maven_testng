@@ -66,4 +66,10 @@ public class UploadAndDownloadPage extends BaseClass {
         homePage.goToUploadAndDownloadPage();
         adsFooter.deleteAds();
     }
+
+    public void waitDownload(){
+        String expectedFileName = getAttributeDownload(downloadButton);
+        String path = downloadPath+"/"+expectedFileName;
+        waitDownloadFile(path);
+    }
 }

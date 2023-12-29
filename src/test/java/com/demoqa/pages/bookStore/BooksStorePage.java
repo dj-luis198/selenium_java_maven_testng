@@ -24,20 +24,10 @@ public class BooksStorePage extends BaseClass {
     }
 
     public void clickProfile() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         click(profileButton);
     }
 
     public void clickBackToBook() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         click(backToBooksButton);
     }
 
@@ -50,20 +40,10 @@ public class BooksStorePage extends BaseClass {
     }
 
     public void clickAddToYouCollection() {
-         try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         click(addToCollectionButton);
     }
 
     public String returnBookName() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return getTextContent(titleBookSpan);
     }
 

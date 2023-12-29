@@ -21,6 +21,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -171,33 +172,41 @@ public class BaseClass {
 
 	protected static Boolean isSelected(String locator) {
 		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			WebElement element = findElement(locator);
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
+			wait.until(ExpectedConditions.elementToBeSelected(element));
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
-		return findElement(locator).isSelected();
 	}
 
 	protected static Boolean isSelected(WebElement element) {
 		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
+			wait.until(ExpectedConditions.elementToBeSelected(element));
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
-		return element.isSelected();
 	}
 
 	protected static Boolean isEnabled(String locator) {
 		return findElement(locator).isEnabled();
 	}
 
+	// verifica que un elemento esta displayed para la espera se usa un wait
+	// esperando por 4 seg que no este visible por lo que espera 4 seg para que
+	// si o si luego verifica si el elemento es diaplayed
 	protected static Boolean isDisplayed(String locator) {
+		WebElement element = findElement(locator);
 		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(4));
+			wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
+			return element.isDisplayed();
+		} catch (Exception e) {
+			return element.isDisplayed();
 		}
-		return findElement(locator).isDisplayed();
 	}
 
 	protected static Boolean NoFind(String locator) {
@@ -547,7 +556,7 @@ public class BaseClass {
 	protected static void scrollToElementJs(String locator) {
 		((JavascriptExecutor) getBrowser.getDriver()).executeScript("arguments[0].scrollIntoView(true);",
 				findElement(locator));
-		waitVisibilityOf(locator);
+		waitVisibilityOf(locator,3);
 	}
 
 	// -------------------------------wait-------------------------------------//
@@ -557,15 +566,34 @@ public class BaseClass {
 		return ewait.until(ExpectedConditions.attributeToBe(findElement(locator), "aria-valuenow", "100"));
 	}
 
-	protected static void waitVisibilityOf(String locator) {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
+	protected static void waitVisibilityOf(String locator, int time) {
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
 		ewait.until(ExpectedConditions.visibilityOf(findElement(locator)));
 	}
 
-	protected static void waitElementToBeClickable(String locator) {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
+	protected static void waitElementToBeClickable(String locator, int time) {
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
 	}
+
+	protected static void waitNotVisibiliy(String locator, int time) {
+		WebElement element = findElement(locator);
+		try {
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
+			wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
+		} catch (Exception e) {
+		}
+	}
+
+	protected static Boolean waitDownloadFile(String path) {
+       WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(10));
+       return wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                File file = new File(path);
+                return file.exists();
+            }
+        });
+    }
 
 	protected static void irA(String url) {
 		getBrowser.getDriver().get(url);
