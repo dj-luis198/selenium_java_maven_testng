@@ -37,15 +37,15 @@ public class DynamicPropertiesPage extends BaseClass {
     }
 
     public void waitChange(){
-        waitNotVisibiliy(enableAfterButton,3);
+        waitNotVisibiliy(enableAfterButton,5);
     }
 
     public void waitChangeColor(){
-        waitNotVisibiliy(colorChangeButton,3);
+        waitNotVisibiliy(colorChangeButton,5);
     }
 
     public void waitChangeVisible(){
-        waitVisibilityOf(visibleAfterButton,3);
+        waitVisibilityOf(visibleAfterButton,5);
     }
 
 }

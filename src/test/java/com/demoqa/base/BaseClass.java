@@ -201,7 +201,7 @@ public class BaseClass {
 	protected static Boolean isDisplayed(String locator) {
 		WebElement element = findElement(locator);
 		try {
-			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(4));
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(5));
 			wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
 			return element.isDisplayed();
 		} catch (Exception e) {
