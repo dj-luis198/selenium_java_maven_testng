@@ -15,12 +15,18 @@ public class BooksStorePage extends BaseClass {
 
     public void selectBooks(String books) {
         List<String> booksList = new ArrayList<String>(Arrays.asList(books.split(";")));
-            for (String book : booksList) {
-                    click("//a[contains(text(),\""+book+"\")]");
-                    this.clickAddToYouCollection();
-                    this.acceptAlert();
-                    this.clickBackToBook();
+        for (String book : booksList) {
+            try {
+                click("//a[contains(text(),\"" + book + "\")]");
+                this.clickAddToYouCollection();
+                this.acceptAlert();
+            } catch (Exception e) {
+                click("//a[contains(text(),\"" + book + "\")]");
+                this.clickAddToYouCollection();
+                this.acceptAlert();
             }
+            this.clickBackToBook();
+        }
     }
 
     public void clickProfile() {
@@ -32,10 +38,11 @@ public class BooksStorePage extends BaseClass {
     }
 
     public void acceptAlert() {
-        String text= isAlertPresent();
-        if(text.equals("Book added to your collection.")||text.equals("Book already present in the your collection!")){
-        }else {
-            System.out.println(text);
+        String text = isAlertPresent();
+        if (text.equals("Book added to your collection.")
+                || text.equals("Book already present in the your collection!")) {
+        } else {
+            throw new AssertionError("Alert not found");
         }
     }
 
