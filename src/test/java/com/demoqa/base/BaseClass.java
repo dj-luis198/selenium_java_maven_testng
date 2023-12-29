@@ -202,7 +202,7 @@ public class BaseClass {
 		WebElement element = findElement(locator);
 		try {
 			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(5));
-			wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
+			wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(element)));
 			return element.isDisplayed();
 		} catch (Exception e) {
 			return element.isDisplayed();
