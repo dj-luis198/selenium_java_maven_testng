@@ -10,7 +10,7 @@ public class DynamicPropertiesPage extends BaseClass {
     private final String visibleAfterButton = "//button[@id='visibleAfter']";
 
     public Boolean returnIsVisible() {
-        return isDisplayed(visibleAfterButton);
+        return isVisible(visibleAfterButton,6);
     }
 
     public Boolean returnIsNoVisible() {

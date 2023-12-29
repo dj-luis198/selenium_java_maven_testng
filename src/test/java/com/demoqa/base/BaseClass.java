@@ -202,10 +202,21 @@ public class BaseClass {
 		WebElement element = findElement(locator);
 		try {
 			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(5));
-			wait.until(ExpectedConditions.refreshed(ExpectedConditions.not(ExpectedConditions.visibilityOf(element))));
-			return element.isDisplayed();
+			wait.until(ExpectedConditions.visibilityOf(element));
+			return true;
 		} catch (Exception e) {
-			return element.isDisplayed();
+			return false;
+		}
+	}
+
+	protected static Boolean isVisible(String locator, int time) {
+		WebElement element = findElement(locator);
+		try {
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
+			wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(element)));
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 
