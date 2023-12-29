@@ -22,6 +22,7 @@ public class BookStoreTest extends BaseTest{
 
     @BeforeMethod
     public void preconditions(){
+        try {
         booksStore = new BooksStorePage();
         loginStorePage = new LoginStorePage();
         profileStorePage = new ProfileStorePage();
@@ -29,6 +30,19 @@ public class BookStoreTest extends BaseTest{
         adsFooter= new AdsFooter();
         homePage.goToLoginPage();
         adsFooter.deleteAds();
+            
+        } catch (Exception e) {
+            System.out.println("Precondiciones fallidas, iniciando setUp " + e);
+            String browser = getBrowser();
+            setUp(browser);
+            booksStore = new BooksStorePage();
+            loginStorePage = new LoginStorePage();
+            profileStorePage = new ProfileStorePage();
+            homePage= new HomePage();
+            adsFooter= new AdsFooter();
+            homePage.goToLoginPage();
+            adsFooter.deleteAds();
+        }
     }
 
     @Test(dataProvider = "bookStoreE2E", dataProviderClass = bookStoreE2EData.class)
@@ -54,7 +68,6 @@ public class BookStoreTest extends BaseTest{
         profileStorePage.clickDeleteAllBooks();
         profileStorePage.confirmSmallModal();
         profileStorePage.acceptAlertDeleteAll();
-        //Assert.assertTrue(profileStorePage.verifyDeleteAllBooks());
         profileStorePage.clickLogOut();
         homePage.goToHome();
     }
