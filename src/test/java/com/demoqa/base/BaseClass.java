@@ -21,6 +21,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,7 +32,7 @@ public class BaseClass {
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
 	private static Properties propA = new Properties();
-	private static String time;
+	private static int time;
 	private static String url;
 
 	public static WebDriver getDriver() {
@@ -41,7 +42,7 @@ public class BaseClass {
 	protected void init(String browser) {
 		propF = initProperties("framework");
 		propA = initProperties("aplication");
-		time = propF.getProperty("timeOut");
+		time = Integer.parseInt(propF.getProperty("timeOut"));
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
 		driver.get(url);
@@ -65,7 +66,7 @@ public class BaseClass {
 	}
 
 	private static WebElement findElement(String locator) {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 		try {
 			return ewait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
@@ -74,7 +75,7 @@ public class BaseClass {
 	}
 
 	private static boolean findElementClickableBoolean(String locator) {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 		try {
 			ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 			return true;
@@ -84,7 +85,7 @@ public class BaseClass {
 	}
 
 	private static WebElement findElementClickable(String locator) {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 		try {
 			return ewait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 		} catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
@@ -94,7 +95,7 @@ public class BaseClass {
 
 	private static boolean noFindElement(String locator) {
 		try {
-			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 		} catch (TimeoutException | NoSuchElementException e) {
 			System.out.println(e);
@@ -104,7 +105,7 @@ public class BaseClass {
 
 	private static boolean noFindElements(String locator) {
 		try {
-			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 			return ewait.until(ExpectedConditions
 					.invisibilityOfAllElements(getBrowser.getDriver().findElements(By.xpath(locator))));
 		} catch (TimeoutException | NoSuchElementException e) {
@@ -115,7 +116,7 @@ public class BaseClass {
 
 	private static List<WebElement> findElements(String locator) {
 		try {
-			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(locator)));
 		} catch (TimeoutException | NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
@@ -124,7 +125,7 @@ public class BaseClass {
 
 	private static List<WebElement> findElementsXpath(String locator) {
 		try {
-			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 			return ewait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
 		} catch (TimeoutException | NoSuchElementException e) {
 			throw new Error("El locator " + locator + " no fue encontrado");
@@ -187,6 +188,17 @@ public class BaseClass {
 		return element.isSelected();
 	}
 
+	protected static Boolean waitIsEnabled(String locator) {
+		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+		return element.isEnabled();
+	}
+
+	protected static String returnPropertyValue(String locator, String property) {
+		WebElement element = findElement(locator);
+		return element.getCssValue(property);
+	}
+
 	protected static Boolean isEnabled(String locator) {
 		return findElement(locator).isEnabled();
 	}
@@ -198,6 +210,16 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 		return findElement(locator).isDisplayed();
+	}
+
+	protected static boolean isVisible(String locator) {
+		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	protected static Boolean NoFind(String locator) {
@@ -214,7 +236,7 @@ public class BaseClass {
 
 	protected static boolean getPageSource(String locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+			WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 			return wait.until(driver -> getBrowser.getDriver().getPageSource().contains(locator));
 		} catch (TimeoutException e) {
 			return false;
@@ -441,12 +463,20 @@ public class BaseClass {
 		jse.executeScript("arguments[0].style.display = 'none';", element);
 	}
 
-	protected static String returnCSSColor(String locator) {
-		return findElement(locator).getCssValue("color");
+	protected static Boolean returnChangeCSSValue(String locator, String value1, String value2,String property) {
+		WebElement element = getBrowser.getDriver().findElement(By.xpath(locator));
+		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(),Duration.ofSeconds(time));
+		return wait.until(ExpectedConditions.or(
+                ExpectedConditions.attributeToBe(element, property, value1),
+                ExpectedConditions.attributeToBe(element, property, value2)));
 	}
 
 	protected static String returnCSSBackground(String locator) {
 		return findElement(locator).getCssValue("background-color");
+	}
+
+	protected static String returnCSSColor(String locator) {
+		return findElement(locator).getCssValue("color");
 	}
 
 	// --------------------------------Alert------------------------------------//
@@ -466,7 +496,7 @@ public class BaseClass {
 	}
 
 	protected static String acceptCommonAlert() {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time) * 2));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 		try {
 			Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
 			String text = alert.getText();
@@ -478,21 +508,21 @@ public class BaseClass {
 	}
 
 	protected static void confirmAlertOk() {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 		ewait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = getBrowser.getDriver().switchTo().alert();
 		alert.accept();
 	}
 
 	protected static void confirmAlertCancel() {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 		ewait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = getBrowser.getDriver().switchTo().alert();
 		alert.dismiss();
 	}
 
 	protected static void promptAlert(String text) {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time)));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 		Alert alert = ewait.until(ExpectedConditions.alertIsPresent());
 		alert.sendKeys(text);
 		alert.accept();
@@ -553,7 +583,7 @@ public class BaseClass {
 	// -------------------------------wait-------------------------------------//
 
 	protected static Boolean waitProgressBar(String locator) {
-		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(Long.parseLong(time) * 5));
+		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time) * 2));
 		return ewait.until(ExpectedConditions.attributeToBe(findElement(locator), "aria-valuenow", "100"));
 	}
 
@@ -565,6 +595,31 @@ public class BaseClass {
 	protected static void waitElementToBeClickable(String locator) {
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
+	}
+
+	protected static Boolean waitDownloadFile(String nameFile, String downloadPath,int time) {
+		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
+		return wait.until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+
+				String expectedFileName = nameFile;
+				try {
+					File folder = new File(downloadPath).getAbsoluteFile();
+					File[] listOfFiles = folder.listFiles();
+				for (File listOfFile : listOfFiles) {
+					if (listOfFile.isFile()) {
+						String fileName = listOfFile.getName();
+						if (fileName.matches(expectedFileName)) {
+							return true;
+						}
+					}
+				}
+				return false;
+				} catch (Exception e) {
+					return false;
+				}	
+			}
+		});
 	}
 
 	protected static void irA(String url) {

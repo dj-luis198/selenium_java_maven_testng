@@ -41,9 +41,4 @@
       <class name="com.demoqa.test.gui.forms.FormTest"/>
     </classes>
     </test>
-    <test name="BookStore">
-    <classes>
-      <class name="com.demoqa.test.gui.bookStore.BookStoreTest"/>
-    </classes>
-    </test>
 </suite>
