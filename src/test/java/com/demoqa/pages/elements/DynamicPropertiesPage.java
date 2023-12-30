@@ -17,8 +17,14 @@ public class DynamicPropertiesPage extends BaseClass {
         return NoFind(visibleAfterButton);
     }
 
-    public String returnColor() {
-        return returnChangeCSSProperty(colorChangeButton, "color");
+    public Boolean returnColor() {
+        String color1="rgba(220, 53, 69, 1)";
+        String color2="rgb(220, 53, 69)";
+        return returnChangeCSSValue(colorChangeButton, color1, color2,"color");
+    }
+
+    public String returnInitColor() {
+        return returnCSSColor(colorChangeButton);
     }
 
     public Boolean returnStatusChangeToEnabled() {

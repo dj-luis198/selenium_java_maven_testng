@@ -463,30 +463,20 @@ public class BaseClass {
 		jse.executeScript("arguments[0].style.display = 'none';", element);
 	}
 
-	protected static String returnChangeCSSProperty(String locator, String property) {
-		// Obtener el elemento y el valor de la propiedad inicial
+	protected static Boolean returnChangeCSSValue(String locator, String value1, String value2,String property) {
 		WebElement element = getBrowser.getDriver().findElement(By.xpath(locator));
-		String initialProperty = element.getCssValue(property);
-		System.out.println("inicial " + initialProperty);
-
-		// Esperar a que la propiedad cambie
-		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time + 2));
-		boolean propertyChanged = wait.until(new ExpectedCondition<Boolean>() {
-			public Boolean apply(WebDriver driver) {
-				String currentProperty = element.getCssValue(property);
-				System.out.println("actual " + currentProperty);
-				return !currentProperty.equals(initialProperty);
-			}
-		});
-		if (propertyChanged) {
-			String newProperty = element.getCssValue(property);
-			return newProperty;
-		}
-		return initialProperty;
+		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(),Duration.ofSeconds(time));
+		return wait.until(ExpectedConditions.or(
+                ExpectedConditions.attributeToBe(element, property, value1),
+                ExpectedConditions.attributeToBe(element, property, value2)));
 	}
 
 	protected static String returnCSSBackground(String locator) {
 		return findElement(locator).getCssValue("background-color");
+	}
+
+	protected static String returnCSSColor(String locator) {
+		return findElement(locator).getCssValue("color");
 	}
 
 	// --------------------------------Alert------------------------------------//

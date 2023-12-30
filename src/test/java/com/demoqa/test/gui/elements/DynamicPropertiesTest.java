@@ -35,13 +35,7 @@ public class DynamicPropertiesTest extends BaseTest {
 
     @Test(description = "Valid button change color")
     public void validChangeColor() {
-        String color = dinamicPropertiesPage.returnColor();
-        System.out.println(color);
-        if (color.equals("rgba(220, 53, 69, 1)")
-                || color.equals("rgb(220, 53, 69)")) {
-            Assert.assertTrue(true);
-        } else
-            Assert.assertTrue(false);
+            Assert.assertTrue(dinamicPropertiesPage.returnColor());
     }
 
     @Test(description = "Valid button is visible")
