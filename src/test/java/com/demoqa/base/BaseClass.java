@@ -171,11 +171,6 @@ public class BaseClass {
 	}
 
 	protected static Boolean isSelected(String locator) {
-		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		return findElement(locator).isSelected();
 	}
 
