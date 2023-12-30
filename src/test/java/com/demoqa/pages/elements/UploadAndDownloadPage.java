@@ -10,9 +10,7 @@ import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class UploadAndDownloadPage extends BaseClass {
-    private String downloadPath = "files/downloadFiles";
     private File file;
-
     private final String uploadFileInput = "//input[@id='uploadFile']";
     private final String uploadedFilePath = "//p[@id='uploadedFilePath']";
     private final String downloadButton = "//a[@id='downloadButton']";
@@ -22,7 +20,7 @@ public class UploadAndDownloadPage extends BaseClass {
     }
 
     public void uploadFile() {
-        file = new File("files/img.png");
+        file = new File("files/imga.png");
         type(uploadFileInput, file.getAbsolutePath());
     }
 
@@ -35,11 +33,12 @@ public class UploadAndDownloadPage extends BaseClass {
 
     public Boolean verifyDownloadedFilePath() {
         String expectedFileName = getAttributeDownload(downloadButton);
-        String path = downloadPath+"/"+expectedFileName;
-        if(waitDownloadFile(path,15)){
+        String downloadPath = "files/downloadFiles";
+        if(waitDownloadFile(expectedFileName,downloadPath,15)){
             clearFiles();
             return true;
         }
+        clearFiles();
         return false;
     }
 

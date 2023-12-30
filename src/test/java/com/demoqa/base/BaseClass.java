@@ -597,12 +597,27 @@ public class BaseClass {
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
 	}
 
-	protected static Boolean waitDownloadFile(String path, int time) {
+	protected static Boolean waitDownloadFile(String nameFile, String downloadPath,int time) {
 		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
 		return wait.until(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
-				File file = new File(path);
-				return file.exists();
+
+				String expectedFileName = nameFile;
+				try {
+					File folder = new File(downloadPath).getAbsoluteFile();
+					File[] listOfFiles = folder.listFiles();
+				for (File listOfFile : listOfFiles) {
+					if (listOfFile.isFile()) {
+						String fileName = listOfFile.getName();
+						if (fileName.matches(expectedFileName)) {
+							return true;
+						}
+					}
+				}
+				return false;
+				} catch (Exception e) {
+					return false;
+				}	
 			}
 		});
 	}
