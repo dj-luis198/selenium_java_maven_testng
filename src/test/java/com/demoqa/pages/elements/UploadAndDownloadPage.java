@@ -20,7 +20,7 @@ public class UploadAndDownloadPage extends BaseClass {
     }
 
     public void uploadFile() {
-        file = new File("files/imga.png");
+        file = new File("files/img.png");
         type(uploadFileInput, file.getAbsolutePath());
     }
 
