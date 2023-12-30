@@ -10,7 +10,7 @@ public class DynamicPropertiesPage extends BaseClass {
     private final String visibleAfterButton = "//button[@id='visibleAfter']";
 
     public Boolean returnIsVisible() {
-        return isDisplayed(visibleAfterButton);
+        return isVisible(visibleAfterButton);
     }
 
     public Boolean returnIsNoVisible() {
@@ -18,14 +18,19 @@ public class DynamicPropertiesPage extends BaseClass {
     }
 
     public String returnColor() {
-        return returnCSSColor(colorChangeButton);
+        return returnChangeCSSProperty(colorChangeButton, "color");
+    }
+
+    public Boolean returnStatusChangeToEnabled() {
+        return waitIsEnabled(enableAfterButton);
     }
 
     public Boolean returnStatusEnabled() {
-        if (isEnabled(enableAfterButton)) {
+        String enabled = returnPropertyValue(enableAfterButton, "disabled");
+        if (enabled.equals("false"))
             return true;
-        }
-        return false;
+        else
+            return false;
     }
 
     public void goToDynamicProperties(HomePage homePage) {
