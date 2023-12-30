@@ -21,6 +21,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -566,6 +567,16 @@ public class BaseClass {
 		WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(3));
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
 	}
+
+	protected static Boolean waitDownloadFile(String path,int time) {
+       WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
+       return wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                File file = new File(path);
+                return file.exists();
+            }
+        });
+    }
 
 	protected static void irA(String url) {
 		getBrowser.getDriver().get(url);
