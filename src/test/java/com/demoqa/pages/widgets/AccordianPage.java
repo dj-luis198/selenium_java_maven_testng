@@ -6,11 +6,11 @@ import com.demoqa.pages.common.HomePage;
 
 public class AccordianPage extends BaseClass {
     private final String section1Button = "//div[@id='section1Heading']";
-    private final String section1Content = "//div[@id='section1Content']/parent::div";
+    private final String section1Content = "//div[@id='section1Content']";
     private final String section2Button = "//div[@id='section2Heading']";
-    private final String section2Content = "//div[@id='section2Content']/parent::div";
+    private final String section2Content = "//div[@id='section2Content']";
     private final String section3Button = "//div[@id='section3Heading']";
-    private final String section3Content = "//div[@id='section3Content']/parent::div";
+    private final String section3Content = "//div[@id='section3Content']";
 
     public void clickSection1() {
         click(section1Button);
