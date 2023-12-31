@@ -175,11 +175,6 @@ public class BaseClass {
 	}
 
 	protected static Boolean isSelected(WebElement element) {
-		try {
-			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		return element.isSelected();
 	}
 
@@ -201,10 +196,9 @@ public class BaseClass {
 	protected static Boolean isDisplayed(String locator) {
 		try {
 			Thread.sleep(400);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
 		}
-		return findElement(locator).isDisplayed();
+			return findElement(locator).isDisplayed();
 	}
 
 	protected static boolean isVisible(String locator) {
@@ -458,12 +452,12 @@ public class BaseClass {
 		jse.executeScript("arguments[0].style.display = 'none';", element);
 	}
 
-	protected static Boolean returnChangeCSSValue(String locator, String value1, String value2,String property) {
+	protected static Boolean returnChangeCSSValue(String locator, String value1, String value2, String property) {
 		WebElement element = getBrowser.getDriver().findElement(By.xpath(locator));
-		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(),Duration.ofSeconds(time));
+		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
 		return wait.until(ExpectedConditions.or(
-                ExpectedConditions.attributeToBe(element, property, value1),
-                ExpectedConditions.attributeToBe(element, property, value2)));
+				ExpectedConditions.attributeToBe(element, property, value1),
+				ExpectedConditions.attributeToBe(element, property, value2)));
 	}
 
 	protected static String returnCSSBackground(String locator) {
@@ -592,7 +586,7 @@ public class BaseClass {
 		ewait.until(ExpectedConditions.elementToBeClickable(findElement(locator)));
 	}
 
-	protected static Boolean waitDownloadFile(String nameFile, String downloadPath,int time) {
+	protected static Boolean waitDownloadFile(String nameFile, String downloadPath, int time) {
 		WebDriverWait wait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds(time));
 		return wait.until(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
@@ -601,18 +595,18 @@ public class BaseClass {
 				try {
 					File folder = new File(downloadPath).getAbsoluteFile();
 					File[] listOfFiles = folder.listFiles();
-				for (File listOfFile : listOfFiles) {
-					if (listOfFile.isFile()) {
-						String fileName = listOfFile.getName();
-						if (fileName.matches(expectedFileName)) {
-							return true;
+					for (File listOfFile : listOfFiles) {
+						if (listOfFile.isFile()) {
+							String fileName = listOfFile.getName();
+							if (fileName.matches(expectedFileName)) {
+								return true;
+							}
 						}
 					}
-				}
-				return false;
+					return false;
 				} catch (Exception e) {
 					return false;
-				}	
+				}
 			}
 		});
 	}
