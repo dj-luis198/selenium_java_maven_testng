@@ -12,7 +12,7 @@ public class GetBooks {
     @Test
     public void getBooks() {
         Response response = BooksEndPoints.getBooks();
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
         response.then().assertThat().body(matchesJsonSchemaInClasspath("BooksSchema.json"));
     }

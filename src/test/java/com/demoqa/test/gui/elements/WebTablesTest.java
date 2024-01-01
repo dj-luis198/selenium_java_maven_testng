@@ -1,5 +1,7 @@
 package com.demoqa.test.gui.elements;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,6 +9,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.WebTablesPage;
+import com.demoqa.util.AnsiColorUtils;
 
 import net.datafaker.Faker;
 
@@ -18,13 +21,15 @@ public class WebTablesTest extends BaseTest {
     HomePage homePage;
     WebTablesPage webTablesPage;
 
+    private static Logger logger= LogManager.getLogger(WebTablesTest.class);
+
     @BeforeMethod
     public void preconditions() {
         try {
             webTablesPage = new WebTablesPage();
             webTablesPage.goToWebTables(homePage);
         } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+            logger.error(AnsiColorUtils.applyRed("Precondicones fallidas, iniciando setUp "+e));
             String browser = getBrowser();
             setUp(browser);
             webTablesPage = new WebTablesPage();

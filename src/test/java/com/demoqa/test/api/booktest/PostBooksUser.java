@@ -33,7 +33,7 @@ public class PostBooksUser {
         userBooks.setUserId(id);
         userBooks.setCollectionOfIsbns(list);
         Response response = BooksEndPoints.postBooks(user, userBooks, token);
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 201);
     }
 }

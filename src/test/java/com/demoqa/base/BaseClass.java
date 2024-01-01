@@ -7,6 +7,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
@@ -25,6 +27,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.demoqa.util.AnsiColorUtils;
 import com.demoqa.util.GetBrowserDriver;
 
 public class BaseClass {
@@ -34,6 +38,8 @@ public class BaseClass {
 	private static Properties propA = new Properties();
 	private static int time;
 	private static String url;
+
+	private static Logger logger= LogManager.getLogger(BaseClass.class);
 
 	public static WebDriver getDriver() {
 		return getBrowser.getDriver();
@@ -98,7 +104,6 @@ public class BaseClass {
 			WebDriverWait ewait = new WebDriverWait(getBrowser.getDriver(), Duration.ofSeconds((time)));
 			return ewait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 		} catch (TimeoutException | NoSuchElementException e) {
-			System.out.println(e);
 			return false;
 		}
 	}
@@ -109,7 +114,6 @@ public class BaseClass {
 			return ewait.until(ExpectedConditions
 					.invisibilityOfAllElements(getBrowser.getDriver().findElements(By.xpath(locator))));
 		} catch (TimeoutException | NoSuchElementException e) {
-			System.out.println(e);
 			return false;
 		}
 	}
@@ -230,10 +234,6 @@ public class BaseClass {
 		} catch (TimeoutException e) {
 			return false;
 		}
-	}
-
-	protected static void printPageSource() {
-		System.out.println(getBrowser.getDriver().getPageSource());
 	}
 
 	// -----------------------------Type---------------------------//
@@ -479,7 +479,7 @@ public class BaseClass {
 			alert.accept();
 			return text;
 		} catch (org.openqa.selenium.TimeoutException e) {
-			System.out.println("algo paso no se encontro alerta");
+			logger.error(AnsiColorUtils.applyRed("algo paso no se encontro alerta: \n "+e));
 		}
 		return "no hay alerta";
 	}

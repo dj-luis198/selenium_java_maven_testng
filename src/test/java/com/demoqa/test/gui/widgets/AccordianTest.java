@@ -1,23 +1,30 @@
 package com.demoqa.test.gui.widgets;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.AccordianPage;
+import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "AccordianTest", timeOut = 30000)
 public class AccordianTest extends BaseTest {
     AccordianPage accordianPage;
+
+    private static Logger logger= LogManager.getLogger(AccordianTest.class);
 
     @BeforeMethod
     public void preconditions() {
         try {
             accordianPage = new AccordianPage();
             accordianPage.goToAccordian();
-        } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
             String browser = getBrowser();
             setUp(browser);
             accordianPage = new AccordianPage();

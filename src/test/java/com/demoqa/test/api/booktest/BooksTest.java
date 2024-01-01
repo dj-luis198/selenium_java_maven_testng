@@ -31,7 +31,8 @@ public class BooksTest {
         userBook.setUserId(id);
         userBook.setIsbn(sIsbn);
         Response response = BooksEndPoints.putBook(user, userBook, token, nIsbn);
-        response.then().log().all();
+        response.then();
+        //.log().all();
         Assert.assertEquals(response.statusCode(), 200);
     }
 
@@ -44,14 +45,16 @@ public class BooksTest {
         userBook.setUserId(id);
         userBook.setIsbn(sIsbn);
         Response response = BooksEndPoints.deleteBook(user, userBook, token);
-        response.then().log().all();
+        response.then();
+        //.log().all();
         Assert.assertEquals(response.statusCode(), 204);
     }
 
     @Test
     public void getBook() {
         Response response = BooksEndPoints.getBook(nIsbn);
-        response.then().log().all();
+        response.then();
+        //.log().all();
         Assert.assertEquals(response.statusCode(), 200);
     }
 
@@ -61,7 +64,8 @@ public class BooksTest {
         user.setUserName("danielfff");
         user.setPassword("Az25288@");
         Response response = BooksEndPoints.deleteBooks(user, token, id);
-        response.then().log().all();
+        response.then();
+        //.log().all();
         Assert.assertEquals(response.statusCode(), 204);
     }
 
@@ -79,14 +83,16 @@ public class BooksTest {
         userBooks.setUserId(id);
         userBooks.setCollectionOfIsbns(list);
         Response response = BooksEndPoints.postBooks(user, userBooks, token);
-        response.then().log().all();
+        response.then();
+        //.log().all();
         Assert.assertEquals(response.statusCode(), 201);
     }
 
     @Test
     public void getBooks() {
         Response response = BooksEndPoints.getBooks();
-        response.then().log().all();
+        response.then();
+        //.log().all();
         Assert.assertEquals(response.statusCode(), 200);
     }
 }

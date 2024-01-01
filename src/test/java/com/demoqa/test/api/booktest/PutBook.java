@@ -23,7 +23,7 @@ public class PutBook {
         userBook.setUserId(id);
         userBook.setIsbn(book1);
         Response response = BooksEndPoints.putBook(user, userBook, token, book2);
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
         response.then().assertThat().body(matchesJsonSchemaInClasspath("FUserSchema.json"));
     }

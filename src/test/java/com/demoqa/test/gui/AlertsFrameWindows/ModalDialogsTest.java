@@ -1,23 +1,30 @@
 package com.demoqa.test.gui.AlertsFrameWindows;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.ModalDialogsPage;
+import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "ModalDialogsTest", timeOut = 30000)
 public class ModalDialogsTest extends BaseTest {
     ModalDialogsPage modalDialogsPage;
+    
+    private static Logger logger= LogManager.getLogger(ModalDialogsTest.class);
 
     @BeforeMethod
     public void preconditions() {
         try {
             modalDialogsPage = new ModalDialogsPage();
             modalDialogsPage.goToModalDialogs();
-        } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
             String browser = getBrowser();
             setUp(browser);
             modalDialogsPage = new ModalDialogsPage();

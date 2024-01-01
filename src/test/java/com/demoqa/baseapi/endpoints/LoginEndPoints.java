@@ -24,10 +24,12 @@ static Set<Cookie> driverCookies;
             Response response = 
                 given()
                     .contentType("application/json")
-                    .body(bodyJson).log().all()
+                    .body(bodyJson)
+                    //.log().all()
                 .when()
                     .post(post_login_url);
-                    response.then().log().all();
+                    response.then();
+                    //.log().all();
 
                     String id= response.jsonPath().get("userId");
                     Cookie idc= new Cookie("userID",id);

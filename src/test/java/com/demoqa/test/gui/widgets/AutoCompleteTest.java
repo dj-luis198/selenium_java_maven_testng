@@ -1,24 +1,30 @@
 package com.demoqa.test.gui.widgets;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.AutoCompletePage;
+import com.demoqa.util.AnsiColorUtils;
 import com.demoqa.util.dataProvider.AutoCompleteData;
 
 @Test(groups = "AutoCompleteTest", timeOut = 30000)
 public class AutoCompleteTest extends BaseTest {
     AutoCompletePage autoCompletePage;
+    private static Logger logger= LogManager.getLogger(AutoCompleteTest.class);
 
     @BeforeMethod
     public void preconditions() {
         try {
             autoCompletePage = new AutoCompletePage();
             autoCompletePage.goToAutoComplete();
-        } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
             String browser = getBrowser();
             setUp(browser);
             autoCompletePage = new AutoCompletePage();

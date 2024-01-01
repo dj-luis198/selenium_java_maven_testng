@@ -13,7 +13,7 @@ public class GetBook {
     @Test(dataProvider = "bookUserSimplecol5Data", dataProviderClass = apiData.class)
     public void getBook(String book) {
         Response response = BooksEndPoints.getBook(book);
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
         response.then().assertThat().body(matchesJsonSchemaInClasspath("BookSchema.json"));
     }

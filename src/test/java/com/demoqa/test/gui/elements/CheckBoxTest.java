@@ -2,7 +2,11 @@ package com.demoqa.test.gui.elements;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,6 +14,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.CheckBoxPage;
+import com.demoqa.util.AnsiColorUtils;
 import com.demoqa.util.JsonSimple;
 
 @Test(groups = "CheckBoxTest",timeOut = 30000)
@@ -18,14 +23,16 @@ public class CheckBoxTest extends BaseTest {
     CheckBoxPage checkBoxPage;
     JsonSimple json;
 
+    private static Logger logger= LogManager.getLogger(CheckBoxTest.class);
+
     @BeforeMethod
     public void preconditions() {
         try {
             json = new JsonSimple();
             checkBoxPage = new CheckBoxPage();
             checkBoxPage.goToCheckBox(homePage);
-        } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
             String browser = getBrowser();
             setUp(browser);
             json = new JsonSimple();

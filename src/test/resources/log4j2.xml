@@ -1,0 +1,18 @@
+<Configuration status="WARN">
+    <Properties>
+        <Property name="filename">logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] - %msg%n}{INFO=green, WARN=yellow, ERROR=red}"/>
+        </Console>
+        <File name="LOGFILE" fileName="${filename}/logs.log">
+            <PatternLayout pattern="%highlight{%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] - %msg%n}{INFO=green, WARN=yellow, ERROR=red}"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="STDOUT" />
+        </Root>
+    </Loggers>
+</Configuration>

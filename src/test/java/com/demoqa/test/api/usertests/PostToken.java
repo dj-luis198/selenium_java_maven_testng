@@ -22,7 +22,7 @@ public class PostToken {
         user.setUserName(userName);
         user.setPassword(pass);
         Response response = UserEndPoints.tokenUser(user);
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
         response.then().assertThat().body(matchesJsonSchemaInClasspath("TokenSchema.json"));
         this.token = response.jsonPath().get("token");

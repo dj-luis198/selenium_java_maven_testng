@@ -16,7 +16,7 @@ public class DeleteUser {
         user.setUserName(userName);
         user.setPassword(pass);
         Response response = UserEndPoints.deleteUser(user, token, id);
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 204);
     }
 }

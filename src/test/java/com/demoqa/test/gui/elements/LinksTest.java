@@ -1,5 +1,9 @@
 package com.demoqa.test.gui.elements;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,6 +11,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.LinksPage;
+import com.demoqa.util.AnsiColorUtils;
 
 import static io.restassured.RestAssured.*;
 
@@ -15,13 +20,15 @@ public class LinksTest extends BaseTest {
         HomePage homePage;
         LinksPage linksPage;
 
+        private static Logger logger = LogManager.getLogger(LinksTest.class);
+
         @BeforeMethod
         public void preconditions() {
                 try {
                         linksPage = new LinksPage();
                         linksPage.goToLinks(homePage);
-                } catch (Exception e) {
-                        System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+                } catch (TimeoutException | NoSuchElementException e) {
+                        logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
                         String browser = getBrowser();
                         setUp(browser);
                         linksPage = new LinksPage();

@@ -1,16 +1,23 @@
 package com.demoqa.test.gui.widgets;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.ToolTipsPage;
+import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "ToolTipsTest", timeOut = 30000)
 public class ToolTipsTest extends BaseTest {
     ToolTipsPage toolTipsPage;
     SoftAssert softAssert;
+
+    private static Logger logger= LogManager.getLogger(ToolTipsTest.class);
 
     @BeforeMethod
     public void preconditions() {
@@ -18,8 +25,8 @@ public class ToolTipsTest extends BaseTest {
             softAssert = new SoftAssert();
             toolTipsPage = new ToolTipsPage();
             toolTipsPage.goToToolTips();
-        } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
             String browser = getBrowser();
             setUp(browser);
             softAssert = new SoftAssert();
