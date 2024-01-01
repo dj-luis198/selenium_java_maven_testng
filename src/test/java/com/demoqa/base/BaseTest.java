@@ -1,11 +1,14 @@
 package com.demoqa.base;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTest extends BaseClass {
+    private static Logger logger= LogManager.getLogger(BaseTest.class);
 
     @BeforeClass
     @Parameters(value = { "browser" })
@@ -19,15 +22,13 @@ public class BaseTest extends BaseClass {
                 break; // Si la inicialización tiene éxito, salimos del bucle y continuamos con las
                        // pruebas
             } catch (Exception e) {
-                e.printStackTrace();
                 retryCount++;
-                System.out.println("Reintentando inicializacion (Intento " + retryCount + ")");
+                logger.error("Reintentando inicializacion (Intento " + retryCount + ")"+e);
             }
         }
 
         if (retryCount == maxRetries) {
-            System.out.println("No se pudo inicializar después de " + maxRetries + " intentos. Lanzando excepción.");
-            throw new RuntimeException("No se pudo inicializar después de varios reintentos");
+            logger.error("No se pudo inicializar después de " + maxRetries + " intentos. Lanzando excepción.");
         }
     }
 

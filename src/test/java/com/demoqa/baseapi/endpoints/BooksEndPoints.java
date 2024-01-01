@@ -19,7 +19,7 @@ public class BooksEndPoints extends BaseClass{
         Response response =
             given()
                 .accept(ContentType.JSON)
-                .log().all()
+                //.log().all()
             .when()
                 .get(get_books_url);
             return response;
@@ -34,7 +34,7 @@ public class BooksEndPoints extends BaseClass{
                 .header("Authorization","Bearer "+token)
                 .auth().basic(payload.getUserName(), payload.getPassword())
                 .body(booksPayload)
-                .log().all()
+                //.log().all()
             .when()
                 .post(post_books_url);
             return response;
@@ -48,7 +48,7 @@ public class BooksEndPoints extends BaseClass{
                .header("Authorization","Bearer "+token)
                .auth().basic(payload.getUserName(), payload.getPassword())
                .queryParam("UserId",id)
-               .log().all()
+               //.log().all()
            .when()
                .delete(delete_books_url);
            return response;
@@ -60,7 +60,7 @@ public class BooksEndPoints extends BaseClass{
        given()
            .accept(ContentType.JSON)
            .queryParam("ISBN",isbn)
-           .log().all()
+           //.log().all()
        .when()
            .get(get_book_url);
        return response;
@@ -75,7 +75,7 @@ public static Response deleteBook(User payload,UserBook bookPayload, String toke
                .header("Authorization","Bearer "+token)
                .auth().basic(payload.getUserName(), payload.getPassword())
                .body(bookPayload)
-               .log().all()
+               //.log().all()
            .when()
                .delete(delete_book_url);
            return response;
@@ -91,7 +91,7 @@ public static Response deleteBook(User payload,UserBook bookPayload, String toke
                .auth().basic(payload.getUserName(), payload.getPassword())
                .pathParam("ISBN",isbn)
                .body(bookPayload)
-               .log().all()
+               //.log().all()
            .when()
                .put(put_books_url);
            return response;

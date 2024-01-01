@@ -1,5 +1,9 @@
 package com.demoqa.test.gui.elements;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -7,6 +11,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.BrokenLinksImagesPage;
+import com.demoqa.util.AnsiColorUtils;
 
 import static io.restassured.RestAssured.*;
 import java.util.List;
@@ -16,13 +21,16 @@ public class BrokenLinksImagesTest extends BaseTest {
     HomePage homePage;
     BrokenLinksImagesPage brokenLinksImagesPage;
 
+    private static Logger logger= LogManager.getLogger(BrokenLinksImagesTest.class);
+
+
     @BeforeMethod
     public void preconditions() {
         try {
             brokenLinksImagesPage = new BrokenLinksImagesPage();
             brokenLinksImagesPage.goToBrokenLinksImages(homePage);
-        } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp "+e);
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
             String browser = getBrowser();
             setUp(browser);
             brokenLinksImagesPage = new BrokenLinksImagesPage();
@@ -41,7 +49,7 @@ public class BrokenLinksImagesTest extends BaseTest {
         List<WebElement> links = brokenLinksImagesPage.returnLinks();
 
         if (links.isEmpty()) {
-            System.out.println("There are no links on the page");
+            logger.info("There are no links on the page");
             return;
         }
 
@@ -56,9 +64,9 @@ public class BrokenLinksImagesTest extends BaseTest {
 
             if (code >= 400) {
                 count++;
-                System.out.println("link broken: " + href);
+                logger.error(AnsiColorUtils.applyRed("link broken: " + href));
             } else {
-                System.out.println("link not broken: " + href);
+                logger.info("link not broken: " + href);
             }
         }
 

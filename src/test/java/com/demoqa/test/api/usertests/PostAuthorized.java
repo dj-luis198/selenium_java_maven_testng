@@ -16,7 +16,7 @@ public class PostAuthorized {
         user.setUserName(userName);
         user.setPassword(pass);
         Response response = UserEndPoints.authorizedUser(user, token);
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
     }
 }

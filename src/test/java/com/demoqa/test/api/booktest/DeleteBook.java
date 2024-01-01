@@ -22,7 +22,7 @@ public class DeleteBook {
         userBook.setUserId(id);
         userBook.setIsbn(book1);
         Response response = BooksEndPoints.deleteBook(user, userBook, token);
-        response.then().log().all();
+        //response.then().log().all();
         Assert.assertEquals(response.statusCode(), 204);
     }
 }

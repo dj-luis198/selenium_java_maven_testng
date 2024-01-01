@@ -1,11 +1,16 @@
 package com.demoqa.test.gui.AlertsFrameWindows;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.AlertsFrameWindows.AlertsPage;
 import com.demoqa.pages.common.HomePage;
+import com.demoqa.util.AnsiColorUtils;
 
 import net.datafaker.Faker;
 
@@ -14,6 +19,8 @@ public class AlertsTest extends BaseTest {
     AlertsPage alertsPage;
     HomePage homePage;
 
+    private static Logger logger= LogManager.getLogger(AlertsTest.class);
+
     Faker fake = new Faker();
 
     @BeforeMethod
@@ -21,8 +28,8 @@ public class AlertsTest extends BaseTest {
         try {
             alertsPage = new AlertsPage();
             alertsPage.goToAlerts(homePage);
-        } catch (Exception e) {
-        System.out.println("Pre condiciones fallidas, iniciando setUp "+e);
+        } catch (TimeoutException | NoSuchElementException e) { 
+        logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
         String browser= getBrowser();
         setUp(browser);
         alertsPage = new AlertsPage();

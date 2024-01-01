@@ -22,7 +22,7 @@ public class PostUser {
     user.setUserName(userName);
     user.setPassword(pass);
     Response response = UserEndPoints.postUser(user);
-    response.then().log().all();
+    //response.then().log().all();
     Assert.assertEquals(response.statusCode(), 201);
     response.then().assertThat().body(matchesJsonSchemaInClasspath("UserSchema.json"));
     Assert.assertEquals(response.body().jsonPath().get("username"), user.getUserName());

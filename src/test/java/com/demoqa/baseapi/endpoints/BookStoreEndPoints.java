@@ -31,7 +31,8 @@ public class BookStoreEndPoints extends BaseClass{
                given()
                 .filter(sessionFilter)
                 .accept(ContentType.JSON)
-                .pathParam("UUID", id).log().all()
+                .pathParam("UUID", id)
+                //.log().all()
                .when()
                    .delete(delete_url);
                return response;

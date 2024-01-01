@@ -44,8 +44,6 @@ public class BooksStorePage extends BaseClass {
     public void acceptAlert() {
         String text= isAlertPresent();
         if(text.equals("Book added to your collection.")||text.equals("Book already present in the your collection!")){
-        }else {
-            System.out.println(text);
         }
     }
 

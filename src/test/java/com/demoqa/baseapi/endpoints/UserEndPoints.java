@@ -16,7 +16,8 @@ public class UserEndPoints extends BaseClass {
         String post_url = prop.getProperty("post_url");
         Response response = given()
                 .contentType("application/json")
-                .body(payload).log().all()
+                .body(payload)
+                //.log().all()
                 .when()
                 .post(post_url);
         return response;
@@ -27,7 +28,8 @@ public class UserEndPoints extends BaseClass {
         Response response = given()
                 .accept(ContentType.JSON)
                 .header("Content-type", "application/json")
-                .body(payload).log().all()
+                .body(payload)
+                //.log().all()
                 .when()
                 .post(token_url);
         return response;
@@ -39,7 +41,8 @@ public class UserEndPoints extends BaseClass {
                 .accept(ContentType.JSON)
                 .header("Content-type", "application/json")
                 .header("Authorization", "Bearer " + token)
-                .body(payload).log().all()
+                .body(payload)
+                //.log().all()
                 .when()
                 .post(authorized_url);
         return response;
@@ -51,7 +54,8 @@ public class UserEndPoints extends BaseClass {
                 .accept(ContentType.JSON)
                 .header("Authorization", "Bearer " + token)
                 .auth().basic(payload.getUserName(), payload.getPassword())
-                .pathParam("UUID", id).log().all()
+                .pathParam("UUID", id)
+                //.log().all()
                 .when()
                 .get(get_url);
         return response;
@@ -63,7 +67,8 @@ public class UserEndPoints extends BaseClass {
                 .accept(ContentType.JSON)
                 .header("Authorization", "Bearer " + token)
                 .auth().basic(payload.getUserName(), payload.getPassword())
-                .pathParam("UUID", id).log().all()
+                .pathParam("UUID", id)
+                //.log().all()
                 .when()
                 .delete(delete_url);
         return response;

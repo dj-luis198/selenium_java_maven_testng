@@ -1,11 +1,16 @@
 package com.demoqa.test.gui.widgets;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.DatePickerPage;
+import com.demoqa.util.AnsiColorUtils;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerData;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerDataTime;
 import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
@@ -14,13 +19,15 @@ import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
 public class DatePickerTest extends BaseTest {
     DatePickerPage datePickerPage;
 
+    private static Logger logger= LogManager.getLogger(DatePickerTest.class);
+
     @BeforeMethod
     public void preconditions() {
         try {
             datePickerPage = new DatePickerPage();
             datePickerPage.goToDatePicker();
-        } catch (Exception e) {
-            System.out.println("Pre condiciones fallidas, iniciando setUp " + e);
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
             String browser = getBrowser();
             setUp(browser);
             datePickerPage = new DatePickerPage();
