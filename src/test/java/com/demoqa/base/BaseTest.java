@@ -2,15 +2,15 @@ package com.demoqa.base;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTest extends BaseClass {
     private static Logger logger= LogManager.getLogger(BaseTest.class);
 
-    @BeforeTest
+    @BeforeClass
     @Parameters(value = { "browser" })
     public void setUp(@Optional("chrome") String browser) {
         int maxRetries = 3;
@@ -32,7 +32,7 @@ public class BaseTest extends BaseClass {
         }
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown() {
         quit();
     }
