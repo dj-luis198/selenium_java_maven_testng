@@ -7,8 +7,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.demoqa.util.AnsiColorUtils;
+
 public class BaseTest extends BaseClass {
-    private static Logger logger= LogManager.getLogger(BaseTest.class);
+    private static Logger logger = LogManager.getLogger(BaseTest.class);
 
     @BeforeClass
     @Parameters(value = { "browser" })
@@ -16,19 +18,22 @@ public class BaseTest extends BaseClass {
         int maxRetries = 3;
         int retryCount = 0;
 
-        while (retryCount < maxRetries) {
+        while (retryCount <= maxRetries) {
             try {
                 init(browser);
                 break; // Si la inicialización tiene éxito, salimos del bucle y continuamos con las
                        // pruebas
             } catch (Exception e) {
-                retryCount++;
-                logger.error("Reintentando inicializacion (Intento " + retryCount + ")"+e);
+                if (retryCount == maxRetries) {
+                    logger.error(AnsiColorUtils.applyRed("No se pudo inicializar después de " + maxRetries
+                            + " intentos. Lanzando excepción.\n" + e));
+                    retryCount++;
+                } else {
+                    retryCount++;
+                    logger.error(
+                            AnsiColorUtils.applyRed("Reintentando inicializacion (Intento " + retryCount + ")\n" + e));
+                }
             }
-        }
-
-        if (retryCount == maxRetries) {
-            logger.error("No se pudo inicializar después de " + maxRetries + " intentos. Lanzando excepción.");
         }
     }
 

@@ -18,8 +18,8 @@ public class WebTablesTest extends BaseTest {
     Faker faker = new Faker();
     String firstName, lastName, email, department;
     int salary, age;
-    HomePage homePage;
-    WebTablesPage webTablesPage;
+    private HomePage homePage;
+    private WebTablesPage webTablesPage;
 
     private static Logger logger= LogManager.getLogger(WebTablesTest.class);
 

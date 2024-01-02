@@ -17,7 +17,7 @@ import net.datafaker.Faker;
 
 @Test(groups = "TextBoxTest", timeOut = 30000)
 public class TextBoxTest extends BaseTest {
-  HomePage homePage;
+  private HomePage homePage;
   private String fullName, email, currentAddress, permanentAddress;
 
   private static Logger logger= LogManager.getLogger(TextBoxTest.class);

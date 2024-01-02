@@ -15,8 +15,8 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "DynamicPropertiesTest", timeOut = 30000)
 public class DynamicPropertiesTest extends BaseTest {
-    HomePage homePage;
-    DynamicPropertiesPage dinamicPropertiesPage;
+    private HomePage homePage;
+    private DynamicPropertiesPage dinamicPropertiesPage;
 
     private static Logger logger= LogManager.getLogger(DynamicPropertiesTest.class);
 

@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "ButtonsTest", timeOut = 30000)
 public class ButtonsTest extends BaseTest {
-  ButtonsPage buttonsPage;
+  private ButtonsPage buttonsPage;
 
   private static Logger logger= LogManager.getLogger(ButtonsTest.class);
 
