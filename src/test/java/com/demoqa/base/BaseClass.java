@@ -52,7 +52,7 @@ public class BaseClass {
 		time = Integer.parseInt(propF.getProperty("timeOut"));
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 		driver.get(url);
 
 	}
