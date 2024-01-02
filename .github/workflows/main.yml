@@ -22,6 +22,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
+      - name:  Install Google Chrome # Using shell script to install Google Chrome
+        run:   |
+                chmod +x ./scripts/InstallChrome.sh
+                            ./scripts/InstallChrome.sh 
   
       - name: Maven Verify
         run: mvn -B clean test
