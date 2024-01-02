@@ -53,13 +53,19 @@ public class BaseClass {
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-		driver.get("https://demoqa.com");
+		driver.get(url);
 
 	}
 
 	protected static Properties initProperties(String name) {
 		try (FileInputStream fis = new FileInputStream("./src/test/resources/config/" + name + ".properties")) {
 			prop.load(fis);
+	
+			// Limpiar o normalizar las propiedades leídas
+			for (String key : prop.stringPropertyNames()) {
+				String value = prop.getProperty(key);
+				prop.setProperty(key, value.trim());
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
