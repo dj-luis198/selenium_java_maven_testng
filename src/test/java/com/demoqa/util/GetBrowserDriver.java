@@ -15,7 +15,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
 public class GetBrowserDriver {
-	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
 	public void setDriver(WebDriver webDriver) {
 		driver.set(webDriver);

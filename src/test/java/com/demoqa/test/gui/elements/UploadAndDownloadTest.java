@@ -15,8 +15,8 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "UploadAndDownloadTest")
 public class UploadAndDownloadTest extends BaseTest {
-    HomePage homePage;
-    UploadAndDownloadPage uploadAndDownloadPage;
+    private HomePage homePage;
+    private UploadAndDownloadPage uploadAndDownloadPage;
 
     private static Logger logger= LogManager.getLogger(UploadAndDownloadTest.class);
 

@@ -19,8 +19,8 @@ import com.demoqa.util.JsonSimple;
 
 @Test(groups = "CheckBoxTest",timeOut = 30000)
 public class CheckBoxTest extends BaseTest {
-    HomePage homePage;
-    CheckBoxPage checkBoxPage;
+    private HomePage homePage;
+    private CheckBoxPage checkBoxPage;
     JsonSimple json;
 
     private static Logger logger= LogManager.getLogger(CheckBoxTest.class);

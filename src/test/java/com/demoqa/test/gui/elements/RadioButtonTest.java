@@ -16,8 +16,8 @@ import com.demoqa.util.AnsiColorUtils;
 @Test(groups = "RadioButtonTest", timeOut = 30000)
 public class RadioButtonTest extends BaseTest {
 
-  HomePage homePage;
-  RadioButtonPage radioButtonPage;
+  private HomePage homePage;
+  private RadioButtonPage radioButtonPage;
 
   private static Logger logger= LogManager.getLogger(RadioButtonTest.class);
 

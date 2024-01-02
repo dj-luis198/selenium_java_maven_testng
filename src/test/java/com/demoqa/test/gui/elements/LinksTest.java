@@ -17,8 +17,8 @@ import static io.restassured.RestAssured.*;
 
 @Test(groups = "LinksTest", timeOut = 30000)
 public class LinksTest extends BaseTest {
-        HomePage homePage;
-        LinksPage linksPage;
+        private HomePage homePage;
+        private LinksPage linksPage;
 
         private static Logger logger = LogManager.getLogger(LinksTest.class);
 

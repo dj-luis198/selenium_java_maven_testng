@@ -18,8 +18,8 @@ import java.util.List;
 
 @Test(groups = "BrokenLinksImagesTest", timeOut = 30000)
 public class BrokenLinksImagesTest extends BaseTest {
-    HomePage homePage;
-    BrokenLinksImagesPage brokenLinksImagesPage;
+    private HomePage homePage;
+    private BrokenLinksImagesPage brokenLinksImagesPage;
 
     private static Logger logger= LogManager.getLogger(BrokenLinksImagesTest.class);
 
