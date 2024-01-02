@@ -52,6 +52,8 @@ public class GetBrowserDriver {
 				options.addArguments("--disable-gpu");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--start-fullscreen");
+				options.addArguments("--no-proxy-server");
+				options.addArguments("--ignore-certificate-errors");
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 				options.setScriptTimeout(Duration.ofSeconds(10));

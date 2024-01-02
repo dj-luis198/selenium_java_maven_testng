@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,6 +52,7 @@ public class BaseClass {
 		time = Integer.parseInt(propF.getProperty("timeOut"));
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
+		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 		driver.get(url);
 
 	}
