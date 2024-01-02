@@ -53,7 +53,7 @@ public class BaseClass {
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-		driver.get(url);
+		driver.get("https://demoqa.com");
 
 	}
 
