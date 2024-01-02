@@ -44,6 +44,7 @@ public class GetBrowserDriver {
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
 				pref.put("download.default_directory", file.getAbsolutePath());
+				options.addArguments("--remote-allow-origins=*");
 				options.addArguments("--headless=new");
 				options.addArguments("--window-size=1920,1080");
 				options.addArguments("--disable-extensions");
@@ -76,6 +77,7 @@ public class GetBrowserDriver {
 				Map<String, Object> pref = new HashMap<String, Object>();
 				pref.put("download.prompt_for_download", false);
 				pref.put("download.default_directory", file.getAbsolutePath());
+				options.addArguments("--remote-allow-origins=*");
 				options.addArguments("--headless=new");
 				options.addArguments("--window-size=1920,1080");
 				options.addArguments("--disable-extensions");
