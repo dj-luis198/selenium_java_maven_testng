@@ -15,8 +15,8 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "BrowserWindowsTest", timeOut = 30000)
 public class BrowserWindowsTest extends BaseTest {
-    BrowserWindowsPage browserWindowsPage;
-    HomePage homePage;
+    private BrowserWindowsPage browserWindowsPage;
+    private HomePage homePage;
 
     private static Logger logger= LogManager.getLogger(BrowserWindowsTest.class);
 

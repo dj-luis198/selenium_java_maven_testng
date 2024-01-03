@@ -14,7 +14,7 @@ import com.demoqa.util.dataProvider.SliderData;
 
 @Test(groups = "SliderTest", timeOut = 30000)
 public class SliderTest extends BaseTest {
-    SliderPage sliderPage;
+    private SliderPage sliderPage;
 
     private static Logger logger= LogManager.getLogger(SliderTest.class);
 

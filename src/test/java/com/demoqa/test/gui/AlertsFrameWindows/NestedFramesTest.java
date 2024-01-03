@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "NestedFramesTest", timeOut = 30000)
 public class NestedFramesTest extends BaseTest {
-    NestedFramesPages nestedFramesPages;
+    private NestedFramesPages nestedFramesPages;
     private static Logger logger= LogManager.getLogger(NestedFramesTest.class);
 
 

@@ -14,11 +14,11 @@ import com.demoqa.util.dataProvider.bookStoreE2EData;
 
 @Test(groups = "BookStoreTest")
 public class BookStoreTest extends BaseTest{
-    HomePage homePage;
-    BooksStorePage booksStore;
-    LoginStorePage loginStorePage;
-    ProfileStorePage profileStorePage;
-    AdsFooter adsFooter;
+    private HomePage homePage;
+    private BooksStorePage booksStore;
+    private LoginStorePage loginStorePage;
+    private ProfileStorePage profileStorePage;
+    private AdsFooter adsFooter;
 
     @BeforeMethod
     public void preconditions(){

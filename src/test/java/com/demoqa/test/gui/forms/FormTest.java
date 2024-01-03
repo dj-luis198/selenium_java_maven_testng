@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "FormTest", timeOut = 30000)
 public class FormTest extends BaseTest {
-    FormPage formPage;
+    private FormPage formPage;
 
     private static Logger logger= LogManager.getLogger(FormTest.class);
 

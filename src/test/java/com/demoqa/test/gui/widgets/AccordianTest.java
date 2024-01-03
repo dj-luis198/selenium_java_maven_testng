@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "AccordianTest", timeOut = 30000)
 public class AccordianTest extends BaseTest {
-    AccordianPage accordianPage;
+    private AccordianPage accordianPage;
 
     private static Logger logger= LogManager.getLogger(AccordianTest.class);
 

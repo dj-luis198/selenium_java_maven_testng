@@ -17,7 +17,7 @@ import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
 
 @Test(groups = "DatePickerTest", timeOut = 40000)
 public class DatePickerTest extends BaseTest {
-    DatePickerPage datePickerPage;
+    private DatePickerPage datePickerPage;
 
     private static Logger logger= LogManager.getLogger(DatePickerTest.class);
 
