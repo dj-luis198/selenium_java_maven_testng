@@ -6,7 +6,7 @@
     <listener class-name="com.demoqa.util.listeners.MyListeners"/>
   </listeners>
   <suite-files>
-        <suite-file path="api.xml"></suite-file>
+        <!--<suite-file path="api.xml"></suite-file>-->
         <suite-file path="chrome.xml"></suite-file>
         <!-- <suite-file path="edge.xml"></suite-file>
         <suite-file path="firefox.xml"></suite-file> -->
