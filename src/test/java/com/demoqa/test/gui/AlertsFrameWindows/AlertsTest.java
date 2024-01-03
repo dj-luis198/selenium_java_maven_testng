@@ -16,8 +16,8 @@ import net.datafaker.Faker;
 
 @Test(groups = "AlertsTest", timeOut = 30000)
 public class AlertsTest extends BaseTest {
-    AlertsPage alertsPage;
-    HomePage homePage;
+    private AlertsPage alertsPage;
+    private HomePage homePage;
 
     private static Logger logger= LogManager.getLogger(AlertsTest.class);
 

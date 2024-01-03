@@ -14,8 +14,8 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "ToolTipsTest", timeOut = 30000)
 public class ToolTipsTest extends BaseTest {
-    ToolTipsPage toolTipsPage;
-    SoftAssert softAssert;
+    private ToolTipsPage toolTipsPage;
+    private SoftAssert softAssert;
 
     private static Logger logger= LogManager.getLogger(ToolTipsTest.class);
 

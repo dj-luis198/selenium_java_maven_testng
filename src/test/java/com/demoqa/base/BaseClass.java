@@ -40,7 +40,7 @@ public class BaseClass {
 	private static int time;
 	private static String url;
 
-	private static Logger logger= LogManager.getLogger(BaseClass.class);
+	private static Logger logger = LogManager.getLogger(BaseClass.class);
 
 	public static WebDriver getDriver() {
 		return getBrowser.getDriver();
@@ -52,9 +52,8 @@ public class BaseClass {
 		time = Integer.parseInt(propF.getProperty("timeOut"));
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
-		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+		// driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 		driver.get(url);
-
 	}
 
 	protected static Properties initProperties(String name) {
@@ -204,7 +203,7 @@ public class BaseClass {
 			Thread.sleep(400);
 		} catch (Exception e) {
 		}
-			return findElement(locator).isDisplayed();
+		return findElement(locator).isDisplayed();
 	}
 
 	protected static boolean isVisible(String locator) {
@@ -481,7 +480,7 @@ public class BaseClass {
 			alert.accept();
 			return text;
 		} catch (org.openqa.selenium.TimeoutException e) {
-			logger.error(AnsiColorUtils.applyRed("algo paso no se encontro alerta: \n "+e));
+			logger.error(AnsiColorUtils.applyRed("algo paso no se encontro alerta: \n " + e));
 		}
 		return "no hay alerta";
 	}

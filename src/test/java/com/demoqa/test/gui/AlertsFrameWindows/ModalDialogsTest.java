@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "ModalDialogsTest", timeOut = 30000)
 public class ModalDialogsTest extends BaseTest {
-    ModalDialogsPage modalDialogsPage;
+    private ModalDialogsPage modalDialogsPage;
     
     private static Logger logger= LogManager.getLogger(ModalDialogsTest.class);
 

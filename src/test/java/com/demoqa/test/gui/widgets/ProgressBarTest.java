@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "ProgressBarTest", timeOut = 40000)
 public class ProgressBarTest extends BaseTest {
-    ProgressBarPage progressBarPage;
+    private ProgressBarPage progressBarPage;
 
     private static Logger logger= LogManager.getLogger(ProgressBarTest.class);
 

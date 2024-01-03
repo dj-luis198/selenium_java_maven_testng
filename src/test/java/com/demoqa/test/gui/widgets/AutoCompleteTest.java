@@ -15,7 +15,7 @@ import com.demoqa.util.dataProvider.AutoCompleteData;
 
 @Test(groups = "AutoCompleteTest", timeOut = 30000)
 public class AutoCompleteTest extends BaseTest {
-    AutoCompletePage autoCompletePage;
+    private AutoCompletePage autoCompletePage;
     private static Logger logger= LogManager.getLogger(AutoCompleteTest.class);
 
     @BeforeMethod

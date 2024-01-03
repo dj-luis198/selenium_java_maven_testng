@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "FramesTest", timeOut = 30000)
 public class FramesTest extends BaseTest {
-    FramesPage framesPage;
+    private FramesPage framesPage;
 
     private static Logger logger = LogManager.getLogger(FramesTest.class);
 

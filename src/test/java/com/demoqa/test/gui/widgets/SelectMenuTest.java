@@ -14,7 +14,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 @Test(groups = "SelectMenuTest", timeOut = 30000)
 public class SelectMenuTest extends BaseTest {
-    SelectMenuPage selectMenuPage;
+    private SelectMenuPage selectMenuPage;
 
     private static Logger logger= LogManager.getLogger(SelectMenuTest.class);
 
