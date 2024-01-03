@@ -1,7 +1,6 @@
 package com.demoqa.util;
 
 import java.io.File;
-import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.PageLoadStrategy;

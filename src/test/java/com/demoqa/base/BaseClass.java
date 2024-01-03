@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -34,7 +33,6 @@ import com.demoqa.util.AnsiColorUtils;
 import com.demoqa.util.GetBrowserDriver;
 
 public class BaseClass {
-	private ReentrantLock lock = new ReentrantLock();
 	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
