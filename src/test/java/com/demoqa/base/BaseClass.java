@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -33,6 +34,7 @@ import com.demoqa.util.AnsiColorUtils;
 import com.demoqa.util.GetBrowserDriver;
 
 public class BaseClass {
+	private ReentrantLock lock = new ReentrantLock();
 	private static GetBrowserDriver getBrowser = new GetBrowserDriver();
 	private static Properties prop = new Properties();
 	private static Properties propF = new Properties();
@@ -47,13 +49,18 @@ public class BaseClass {
 	}
 
 	protected void init(String browser) {
-		propF = initProperties("framework");
+		lock.lock();
+		try{
+			propF = initProperties("framework");
 		propA = initProperties("aplication");
 		time = Integer.parseInt(propF.getProperty("timeOut"));
 		url = propA.getProperty("url");
 		WebDriver driver = getBrowser.getBrowserDriver(browser);
 		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 		driver.get(url);
+		}finally{
+			lock.unlock();
+		}
 
 	}
 
