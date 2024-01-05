@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.forms.FormPage;
 import com.demoqa.util.AnsiColorUtils;
+import com.demoqa.util.dataProvider.FormData;
 
 @Test(groups = "FormTest", timeOut = 30000)
 public class FormTest extends BaseTest {
@@ -32,36 +33,36 @@ public class FormTest extends BaseTest {
         }
     }
 
-    @Test
-    public void validatePacticeForm() {
-        formPage.typeFirstName("Daniel");
-        Assert.assertEquals(formPage.verifyFirstName(), "Daniel");
-        formPage.typeLastName("Farias");
-        Assert.assertEquals(formPage.verifyLastName(), "Farias");
-        formPage.typeUserEmail("dj.luis198@gmail.com");
-        Assert.assertEquals(formPage.verifyEmail(), "dj.luis198@gmail.com");
-        formPage.selectRadioGender("Female");
-        Assert.assertTrue(formPage.verifySelectedGender("Female"));
-        formPage.typeUserNumer("1234567891");
-        Assert.assertEquals(formPage.verifyUserNumber(), "1234567891");
+    @Test(dataProvider = "FormData", dataProviderClass = FormData.class)
+    public void validatePacticeForm(String name, String lastName, String email, String gender, String number, String year,String month,String day, String subject, String subject2, String hobby, String state, String city) {
+        formPage.typeFirstName(name);
+        Assert.assertEquals(formPage.verifyFirstName(), name);
+        formPage.typeLastName(lastName);
+        Assert.assertEquals(formPage.verifyLastName(), lastName);
+        formPage.typeUserEmail(email);
+        Assert.assertEquals(formPage.verifyEmail(), email);
+        formPage.selectRadioGender(gender);
+        Assert.assertTrue(formPage.verifySelectedGender(gender));
+        formPage.typeUserNumer(number);
+        Assert.assertEquals(formPage.verifyUserNumber(), number);
         formPage.clickDatePicker();
-        formPage.selectYear("1984");
-        formPage.selectMonth("May");
-        formPage.selectDay("21", "May");
-        Assert.assertTrue(formPage.verifyDay("21", "May"));
-        Assert.assertEquals(formPage.verifyMonth(), "May");
-        Assert.assertEquals(formPage.verifyYear(), "1984");
-        formPage.typeSubjectsMultiple("s");
-        formPage.selectSubjects("Arts");
-        Assert.assertEquals(formPage.returnSelectOptions(), "Arts");
-        formPage.selectHobbie("Music");
-        Assert.assertTrue(formPage.verifySelectedHobbies("Music"));
+        formPage.selectYear(year);
+        formPage.selectMonth(month);
+        formPage.selectDay(day, month);
+        Assert.assertTrue(formPage.verifyDay(day, month));
+        Assert.assertEquals(formPage.verifyMonth(), month);
+        Assert.assertEquals(formPage.verifyYear(), year);
+        formPage.typeSubjectsMultiple(subject);
+        formPage.selectSubjects(subject2);
+        Assert.assertEquals(formPage.returnSelectOptions(), subject2);
+        formPage.selectHobbie(hobby);
+        Assert.assertTrue(formPage.verifySelectedHobbies(hobby));
         formPage.uploadFile();
         Assert.assertTrue(formPage.verifyuploadedFilePath());
-        formPage.selectState("NCR");
-        Assert.assertTrue(formPage.verifyState("NCR"));
-        formPage.selectCity("Delhi");
-        Assert.assertTrue(formPage.verifyCity("Delhi"));
+        formPage.selectState(state);
+        Assert.assertTrue(formPage.verifyState(state));
+        formPage.selectCity(city);
+        Assert.assertTrue(formPage.verifyCity(city));
         formPage.clickSubmit();
     }
 }
