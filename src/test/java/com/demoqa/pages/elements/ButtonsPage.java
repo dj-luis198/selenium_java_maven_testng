@@ -1,7 +1,6 @@
 package com.demoqa.pages.elements;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class ButtonsPage extends BaseClass {
@@ -39,10 +38,8 @@ public class ButtonsPage extends BaseClass {
 
     public void goToButtons() {
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToButtonsPage();
-        adsFooter.deleteAds();
     }
 
 }

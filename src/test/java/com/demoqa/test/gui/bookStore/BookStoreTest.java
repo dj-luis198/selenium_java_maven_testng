@@ -8,7 +8,6 @@ import com.demoqa.base.BaseTest;
 import com.demoqa.pages.bookStore.BooksStorePage;
 import com.demoqa.pages.bookStore.LoginStorePage;
 import com.demoqa.pages.bookStore.ProfileStorePage;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.util.dataProvider.bookStoreE2EData;
 
@@ -18,7 +17,6 @@ public class BookStoreTest extends BaseTest{
     private BooksStorePage booksStore;
     private LoginStorePage loginStorePage;
     private ProfileStorePage profileStorePage;
-    private AdsFooter adsFooter;
 
     @BeforeMethod
     public void preconditions(){
@@ -26,22 +24,17 @@ public class BookStoreTest extends BaseTest{
         loginStorePage = new LoginStorePage();
         profileStorePage = new ProfileStorePage();
         homePage= new HomePage();
-        adsFooter= new AdsFooter();
         homePage.goToLoginPage();
-        adsFooter.deleteAds();
     }
 
     @Test(dataProvider = "bookStoreE2E", dataProviderClass = bookStoreE2EData.class)
     public void booksStoreE2ETest(String userName, String pass, String books) {
         loginStorePage.LoginUser(userName, pass);
-        adsFooter.deleteAds();
         Assert.assertEquals(profileStorePage.returnUserName(), userName);
         profileStorePage.clickGoToBookStoreButton();
-        adsFooter.deleteAds();
         Assert.assertEquals(booksStore.returnUserName(), userName);
         booksStore.selectBooks(books);
         booksStore.clickProfile();
-        adsFooter.deleteAds();
         Assert.assertTrue(profileStorePage.verifyBooksList(books));
         profileStorePage.deleteBooks(books);
         Assert.assertTrue(profileStorePage.verifyBooksDelete(books));
@@ -50,7 +43,6 @@ public class BookStoreTest extends BaseTest{
     @AfterMethod
     public void deleteBooks(){
         booksStore.clickProfile();
-        adsFooter.deleteAds();
         profileStorePage.clickDeleteAllBooks();
         profileStorePage.confirmSmallModal();
         profileStorePage.acceptAlertDeleteAll();

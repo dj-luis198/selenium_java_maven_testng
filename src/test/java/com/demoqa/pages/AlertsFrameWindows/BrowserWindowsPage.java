@@ -1,7 +1,6 @@
 package com.demoqa.pages.AlertsFrameWindows;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class BrowserWindowsPage extends BaseClass {
@@ -42,9 +41,7 @@ public class BrowserWindowsPage extends BaseClass {
 
     public void goToBrowserWindows(HomePage homePage) {
         homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToAlertsFrameWindowsPage();
-        adsFooter.deleteAds();
     }
 }

@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 import com.demoqa.util.AnsiColorUtils;
 
@@ -45,9 +44,7 @@ public class BrokenLinksImagesPage extends BaseClass {
 
     public void goToBrokenLinksImages(HomePage homePage){
         homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToBrokenLinksImagesPage();
-        adsFooter.deleteAds();
     }
 }

@@ -1,7 +1,6 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class ToolTipsPage extends BaseClass {
@@ -72,9 +71,7 @@ public class ToolTipsPage extends BaseClass {
 
     public void goToToolTips(){
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToToolTipsPage();
-        adsFooter.deleteAds();
     }
 }

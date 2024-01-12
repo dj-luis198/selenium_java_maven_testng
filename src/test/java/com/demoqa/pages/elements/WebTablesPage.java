@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.WebElement;
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class WebTablesPage extends BaseClass {
@@ -234,10 +233,8 @@ public class WebTablesPage extends BaseClass {
     }
 
     public void goToWebTables(HomePage homePage) {
-        AdsFooter adsFooter = new AdsFooter();
         homePage = new HomePage();
         homePage.goToHome();
         homePage.goToWebTablesPage();
-        adsFooter.deleteAds();
     }
 }

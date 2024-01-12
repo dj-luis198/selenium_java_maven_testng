@@ -1,7 +1,6 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class MenuPage extends BaseClass {
@@ -142,9 +141,7 @@ public class MenuPage extends BaseClass {
 
     public void goToMenu(){
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToMenuPage();
-        adsFooter.deleteAds();
     }
 }

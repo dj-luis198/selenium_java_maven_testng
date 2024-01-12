@@ -1,7 +1,6 @@
 package com.demoqa.pages.AlertsFrameWindows;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class FramesPage extends BaseClass {
@@ -39,9 +38,7 @@ public class FramesPage extends BaseClass {
 
     public void goToFrames(){
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToFramesPage();
-        adsFooter.deleteAds();
     }
 }

@@ -1,7 +1,6 @@
 package com.demoqa.pages.elements;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class TextBoxPage extends BaseClass{
@@ -45,10 +44,8 @@ public class TextBoxPage extends BaseClass{
 
     public void goToTextBox(HomePage homePage) {
         homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToTextBoxPage();
-        adsFooter.deleteAds();
     }
     
 }

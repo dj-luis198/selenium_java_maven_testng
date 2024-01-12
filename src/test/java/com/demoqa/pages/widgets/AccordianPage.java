@@ -1,7 +1,6 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class AccordianPage extends BaseClass {
@@ -38,10 +37,8 @@ public class AccordianPage extends BaseClass {
 
     public void goToAccordian(){
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToAccordianPage();
-        adsFooter.deleteAds();
     }
 
 }
