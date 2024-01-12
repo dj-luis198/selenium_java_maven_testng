@@ -1,7 +1,6 @@
 package com.demoqa.pages.widgets;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class AutoCompletePage extends BaseClass {
@@ -46,9 +45,7 @@ public class AutoCompletePage extends BaseClass {
 
     public void goToAutoComplete(){
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToAutoCompletePage();
-        adsFooter.deleteAds();
     }
 }

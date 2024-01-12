@@ -1,7 +1,6 @@
 package com.demoqa.pages.elements;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 import net.datafaker.internal.helper.WordUtils;
@@ -43,9 +42,7 @@ public class CheckBoxPage extends BaseClass {
 
     public void goToCheckBox(HomePage homePage) {
         homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToCheckBoxPage();
-        adsFooter.deleteAds();
     }
 }

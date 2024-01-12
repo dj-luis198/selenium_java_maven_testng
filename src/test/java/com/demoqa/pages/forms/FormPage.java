@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.List;
 import org.openqa.selenium.WebElement;
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class FormPage extends BaseClass {
@@ -210,10 +209,8 @@ public class FormPage extends BaseClass {
 
     public void goToForms(){
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToFormsPage();
-        adsFooter.deleteAds();
     }
 
 }

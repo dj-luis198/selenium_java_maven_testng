@@ -5,7 +5,6 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class DatePickerPage extends BaseClass {
@@ -151,9 +150,7 @@ public class DatePickerPage extends BaseClass {
 
     public void goToDatePicker(){
         HomePage homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToDatePickerPage();
-        adsFooter.deleteAds();
     }
 }

@@ -1,7 +1,6 @@
 package com.demoqa.pages.elements;
 
 import com.demoqa.base.BaseClass;
-import com.demoqa.pages.common.AdsFooter;
 import com.demoqa.pages.common.HomePage;
 
 public class DynamicPropertiesPage extends BaseClass {
@@ -41,10 +40,8 @@ public class DynamicPropertiesPage extends BaseClass {
 
     public void goToDynamicProperties(HomePage homePage) {
         homePage = new HomePage();
-        AdsFooter adsFooter = new AdsFooter();
         homePage.goToHome();
         homePage.goToDynamicPropertiesPage();
-        adsFooter.deleteAds();
     }
 
 }
