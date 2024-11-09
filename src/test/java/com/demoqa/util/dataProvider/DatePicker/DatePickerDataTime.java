@@ -1,15 +1,17 @@
-package com.demoqa.until.dataProvider;
+package com.demoqa.util.dataProvider.DatePicker;
 
 import java.io.IOException;
+
 import org.testng.annotations.DataProvider;
+
 import com.demoqa.util.XLUtility;
 
-public class SliderData {
+public class DatePickerDataTime {
     XLUtility readExcel = new XLUtility();
 
-    @DataProvider(name = "SliderData",parallel = false)
+    @DataProvider(name = "DatePickerDataTime", parallel = false)
     public String[][] dataTest() throws IOException {
-        String path = "src/test/resources/excel/SliderData.xlsx";
+        String path = "src/test/resources/excel/DatePickerDataTime.xlsx";
         String[][] data = readExcel.readData(path);
         return data;
     }

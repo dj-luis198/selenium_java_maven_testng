@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.SliderPage;
 import com.demoqa.util.AnsiColorUtils;
-import com.demoqa.until.dataProvider.SliderData;
+import com.demoqa.util.dataProvider.SliderData;
 
 @Test(groups = "SliderTest", timeOut = 30000)
 public class SliderTest extends BaseTest {

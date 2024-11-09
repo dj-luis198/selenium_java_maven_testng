@@ -1,4 +1,4 @@
-package com.demoqa.until.dataProvider;
+package com.demoqa.util.dataProvider;
 
 import com.demoqa.base.BaseClass;
 import com.demoqa.util.XLUtility;
