@@ -113,7 +113,7 @@ APIs (Rest Assured)
 
 ## Utilidades
 
-[Extent Report](src/test/java/com/demoqa/util/ExtentReportGenerator.java)
+[Extent Report](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/main/java/com/demoqa/util/ExtentReportGenerator.java)
 
 [My rerun config](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/listeners/MyReRunConfig.java) (Rerun before y after anotaciones luego de ocurrido algun error en ellos)
 
@@ -121,8 +121,8 @@ APIs (Rest Assured)
 
 [Listeners](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/listeners/MyListeners.java)
 
-[Lectura y escritura excel]([src/test/java/com/demoqa/util/ExtentReportGenerator.java](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/XLUtility.java)https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/XLUtility.java)
+[Lectura y escritura excel](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/main/java/com/demoqa/util/XLUtility.java)
 
-[Lectura JSON](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/util/JsonSimple.java)
+[Lectura JSON](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/main/java/com/demoqa/util/JsonSimple.java)
 
 
