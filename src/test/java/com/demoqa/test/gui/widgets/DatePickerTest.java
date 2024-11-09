@@ -11,9 +11,9 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.DatePickerPage;
 import com.demoqa.util.AnsiColorUtils;
-import com.demoqa.until.dataProvider.DatePicker.DatePickerData;
-import com.demoqa.until.dataProvider.DatePicker.DatePickerDataTime;
-import com.demoqa.until.dataProvider.DatePicker.DatePickerInputData;
+import com.demoqa.util.dataProvider.DatePicker.DatePickerData;
+import com.demoqa.util.dataProvider.DatePicker.DatePickerDataTime;
+import com.demoqa.util.dataProvider.DatePicker.DatePickerInputData;
 
 @Test(groups = "DatePickerTest", timeOut = 40000)
 public class DatePickerTest extends BaseTest {

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import com.demoqa.baseapi.endpoints.UserEndPoints;
 import com.demoqa.baseapi.payload.User;
 import com.demoqa.util.XLUtility;
-import com.demoqa.until.dataProvider.apiData;
+import com.demoqa.util.dataProvider.apiData;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 import io.restassured.response.Response;
 

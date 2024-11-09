@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.widgets.AutoCompletePage;
 import com.demoqa.util.AnsiColorUtils;
-import com.demoqa.until.dataProvider.AutoCompleteData;
+import com.demoqa.util.dataProvider.AutoCompleteData;
 
 @Test(groups = "AutoCompleteTest", timeOut = 30000)
 public class AutoCompleteTest extends BaseTest {

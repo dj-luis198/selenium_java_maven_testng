@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import com.demoqa.baseapi.endpoints.BooksEndPoints;
 import com.demoqa.baseapi.payload.User;
 import com.demoqa.baseapi.payload.UserBook;
-import com.demoqa.until.dataProvider.apiData;
+import com.demoqa.util.dataProvider.apiData;
 import io.restassured.response.Response;
 
 @Test(groups = "API")

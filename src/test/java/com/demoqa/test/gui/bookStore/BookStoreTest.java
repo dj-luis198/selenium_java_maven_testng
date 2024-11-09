@@ -9,7 +9,7 @@ import com.demoqa.pages.bookStore.BooksStorePage;
 import com.demoqa.pages.bookStore.LoginStorePage;
 import com.demoqa.pages.bookStore.ProfileStorePage;
 import com.demoqa.pages.common.HomePage;
-import com.demoqa.until.dataProvider.bookStoreE2EData;
+import com.demoqa.util.dataProvider.bookStoreE2EData;
 
 @Test(groups = "BookStoreTest")
 public class BookStoreTest extends BaseTest{
