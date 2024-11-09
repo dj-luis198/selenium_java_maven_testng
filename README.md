@@ -28,91 +28,87 @@ Ejecutar `mvn clean test` en la terminal de su editor de codigo favorito para co
 
 Alerts, Frame and Windows
 
-[Alerts](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/AlertsFrameWindows/AlertsTest.java)
+[Alerts](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/AlertsFrameWindows/AlertsTest.java)
 
-[Browser and Windows](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/AlertsFrameWindows/BrowserWindowsTest.java)
+[Browser and Windows](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/AlertsFrameWindows/BrowserWindowsTest.java)
 
-[Frames](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/AlertsFrameWindows/FramesTest.java)
+[Frames](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/AlertsFrameWindows/FramesTest.java)
 
-[Modal Dialogs](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/AlertsFrameWindows/ModalDialogsTest.java)
+[Modal Dialogs](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/AlertsFrameWindows/ModalDialogsTest.java)
 
-[Nested Frames](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/AlertsFrameWindows/NestedFramesTest.java)
+[Nested Frames](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/AlertsFrameWindows/NestedFramesTest.java)
 
 Elements
 
-[Broken Links Images](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/BrokenLinksImagesTest.java)
+[Broken Links Images](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/BrokenLinksImagesTest.java)
 
-[Buttons](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/ButtonsTest.java)
+[Buttons](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/ButtonsTest.java)
 
-[CheckBox](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/CheckBoxTest.java)
+[CheckBox](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/CheckBoxTest.java)
 
-[Dynamic Properties](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/DynamicPropertiesTest.java)
+[Dynamic Properties](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/DynamicPropertiesTest.java)
 
-[Links](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/LinksTest.java)
+[Links](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/LinksTest.java)
 
-[Radio Button](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/RadioButtonTest.java)
+[Radio Button](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/RadioButtonTest.java)
 
-[TextBox](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/TextBoxTest.java)
+[TextBox](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/TextBoxTest.java)
 
-[Upload And Download](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/UploadAndDownloadTest.java)
+[Upload And Download](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/UploadAndDownloadTest.java)
 
-[WebTables](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/elements/WebTablesTest.java)
+[WebTables](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/elements/WebTablesTest.java)
 
 Form
 
-[Form](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/forms/FormTest.java)
+[Form](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/forms/FormTest.java)
 
 Widgets
 
-[Accordian](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/AccordianTest.java)
+[Accordian](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/AccordianTest.java)
 
-[Auto Complete](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/AutoCompleteTest.java)
+[Auto Complete](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/AutoCompleteTest.java)
 
-[DatePicker](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/DatePickerTest.java)
+[DatePicker](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/DatePickerTest.java)
 
-[Menu](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/MenuTest.java)
+[Menu](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/MenuTest.java)
 
-[ProgressBar](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/ProgressBarTest.java)
+[ProgressBar](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/ProgressBarTest.java)
 
-[Select Menu](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/SelectMenuTest.java)
+[Select Menu](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/SelectMenuTest.java)
 
-[Slider](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/SliderTest.java)
+[Slider](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/SliderTest.java)
 
-[Tabs](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/TabsTest.java)
+[Tabs](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/TabsTest.java)
 
-[ToolTips](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/widgets/ToolTipsTest.java)
+[ToolTips](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/widgets/ToolTipsTest.java)
 
 Book Store
 
-[Book Store](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/bookStore/BookStoreTest.java)
+[Book Store](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/gui/bookStore/BookStoreTest.java)
 
 APIs (Rest Assured)
 
-[Post User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/usertests/PostUser.java)
+[Post User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/usertests/PostUser.java)
 
-[Post Token](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/usertests/PostToken.java)
+[Post Token](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/usertests/PostToken.java)
 
-[Post Authorized](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/usertests/PostAuthorized.java)
+[Post Authorized](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/usertests/PostAuthorized.java)
 
-[Get User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/usertests/GetUser.java)
+[Get User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/usertests/GetUser.java)
 
-[Delete User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/usertests/DeleteUser.java)
+[Delete User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/usertests/DeleteUser.java)
 
-[Delete Book](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/booktest/DeleteBook.java)
+[Delete Book](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/booktest/DeleteBook.java)
 
 [Delete Books](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/booktest/DeleteBooks.java)
 
-[Get Book](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/booktest/GetBook.java)
+[Get Book](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/booktest/GetBook.java)
 
-[Get Books](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/booktest/GetBooks.java)
+[Get Books](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/booktest/GetBooks.java)
 
-[Post Books User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/booktest/PostBooksUser.java)
+[Post Books User](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/booktest/PostBooksUser.java)
 
-[PutBook](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/api/test/booktest/PutBook.java)
-
-Hybrid GUI API test
-
-[Login cookies](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/bookStoreHybridGuiApi/BookStoreCookies1.java)
+[PutBook](https://github.com/dj-luis198/selenium_java_maven_testng/blob/main/src/test/java/com/demoqa/test/api/booktest/PutBook.java)
 
 
 ## Utilidades
