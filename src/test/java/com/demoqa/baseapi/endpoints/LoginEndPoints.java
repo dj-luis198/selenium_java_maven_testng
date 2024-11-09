@@ -1,6 +1,8 @@
 package com.demoqa.baseapi.endpoints;
 import java.util.Properties;
 import java.util.Set;
+
+import io.restassured.RestAssured;
 import org.openqa.selenium.Cookie;
 
 import com.demoqa.base.BaseClass;
@@ -22,7 +24,7 @@ static Set<Cookie> driverCookies;
             prop = BaseClass.initProperties("routes");
             String post_login_url = prop.getProperty("post_login_url");
             Response response = 
-                given()
+                RestAssured.given()
                     .contentType("application/json")
                     .body(bodyJson)
                     //.log().all()

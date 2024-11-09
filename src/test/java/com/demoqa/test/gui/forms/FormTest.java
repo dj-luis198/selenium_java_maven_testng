@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.forms.FormPage;
 import com.demoqa.util.AnsiColorUtils;
-import com.demoqa.util.dataProvider.FormData;
+import com.demoqa.until.dataProvider.FormData;
 
 @Test(groups = "FormTest", timeOut = 30000)
 public class FormTest extends BaseTest {

@@ -6,6 +6,7 @@ import java.util.Properties;
 import com.demoqa.base.BaseClass;
 import com.demoqa.baseapi.payload.User;
 
+import io.restassured.RestAssured;
 import io.restassured.filter.session.SessionFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -15,7 +16,7 @@ public class BookStoreEndPoints extends BaseClass{
     static SessionFilter sessionFilter = new SessionFilter();
 
     public static Response loginUserBookStore(User user){
-       Response response=given()
+       Response response= RestAssured.given()
         .accept(ContentType.JSON)
         .contentType("application/json")
         .body(user)
@@ -28,7 +29,7 @@ public class BookStoreEndPoints extends BaseClass{
             prop = initProperties("routes");
            String delete_url = prop.getProperty("delete_url");
            Response response =
-               given()
+               RestAssured.given()
                 .filter(sessionFilter)
                 .accept(ContentType.JSON)
                 .pathParam("UUID", id)
