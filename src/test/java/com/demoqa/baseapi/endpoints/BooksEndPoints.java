@@ -8,6 +8,7 @@ import com.demoqa.baseapi.payload.User;
 import com.demoqa.baseapi.payload.UserBook;
 import com.demoqa.baseapi.payload.UserBooks;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -17,7 +18,7 @@ public class BooksEndPoints extends BaseClass{
     public static Response getBooks(){
         String get_books_url = prop.getProperty("get_books_url");
         Response response =
-            given()
+            RestAssured.given()
                 .accept(ContentType.JSON)
                 //.log().all()
             .when()
@@ -28,7 +29,7 @@ public class BooksEndPoints extends BaseClass{
     public static Response postBooks(User payload,UserBooks booksPayload,String token){
         String post_books_url = prop.getProperty("post_books_url");
         Response response =
-            given()     
+            RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType("application/json")
                 .header("Authorization","Bearer "+token)
@@ -43,7 +44,7 @@ public class BooksEndPoints extends BaseClass{
     public static Response deleteBooks(User payload,String token,String id){
        String delete_books_url = prop.getProperty("delete_books_url");
        Response response =
-           given()
+           RestAssured.given()
                .accept(ContentType.JSON)
                .header("Authorization","Bearer "+token)
                .auth().basic(payload.getUserName(), payload.getPassword())
@@ -57,7 +58,7 @@ public class BooksEndPoints extends BaseClass{
    public static Response getBook(String isbn){
    String get_book_url = prop.getProperty("get_book_url");
    Response response =
-       given()
+       RestAssured.given()
            .accept(ContentType.JSON)
            .queryParam("ISBN",isbn)
            //.log().all()
@@ -69,7 +70,7 @@ public class BooksEndPoints extends BaseClass{
 public static Response deleteBook(User payload,UserBook bookPayload, String token){
        String delete_book_url = prop.getProperty("delete_book_url");
        Response response =
-           given()
+           RestAssured.given()
                .accept(ContentType.JSON)
                .contentType("application/json")
                .header("Authorization","Bearer "+token)
@@ -84,7 +85,7 @@ public static Response deleteBook(User payload,UserBook bookPayload, String toke
    public static Response putBook(User payload,UserBook bookPayload, String token,String isbn){
        String put_books_url = prop.getProperty("put_books_url");
        Response response =
-           given()
+           RestAssured.given()
                .accept(ContentType.JSON)
                .contentType("application/json")
                .header("Authorization","Bearer "+token)
