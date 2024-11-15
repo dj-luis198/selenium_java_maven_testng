@@ -12,6 +12,7 @@ public class MyAnnotationTransformer implements IAnnotationTransformer {
     @Override
     public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
         if (annotation.getRetryAnalyzerClass() == null) {
+            System.out.println("si funciona transform");
             annotation.setRetryAnalyzer(MyRetryAnalyzer.class);
         }
     }
