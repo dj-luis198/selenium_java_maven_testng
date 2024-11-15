@@ -21,8 +21,6 @@ public class MyListeners extends BaseClass implements ITestListener {
     ExtentReports report = ExtentReportGenerator.getExtentReport();
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
-    private static final int MAX_RETRIES = 2;
-    private static ThreadLocal<Integer> retryCount = new ThreadLocal<>();
     ExtentTest eTest;
 
     @Override
@@ -52,8 +50,6 @@ public class MyListeners extends BaseClass implements ITestListener {
             extentTest.get().assignDevice(divice + "-" + browser);
         }
         logger.info(AnsiColorUtils.applyPurple("--- Started: " + testName + " brw:" + browser + " ---"));
-        // Inicializar el contador de reintentos
-        retryCount.set(0);
     }
 
     @Override
@@ -65,12 +61,14 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        int retries = retryCount.get();
-        if (retries < MAX_RETRIES) {
-            retryCount.set(retries + 1);
-            result.setStatus(ITestResult.SKIP); // Marcar la prueba como omitida para reintentar
-            logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName() + " (" + retries + "/" + MAX_RETRIES + ")"));
-        } else {
+        if (result.getMethod().getRetryAnalyzer(result) != null) {
+            MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
+            if (retryAnalyzer.retry(result)) {
+                result.setStatus(ITestResult.SKIP);
+                logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
+                return;
+            }
+        }
             String testName = result.getMethod().getMethodName();
             String testNameScreen = result.getMethod().getMethodName() + result.getTestContext().getCurrentXmlTest().getParameter("browser");
             Object testObject = result.getMethod();
@@ -85,7 +83,6 @@ public class MyListeners extends BaseClass implements ITestListener {
             } extentTest.get().log(Status.FAIL, testName + " test failed"); extentTest.get().fail(result.getThrowable());
             logger.error(AnsiColorUtils.applyRed("test failed: " + testName + "\n" + result.getThrowable()));
         }
-    }
 
     @Override
     public void onFinish(ITestContext context) {
@@ -101,14 +98,15 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        int retries = retryCount.get();
-        if (retries < MAX_RETRIES) {
-            logger.warn(AnsiColorUtils.applyYellow("Skipping test: " + result.getMethod().getMethodName() + " (" + retries + "/" + MAX_RETRIES + ")"));
-        } else {
+        if (result.getMethod().getRetryAnalyzer(result) != null) {
+            MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
+            if (retryAnalyzer.retry(result)) {
+                return; // No registrar el test como omitido si se va a reintentar
+            }
+        }
         String testName = result.getMethod().getMethodName();
         extentTest.get().log(Status.SKIP, testName + "test skipped");
         extentTest.get().skip(result.getThrowable());
         logger.warn(AnsiColorUtils.applyYellow("test skipped: " + testName + "\n" + result.getThrowable()));
-    }
     }
 }
