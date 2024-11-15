@@ -100,7 +100,7 @@ public class MyListeners extends BaseClass implements ITestListener {
     public void onTestSkipped(ITestResult result) {
         if (result.getMethod().getRetryAnalyzer(result) != null) {
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
-            if (!(retryAnalyzer.retry(result))) {
+            if (retryAnalyzer.retry(result)) {
                 String testName = result.getMethod().getMethodName();
                 extentTest.get().log(Status.SKIP, testName + "test skipped");
                 extentTest.get().skip(result.getThrowable());
