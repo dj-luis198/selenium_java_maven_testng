@@ -26,11 +26,8 @@ public class DynamicPropertiesTest extends BaseTest {
             dinamicPropertiesPage = new DynamicPropertiesPage();
             dinamicPropertiesPage.goToDynamicProperties(homePage);
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            dinamicPropertiesPage = new DynamicPropertiesPage();
-            dinamicPropertiesPage.goToDynamicProperties(homePage);
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

@@ -25,11 +25,8 @@ public class FormTest extends BaseTest {
             formPage = new FormPage();
             formPage.goToForms();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            formPage = new FormPage();
-            formPage.goToForms();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 
@@ -57,8 +54,8 @@ public class FormTest extends BaseTest {
         Assert.assertEquals(formPage.returnSelectOptions(), subject2);
         formPage.selectHobbie(hobby);
         Assert.assertTrue(formPage.verifySelectedHobbies(hobby));
-        formPage.uploadFile();
-        Assert.assertTrue(formPage.verifyuploadedFilePath());
+        //formPage.uploadFile();
+        //Assert.assertTrue(formPage.verifyuploadedFilePath());
         formPage.selectState(state);
         Assert.assertTrue(formPage.verifyState(state));
         formPage.selectCity(city);

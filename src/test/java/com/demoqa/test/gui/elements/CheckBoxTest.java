@@ -32,12 +32,8 @@ public class CheckBoxTest extends BaseTest {
             checkBoxPage = new CheckBoxPage();
             checkBoxPage.goToCheckBox(homePage);
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            json = new JsonSimple();
-            checkBoxPage = new CheckBoxPage();
-            checkBoxPage.goToCheckBox(homePage);
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

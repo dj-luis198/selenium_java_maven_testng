@@ -24,11 +24,8 @@ public class AccordianTest extends BaseTest {
             accordianPage = new AccordianPage();
             accordianPage.goToAccordian();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            accordianPage = new AccordianPage();
-            accordianPage.goToAccordian();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

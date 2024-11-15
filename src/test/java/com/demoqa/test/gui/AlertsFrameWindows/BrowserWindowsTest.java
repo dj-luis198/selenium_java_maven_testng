@@ -26,11 +26,8 @@ public class BrowserWindowsTest extends BaseTest {
             browserWindowsPage = new BrowserWindowsPage();
             browserWindowsPage.goToBrowserWindows(homePage);
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-        String browser= getBrowser();
-        setUp(browser);
-        browserWindowsPage = new BrowserWindowsPage();
-            browserWindowsPage.goToBrowserWindows(homePage);
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
       }   
     }
 

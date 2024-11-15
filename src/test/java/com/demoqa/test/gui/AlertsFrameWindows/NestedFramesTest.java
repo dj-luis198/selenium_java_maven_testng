@@ -24,11 +24,8 @@ public class NestedFramesTest extends BaseTest {
             nestedFramesPages = new NestedFramesPages();
             nestedFramesPages.goToNestedFrames();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            nestedFramesPages = new NestedFramesPages();
-            nestedFramesPages.goToNestedFrames();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

@@ -24,11 +24,8 @@ public class ModalDialogsTest extends BaseTest {
             modalDialogsPage = new ModalDialogsPage();
             modalDialogsPage.goToModalDialogs();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            modalDialogsPage = new ModalDialogsPage();
-            modalDialogsPage.goToModalDialogs();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

@@ -24,11 +24,8 @@ public class SelectMenuTest extends BaseTest {
             selectMenuPage = new SelectMenuPage();
             selectMenuPage.goToSelectMenu();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            selectMenuPage = new SelectMenuPage();
-            selectMenuPage.goToSelectMenu();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

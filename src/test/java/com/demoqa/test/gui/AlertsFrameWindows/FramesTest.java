@@ -24,11 +24,8 @@ public class FramesTest extends BaseTest {
             framesPage = new FramesPage();
             framesPage.goToFrames();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n" + e));
-            String browser = getBrowser();
-            setUp(browser);
-            framesPage = new FramesPage();
-            framesPage.goToFrames();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

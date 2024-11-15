@@ -24,11 +24,8 @@ public class TabsTest extends BaseTest {
             tabsPage = new TabsPage();
             tabsPage.goToTabs();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            tabsPage = new TabsPage();
-            tabsPage.goToTabs();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 
