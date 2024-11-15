@@ -64,7 +64,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         if (result.getMethod().getRetryAnalyzer(result) != null) {
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
             if (retryAnalyzer.retry(result)) {
-                result.setStatus(ITestResult.SKIP);
+                //result.setStatus(ITestResult.SKIP);
                 logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
                 return;
             }
