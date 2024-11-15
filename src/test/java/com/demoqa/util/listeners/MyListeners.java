@@ -114,4 +114,3 @@ public class MyListeners extends BaseClass implements ITestListener {
         logger.warn(AnsiColorUtils.applyYellow("test skipped: " + testName + "\n" + result.getThrowable()));
     }
     }
-}
