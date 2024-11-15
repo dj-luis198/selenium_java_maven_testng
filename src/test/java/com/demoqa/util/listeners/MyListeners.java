@@ -65,7 +65,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         if (result.getMethod().getRetryAnalyzer(result) != null) {
             System.out.println("failure: If !=Null "+result.getMethod().getRetryAnalyzer(result));
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
-            System.out.println("Failure: retryAnalyzer "+retryAnalyzer);
+            System.out.println("Failure: retryAnalyzer "+retryAnalyzer.retry(result));
             if (retryAnalyzer.retry(result)) {
                 System.out.println("Failure: ingreso al if ahora retorna "+retryAnalyzer);
                 logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
@@ -111,7 +111,7 @@ public class MyListeners extends BaseClass implements ITestListener {
         if (result.getMethod().getRetryAnalyzer(result) != null) {
             System.out.println("If !=Null "+result.getMethod().getRetryAnalyzer(result));
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
-            System.out.println("retryAnalyzer "+retryAnalyzer);
+            System.out.println("retryAnalyzer "+retryAnalyzer.retry(result));
             if (retryAnalyzer.retry(result)) {
                 System.out.println("ingreso al if ahora retorna "+retryAnalyzer);
                 return; // No registrar el test como omitido si se va a reintentar
