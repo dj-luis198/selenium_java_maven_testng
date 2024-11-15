@@ -3,6 +3,8 @@ package com.demoqa.base;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
@@ -51,8 +53,13 @@ public class BaseClass {
 		propA = initProperties("aplication");
 		time = Integer.parseInt(propF.getProperty("timeOut"));
 		url = propA.getProperty("url");
-		WebDriver driver = getBrowser.getBrowserDriver(browser);
-		// driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        WebDriver driver = null;
+		try {
+			driver = getBrowser.getBrowserDriver(browser);
+		} catch (URISyntaxException | MalformedURLException e) {
+			throw new RuntimeException(e);
+		}
+        // driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 		driver.get(url);
 	}
 
