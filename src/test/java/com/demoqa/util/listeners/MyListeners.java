@@ -25,10 +25,6 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
-        if (retryAnalyzer != null) {
-            retryAnalyzer.resetCounter();
-        }
         String browser = result.getTestContext().getCurrentXmlTest().getParameter("browser");
         String testName = result.getMethod().getMethodName();
         String divice = System.getProperty("os.name") + "-" + System.getProperty("os.version") + "-"

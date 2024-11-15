@@ -24,8 +24,4 @@ public class MyRetryAnalyzer implements IRetryAnalyzer {
       }
       return false;
    }
-
-   public void resetCounter() {
-      counter = 0;
-   }
 }
