@@ -64,9 +64,6 @@ public class MyListeners extends BaseClass implements ITestListener {
         if (result.getMethod().getRetryAnalyzer(result) != null) {
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
             if (retryAnalyzer.retry(result)) {
-                //result.setStatus(ITestResult.SKIP);
-                logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
-            }else{
                 String testName = result.getMethod().getMethodName();
                 String testNameScreen = result.getMethod().getMethodName() + result.getTestContext().getCurrentXmlTest().getParameter("browser");
                 Object testObject = result.getMethod();
@@ -80,6 +77,9 @@ public class MyListeners extends BaseClass implements ITestListener {
                     }
                 } extentTest.get().log(Status.FAIL, testName + " test failed"); extentTest.get().fail(result.getThrowable());
                 logger.error(AnsiColorUtils.applyRed("test failed: " + testName + "\n" + result.getThrowable()));
+                //result.setStatus(ITestResult.SKIP);
+            }else {
+                logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
             }
         }
         }
