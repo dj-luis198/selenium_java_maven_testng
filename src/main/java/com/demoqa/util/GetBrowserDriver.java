@@ -1,17 +1,18 @@
 package com.demoqa.util;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class GetBrowserDriver {
 	private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -35,7 +36,7 @@ public class GetBrowserDriver {
 		}
 	}
 
-	public WebDriver getBrowserDriver(String browser) {
+	public WebDriver getBrowserDriver(String browser) throws MalformedURLException, URISyntaxException {
 		File file = new File("files/downloadFiles");
 		if (browser != null) {
 			if (browser.equalsIgnoreCase("chrome")) {
@@ -56,7 +57,7 @@ public class GetBrowserDriver {
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 				//options.setScriptTimeout(Duration.ofSeconds(10));
-				setDriver(new ChromeDriver(options));
+				setDriver(new RemoteWebDriver(new URI("http://localhost:4444/wd/hub").toURL(), options));
 			}
 
 			else if (browser.equalsIgnoreCase("firefox")) {
@@ -69,7 +70,7 @@ public class GetBrowserDriver {
 				options.addArguments("--headless");
 				options.setProfile(profile);
 				//options.setScriptTimeout(Duration.ofSeconds(10));
-				setDriver(new FirefoxDriver(options));
+				setDriver(new RemoteWebDriver(new URI("http://localhost:4444/wd/hub").toURL(), options));
 				getDriver().manage().window().fullscreen();
 			}
 
@@ -89,7 +90,7 @@ public class GetBrowserDriver {
 				options.setExperimentalOption("prefs", pref);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 				//options.setScriptTimeout(Duration.ofSeconds(10));
-				setDriver(new EdgeDriver(options));
+				setDriver(new RemoteWebDriver(new URI("http://localhost:4444/wd/hub").toURL(), options));
 			}
 
 		}
