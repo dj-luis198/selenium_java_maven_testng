@@ -9,7 +9,7 @@ import com.demoqa.util.AnsiColorUtils;
 
 public class MyRetryAnalyzer implements IRetryAnalyzer {
 
-   private int counter;
+   private int counter = 0;
    private static final int retryLimit = 1;
 
    private static Logger logger = LogManager.getLogger(MyRetryAnalyzer.class);

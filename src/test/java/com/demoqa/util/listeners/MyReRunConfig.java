@@ -39,8 +39,10 @@ public class MyReRunConfig implements IConfigurable {
 
     private Future<?> scheduleRetry(IConfigureCallBack callBack, ITestResult testResult) {
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        return executorService.schedule(() -> callBack.runConfigurationMethod(testResult), MAX_WAIT_TIME,
+        Future<?> future = executorService.schedule(() -> callBack.runConfigurationMethod(testResult), MAX_WAIT_TIME,
                 TimeUnit.SECONDS);
+        executorService.shutdown(); // Cerrar el executor después de usarlo
+        return future;
     }
 
     private static String parseType(ITestResult testResult) {
