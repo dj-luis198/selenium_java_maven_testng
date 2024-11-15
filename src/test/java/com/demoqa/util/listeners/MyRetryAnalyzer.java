@@ -8,8 +8,9 @@ import org.testng.ITestResult;
 import com.demoqa.util.AnsiColorUtils;
 
 public class MyRetryAnalyzer implements IRetryAnalyzer {
-   int counter = 0;
-   int retryLimit = 1;
+
+   private int counter = 0;
+   private static final int retryLimit = 1;
 
    private static Logger logger = LogManager.getLogger(MyRetryAnalyzer.class);
 
