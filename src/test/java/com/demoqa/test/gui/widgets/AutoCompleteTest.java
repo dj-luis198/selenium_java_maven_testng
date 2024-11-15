@@ -24,11 +24,8 @@ public class AutoCompleteTest extends BaseTest {
             autoCompletePage = new AutoCompletePage();
             autoCompletePage.goToAutoComplete();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            autoCompletePage = new AutoCompletePage();
-            autoCompletePage.goToAutoComplete();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

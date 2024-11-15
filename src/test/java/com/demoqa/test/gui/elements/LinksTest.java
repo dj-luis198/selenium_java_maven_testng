@@ -28,11 +28,8 @@ public class LinksTest extends BaseTest {
                         linksPage = new LinksPage();
                         linksPage.goToLinks(homePage);
                 } catch (TimeoutException | NoSuchElementException e) {
-                        logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-                        String browser = getBrowser();
-                        setUp(browser);
-                        linksPage = new LinksPage();
-                        linksPage.goToLinks(homePage);
+                        logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+                        Assert.fail();
                 }
         }
 

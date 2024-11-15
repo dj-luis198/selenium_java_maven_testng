@@ -27,11 +27,8 @@ public class DatePickerTest extends BaseTest {
             datePickerPage = new DatePickerPage();
             datePickerPage.goToDatePicker();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            datePickerPage = new DatePickerPage();
-            datePickerPage.goToDatePicker();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

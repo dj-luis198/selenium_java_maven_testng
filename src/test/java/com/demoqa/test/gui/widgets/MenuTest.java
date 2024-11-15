@@ -24,11 +24,8 @@ public class MenuTest extends BaseTest {
             menuPage = new MenuPage();
             menuPage.goToMenu();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            menuPage = new MenuPage();
-            menuPage.goToMenu();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

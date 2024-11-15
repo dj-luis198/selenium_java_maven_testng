@@ -29,11 +29,8 @@ public class WebTablesTest extends BaseTest {
             webTablesPage = new WebTablesPage();
             webTablesPage.goToWebTables(homePage);
         } catch (Exception e) {
-            logger.error(AnsiColorUtils.applyRed("Precondicones fallidas, iniciando setUp "+e));
-            String browser = getBrowser();
-            setUp(browser);
-            webTablesPage = new WebTablesPage();
-            webTablesPage.goToWebTables(homePage);
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

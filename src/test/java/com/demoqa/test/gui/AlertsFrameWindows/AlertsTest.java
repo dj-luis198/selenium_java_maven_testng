@@ -28,13 +28,10 @@ public class AlertsTest extends BaseTest {
         try {
             alertsPage = new AlertsPage();
             alertsPage.goToAlerts(homePage);
-        } catch (TimeoutException | NoSuchElementException e) { 
-        logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-        String browser= getBrowser();
-        setUp(browser);
-        alertsPage = new AlertsPage();
-            alertsPage.goToAlerts(homePage);
-      }   
+        } catch (TimeoutException | NoSuchElementException e) {
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
+        }
     }
 
     @Test

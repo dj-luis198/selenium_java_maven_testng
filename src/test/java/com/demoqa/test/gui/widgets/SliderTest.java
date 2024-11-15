@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,11 +25,8 @@ public class SliderTest extends BaseTest {
             sliderPage = new SliderPage();
             sliderPage.goToSlider();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            sliderPage = new SliderPage();
-            sliderPage.goToSlider();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 

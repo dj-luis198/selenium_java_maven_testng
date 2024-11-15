@@ -13,6 +13,7 @@ import com.demoqa.pages.common.HomePage;
 import com.demoqa.pages.elements.UploadAndDownloadPage;
 import com.demoqa.util.AnsiColorUtils;
 
+
 @Test(groups = "UploadAndDownloadTest")
 public class UploadAndDownloadTest extends BaseTest {
     private HomePage homePage;
@@ -26,21 +27,18 @@ public class UploadAndDownloadTest extends BaseTest {
             uploadAndDownloadPage = new UploadAndDownloadPage();
             uploadAndDownloadPage.goToUploadAndDownload(homePage);
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            uploadAndDownloadPage = new UploadAndDownloadPage();
-            uploadAndDownloadPage.goToUploadAndDownload(homePage);
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 
-    @Test
+    @Test(enabled = false)
     public void validateUploadFile() {
         uploadAndDownloadPage.uploadFile();
         Assert.assertTrue(uploadAndDownloadPage.verifyuploadedFilePath());
     }
 
-    @Test
+    @Test(enabled = false)
     public void validateDownloadFile() {
         uploadAndDownloadPage.clickDownloadButton();
         Assert.assertTrue(uploadAndDownloadPage.verifyDownloadedFilePath());

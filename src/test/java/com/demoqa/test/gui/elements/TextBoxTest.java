@@ -33,16 +33,8 @@ public class TextBoxTest extends BaseTest {
       currentAddress = faker.address().fullAddress();
       permanentAddress = faker.address().fullAddress();
     } catch (TimeoutException | NoSuchElementException e) {
-      logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-      String browser = getBrowser();
-      setUp(browser);
-      TextBoxPage textBoxPage = new TextBoxPage();
-      textBoxPage.goToTextBox(homePage);
-      Faker faker = new Faker();
-      fullName = faker.name().fullName();
-      email = faker.internet().emailAddress();
-      currentAddress = faker.address().fullAddress();
-      permanentAddress = faker.address().fullAddress();
+      logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+      Assert.fail();
     }
   }
 

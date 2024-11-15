@@ -24,11 +24,8 @@ public class ButtonsTest extends BaseTest {
       buttonsPage = new ButtonsPage();
       buttonsPage.goToButtons();
     } catch (TimeoutException | NoSuchElementException e) {
-      logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-      String browser = getBrowser();
-      setUp(browser);
-      buttonsPage = new ButtonsPage();
-      buttonsPage.goToButtons();
+      logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+      Assert.fail();
     }
   }
 

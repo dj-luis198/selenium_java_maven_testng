@@ -24,11 +24,8 @@ public class ProgressBarTest extends BaseTest {
             progressBarPage = new ProgressBarPage();
             progressBarPage.goToProgressBar();
         } catch (TimeoutException | NoSuchElementException e) {
-            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas, iniciando setUp \n"+e));
-            String browser = getBrowser();
-            setUp(browser);
-            progressBarPage = new ProgressBarPage();
-            progressBarPage.goToProgressBar();
+            logger.error(AnsiColorUtils.applyRed("Pre condiciones fallidas\n"+e));
+            Assert.fail();
         }
     }
 
