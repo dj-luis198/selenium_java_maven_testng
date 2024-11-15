@@ -61,15 +61,19 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
+        System.out.println("ingresando al  onTestFailure");
         if (result.getMethod().getRetryAnalyzer(result) != null) {
+            System.out.println("failure: If !=Null "+result.getMethod().getRetryAnalyzer(result));
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
+            System.out.println("Failure: retryAnalyzer "+retryAnalyzer);
             if (retryAnalyzer.retry(result)) {
-                //result.setStatus(ITestResult.SKIP);
+                System.out.println("Failure: ingreso al if ahora retorna "+retryAnalyzer);
                 logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
                 return;
             }
         }
                 String testName = result.getMethod().getMethodName();
+                System.out.println("Failure: el test sera fail "+testName);
                 String testNameScreen = result.getMethod().getMethodName() + result.getTestContext().getCurrentXmlTest().getParameter("browser");
                 Object testObject = result.getMethod();
                 Class<?> clazz = result.getTestClass().getRealClass().getSuperclass().getSuperclass();
@@ -103,12 +107,18 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
+        System.out.println("ingresando al  onTestSkipped");
         if (result.getMethod().getRetryAnalyzer(result) != null) {
+            System.out.println("If !=Null "+result.getMethod().getRetryAnalyzer(result));
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
+            System.out.println("retryAnalyzer "+retryAnalyzer);
             if (retryAnalyzer.retry(result)) {
+                System.out.println("ingreso al if ahora retorna "+retryAnalyzer);
                 return; // No registrar el test como omitido si se va a reintentar
             }
-        } String testName = result.getMethod().getMethodName();
+        }
+        String testName = result.getMethod().getMethodName();
+        System.out.println("el test sera skipeado "+testName);
         extentTest.get().log(Status.SKIP, testName + " test skipped");
         extentTest.get().skip(result.getThrowable());
         logger.warn(AnsiColorUtils.applyYellow("test skipped: " + testName + "\n" + result.getThrowable()));
