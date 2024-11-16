@@ -62,7 +62,7 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("ingresando al  onTestFailure");
-        if (result.getMethod().getRetryAnalyzer(result) != null) {
+        if (result.getMethod().getRetryAnalyzer(result) == null) {
             System.out.println("failure: If !=Null "+result.getMethod().getRetryAnalyzer(result));
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
             System.out.println("Failure: retryAnalyzer "+retryAnalyzer.retry(result));
@@ -109,9 +109,15 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         System.out.println("ingresando al  onTestSkipped");
-        if (result.getStatus() == ITestResult.FAILURE) {
-            // La prueba ha fallado, no ejecutar el código de onTestSkipped
-            return;
+        if (result.getMethod().getRetryAnalyzer(result) != null) {
+            MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
+            boolean retryResult = retryAnalyzer.retry(result);
+            if (retryResult) {
+                System.out.println("Skipped: ingreso al if ahora retorna "+retryAnalyzer.retry(result));
+                report.removeTest(result.getMethod().getMethodName());
+                logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + true));
+                return;
+            }
         }
         String testName = result.getMethod().getMethodName();
         System.out.println("el test sera skipeado "+testName);
