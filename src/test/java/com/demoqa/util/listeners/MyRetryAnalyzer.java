@@ -21,7 +21,9 @@ public class MyRetryAnalyzer implements IRetryAnalyzer {
          logger.warn(AnsiColorUtils
                .applyYellow("Fail Test: " + result.getMethod().getMethodName() + " Retry number: " + counter + " de 1"));
          return true;
-      }
+      } else {
+         counter = 0;
       return false;
+      }
    }
 }

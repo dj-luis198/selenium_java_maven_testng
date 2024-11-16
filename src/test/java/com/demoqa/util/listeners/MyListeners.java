@@ -115,7 +115,7 @@ public class MyListeners extends BaseClass implements ITestListener {
             System.out.println("retryAnalyzer "+retryAnalyzer.retry(result));
             if (retryAnalyzer.retry(result)) {
                 System.out.println("ingreso al if ahora retorna "+retryAnalyzer);
-                report.removeTest(result.getMethod().getMethodName());
+                //report.removeTest(result.getMethod().getMethodName());
                 return; // No registrar el test como omitido si se va a reintentar
             }
         }
