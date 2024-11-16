@@ -68,7 +68,7 @@ public class MyListeners extends BaseClass implements ITestListener {
             System.out.println("Failure: retryAnalyzer "+retryAnalyzer.retry(result));
             if (retryAnalyzer.retry(result)) {
                 System.out.println("Failure: ingreso al if ahora retorna "+retryAnalyzer);
-                result.setStatus(ITestResult.SKIP);
+                report.removeTest(result.getMethod().getMethodName());
                 logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
                 return;
             }
@@ -115,6 +115,7 @@ public class MyListeners extends BaseClass implements ITestListener {
             System.out.println("retryAnalyzer "+retryAnalyzer.retry(result));
             if (retryAnalyzer.retry(result)) {
                 System.out.println("ingreso al if ahora retorna "+retryAnalyzer);
+                report.removeTest(result.getMethod().getMethodName());
                 return; // No registrar el test como omitido si se va a reintentar
             }
         }
