@@ -109,15 +109,9 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         System.out.println("ingresando al  onTestSkipped");
-        if (result.getMethod().getRetryAnalyzer(result) != null) {
-            System.out.println("If !=Null "+result.getMethod().getRetryAnalyzer(result));
-            MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
-            System.out.println("retryAnalyzer "+retryAnalyzer.retry(result));
-            if (retryAnalyzer.retry(result)) {
-                System.out.println("ingreso al if ahora retorna "+retryAnalyzer);
-                //report.removeTest(result.getMethod().getMethodName());
-                return; // No registrar el test como omitido si se va a reintentar
-            }
+        if (result.getStatus() == ITestResult.FAILURE) {
+            // La prueba ha fallado, no ejecutar el código de onTestSkipped
+            return;
         }
         String testName = result.getMethod().getMethodName();
         System.out.println("el test sera skipeado "+testName);
