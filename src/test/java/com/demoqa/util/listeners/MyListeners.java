@@ -62,7 +62,7 @@ public class MyListeners extends BaseClass implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("ingresando al  onTestFailure");
-        if (result.getMethod().getRetryAnalyzer(result) == null) {
+        if (result.getMethod().getRetryAnalyzer(result) != null) {
             System.out.println("failure: If !=Null "+result.getMethod().getRetryAnalyzer(result));
             MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
             System.out.println("Failure: retryAnalyzer "+retryAnalyzer.retry(result));
