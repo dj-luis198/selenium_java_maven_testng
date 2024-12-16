@@ -15,7 +15,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class GetBrowserDriver {
-	private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	private final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
 	public void setDriver(WebDriver webDriver) {
 		driver.set(webDriver);
