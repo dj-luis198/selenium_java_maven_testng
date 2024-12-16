@@ -16,11 +16,9 @@ import com.demoqa.util.ExtentReportGenerator;
 
 public class MyListeners extends BaseClass implements ITestListener {
 
-    private Logger logger = LogManager.getLogger(MyListeners.class);
-
+    private final Logger logger = LogManager.getLogger(MyListeners.class);
     ExtentReports report = ExtentReportGenerator.getExtentReport();
-    private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
-
+    private final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
     ExtentTest eTest;
 
     @Override
