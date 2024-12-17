@@ -16,11 +16,9 @@ import com.demoqa.util.ExtentReportGenerator;
 
 public class MyListeners extends BaseClass implements ITestListener {
 
-    private static Logger logger = LogManager.getLogger(MyListeners.class);
-
+    private final Logger logger = LogManager.getLogger(MyListeners.class);
     ExtentReports report = ExtentReportGenerator.getExtentReport();
-    private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
-
+    private final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
     ExtentTest eTest;
 
     @Override
@@ -61,14 +59,6 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        if (result.getMethod().getRetryAnalyzer(result) != null) {
-            MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
-            if (retryAnalyzer.retry(result)) {
-                //result.setStatus(ITestResult.SKIP);
-                logger.warn(AnsiColorUtils.applyYellow("Retrying test: " + result.getMethod().getMethodName()));
-                return;
-            }
-        }
                 String testName = result.getMethod().getMethodName();
                 String testNameScreen = result.getMethod().getMethodName() + result.getTestContext().getCurrentXmlTest().getParameter("browser");
                 Object testObject = result.getMethod();
@@ -103,12 +93,7 @@ public class MyListeners extends BaseClass implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        if (result.getMethod().getRetryAnalyzer(result) != null) {
-            MyRetryAnalyzer retryAnalyzer = (MyRetryAnalyzer) result.getMethod().getRetryAnalyzer(result);
-            if (retryAnalyzer.retry(result)) {
-                return; // No registrar el test como omitido si se va a reintentar
-            }
-        } String testName = result.getMethod().getMethodName();
+        String testName = result.getMethod().getMethodName();
         extentTest.get().log(Status.SKIP, testName + " test skipped");
         extentTest.get().skip(result.getThrowable());
         logger.warn(AnsiColorUtils.applyYellow("test skipped: " + testName + "\n" + result.getThrowable()));
